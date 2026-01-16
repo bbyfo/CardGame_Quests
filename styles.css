@@ -1,0 +1,425 @@
+/**
+ * styles.css
+ * Styling for the Quest System app
+ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #2c3e50;
+  --secondary-color: #3498db;
+  --accent-color: #e74c3c;
+  --success-color: #27ae60;
+  --warning-color: #f39c12;
+  --danger-color: #c0392b;
+  --light-bg: #ecf0f1;
+  --dark-text: #2c3e50;
+  --border-color: #bdc3c7;
+  --log-bg: #1a1a1a;
+  --log-text: #0f0;
+  --log-error: #ff6b6b;
+  --tag-bg: #34495e;
+  --tag-text: #ecf0f1;
+}
+
+html, body {
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background-color: var(--light-bg);
+  color: var(--dark-text);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Layout */
+.container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  color: white;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  font-size: 2.5em;
+  margin-bottom: 5px;
+}
+
+header p {
+  font-size: 0.95em;
+  opacity: 0.9;
+}
+
+main {
+  flex: 1;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 250px 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 15px;
+  padding: 15px;
+}
+
+footer {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 0.85em;
+}
+
+/* Sections */
+section {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+section h2 {
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--secondary-color);
+  color: var(--primary-color);
+}
+
+section h3 {
+  margin: 15px 0 10px 0;
+  font-size: 1.05em;
+  color: var(--secondary-color);
+}
+
+section h4 {
+  margin: 10px 0 8px 0;
+  font-size: 0.95em;
+  color: var(--dark-text);
+}
+
+/* Controls Panel */
+.controls-panel {
+  grid-column: 1;
+  grid-row: 1 / 3;
+  background-color: #f8f9fa;
+}
+
+.control-group {
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.control-group:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+/* Quest Output Section */
+.quest-output-section {
+  grid-column: 2;
+  grid-row: 1;
+  overflow-y: auto;
+}
+
+.quest-output {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.quest-display {
+  background-color: #f8f9fa;
+  padding: 15px;
+  border-radius: 6px;
+  border-left: 4px solid var(--secondary-color);
+}
+
+.quest-role {
+  margin: 15px 0;
+  padding: 10px;
+  background-color: white;
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+}
+
+.quest-role strong {
+  color: var(--primary-color);
+  display: inline-block;
+  min-width: 80px;
+}
+
+.tags {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid #ddd;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag-label {
+  display: block;
+  width: 100%;
+  font-size: 0.85em;
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+.tags {
+  font-size: 0.9em;
+  color: #555;
+}
+
+/* Log Section */
+.log-section {
+  grid-column: 2 / 4;
+  grid-row: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.log-window {
+  flex: 1;
+  background-color: var(--log-bg);
+  color: var(--log-text);
+  padding: 15px;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.85em;
+  overflow-y: auto;
+  border: 1px solid var(--border-color);
+}
+
+.log-entry {
+  margin-bottom: 5px;
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+.log-num {
+  color: var(--warning-color);
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.log-data {
+  color: #aaa;
+  font-size: 0.9em;
+  margin-left: 10px;
+}
+
+/* Buttons */
+.btn {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9em;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: #2980b9;
+}
+
+.btn-secondary {
+  background-color: var(--border-color);
+  color: var(--dark-text);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background-color: #95a5a6;
+}
+
+.btn-accent {
+  background-color: var(--warning-color);
+  color: white;
+}
+
+.btn-accent:hover:not(:disabled) {
+  background-color: #e67e22;
+}
+
+.btn-danger {
+  background-color: var(--danger-color);
+  color: white;
+}
+
+.btn-danger:hover:not(:disabled) {
+  background-color: #a93226;
+}
+
+/* Input Groups */
+.input-group {
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group label {
+  font-size: 0.9em;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: var(--primary-color);
+}
+
+.input-group input {
+  padding: 8px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 4px rgba(52, 152, 219, 0.2);
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin: 0;
+}
+
+.checkbox-group input[type="checkbox"] {
+  margin-right: 8px;
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+}
+
+/* Report Sections */
+.report-section {
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  border-left: 4px solid var(--secondary-color);
+}
+
+.report-section p {
+  margin: 8px 0;
+  font-size: 0.95em;
+}
+
+.report-section ul {
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+.report-section li {
+  margin: 5px 0;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9em;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--light-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #95a5a6;
+}
+
+/* Responsive Design */
+@media (max-width: 1400px) {
+  main {
+    grid-template-columns: 220px 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+
+  .quest-output-section {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .log-section {
+    grid-column: 1 / 3;
+    grid-row: 2 / 4;
+  }
+}
+
+@media (max-width: 768px) {
+  main {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto;
+  }
+
+  .controls-panel {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .quest-output-section {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .log-section {
+    grid-column: 1;
+    grid-row: 3 / 5;
+  }
+
+  header h1 {
+    font-size: 1.8em;
+  }
+
+  header p {
+    font-size: 0.85em;
+  }
+}

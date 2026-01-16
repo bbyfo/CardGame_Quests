@@ -1,0 +1,322 @@
+{
+  "verbs": [
+    {
+      "Deck": "Verb",
+      "CardName": "Defend",
+      "TypeTags": ["Protective", "Action"],
+      "AspectTags": ["Military"],
+      "TargetRequirement": ["Evil Monster"],
+      "InstructionType": "Modify",
+      "InstructionSubType": "Add",
+      "InstructionTarget": "Target",
+      "InstructionTags": []
+    },
+    {
+      "Deck": "Verb",
+      "CardName": "Retrieve",
+      "TypeTags": ["Heroic", "Action"],
+      "AspectTags": ["Quest"],
+      "TargetRequirement": ["Magical"],
+      "InstructionType": null,
+      "InstructionSubType": null,
+      "InstructionTarget": null,
+      "InstructionTags": []
+    },
+    {
+      "Deck": "Verb",
+      "CardName": "Destroy",
+      "TypeTags": ["Violent", "Action"],
+      "AspectTags": ["Combat"],
+      "TargetRequirement": ["Structure"],
+      "InstructionType": "Modify",
+      "InstructionSubType": "Add",
+      "InstructionTarget": "ThisCard",
+      "InstructionTags": ["Dangerous"]
+    },
+    {
+      "Deck": "Verb",
+      "CardName": "Investigate",
+      "TypeTags": ["Exploration", "Action"],
+      "AspectTags": ["Mystery"],
+      "TargetRequirement": ["Location"],
+      "InstructionType": null,
+      "InstructionSubType": null,
+      "InstructionTarget": null,
+      "InstructionTags": []
+    },
+    {
+      "Deck": "Verb",
+      "CardName": "Rescue",
+      "TypeTags": ["Heroic", "Action"],
+      "AspectTags": ["Compassion"],
+      "TargetRequirement": ["Character"],
+      "InstructionType": "Modify",
+      "InstructionSubType": "Add",
+      "InstructionTarget": "Target",
+      "InstructionTags": ["Noble"]
+    }
+  ],
+  "targets": [
+    {
+      "Deck": "Target",
+      "CardName": "Ironfang Raider",
+      "TypeTags": ["Evil Monster", "Humanoid"],
+      "AspectTags": ["Military"],
+      "mutableTags": [],
+      "InstructionType": "Modify",
+      "InstructionSubType": "Add",
+      "InstructionTarget": "ThisCard",
+      "InstructionTags": ["Hostile"]
+    },
+    {
+      "Deck": "Target",
+      "CardName": "Forgotten Amulet",
+      "TypeTags": ["Magical", "Artifact"],
+      "AspectTags": ["Ancient"],
+      "mutableTags": [],
+      "InstructionType": null,
+      "InstructionSubType": null,
+      "InstructionTarget": null,
+      "InstructionTags": []
+    },
+    {
+      "Deck": "Target",
+      "CardName": "Castle Gate",
+      "TypeTags": ["Structure", "Defense"],
+      "AspectTags": ["Military"],
+      "mutableTags": [],
+      "InstructionType": "Modify",
+      "InstructionSubType": "Add",
+      "InstructionTarget": "Location",
+      "InstructionTags": ["Fortified"]
+    },
+    {
+      "Deck": "Target",
+      "CardName": "Lost Library",
+      "TypeTags": ["Location", "Building"],
+      "AspectTags": ["Knowledge"],
+      "mutableTags": [],
+      "InstructionType": null,
+      "InstructionSubType": null,
+      "InstructionTarget": null,
+      "InstructionTags": []
+    },
+    {
+      "Deck": "Target",
+      "CardName": "Captured Knight",
+      "TypeTags": ["Character", "Humanoid"],
+      "AspectTags": ["Military"],
+      "mutableTags": [],
+      "InstructionType": "Modify",
+      "InstructionSubType": "Add",
+      "InstructionTarget": "Reward",
+      "InstructionTags": ["Honor"]
+    },
+    {
+      "Deck": "Target",
+      "CardName": "Draconic Drake",
+      "TypeTags": ["Evil Monster", "Creature"],
+      "AspectTags": ["Magic"],
+      "mutableTags": [],
+      "InstructionType": "Modify",
+      "InstructionSubType": "Add",
+      "InstructionTarget": "ThisCard",
+      "InstructionTags": ["Powerful"]
+    }
+  ],
+  "locations": [
+    {
+      "Deck": "Location",
+      "CardName": "Dark Forest",
+      "TypeTags": ["Wilderness", "Dangerous"],
+      "AspectTags": ["Nature"],
+      "mutableTags": [],
+      "InstructionType": "Modify",
+      "InstructionSubType": "Add",
+      "InstructionTarget": "Twist",
+      "InstructionTags": ["Perilous"]
+    },
+    {
+      "Deck": "Location",
+      "CardName": "Ancient Ruins",
+      "TypeTags": ["Exploration", "Ancient"],
+      "AspectTags": ["Mystery"],
+      "mutableTags": [],
+      "InstructionType": null,
+      "InstructionSubType": null,
+      "InstructionTarget": null,
+      "InstructionTags": []
+    },
+    {
+      "Deck": "Location",
+      "CardName": "Underground Cavern",
+      "TypeTags": ["Wilderness", "Dangerous"],
+      "AspectTags": ["Nature"],
+      "mutableTags": [],
+      "InstructionType": "Modify",
+      "InstructionSubType": "Add",
+      "InstructionTarget": "ThisCard",
+      "InstructionTags": ["Hidden"]
+    },
+    {
+      "Deck": "Location",
+      "CardName": "Royal Palace",
+      "TypeTags": ["Building", "Safe"],
+      "AspectTags": ["Military"],
+      "mutableTags": [],
+      "InstructionType": null,
+      "InstructionSubType": null,
+      "InstructionTarget": null,
+      "InstructionTags": []
+    },
+    {
+      "Deck": "Location",
+      "CardName": "Haunted Tower",
+      "TypeTags": ["Building", "Dangerous"],
+      "AspectTags": ["Magic"],
+      "mutableTags": [],
+      "InstructionType": "Modify",
+      "InstructionSubType": "Add",
+      "InstructionTarget": "Failure",
+      "InstructionTags": ["Cursed"]
+    }
+  ],
+  "twists": [
+    {
+      "Deck": "Twist",
+      "CardName": "Betrayal",
+      "TypeTags": ["Danger", "Social"],
+      "AspectTags": ["Mystery"],
+      "mutableTags": [],
+      "InstructionType": "Modify",
+      "InstructionSubType": "Add",
+      "InstructionTarget": "Failure",
+      "InstructionTags": ["Treacherous"]
+    },
+    {
+      "Deck": "Twist",
+      "CardName": "Time Pressure",
+      "TypeTags": ["Challenge", "Urgency"],
+      "AspectTags": ["Quest"],
+      "mutableTags": [],
+      "InstructionType": null,
+      "InstructionSubType": null,
+      "InstructionTarget": null,
+      "InstructionTags": []
+    },
+    {
+      "Deck": "Twist",
+      "CardName": "Hidden Ally",
+      "TypeTags": ["Opportunity", "Social"],
+      "AspectTags": ["Compassion"],
+      "mutableTags": [],
+      "InstructionType": "Modify",
+      "InstructionSubType": "Add",
+      "InstructionTarget": "Reward",
+      "InstructionTags": ["Fortunate"]
+    },
+    {
+      "Deck": "Twist",
+      "CardName": "Environmental Hazard",
+      "TypeTags": ["Danger", "Nature"],
+      "AspectTags": ["Nature"],
+      "mutableTags": [],
+      "InstructionType": "Modify",
+      "InstructionSubType": "Add",
+      "InstructionTarget": "ThisCard",
+      "InstructionTags": ["Deadly"]
+    }
+  ],
+  "rewards": [
+    {
+      "Deck": "Reward",
+      "CardName": "Gold Coins",
+      "TypeTags": ["Treasure", "Wealth"],
+      "AspectTags": ["Commerce"],
+      "mutableTags": [],
+      "InstructionType": null,
+      "InstructionSubType": null,
+      "InstructionTarget": null,
+      "InstructionTags": []
+    },
+    {
+      "Deck": "Reward",
+      "CardName": "Magical Sword",
+      "TypeTags": ["Weapon", "Magical"],
+      "AspectTags": ["Magic"],
+      "mutableTags": [],
+      "InstructionType": "Modify",
+      "InstructionSubType": "Add",
+      "InstructionTarget": "ThisCard",
+      "InstructionTags": ["Enchanted"]
+    },
+    {
+      "Deck": "Reward",
+      "CardName": "Knight's Honor",
+      "TypeTags": ["Status", "Prestige"],
+      "AspectTags": ["Military"],
+      "mutableTags": [],
+      "InstructionType": null,
+      "InstructionSubType": null,
+      "InstructionTarget": null,
+      "InstructionTags": []
+    },
+    {
+      "Deck": "Reward",
+      "CardName": "Secret Knowledge",
+      "TypeTags": ["Information", "Mystery"],
+      "AspectTags": ["Knowledge"],
+      "mutableTags": [],
+      "InstructionType": null,
+      "InstructionSubType": null,
+      "InstructionTarget": null,
+      "InstructionTags": []
+    }
+  ],
+  "failures": [
+    {
+      "Deck": "Failure",
+      "CardName": "Death",
+      "TypeTags": ["Permanent", "Catastrophic"],
+      "AspectTags": ["Doom"],
+      "mutableTags": [],
+      "InstructionType": null,
+      "InstructionSubType": null,
+      "InstructionTarget": null,
+      "InstructionTags": []
+    },
+    {
+      "Deck": "Failure",
+      "CardName": "Imprisonment",
+      "TypeTags": ["Confinement", "Temporary"],
+      "AspectTags": ["Doom"],
+      "mutableTags": [],
+      "InstructionType": null,
+      "InstructionSubType": null,
+      "InstructionTarget": null,
+      "InstructionTags": []
+    },
+    {
+      "Deck": "Failure",
+      "CardName": "Curse",
+      "TypeTags": ["Magical", "Permanent"],
+      "AspectTags": ["Magic"],
+      "mutableTags": [],
+      "InstructionType": "Modify",
+      "InstructionSubType": "Add",
+      "InstructionTarget": "ThisCard",
+      "InstructionTags": ["Afflicted"]
+    },
+    {
+      "Deck": "Failure",
+      "CardName": "Loss of Treasure",
+      "TypeTags": ["Economic", "Temporary"],
+      "AspectTags": ["Commerce"],
+      "mutableTags": [],
+      "InstructionType": null,
+      "InstructionSubType": null,
+      "InstructionTarget": null,
+      "InstructionTags": []
+    }
+  ]
+}
