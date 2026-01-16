@@ -474,6 +474,16 @@
   box-shadow: 0 2px 8px rgba(255, 107, 107, 0.3);
 }
 
+.btn-warning {
+  background-color: #ffa726;
+  color: white;
+}
+
+.btn-warning:hover {
+  background-color: #fb8c00;
+  box-shadow: 0 2px 8px rgba(255, 167, 38, 0.3);
+}
+
 /* Scrollbar styling */
 .cards-list::-webkit-scrollbar,
 .autocomplete-dropdown::-webkit-scrollbar {

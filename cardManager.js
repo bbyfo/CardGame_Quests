@@ -15,14 +15,27 @@ class CardManager {
       mutable: new Set(),
       instructionTags: new Set()
     };
+    this.autocompleteSetupDone = false; // Track if event listeners are set up
     this.init();
   }
 
   async init() {
     try {
-      this.dataLoader = new DataLoader();
-      await this.dataLoader.loadData('cards.json');
-      this.cards = this.dataLoader.decks;
+      // Try to load from localStorage first
+      const savedCards = localStorage.getItem('cardManagerCards');
+      
+      if (savedCards) {
+        // Use saved cards from localStorage
+        this.cards = JSON.parse(savedCards);
+        console.log('✓ Loaded cards from localStorage');
+      } else {
+        // Fall back to loading from cards.json
+        this.dataLoader = new DataLoader();
+        await this.dataLoader.loadData('cards.json');
+        this.cards = this.dataLoader.decks;
+        console.log('✓ Loaded cards from cards.json');
+      }
+      
       this.extractAllTags();
       this.setupEventListeners();
       this.renderCardsList();
@@ -134,6 +147,33 @@ class CardManager {
     if (exportBtn) {
       exportBtn.addEventListener('click', () => this.exportCards());
     }
+
+    // Import button
+    const importBtn = document.getElementById('btn-import-cards');
+    if (importBtn) {
+      importBtn.addEventListener('click', () => this.triggerImport());
+    }
+
+    // File input for import
+    const fileInput = document.getElementById('file-import');
+    if (fileInput) {
+      fileInput.addEventListener('change', (e) => this.handleFileImport(e));
+    }
+
+    // Reset to defaults button
+    const resetBtn = document.getElementById('btn-reset-defaults');
+    if (resetBtn) {
+      resetBtn.addEventListener('click', () => this.resetToDefaults());
+    }
+  }
+
+  /**
+   * Refresh autocomplete suggestions with updated tags
+   */
+  refreshAutocomplete() {
+    // Just update the tag sets - the event handlers will use the current values
+    // No need to re-setup event listeners
+    console.log('✓ Autocomplete refreshed with new tags');
   }
 
   /**
@@ -145,10 +185,23 @@ class CardManager {
 
     const suggestionsDiv = suggestionsId ? document.getElementById(suggestionsId) : null;
     
+    // Helper to get current suggestions for this input
+    const getCurrentSuggestions = () => {
+      const tagTypeMap = {
+        'type-tags-input': 'type',
+        'aspect-tags-input': 'aspect',
+        'mutable-tags-input': 'mutable',
+        'instruction-tags': 'instructionTags'
+      };
+      const tagType = tagTypeMap[inputId];
+      return tagType ? Array.from(this.allTags[tagType]) : [];
+    };
+    
     input.addEventListener('input', (e) => {
       const value = e.target.value.trim();
       if (value.length > 0 && suggestionsDiv) {
-        const filtered = suggestions.filter(s => 
+        const currentSuggestions = getCurrentSuggestions();
+        const filtered = currentSuggestions.filter(s => 
           s.toLowerCase().includes(value.toLowerCase())
         );
         this.showSuggestions(suggestionsDiv, filtered, value, inputId);
@@ -310,6 +363,11 @@ class CardManager {
 
     this.saveCardsToFile();
     alert(`✓ Card "${cardName}" saved successfully!`);
+    
+    // Re-extract tags and refresh autocomplete after saving
+    this.extractAllTags();
+    this.refreshAutocomplete();
+    
     this.resetForm();
     this.renderCardsList();
   }
@@ -535,6 +593,11 @@ class CardManager {
     if (index >= 0) {
       deck.splice(index, 1);
       this.saveCardsToFile();
+      
+      // Re-extract tags and refresh autocomplete after deleting
+      this.extractAllTags();
+      this.refreshAutocomplete();
+      
       this.renderCardsList();
       alert(`✓ Card "${cardName}" deleted successfully!`);
     }
@@ -558,17 +621,15 @@ class CardManager {
   }
 
   /**
-   * Save cards to file (would be done via CSV export or server call in real app)
+   * Save cards to localStorage for persistence
    */
   saveCardsToFile() {
     // Convert cards object to JSON format
     const cardsJson = JSON.stringify(this.cards, null, 2);
     
-    // For now, we'll just log it
-    console.log('Cards data updated. Use Export function to save.');
-    
-    // In a real app, this would send data to the server
-    // For local testing, user would download and replace cards.json
+    // Save to localStorage
+    localStorage.setItem('cardManagerCards', cardsJson);
+    console.log('✓ Cards saved to localStorage');
   }
 
   /**
@@ -585,6 +646,82 @@ class CardManager {
     link.click();
     document.body.removeChild(link);
     URL.revokeObjectURL(url);
+  }
+
+  /**
+   * Trigger file import dialog
+   */
+  triggerImport() {
+    const fileInput = document.getElementById('file-import');
+    if (fileInput) {
+      fileInput.click();
+    }
+  }
+
+  /**
+   * Handle imported JSON file
+   */
+  async handleFileImport(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    try {
+      const text = await file.text();
+      const importedCards = JSON.parse(text);
+      
+      // Validate the structure
+      if (!importedCards || typeof importedCards !== 'object') {
+        throw new Error('Invalid cards file format');
+      }
+
+      // Update cards
+      this.cards = importedCards;
+      this.saveCardsToFile();
+      this.extractAllTags();
+      this.refreshAutocomplete();
+      this.renderCardsList();
+      
+      alert('✓ Cards imported successfully!');
+      console.log('✓ Cards imported from file');
+    } catch (error) {
+      alert('❌ Failed to import cards: ' + error.message);
+      console.error('Import error:', error);
+    }
+
+    // Reset file input
+    event.target.value = '';
+  }
+
+  /**
+   * Reset to default cards from cards.json
+   */
+  async resetToDefaults() {
+    if (!confirm('This will clear all your changes and reload the default cards. Are you sure?')) {
+      return;
+    }
+
+    try {
+      // Clear localStorage
+      localStorage.removeItem('cardManagerCards');
+      
+      // Reload from cards.json
+      if (!this.dataLoader) {
+        this.dataLoader = new DataLoader();
+      }
+      await this.dataLoader.loadData('cards.json');
+      this.cards = this.dataLoader.decks;
+      
+      this.extractAllTags();
+      this.refreshAutocomplete();
+      this.renderCardsList();
+      this.resetForm();
+      
+      alert('✓ Reset to default cards successfully!');
+      console.log('✓ Reset to defaults');
+    } catch (error) {
+      alert('❌ Failed to reset to defaults: ' + error.message);
+      console.error('Reset error:', error);
+    }
   }
 }
 
