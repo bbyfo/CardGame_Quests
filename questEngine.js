@@ -265,18 +265,19 @@ class QuestEngine {
 
     this.quest.verb = verb;
     this.log(`Verb drawn: "${verb.CardName}"`);
-    this.log(`Verb target requirement: [${verb.TargetRequirement.join(', ')}]`, { requirement: verb.TargetRequirement });
+    const deckInfo = verb.InstructionDeck ? `${verb.InstructionDeck} with ` : '';
+    this.log(`Verb target requirement: ${deckInfo}[${verb.TargetRequirement.join(', ')}]`, { requirement: verb.TargetRequirement });
 
     // Store verb's instruction if it targets a future deck
-    if (verb.InstructionType && verb.InstructionDeck) {
+    if (verb.InstructionDeck) {
       this.pendingInstructions.push({
         source: verb.CardName,
         type: verb.InstructionType,
         subType: verb.InstructionSubType,
         target: verb.InstructionDeck,
-        tags: verb.InstructionTags
+        tags: verb.TargetRequirement
       });
-      this.log(`Verb instruction stored: "${verb.CardName}" will add [${verb.InstructionTags.join(', ')}] to ${verb.InstructionDeck}`, {
+      this.log(`Verb instruction stored: "${verb.CardName}" will match [${verb.TargetRequirement.join(', ')}] in ${verb.InstructionDeck}`, {
         source: verb.CardName,
         instruction: verb.InstructionDeck
       });
@@ -331,7 +332,8 @@ class QuestEngine {
     this.log('=== STEP 3: Draw Location ===');
     
     // Check if any pending instruction targets Location
-    const requiredTags = this.getMatchingRequirement('Location', this.getCurrentTags(target));
+    // Use empty array as default - only explicit instructions apply, not inherited tags
+    const requiredTags = this.getMatchingRequirement('Location', []);
     
     const matchCount = this.countMatchingCards(this.decks.locations, requiredTags);
     const totalCount = this.decks.locations.length;
@@ -370,7 +372,8 @@ class QuestEngine {
     this.log('=== STEP 4: Draw Twist ===');
     
     // Check if any pending instruction targets Twist
-    const requiredTags = this.getMatchingRequirement('Twist', this.getCurrentTags(location));
+    // Use empty array as default - only explicit instructions apply, not inherited tags
+    const requiredTags = this.getMatchingRequirement('Twist', []);
     
     const matchCount = this.countMatchingCards(this.decks.twists, requiredTags);
     const totalCount = this.decks.twists.length;
@@ -409,7 +412,8 @@ class QuestEngine {
     this.log('=== STEP 5: Draw Reward and Failure ===');
 
     // Check for pending instructions targeting Reward
-    const rewardTags = this.getMatchingRequirement('Reward', this.getCurrentTags(twist));
+    // Use empty array as default - only explicit instructions apply, not inherited tags
+    const rewardTags = this.getMatchingRequirement('Reward', []);
     const rewardMatchCount = this.countMatchingCards(this.decks.rewards, rewardTags);
     const rewardTotalCount = this.decks.rewards.length;
     const rewardPercentage = ((rewardMatchCount / rewardTotalCount) * 100).toFixed(1);
@@ -431,7 +435,8 @@ class QuestEngine {
     }
 
     // Check for pending instructions targeting Failure
-    const failureTags = this.getMatchingRequirement('Failure', this.getCurrentTags(twist));
+    // Use empty array as default - only explicit instructions apply, not inherited tags
+    const failureTags = this.getMatchingRequirement('Failure', []);
     const failureMatchCount = this.countMatchingCards(this.decks.failures, failureTags);
     const failureTotalCount = this.decks.failures.length;
     const failurePercentage = ((failureMatchCount / failureTotalCount) * 100).toFixed(1);
