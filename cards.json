@@ -3,7 +3,7 @@
     {
       "Deck": "QuestGiver",
       "CardName": "King",
-      "TypeTags": ["Royalty", "Authority"],
+      "TypeTags": ["Order", "Martial"],
       "AspectTags": ["Leadership"],
       "mutableTags": [],
       "Instructions": []
@@ -11,7 +11,7 @@
     {
       "Deck": "QuestGiver",
       "CardName": "Archmagus",
-      "TypeTags": ["Wizard", "Authority"],
+      "TypeTags": ["Arcane", "Order"],
       "AspectTags": ["Magic"],
       "mutableTags": [],
       "Instructions": [
@@ -24,7 +24,7 @@
     {
       "Deck": "QuestGiver",
       "CardName": "Merchant Guild",
-      "TypeTags": ["Commerce", "Organization"],
+      "TypeTags": ["Wealth", "Order"],
       "AspectTags": ["Wealth"],
       "mutableTags": [],
       "Instructions": [
@@ -39,7 +39,7 @@
     {
       "Deck": "HarmedParty",
       "CardName": "Demon Lord",
-      "TypeTags": ["Evil", "Supernatural"],
+      "TypeTags": ["Evil", "Chaos"],
       "AspectTags": ["Darkness"],
       "mutableTags": [],
       "Instructions": [
@@ -52,7 +52,7 @@
     {
       "Deck": "HarmedParty",
       "CardName": "Ancient Curse",
-      "TypeTags": ["Magical", "Danger"],
+      "TypeTags": ["Arcane", "Chaos"],
       "AspectTags": ["Magic"],
       "mutableTags": [],
       "Instructions": [
@@ -65,7 +65,7 @@
     {
       "Deck": "HarmedParty",
       "CardName": "Corporate Rival",
-      "TypeTags": ["Business", "Competition"],
+      "TypeTags": ["Wealth", "Chaos"],
       "AspectTags": ["Commerce"],
       "mutableTags": [],
       "Instructions": []
@@ -75,7 +75,7 @@
     {
       "Deck": "Verb",
       "CardName": "Defend",
-      "TypeTags": ["Protective", "Action"],
+      "TypeTags": ["Martial", "Order"],
       "AspectTags": ["Military"],
       "Instructions": [
         {
@@ -87,7 +87,7 @@
     {
       "Deck": "Verb",
       "CardName": "Retrieve",
-      "TypeTags": ["Heroic", "Action"],
+      "TypeTags": ["Good", "Order"],
       "AspectTags": ["Quest"],
       "Instructions": [
         {
@@ -99,7 +99,7 @@
     {
       "Deck": "Verb",
       "CardName": "Destroy",
-      "TypeTags": ["Violent", "Action"],
+      "TypeTags": ["Chaos", "Martial"],
       "AspectTags": ["Combat"],
       "Instructions": [
         {
@@ -115,7 +115,7 @@
     {
       "Deck": "Verb",
       "CardName": "Investigate",
-      "TypeTags": ["Exploration", "Action"],
+      "TypeTags": ["Order", "Arcane"],
       "AspectTags": ["Mystery"],
       "Instructions": [
         {
@@ -127,7 +127,7 @@
     {
       "Deck": "Verb",
       "CardName": "Rescue",
-      "TypeTags": ["Heroic", "Action"],
+      "TypeTags": ["Good", "Holy"],
       "AspectTags": ["Compassion"],
       "Instructions": [
         {
@@ -143,7 +143,7 @@
     {
       "Deck": "Verb",
       "CardName": "Heist",
-      "TypeTags": ["Criminal", "Action"],
+      "TypeTags": ["Chaos", "Wealth"],
       "AspectTags": ["Stealth"],
       "Instructions": [
         {
@@ -161,7 +161,7 @@
     {
       "Deck": "Target",
       "CardName": "Ironfang Raider",
-      "TypeTags": ["Evil Monster", "Humanoid"],
+      "TypeTags": ["Evil", "Martial"],
       "AspectTags": ["Military"],
       "mutableTags": [],
       "Instructions": [
@@ -174,7 +174,7 @@
     {
       "Deck": "Target",
       "CardName": "Forgotten Amulet",
-      "TypeTags": ["Magical", "Artifact"],
+      "TypeTags": ["Arcane", "Order"],
       "AspectTags": ["Ancient"],
       "mutableTags": [],
       "Instructions": []
@@ -182,7 +182,7 @@
     {
       "Deck": "Target",
       "CardName": "Castle Gate",
-      "TypeTags": ["Structure", "Defense"],
+      "TypeTags": ["Martial", "Order"],
       "AspectTags": ["Military"],
       "mutableTags": [],
       "Instructions": [
@@ -195,7 +195,7 @@
     {
       "Deck": "Target",
       "CardName": "Lost Library",
-      "TypeTags": ["Location", "Building"],
+      "TypeTags": ["Arcane", "Order"],
       "AspectTags": ["Knowledge"],
       "mutableTags": [],
       "Instructions": []
@@ -203,7 +203,7 @@
     {
       "Deck": "Target",
       "CardName": "Captured Knight",
-      "TypeTags": ["Character", "Humanoid"],
+      "TypeTags": ["Good", "Martial"],
       "AspectTags": ["Military"],
       "mutableTags": [],
       "Instructions": [
@@ -216,7 +216,7 @@
     {
       "Deck": "Target",
       "CardName": "Draconic Drake",
-      "TypeTags": ["Evil Monster", "Creature"],
+      "TypeTags": ["Evil", "Chaos"],
       "AspectTags": ["Magic"],
       "mutableTags": [],
       "Instructions": [
@@ -229,7 +229,7 @@
     {
       "Deck": "Target",
       "CardName": "Elder Mosskeeper",
-      "TypeTags": ["Good NPC", "Wanderer"],
+      "TypeTags": ["Good", "Nature"],
       "AspectTags": ["Magic"],
       "mutableTags": [],
       "Instructions": [
@@ -244,7 +244,7 @@
     {
       "Deck": "Location",
       "CardName": "Dark Forest",
-      "TypeTags": ["Wilderness", "Dangerous"],
+      "TypeTags": ["Nature", "Chaos"],
       "AspectTags": ["Nature"],
       "mutableTags": [],
       "Instructions": [
@@ -257,7 +257,7 @@
     {
       "Deck": "Location",
       "CardName": "Ancient Ruins",
-      "TypeTags": ["Exploration", "Ancient"],
+      "TypeTags": ["Arcane", "Chaos"],
       "AspectTags": ["Mystery"],
       "mutableTags": [],
       "Instructions": []
@@ -265,7 +265,7 @@
     {
       "Deck": "Location",
       "CardName": "Underground Cavern",
-      "TypeTags": ["Wilderness", "Dangerous"],
+      "TypeTags": ["Nature", "Chaos"],
       "AspectTags": ["Nature"],
       "mutableTags": [],
       "Instructions": [
@@ -278,7 +278,7 @@
     {
       "Deck": "Location",
       "CardName": "Royal Palace",
-      "TypeTags": ["Building", "Safe"],
+      "TypeTags": ["Order", "Wealth"],
       "AspectTags": ["Military"],
       "mutableTags": [],
       "Instructions": []
@@ -286,7 +286,7 @@
     {
       "Deck": "Location",
       "CardName": "Haunted Tower",
-      "TypeTags": ["Building", "Dangerous"],
+      "TypeTags": ["Arcane", "Chaos"],
       "AspectTags": ["Magic"],
       "mutableTags": [],
       "Instructions": [
@@ -299,7 +299,7 @@
     {
       "Deck": "Location",
       "CardName": "Bank Vault",
-      "TypeTags": ["Building", "Secure"],
+      "TypeTags": ["Wealth", "Order"],
       "AspectTags": ["Commerce"],
       "mutableTags": [],
       "Instructions": [
@@ -318,7 +318,7 @@
     {
       "Deck": "Twist",
       "CardName": "Betrayal",
-      "TypeTags": ["Danger", "Social"],
+      "TypeTags": ["Evil", "Chaos"],
       "AspectTags": ["Mystery"],
       "mutableTags": [],
       "Instructions": [
@@ -331,7 +331,7 @@
     {
       "Deck": "Twist",
       "CardName": "Time Pressure",
-      "TypeTags": ["Challenge", "Urgency"],
+      "TypeTags": ["Chaos", "Order"],
       "AspectTags": ["Quest"],
       "mutableTags": [],
       "Instructions": []
@@ -339,7 +339,7 @@
     {
       "Deck": "Twist",
       "CardName": "Hidden Ally",
-      "TypeTags": ["Opportunity", "Social"],
+      "TypeTags": ["Good", "Order"],
       "AspectTags": ["Compassion"],
       "mutableTags": [],
       "Instructions": [
@@ -352,7 +352,7 @@
     {
       "Deck": "Twist",
       "CardName": "Environmental Hazard",
-      "TypeTags": ["Danger", "Nature"],
+      "TypeTags": ["Nature", "Chaos"],
       "AspectTags": ["Nature"],
       "mutableTags": [],
       "Instructions": [
@@ -371,7 +371,7 @@
     {
       "Deck": "Reward",
       "CardName": "Gold Coins",
-      "TypeTags": ["Treasure", "Wealth"],
+      "TypeTags": ["Wealth", "Order"],
       "AspectTags": ["Commerce"],
       "mutableTags": [],
       "Instructions": []
@@ -379,7 +379,7 @@
     {
       "Deck": "Reward",
       "CardName": "Magical Sword",
-      "TypeTags": ["Weapon", "Magical"],
+      "TypeTags": ["Arcane", "Martial"],
       "AspectTags": ["Magic"],
       "mutableTags": [],
       "Instructions": [
@@ -392,7 +392,7 @@
     {
       "Deck": "Reward",
       "CardName": "Knight's Honor",
-      "TypeTags": ["Status", "Prestige"],
+      "TypeTags": ["Good", "Order"],
       "AspectTags": ["Military"],
       "mutableTags": [],
       "Instructions": []
@@ -400,7 +400,7 @@
     {
       "Deck": "Reward",
       "CardName": "Secret Knowledge",
-      "TypeTags": ["Information", "Mystery"],
+      "TypeTags": ["Arcane", "Order"],
       "AspectTags": ["Knowledge"],
       "mutableTags": [],
       "Instructions": []
@@ -410,7 +410,7 @@
     {
       "Deck": "Failure",
       "CardName": "Death",
-      "TypeTags": ["Permanent", "Catastrophic"],
+      "TypeTags": ["Evil", "Chaos"],
       "AspectTags": ["Doom"],
       "mutableTags": [],
       "Instructions": []
@@ -418,7 +418,7 @@
     {
       "Deck": "Failure",
       "CardName": "Imprisonment",
-      "TypeTags": ["Confinement", "Temporary"],
+      "TypeTags": ["Order", "Evil"],
       "AspectTags": ["Doom"],
       "mutableTags": [],
       "Instructions": []
@@ -426,7 +426,7 @@
     {
       "Deck": "Failure",
       "CardName": "Curse",
-      "TypeTags": ["Magical", "Permanent"],
+      "TypeTags": ["Arcane", "Evil"],
       "AspectTags": ["Magic"],
       "mutableTags": [],
       "Instructions": [
@@ -439,7 +439,7 @@
     {
       "Deck": "Failure",
       "CardName": "Loss of Treasure",
-      "TypeTags": ["Loss", "Temporary"],
+      "TypeTags": ["Wealth", "Chaos"],
       "AspectTags": ["Commerce"],
       "mutableTags": [],
       "Instructions": []
