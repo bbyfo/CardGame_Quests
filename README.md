@@ -30,7 +30,19 @@ Run 100-10,000 iterations and get detailed analytics:
 ### 1. Open the App
 Simply open `index.html` in a modern web browser (Chrome, Firefox, Edge, Safari).
 
-### 2. Load Card Data
+### 2. Manage Your Cards
+Click the **🎴 Card Manager** button to access the card creation GUI. This tool features:
+- **Easy form-based card entry** with autocomplete suggestions
+- **Tag management** - Add and remove tags with one click
+- **Card browser** - Filter, search, and edit existing cards
+- **Multi-instruction support** - Add multiple instructions per card
+- **Export to JSON** - Save your cards and integrate with the quest system
+
+See [CARD_MANAGER_QUICKSTART.md](CARD_MANAGER_QUICKSTART.md) for a quick tutorial.
+
+### 3. Load Card Data
+The app automatically loads `cards.json`. The included sample includes:
+### 3. Load Card Data
 The app automatically loads `cards.json`. The included sample includes:
 - 5 Verbs (Defend, Retrieve, Destroy, Investigate, Rescue)
 - 6 Targets (monsters, artifacts, locations, NPCs)
@@ -39,28 +51,35 @@ The app automatically loads `cards.json`. The included sample includes:
 - 4 Rewards (gold, weapons, honor, knowledge)
 - 4 Failures (death, imprisonment, curses, loss)
 
-### 3. Generate Quests
+### 4. Generate Quests
 Click **Generate Quest** to create a random quest following the algorithm.
 
-### 4. Step-Through Mode
+### 5. Step-Through Mode
 Click **Step-Through Mode**, then **Next Step** to advance one atomic action at a time. Useful for learning the algorithm.
 
-### 5. Run Validation
+### 6. Run Validation
 Set the iteration count and click **Run Validation**. Results include usage statistics and bottleneck analysis.
 
 ## Project Structure
 
 ```
 app/
-├── index.html          # Main HTML layout
-├── styles.css          # Styling and responsive design
-├── cards.json          # Card data (JSON)
-├── dataLoader.js       # Card data loading module
-├── questEngine.js      # Core quest generation algorithm
-├── validator.js        # Validation and analytics engine
-├── ui.js              # UI controller and event handlers
-├── app.js             # Application entry point
-└── README.md          # This file
+├── index.html                    # Main Quest System GUI
+├── cardManager.html              # Card management GUI
+├── styles.css                    # Quest System styling
+├── cardManager.css               # Card Manager styling
+├── cards.json                    # Card data (JSON)
+├── dataLoader.js                 # Card data loading module
+├── questEngine.js                # Core quest generation algorithm
+├── validator.js                  # Validation and analytics engine
+├── ui.js                         # Quest System UI controller
+├── csvImporter.js                # CSV import functionality
+├── cardManager.js                # Card Manager logic & autocomplete
+├── app.js                        # Application entry point
+├── README.md                     # This file
+├── CARD_MANAGER_QUICKSTART.md    # Quick tutorial for Card Manager
+├── CARD_MANAGER_GUIDE.md         # Detailed Card Manager documentation
+└── [Other documentation files]   # Architecture, design, etc.
 ```
 
 ## Card Data Format

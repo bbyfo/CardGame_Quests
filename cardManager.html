@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Card Manager - Quest System</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="cardManager.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🎴 Card Manager</h1>
+      <p>Create, edit, and manage quest cards</p>
+      <a href="index.html" class="btn btn-secondary btn-small">← Back to Quest System</a>
+    </header>
+
+    <main class="card-manager-grid">
+      <!-- Card Form Section -->
+      <section class="card-form-section">
+        <h2>Create/Edit Card</h2>
+        
+        <form id="card-form" class="card-form">
+          <!-- Deck Selection -->
+          <div class="form-group">
+            <label for="deck-select">Deck Type *</label>
+            <select id="deck-select" required>
+              <option value="">-- Select Deck --</option>
+              <option value="questgivers">Quest Giver</option>
+              <option value="harmedparties">Harmed Party</option>
+              <option value="verbs">Verb</option>
+              <option value="targets">Target</option>
+              <option value="locations">Location</option>
+              <option value="twists">Twist</option>
+              <option value="rewards">Reward</option>
+              <option value="failures">Failure</option>
+            </select>
+          </div>
+
+          <!-- Card Name -->
+          <div class="form-group">
+            <label for="card-name">Card Name *</label>
+            <input type="text" id="card-name" placeholder="e.g., King, Demon Lord, Retrieve" required>
+          </div>
+
+          <!-- Type Tags with Autocomplete -->
+          <div class="form-group">
+            <label for="type-tags-input">Type Tags</label>
+            <div class="tag-input-container">
+              <input 
+                type="text" 
+                id="type-tags-input" 
+                placeholder="Add type tags (e.g., Royalty, Authority) and press Enter"
+                class="autocomplete-input"
+              >
+              <div id="type-tags-suggestions" class="autocomplete-dropdown"></div>
+              <div id="type-tags-list" class="tags-list"></div>
+            </div>
+          </div>
+
+          <!-- Aspect Tags with Autocomplete -->
+          <div class="form-group">
+            <label for="aspect-tags-input">Aspect Tags</label>
+            <div class="tag-input-container">
+              <input 
+                type="text" 
+                id="aspect-tags-input" 
+                placeholder="Add aspect tags (e.g., Leadership, Magic) and press Enter"
+                class="autocomplete-input"
+              >
+              <div id="aspect-tags-suggestions" class="autocomplete-dropdown"></div>
+              <div id="aspect-tags-list" class="tags-list"></div>
+            </div>
+          </div>
+
+          <!-- Mutable Tags -->
+          <div class="form-group">
+            <label for="mutable-tags-input">Mutable Tags</label>
+            <div class="tag-input-container">
+              <input 
+                type="text" 
+                id="mutable-tags-input" 
+                placeholder="Add mutable tags and press Enter"
+                class="autocomplete-input"
+              >
+              <div id="mutable-tags-list" class="tags-list"></div>
+            </div>
+          </div>
+
+          <!-- Target Requirement (for Verbs) -->
+          <div class="form-group" id="target-requirement-group" style="display: none;">
+            <label for="target-requirement">Target Requirement</label>
+            <div class="tag-input-container">
+              <input 
+                type="text" 
+                id="target-requirement" 
+                placeholder="Add target requirements and press Enter"
+                class="autocomplete-input"
+              >
+              <div id="target-requirement-suggestions" class="autocomplete-dropdown"></div>
+              <div id="target-requirement-list" class="tags-list"></div>
+            </div>
+          </div>
+
+          <!-- Instructions Section -->
+          <div class="form-group">
+            <label>Instructions</label>
+            <div id="instructions-list" class="instructions-list"></div>
+            <button type="button" id="btn-add-instruction" class="btn btn-secondary btn-small">+ Add Instruction</button>
+          </div>
+
+          <!-- Form Actions -->
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Save Card</button>
+            <button type="button" id="btn-clear-form" class="btn btn-secondary">Clear Form</button>
+            <button type="button" id="btn-cancel-edit" class="btn btn-secondary" style="display: none;">Cancel Edit</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Card Browser Section -->
+      <section class="card-browser-section">
+        <h2>Browse Cards</h2>
+        
+        <div class="browser-controls">
+          <div class="form-group">
+            <label for="filter-deck">Filter by Deck:</label>
+            <select id="filter-deck">
+              <option value="">All Decks</option>
+              <option value="questgivers">Quest Giver</option>
+              <option value="harmedparties">Harmed Party</option>
+              <option value="verbs">Verb</option>
+              <option value="targets">Target</option>
+              <option value="locations">Location</option>
+              <option value="twists">Twist</option>
+              <option value="rewards">Reward</option>
+              <option value="failures">Failure</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="search-cards">Search:</label>
+            <input type="text" id="search-cards" placeholder="Search card names...">
+          </div>
+
+          <button id="btn-export-cards" class="btn btn-secondary">📥 Export Cards</button>
+        </div>
+
+        <div id="cards-list" class="cards-list"></div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Card Manager | Quest System v1.0</p>
+    </footer>
+  </div>
+
+  <!-- Modal for Instructions -->
+  <div id="instruction-modal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Add Instruction</h3>
+        <button type="button" class="modal-close" id="modal-close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="instruction-target-deck">Target Deck *</label>
+          <select id="instruction-target-deck" required>
+            <option value="">-- Select Target Deck --</option>
+            <option value="Target">Target</option>
+            <option value="Location">Location</option>
+            <option value="Reward">Reward</option>
+            <option value="Failure">Failure</option>
+            <option value="Twist">Twist</option>
+            <option value="ThisCard">This Card</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="instruction-tags">Tags</label>
+          <div class="tag-input-container">
+            <input 
+              type="text" 
+              id="instruction-tags" 
+              placeholder="Add tags and press Enter"
+              class="autocomplete-input"
+            >
+            <div id="instruction-tags-suggestions" class="autocomplete-dropdown"></div>
+            <div id="instruction-tags-list" class="tags-list"></div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="btn-save-instruction" class="btn btn-primary">Save Instruction</button>
+        <button type="button" id="btn-cancel-instruction" class="btn btn-secondary">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Load modules -->
+  <script src="dataLoader.js"></script>
+  <script src="cardManager.js"></script>
+</body>
+</html>
