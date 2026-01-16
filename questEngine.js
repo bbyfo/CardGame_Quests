@@ -118,10 +118,7 @@ class QuestEngine {
     for (let i = this.pendingInstructions.length - 1; i >= 0; i--) {
       const instruction = this.pendingInstructions[i];
       if (instruction.targetDeck && instruction.targetDeck.toLowerCase() === deckName.toLowerCase()) {
-        this.log(`Using instruction tags from "${instruction.source}" for ${deckName} matching`, {
-          instruction: instruction.targetDeck,
-          tags: instruction.tags
-        }, true); // Verbose only
+        this.log(`→ Applying instruction from "${instruction.source}" to ${deckName}: [${instruction.tags.join(', ')}]`);
         return instruction.tags;
       }
     }
@@ -304,11 +301,8 @@ class QuestEngine {
           tags: instruction.Tags || []
         });
       }
-      const deckTargets = questGiver.Instructions.map(i => `${i.TargetDeck}`).join(', ');
-      this.log(`Quest Giver instructions stored: "${questGiver.CardName}" will add requirements to [${deckTargets}]`, {
-        source: questGiver.CardName,
-        instructions: questGiver.Instructions
-      }, true); // Verbose only
+      const deckTargets = questGiver.Instructions.map(i => `${i.TargetDeck} [${i.Tags.join(', ')}]`).join(', ');
+      this.log(`→ Instruction stored: "${questGiver.CardName}" will require ${deckTargets}`);
     }
 
     return questGiver;
@@ -339,11 +333,8 @@ class QuestEngine {
           tags: instruction.Tags || []
         });
       }
-      const deckTargets = harmedParty.Instructions.map(i => `${i.TargetDeck}`).join(', ');
-      this.log(`Harmed Party instructions stored: "${harmedParty.CardName}" will add requirements to [${deckTargets}]`, {
-        source: harmedParty.CardName,
-        instructions: harmedParty.Instructions
-      });
+      const deckTargets = harmedParty.Instructions.map(i => `${i.TargetDeck} [${i.Tags.join(', ')}]`).join(', ');
+      this.log(`→ Instruction stored: "${harmedParty.CardName}" will require ${deckTargets}`);
     }
 
     return harmedParty;
@@ -378,11 +369,8 @@ class QuestEngine {
           tags: instruction.Tags || []
         });
       }
-      const deckTargets = verb.Instructions.map(i => `${i.TargetDeck}`).join(', ');
-      this.log(`Verb instructions stored: "${verb.CardName}" will add requirements to [${deckTargets}]`, {
-        source: verb.CardName,
-        instructions: verb.Instructions
-      });
+      const deckTargets = verb.Instructions.map(i => `${i.TargetDeck} [${i.Tags.join(', ')}]`).join(', ');
+      this.log(`→ Instruction stored: "${verb.CardName}" will require ${deckTargets}`);
     }
 
     return verb;
