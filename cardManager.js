@@ -9,6 +9,7 @@ class CardManager {
     this.cards = {};
     this.currentEditingCardId = null;
     this.instructionData = [];
+    this.editingInstructionIndex = -1; // -1 means not editing
     this.allTags = {
       type: new Set(),
       aspect: new Set(),
@@ -268,7 +269,7 @@ class CardManager {
     if (!list) return;
 
     // Check if tag already exists
-    const existingTags = Array.from(list.querySelectorAll('.tag')).map(t => t.textContent.trim());
+    const existingTags = Array.from(list.querySelectorAll('.tag')).map(t => t.textContent.replace('×', '').trim());
     if (existingTags.includes(tagValue)) return;
 
     const tag = document.createElement('span');
@@ -413,7 +414,37 @@ class CardManager {
     const modal = document.getElementById('instruction-modal');
     if (modal) {
       modal.style.display = 'flex';
+      this.editingInstructionIndex = -1; // -1 means adding new
       this.instructionData.push({ TargetDeck: '', Tags: [] });
+    }
+  }
+
+  /**
+   * Edit an existing instruction
+   */
+  editInstruction(index) {
+    const instruction = this.instructionData[index];
+    if (!instruction) return;
+
+    // Set editing index
+    this.editingInstructionIndex = index;
+
+    // Populate modal with instruction data
+    const targetDeckSelect = document.getElementById('instruction-target-deck');
+    if (targetDeckSelect) {
+      targetDeckSelect.value = instruction.TargetDeck;
+    }
+
+    // Clear and populate tags list
+    this.clearTagList('instruction-tags-list');
+    instruction.Tags.forEach(tag => {
+      this.addTag('instruction-tags', tag);
+    });
+
+    // Open modal
+    const modal = document.getElementById('instruction-modal');
+    if (modal) {
+      modal.style.display = 'flex';
     }
   }
 
@@ -448,9 +479,14 @@ class CardManager {
       Tags: tags
     };
 
-    // Replace the last added instruction with actual data
-    if (this.instructionData.length > 0) {
-      this.instructionData[this.instructionData.length - 1] = instruction;
+    if (this.editingInstructionIndex >= 0) {
+      // Editing existing instruction
+      this.instructionData[this.editingInstructionIndex] = instruction;
+    } else {
+      // Adding new instruction - replace the placeholder
+      if (this.instructionData.length > 0) {
+        this.instructionData[this.instructionData.length - 1] = instruction;
+      }
     }
 
     this.renderInstructions();
@@ -469,6 +505,8 @@ class CardManager {
     this.instructionData.forEach((instr, index) => {
       const item = document.createElement('div');
       item.className = 'instruction-item';
+      item.style.cursor = 'pointer';
+      item.title = 'Click to edit';
       item.innerHTML = `
         <h4>${instr.TargetDeck}</h4>
         <div class="instruction-tags">
@@ -477,8 +515,16 @@ class CardManager {
         <span class="instruction-remove" data-index="${index}">✕</span>
       `;
 
+      // Click to edit instruction
+      item.addEventListener('click', (e) => {
+        // Don't trigger edit if clicking remove button
+        if (e.target.classList.contains('instruction-remove')) return;
+        this.editInstruction(index);
+      });
+
       const removeBtn = item.querySelector('.instruction-remove');
-      removeBtn.addEventListener('click', () => {
+      removeBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
         this.instructionData.splice(index, 1);
         this.renderInstructions();
       });
