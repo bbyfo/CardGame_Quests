@@ -12,6 +12,7 @@ class QuestEngine {
     this.stepIndex = 0;
     this.debugMode = false; // Default to non-verbose logging
     this.validator = null; // Reference to validator for tracking card draws
+    this.maxRedraws = 3; // Number of invalid draws before fallback (0-99, or -1 for infinite)
     this.stats = {
       drawAttempts: 0,
       fallbacksTriggered: 0,
@@ -189,13 +190,15 @@ class QuestEngine {
   }
 
   /**
-   * Helper: Draw with fallback rule (3 invalid → 4th auto-accept)
+   * Helper: Draw with fallback rule (configurable redraws before auto-accept)
    */
   drawWithFallback(deck, requiredTags, deckName, targetName) {
     let attempts = 0;
     let selectedCard = null;
+    const maxAttempts = this.maxRedraws + 1; // maxRedraws is number of redraws, add 1 for first draw
+    const isInfinite = this.maxRedraws === -1;
 
-    while (attempts < 4 && !selectedCard) {
+    while ((isInfinite || attempts < maxAttempts) && !selectedCard) {
       attempts++;
       const card = this.drawRandomCard(deck);
       
@@ -232,15 +235,18 @@ class QuestEngine {
           true // Verbose only
         );
 
-        if (attempts === 3) {
+        // Check if we should trigger fallback (only if not infinite mode)
+        if (!isInfinite && attempts === this.maxRedraws) {
           this.log(`${deckName}: Fallback triggered - auto-accepting next card`);
           this.stats.fallbacksTriggered++;
           selectedCard = this.drawRandomCard(deck);
-          this.log(
-            `${deckName} Draw #4 (FALLBACK): Auto-accepted "${selectedCard.CardName}"`,
-            { card: selectedCard.CardName, isFallback: true },
-            true // Verbose only
-          );
+          if (selectedCard) {
+            this.log(
+              `${deckName} Draw #${attempts + 1} (FALLBACK): Auto-accepted "${selectedCard.CardName}"`,
+              { card: selectedCard.CardName, isFallback: true },
+              true // Verbose only
+            );
+          }
         }
       }
     }

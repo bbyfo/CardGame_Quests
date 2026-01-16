@@ -52,6 +52,20 @@
             <label for="seed-input">Seed (optional):</label>
             <input type="text" id="seed-input" placeholder="Enter seed value">
           </div>
+          <div class="input-group">
+            <label for="redraw-limit">Max Redraws:</label>
+            <select id="redraw-limit">
+              <option value="0">0 (Accept first card)</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3" selected>3 (Default)</option>
+              <option value="5">5</option>
+              <option value="10">10</option>
+              <option value="20">20</option>
+              <option value="50">50</option>
+              <option value="-1">∞ (Draw until match)</option>
+            </select>
+          </div>
           <div class="checkbox-group">
             <label>
               <input type="checkbox" id="debug-toggle"> Debug Mode

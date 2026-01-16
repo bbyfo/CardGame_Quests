@@ -48,6 +48,15 @@ class UIManager {
       });
     }
 
+    const redrawLimit = document.getElementById('redraw-limit');
+    if (redrawLimit) {
+      redrawLimit.addEventListener('change', (e) => {
+        this.engine.maxRedraws = parseInt(e.target.value);
+        const displayValue = this.engine.maxRedraws === -1 ? '∞ (infinite)' : this.engine.maxRedraws;
+        console.log('Max redraws set to:', displayValue);
+      });
+    }
+
     // Populate verb selector
     this.populateVerbSelector();
   }
