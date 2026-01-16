@@ -58,7 +58,7 @@
       "Instructions": [
         {
           "TargetDeck": "Failure",
-          "Tags": ["Cursed"]
+          "Tags": ["Evil", "Arcane"]
         }
       ]
     },
@@ -108,11 +108,11 @@
       "Instructions": [
         {
           "TargetDeck": "Target",
-          "Tags": ["Structure"]
+          "Tags": ["Good", "Order"]
         },
         {
-          "TargetDeck": "ThisCard",
-          "Tags": ["Dangerous"]
+          "TargetDeck": "Location",
+          "Tags": ["Nature", "Good"]
         }
       ]
     },
@@ -157,7 +157,8 @@
         {
           "TargetDeck": "Target",
           "Tags": ["Wealth", "Arcane"]
-        },{
+        },
+        {
           "TargetDeck": "HarmedParty",
           "Tags": ["Wealth", "Chaos", "Evil"]
         }
@@ -173,8 +174,12 @@
       "mutableTags": [],
       "Instructions": [
         {
-          "TargetDeck": "ThisCard",
-          "Tags": ["Hostile"]
+          "TargetDeck": "Location",
+          "Tags": ["Evil", "Chaos"]
+        },
+        {
+          "TargetDeck": "Location",
+          "Tags": ["Martial", "Evil"]
         }
       ]
     },
@@ -195,7 +200,7 @@
       "Instructions": [
         {
           "TargetDeck": "Location",
-          "Tags": ["Fortified"]
+          "Tags": ["Order", "Martial"]
         }
       ]
     },
@@ -216,7 +221,11 @@
       "Instructions": [
         {
           "TargetDeck": "Reward",
-          "Tags": ["Honor"]
+          "Tags": ["Wealth", "Order"]
+        },
+        {
+          "TargetDeck": "Location",
+          "Tags": ["Evil", "Chaos"]
         }
       ]
     },
@@ -228,8 +237,8 @@
       "mutableTags": [],
       "Instructions": [
         {
-          "TargetDeck": "ThisCard",
-          "Tags": ["Powerful"]
+          "TargetDeck": "Location",
+          "Tags": ["Nature", "Chaos"]
         }
       ]
     },
@@ -241,8 +250,8 @@
       "mutableTags": [],
       "Instructions": [
         {
-          "TargetDeck": "ThisCard",
-          "Tags": ["Powerful"]
+          "TargetDeck": "Location",
+          "Tags": ["Nature"]
         }
       ]
     }
@@ -257,7 +266,11 @@
       "Instructions": [
         {
           "TargetDeck": "Twist",
-          "Tags": ["Perilous"]
+          "Tags": ["Nature", "Chaos"]
+        },
+        {
+          "TargetDeck": "Reward",
+          "Tags": ["Nature"]
         }
       ]
     },
@@ -277,8 +290,8 @@
       "mutableTags": [],
       "Instructions": [
         {
-          "TargetDeck": "ThisCard",
-          "Tags": ["Hidden"]
+          "TargetDeck": "Twist",
+          "Tags": ["Chaos", "Nature"]
         }
       ]
     },
@@ -299,7 +312,11 @@
       "Instructions": [
         {
           "TargetDeck": "Failure",
-          "Tags": ["Cursed"]
+          "Tags": ["Evil", "Chaos"]
+        },
+        {
+          "TargetDeck": "Twist",
+          "Tags": ["Arcane", "Evil"]
         }
       ]
     },
@@ -312,11 +329,7 @@
       "Instructions": [
         {
           "TargetDeck": "Reward",
-          "Tags": ["Protected"]
-        },
-        {
-          "TargetDeck": "Failure",
-          "Tags": ["Protected"]
+          "Tags": ["Wealth"]
         }
       ]
     }
@@ -331,7 +344,11 @@
       "Instructions": [
         {
           "TargetDeck": "Failure",
-          "Tags": ["Treacherous"]
+          "Tags": ["Evil", "Chaos"]
+        },
+        {
+          "TargetDeck": "Reward",
+          "Tags": ["Good", "Order"]
         }
       ]
     },
@@ -341,7 +358,12 @@
       "TypeTags": ["Chaos", "Order"],
       "AspectTags": ["Quest"],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [
+        {
+          "TargetDeck": "Failure",
+          "Tags": ["Chaos"]
+        }
+      ]
     },
     {
       "Deck": "Twist",
@@ -352,7 +374,7 @@
       "Instructions": [
         {
           "TargetDeck": "Reward",
-          "Tags": ["Fortunate"]
+          "Tags": ["Good", "Order"]
         }
       ]
     },
@@ -365,11 +387,11 @@
       "Instructions": [
         {
           "TargetDeck": "Reward",
-          "Tags": ["Compromised"]
+          "Tags": ["Nature"]
         },
         {
           "TargetDeck": "Failure",
-          "Tags": ["Compromised"]
+          "Tags": ["Chaos"]
         }
       ]
     }
@@ -387,14 +409,9 @@
       "Deck": "Reward",
       "CardName": "Magical Sword",
       "TypeTags": ["Arcane", "Martial"],
-      "AspectTags": ["Arcane"],
+      "AspectTags": [],
       "mutableTags": [],
-      "Instructions": [
-        {
-          "TargetDeck": "ThisCard",
-          "Tags": ["Enchanted"]
-        }
-      ]
+      "Instructions": []
     },
     {
       "Deck": "Reward",
@@ -438,8 +455,8 @@
       "mutableTags": [],
       "Instructions": [
         {
-          "TargetDeck": "ThisCard",
-          "Tags": ["Afflicted"]
+          "TargetDeck": "",
+          "Tags": ["Arcane", "Chaos"]
         }
       ]
     },
