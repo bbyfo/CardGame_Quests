@@ -561,15 +561,32 @@ class CardManager {
         const item = document.createElement('div');
         item.className = 'card-item';
         
-        const tagsHtml = [
-          ...card.TypeTags.map(t => `<span class="tag">${t}</span>`),
-          ...card.AspectTags.map(t => `<span class="tag">${t}</span>`)
-        ].join('');
+        // Create separate sections for TypeTags and AspectTags
+        const typeTagsHtml = card.TypeTags.length > 0 ? `
+          <div class="tag-group">
+            <span class="tag-group-label">Type:</span>
+            <div class="tag-group-tags">
+              ${card.TypeTags.map(t => `<span class="tag tag-type">${t}</span>`).join('')}
+            </div>
+          </div>
+        ` : '';
+        
+        const aspectTagsHtml = card.AspectTags.length > 0 ? `
+          <div class="tag-group">
+            <span class="tag-group-label">Aspect:</span>
+            <div class="tag-group-tags">
+              ${card.AspectTags.map(t => `<span class="tag tag-aspect">${t}</span>`).join('')}
+            </div>
+          </div>
+        ` : '';
 
         item.innerHTML = `
           <h4>${card.CardName}</h4>
           <span class="card-deck">${deckDisplayName}</span>
-          <div class="card-tags">${tagsHtml}</div>
+          <div class="card-tags">
+            ${typeTagsHtml}
+            ${aspectTagsHtml}
+          </div>
           <div class="card-item-actions">
             <button class="btn btn-secondary btn-edit" data-deck="${deckName}" data-name="${card.CardName}">Edit</button>
             <button class="btn btn-danger btn-delete" data-deck="${deckName}" data-name="${card.CardName}">Delete</button>
