@@ -6,10 +6,12 @@
       "TypeTags": ["Protective", "Action"],
       "AspectTags": ["Military"],
       "TargetRequirement": ["Evil Monster"],
-      "InstructionType": "Modify",
-      "InstructionSubType": "Add",
-      "InstructionDeck": "Target",
-      "InstructionTags": []
+      "Instructions": [
+        {
+          "TargetDeck": "Target",
+          "Tags": ["Dangerous"]
+        }
+      ]
     },
     {
       "Deck": "Verb",
@@ -17,10 +19,7 @@
       "TypeTags": ["Heroic", "Action"],
       "AspectTags": ["Quest"],
       "TargetRequirement": ["Magical"],
-      "InstructionType": null,
-      "InstructionSubType": null,
-      "InstructionDeck": null,
-      "InstructionTags": []
+      "Instructions": []
     },
     {
       "Deck": "Verb",
@@ -28,10 +27,12 @@
       "TypeTags": ["Violent", "Action"],
       "AspectTags": ["Combat"],
       "TargetRequirement": ["Structure"],
-      "InstructionType": "Modify",
-      "InstructionSubType": "Add",
-      "InstructionDeck": "ThisCard",
-      "InstructionTags": ["Dangerous"]
+      "Instructions": [
+        {
+          "TargetDeck": "ThisCard",
+          "Tags": ["Dangerous"]
+        }
+      ]
     },
     {
       "Deck": "Verb",
@@ -39,10 +40,7 @@
       "TypeTags": ["Exploration", "Action"],
       "AspectTags": ["Mystery"],
       "TargetRequirement": ["Arcane", "Ruins"],
-      "InstructionType": null,
-      "InstructionSubType": null,
-      "InstructionDeck": null,
-      "InstructionTags": []
+      "Instructions": []
     },
     {
       "Deck": "Verb",
@@ -50,10 +48,29 @@
       "TypeTags": ["Heroic", "Action"],
       "AspectTags": ["Compassion"],
       "TargetRequirement": ["Character"],
-      "InstructionType": "Modify",
-      "InstructionSubType": "Add",
-      "InstructionDeck": "Target",
-      "InstructionTags": ["Noble"]
+      "Instructions": [
+        {
+          "TargetDeck": "Target",
+          "Tags": ["Noble"]
+        }
+      ]
+    },
+    {
+      "Deck": "Verb",
+      "CardName": "Heist",
+      "TypeTags": ["Criminal", "Action"],
+      "AspectTags": ["Stealth"],
+      "TargetRequirement": ["Treasure", "Vault"],
+      "Instructions": [
+        {
+          "TargetDeck": "Location",
+          "Tags": ["Building", "Vault", "Fortress"]
+        },
+        {
+          "TargetDeck": "Target",
+          "Tags": ["Magic Item", "Artifact", "Jewel"]
+        }
+      ]
     }
   ],
   "targets": [
@@ -63,10 +80,12 @@
       "TypeTags": ["Evil Monster", "Humanoid"],
       "AspectTags": ["Military"],
       "mutableTags": [],
-      "InstructionType": "Modify",
-      "InstructionSubType": "Add",
-      "InstructionDeck": "ThisCard",
-      "InstructionTags": ["Hostile"]
+      "Instructions": [
+        {
+          "TargetDeck": "ThisCard",
+          "Tags": ["Hostile"]
+        }
+      ]
     },
     {
       "Deck": "Target",
@@ -74,10 +93,7 @@
       "TypeTags": ["Magical", "Artifact"],
       "AspectTags": ["Ancient"],
       "mutableTags": [],
-      "InstructionType": null,
-      "InstructionSubType": null,
-      "InstructionDeck": null,
-      "InstructionTags": []
+      "Instructions": []
     },
     {
       "Deck": "Target",
@@ -85,10 +101,12 @@
       "TypeTags": ["Structure", "Defense"],
       "AspectTags": ["Military"],
       "mutableTags": [],
-      "InstructionType": "Modify",
-      "InstructionSubType": "Add",
-      "InstructionDeck": "Location",
-      "InstructionTags": ["Fortified"]
+      "Instructions": [
+        {
+          "TargetDeck": "Location",
+          "Tags": ["Fortified"]
+        }
+      ]
     },
     {
       "Deck": "Target",
@@ -96,10 +114,7 @@
       "TypeTags": ["Location", "Building"],
       "AspectTags": ["Knowledge"],
       "mutableTags": [],
-      "InstructionType": null,
-      "InstructionSubType": null,
-      "InstructionDeck": null,
-      "InstructionTags": []
+      "Instructions": []
     },
     {
       "Deck": "Target",
@@ -107,10 +122,12 @@
       "TypeTags": ["Character", "Humanoid"],
       "AspectTags": ["Military"],
       "mutableTags": [],
-      "InstructionType": "Modify",
-      "InstructionSubType": "Add",
-      "InstructionDeck": "Reward",
-      "InstructionTags": ["Honor"]
+      "Instructions": [
+        {
+          "TargetDeck": "Reward",
+          "Tags": ["Honor"]
+        }
+      ]
     },
     {
       "Deck": "Target",
@@ -118,10 +135,12 @@
       "TypeTags": ["Evil Monster", "Creature"],
       "AspectTags": ["Magic"],
       "mutableTags": [],
-      "InstructionType": "Modify",
-      "InstructionSubType": "Add",
-      "InstructionDeck": "ThisCard",
-      "InstructionTags": ["Powerful"]
+      "Instructions": [
+        {
+          "TargetDeck": "ThisCard",
+          "Tags": ["Powerful"]
+        }
+      ]
     }
   ],
   "locations": [
@@ -131,10 +150,12 @@
       "TypeTags": ["Wilderness", "Dangerous"],
       "AspectTags": ["Nature"],
       "mutableTags": [],
-      "InstructionType": "Modify",
-      "InstructionSubType": "Add",
-      "InstructionDeck": "Twist",
-      "InstructionTags": ["Perilous"]
+      "Instructions": [
+        {
+          "TargetDeck": "Twist",
+          "Tags": ["Perilous"]
+        }
+      ]
     },
     {
       "Deck": "Location",
@@ -142,10 +163,7 @@
       "TypeTags": ["Exploration", "Ancient"],
       "AspectTags": ["Mystery"],
       "mutableTags": [],
-      "InstructionType": null,
-      "InstructionSubType": null,
-      "InstructionDeck": null,
-      "InstructionTags": []
+      "Instructions": []
     },
     {
       "Deck": "Location",
@@ -153,10 +171,12 @@
       "TypeTags": ["Wilderness", "Dangerous"],
       "AspectTags": ["Nature"],
       "mutableTags": [],
-      "InstructionType": "Modify",
-      "InstructionSubType": "Add",
-      "InstructionDeck": "ThisCard",
-      "InstructionTags": ["Hidden"]
+      "Instructions": [
+        {
+          "TargetDeck": "ThisCard",
+          "Tags": ["Hidden"]
+        }
+      ]
     },
     {
       "Deck": "Location",
@@ -164,10 +184,7 @@
       "TypeTags": ["Building", "Safe"],
       "AspectTags": ["Military"],
       "mutableTags": [],
-      "InstructionType": null,
-      "InstructionSubType": null,
-      "InstructionDeck": null,
-      "InstructionTags": []
+      "Instructions": []
     },
     {
       "Deck": "Location",
@@ -175,10 +192,29 @@
       "TypeTags": ["Building", "Dangerous"],
       "AspectTags": ["Magic"],
       "mutableTags": [],
-      "InstructionType": "Modify",
-      "InstructionSubType": "Add",
-      "InstructionDeck": "Failure",
-      "InstructionTags": ["Cursed"]
+      "Instructions": [
+        {
+          "TargetDeck": "Failure",
+          "Tags": ["Cursed"]
+        }
+      ]
+    },
+    {
+      "Deck": "Location",
+      "CardName": "Bank Vault",
+      "TypeTags": ["Building", "Secure"],
+      "AspectTags": ["Commerce"],
+      "mutableTags": [],
+      "Instructions": [
+        {
+          "TargetDeck": "Reward",
+          "Tags": ["Protected"]
+        },
+        {
+          "TargetDeck": "Failure",
+          "Tags": ["Protected"]
+        }
+      ]
     }
   ],
   "twists": [
@@ -188,10 +224,12 @@
       "TypeTags": ["Danger", "Social"],
       "AspectTags": ["Mystery"],
       "mutableTags": [],
-      "InstructionType": "Modify",
-      "InstructionSubType": "Add",
-      "InstructionDeck": "Failure",
-      "InstructionTags": ["Treacherous"]
+      "Instructions": [
+        {
+          "TargetDeck": "Failure",
+          "Tags": ["Treacherous"]
+        }
+      ]
     },
     {
       "Deck": "Twist",
@@ -199,10 +237,7 @@
       "TypeTags": ["Challenge", "Urgency"],
       "AspectTags": ["Quest"],
       "mutableTags": [],
-      "InstructionType": null,
-      "InstructionSubType": null,
-      "InstructionDeck": null,
-      "InstructionTags": []
+      "Instructions": []
     },
     {
       "Deck": "Twist",
@@ -210,10 +245,12 @@
       "TypeTags": ["Opportunity", "Social"],
       "AspectTags": ["Compassion"],
       "mutableTags": [],
-      "InstructionType": "Modify",
-      "InstructionSubType": "Add",
-      "InstructionDeck": "Reward",
-      "InstructionTags": ["Fortunate"]
+      "Instructions": [
+        {
+          "TargetDeck": "Reward",
+          "Tags": ["Fortunate"]
+        }
+      ]
     },
     {
       "Deck": "Twist",
@@ -221,10 +258,16 @@
       "TypeTags": ["Danger", "Nature"],
       "AspectTags": ["Nature"],
       "mutableTags": [],
-      "InstructionType": "Modify",
-      "InstructionSubType": "Add",
-      "InstructionDeck": "ThisCard",
-      "InstructionTags": ["Deadly"]
+      "Instructions": [
+        {
+          "TargetDeck": "Reward",
+          "Tags": ["Compromised"]
+        },
+        {
+          "TargetDeck": "Failure",
+          "Tags": ["Compromised"]
+        }
+      ]
     }
   ],
   "rewards": [
@@ -234,10 +277,7 @@
       "TypeTags": ["Treasure", "Wealth"],
       "AspectTags": ["Commerce"],
       "mutableTags": [],
-      "InstructionType": null,
-      "InstructionSubType": null,
-      "InstructionDeck": null,
-      "InstructionTags": []
+      "Instructions": []
     },
     {
       "Deck": "Reward",
@@ -245,10 +285,12 @@
       "TypeTags": ["Weapon", "Magical"],
       "AspectTags": ["Magic"],
       "mutableTags": [],
-      "InstructionType": "Modify",
-      "InstructionSubType": "Add",
-      "InstructionDeck": "ThisCard",
-      "InstructionTags": ["Enchanted"]
+      "Instructions": [
+        {
+          "TargetDeck": "ThisCard",
+          "Tags": ["Enchanted"]
+        }
+      ]
     },
     {
       "Deck": "Reward",
@@ -256,10 +298,7 @@
       "TypeTags": ["Status", "Prestige"],
       "AspectTags": ["Military"],
       "mutableTags": [],
-      "InstructionType": null,
-      "InstructionSubType": null,
-      "InstructionDeck": null,
-      "InstructionTags": []
+      "Instructions": []
     },
     {
       "Deck": "Reward",
@@ -267,10 +306,7 @@
       "TypeTags": ["Information", "Mystery"],
       "AspectTags": ["Knowledge"],
       "mutableTags": [],
-      "InstructionType": null,
-      "InstructionSubType": null,
-      "InstructionDeck": null,
-      "InstructionTags": []
+      "Instructions": []
     }
   ],
   "failures": [
@@ -280,10 +316,7 @@
       "TypeTags": ["Permanent", "Catastrophic"],
       "AspectTags": ["Doom"],
       "mutableTags": [],
-      "InstructionType": null,
-      "InstructionSubType": null,
-      "InstructionDeck": null,
-      "InstructionTags": []
+      "Instructions": []
     },
     {
       "Deck": "Failure",
@@ -291,10 +324,7 @@
       "TypeTags": ["Confinement", "Temporary"],
       "AspectTags": ["Doom"],
       "mutableTags": [],
-      "InstructionType": null,
-      "InstructionSubType": null,
-      "InstructionDeck": null,
-      "InstructionTags": []
+      "Instructions": []
     },
     {
       "Deck": "Failure",
@@ -302,10 +332,12 @@
       "TypeTags": ["Magical", "Permanent"],
       "AspectTags": ["Magic"],
       "mutableTags": [],
-      "InstructionType": "Modify",
-      "InstructionSubType": "Add",
-      "InstructionDeck": "ThisCard",
-      "InstructionTags": ["Afflicted"]
+      "Instructions": [
+        {
+          "TargetDeck": "ThisCard",
+          "Tags": ["Afflicted"]
+        }
+      ]
     },
     {
       "Deck": "Failure",
@@ -313,10 +345,7 @@
       "TypeTags": ["Economic", "Temporary"],
       "AspectTags": ["Commerce"],
       "mutableTags": [],
-      "InstructionType": null,
-      "InstructionSubType": null,
-      "InstructionDeck": null,
-      "InstructionTags": []
+      "Instructions": []
     }
   ]
 }

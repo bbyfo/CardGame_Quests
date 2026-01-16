@@ -52,8 +52,15 @@ class DataLoader {
    * Initialize a card with runtime fields
    */
   initializeCard(cardData) {
+    // Normalize Instructions to always be an array of {TargetDeck, Tags} objects
+    let instructions = cardData.Instructions || [];
+    if (!Array.isArray(instructions)) {
+      instructions = [];
+    }
+    
     return {
       ...cardData,
+      Instructions: instructions,
       mutableTags: cardData.mutableTags || [],
       id: `${cardData.Deck}-${cardData.CardName}-${Math.random()}`
     };

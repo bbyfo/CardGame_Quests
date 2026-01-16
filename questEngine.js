@@ -88,9 +88,9 @@ class QuestEngine {
   getMatchingRequirement(deckName, defaultTags) {
     // Check if any pending instruction targets this deck
     for (const instruction of this.pendingInstructions) {
-      if (instruction.target.toLowerCase() === deckName.toLowerCase()) {
+      if (instruction.targetDeck && instruction.targetDeck.toLowerCase() === deckName.toLowerCase()) {
         this.log(`Using instruction tags from "${instruction.source}" for ${deckName} matching`, {
-          instruction: instruction.target,
+          instruction: instruction.targetDeck,
           tags: instruction.tags
         });
         return instruction.tags;
@@ -104,23 +104,30 @@ class QuestEngine {
    * Helper: Store pending instruction from a drawn card
    */
   storePendingInstruction(card) {
-    if (card.InstructionType && card.InstructionDeck) {
-      // Don't store if target is "ThisCard" (applied immediately)
-      if (card.InstructionDeck.toLowerCase() === 'thiscard') {
-        return;
+    if (card.Instructions && Array.isArray(card.Instructions) && card.Instructions.length > 0) {
+      for (const instruction of card.Instructions) {
+        const targetDeck = instruction.TargetDeck;
+        const tags = instruction.Tags || [];
+        
+        // Don't store if target is "ThisCard" (applied immediately)
+        if (targetDeck && targetDeck.toLowerCase() === 'thiscard') {
+          continue;
+        }
+        
+        if (targetDeck && tags.length > 0) {
+          this.pendingInstructions.push({
+            source: card.CardName,
+            targetDeck: targetDeck,
+            tags: tags
+          });
+          
+          this.log(`Instruction stored: "${card.CardName}" will add [${tags.join(', ')}] to [${targetDeck}]`, {
+            source: card.CardName,
+            targetDeck: targetDeck,
+            tags: tags
+          });
+        }
       }
-      
-      this.pendingInstructions.push({
-        source: card.CardName,
-        type: card.InstructionType,
-        subType: card.InstructionSubType,
-        target: card.InstructionDeck,
-        tags: card.InstructionTags
-      });
-      this.log(`Instruction stored: "${card.CardName}" will add [${card.InstructionTags.join(', ')}] to ${card.InstructionDeck}`, {
-        source: card.CardName,
-        instruction: card.InstructionDeck
-      });
     }
   }
 
@@ -206,44 +213,35 @@ class QuestEngine {
   /**
    * Apply Modify effects from a card
    */
-  applyModifyEffects(card, targetCard, deckName) {
-    if (!card.InstructionType || card.InstructionType !== 'Modify') {
-      return false;
+  applyModifyEffects(card) {
+    if (!card.Instructions || !Array.isArray(card.Instructions)) {
+      return;
     }
 
-    const instruction = {
-      source: card.CardName,
-      type: card.InstructionType,
-      subType: card.InstructionSubType,
-      target: card.InstructionDeck,
-      tags: card.InstructionTags
-    };
+    for (const instruction of card.Instructions) {
+      const targetDeck = instruction.TargetDeck;
+      const tags = instruction.Tags || [];
+      
+      if (!targetDeck || tags.length === 0) {
+        continue;
+      }
 
-    if (card.InstructionSubType === 'Add') {
-      if (card.InstructionDeck === 'ThisCard') {
-        card.mutableTags.push(...card.InstructionTags);
+      // Handle ThisCard instruction (applied immediately to this card)
+      if (targetDeck.toLowerCase() === 'thiscard') {
+        card.mutableTags.push(...tags);
         this.log(
-          `Modify Effect: "${card.CardName}" gained tags [${card.InstructionTags.join(', ')}]`,
-          { appliedTo: 'ThisCard', tags: card.InstructionTags }
+          `Modify Effect: "${card.CardName}" gained tags [${tags.join(', ')}]`,
+          { appliedTo: 'ThisCard', tags: tags }
         );
-      } else if (targetCard) {
-        targetCard.mutableTags.push(...card.InstructionTags);
-        this.log(
-          `Modify Effect: "${targetCard.CardName}" gained tags [${card.InstructionTags.join(', ')}] from "${card.CardName}"`,
-          { appliedTo: targetCard.CardName, tags: card.InstructionTags, source: card.CardName }
-        );
+        this.stats.modifyEffectsApplied++;
       } else {
-        // Target is another role (Location, Twist, Reward, Failure)
+        // Will be applied to future deck via pending instructions
         this.log(
-          `Modify Effect: Tags [${card.InstructionTags.join(', ')}] marked for ${card.InstructionDeck}`,
-          { appliedTo: card.InstructionDeck, tags: card.InstructionTags, source: card.CardName }
+          `Modify Effect: Tags [${tags.join(', ')}] marked for [${targetDeck}]`,
+          { source: card.CardName, targetDeck: targetDeck, tags: tags }
         );
-        return instruction;
       }
     }
-
-    this.stats.modifyEffectsApplied++;
-    return instruction;
   }
 
   /**
@@ -265,21 +263,21 @@ class QuestEngine {
 
     this.quest.verb = verb;
     this.log(`Verb drawn: "${verb.CardName}"`);
-    const deckInfo = verb.InstructionDeck ? `${verb.InstructionDeck} with ` : '';
-    this.log(`Verb target requirement: ${deckInfo}[${verb.TargetRequirement.join(', ')}]`, { requirement: verb.TargetRequirement });
+    this.log(`Verb target requirement: [${verb.TargetRequirement.join(', ')}]`, { requirement: verb.TargetRequirement });
 
-    // Store verb's instruction if it targets a future deck
-    if (verb.InstructionDeck) {
-      this.pendingInstructions.push({
+    // Store verb's instructions if it targets future decks
+    if (verb.Instructions && Array.isArray(verb.Instructions) && verb.Instructions.length > 0) {
+      for (const instruction of verb.Instructions) {
+        this.pendingInstructions.push({
+          source: verb.CardName,
+          targetDeck: instruction.TargetDeck,
+          tags: instruction.Tags || []
+        });
+      }
+      const deckTargets = verb.Instructions.map(i => `${i.TargetDeck}`).join(', ');
+      this.log(`Verb instructions stored: "${verb.CardName}" will add requirements to [${deckTargets}]`, {
         source: verb.CardName,
-        type: verb.InstructionType,
-        subType: verb.InstructionSubType,
-        target: verb.InstructionDeck,
-        tags: verb.TargetRequirement
-      });
-      this.log(`Verb instruction stored: "${verb.CardName}" will match [${verb.TargetRequirement.join(', ')}] in ${verb.InstructionDeck}`, {
-        source: verb.CardName,
-        instruction: verb.InstructionDeck
+        instructions: verb.Instructions
       });
     }
 

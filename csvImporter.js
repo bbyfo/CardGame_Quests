@@ -122,19 +122,18 @@ class CSVImporter {
       if (!header) continue; // Skip empty headers
 
       // Handle special array fields
-      if (['TypeTags', 'AspectTags', 'InstructionTags'].includes(header)) {
+      if (['TypeTags', 'AspectTags'].includes(header)) {
         card[header] = this.parseTags(value);
       } else if (header === 'mutableTags') {
         card[header] = this.parseTags(value) || [];
       } else if (header === 'TargetRequirement') {
         card[header] = this.parseTags(value) || [];
+      } else if (header === 'Instructions') {
+        // Instructions: pipe-separated deck instructions
+        // Format: Location[Building;Vault;Fortress]|Target[Magic Item;Artifact]
+        card[header] = this.parseInstructions(value);
       } else if (value === '') {
-        // Empty string becomes null for instruction fields
-        if (['InstructionType', 'InstructionSubType', 'InstructionDeck'].includes(header)) {
-          card[header] = null;
-        } else {
-          card[header] = value;
-        }
+        card[header] = value;
       } else {
         card[header] = value;
       }
@@ -148,10 +147,7 @@ class CSVImporter {
     card.TypeTags = card.TypeTags || [];
     card.AspectTags = card.AspectTags || [];
     card.mutableTags = card.mutableTags || [];
-    card.InstructionType = card.InstructionType || null;
-    card.InstructionSubType = card.InstructionSubType || null;
-    card.InstructionDeck = card.InstructionDeck || null;
-    card.InstructionTags = card.InstructionTags || [];
+    card.Instructions = card.Instructions || [];
 
     // TargetRequirement only for Verbs
     if (card.Deck.toLowerCase() !== 'verb') {
@@ -175,6 +171,37 @@ class CSVImporter {
       .split(separators)
       .map(tag => tag.trim())
       .filter(tag => tag.length > 0);
+  }
+
+  /**
+   * Parse instructions from pipe-separated format
+   * Format: Location[Building;Vault;Fortress]|Target[Magic Item;Artifact]
+   */
+  static parseInstructions(instructionString) {
+    if (!instructionString || instructionString.trim() === '') {
+      return [];
+    }
+
+    const instructions = [];
+    const parts = instructionString.split('|');
+    
+    for (const part of parts) {
+      const match = part.match(/^(\w+)\[(.+)\]$/);
+      if (match) {
+        const targetDeck = match[1].trim();
+        const tagsString = match[2];
+        const tags = this.parseTags(tagsString);
+        
+        if (targetDeck && tags.length > 0) {
+          instructions.push({
+            TargetDeck: targetDeck,
+            Tags: tags
+          });
+        }
+      }
+    }
+    
+    return instructions;
   }
 
   /**
@@ -257,19 +284,23 @@ class CSVImporter {
    * Get CSV template as string
    */
   static getCSVTemplate() {
-    return `Deck,CardName,TypeTags,AspectTags,InstructionType,InstructionSubType,InstructionDeck,InstructionTags,TargetRequirement
-Verb,Defend,Protective;Action,Military,Modify,Add,Target,,Evil Monster
-Verb,Retrieve,Heroic;Action,Quest,,,,Magical
-Target,Ironfang Raider,Evil Monster;Humanoid,Military,Modify,Add,ThisCard,Hostile,
-Target,Forgotten Amulet,Magical;Artifact,Ancient,,,,
-Location,Dark Forest,Wilderness;Dangerous,Nature,Modify,Add,Twist,Perilous,
-Location,Ancient Ruins,Exploration;Ancient,Mystery,,,,
-Twist,Betrayal,Danger;Social,Mystery,Modify,Add,Failure,Treacherous,
-Twist,Time Pressure,Challenge;Urgency,Quest,,,,
-Reward,Gold Coins,Treasure;Wealth,Commerce,,,,
-Reward,Magical Sword,Weapon;Magical,Magic,Modify,Add,ThisCard,Enchanted,
-Failure,Death,Permanent;Catastrophic,Doom,,,,
-Failure,Curse,Magical;Permanent,Magic,Modify,Add,ThisCard,Afflicted,`;
+    return `Deck,CardName,TypeTags,AspectTags,Instructions,TargetRequirement
+Verb,Defend,Protective;Action,Military,Target[Evil Monster],Evil Monster
+Verb,Retrieve,Heroic;Action,Quest,,Magical
+Verb,Heist,Criminal;Action,Stealth,Location[Building;Vault;Fortress]|Target[Magic Item;Artifact;Jewel],City;Vault
+Target,Ironfang Raider,Evil Monster;Humanoid,Military,ThisCard[Hostile],
+Target,Forgotten Amulet,Magical;Artifact,Ancient,,
+Target,Castle Guard,Structure;Humanoid,Military,Location[Fortified],
+Location,Dark Forest,Wilderness;Dangerous,Nature,Twist[Perilous],
+Location,Ancient Ruins,Exploration;Ancient,Mystery,,
+Location,Bank Vault,Building;Secure,Commerce,Reward[Protected]|Failure[Protected],
+Twist,Betrayal,Danger;Social,Mystery,Failure[Treacherous],
+Twist,Time Pressure,Challenge;Urgency,Quest,,
+Twist,Sabotage,Danger;Deception,Crime,Reward[Compromised]|Failure[Compromised],
+Reward,Gold Coins,Treasure;Wealth,Commerce,,
+Reward,Magical Sword,Weapon;Magical,Magic,ThisCard[Enchanted],
+Failure,Death,Permanent;Catastrophic,Doom,,
+Failure,Curse,Magical;Permanent,Magic,ThisCard[Afflicted],`;
   }
 
   /**
@@ -300,10 +331,7 @@ Failure,Curse,Magical;Permanent,Magic,Modify,Add,ThisCard,Afflicted,`;
       'CardName',
       'TypeTags',
       'AspectTags',
-      'InstructionType',
-      'InstructionSubType',
-      'InstructionDeck',
-      'InstructionTags',
+      'Instructions',
       'TargetRequirement'
     ]);
 
@@ -317,15 +345,20 @@ Failure,Curse,Magical;Permanent,Magic,Modify,Add,ThisCard,Afflicted,`;
 
     // Convert to rows
     for (const card of allCards) {
+      // Convert Instructions array to pipe-separated format
+      let instructionsStr = '';
+      if (card.Instructions && Array.isArray(card.Instructions) && card.Instructions.length > 0) {
+        instructionsStr = card.Instructions
+          .map(instr => `${instr.TargetDeck}[${instr.Tags.join(';')}]`)
+          .join('|');
+      }
+
       rows.push([
         card.Deck || card.deckName,
         card.CardName,
         (card.TypeTags && card.TypeTags.join(';')) || '',
         (card.AspectTags && card.AspectTags.join(';')) || '',
-        card.InstructionType || '',
-        card.InstructionSubType || '',
-        card.InstructionDeck || '',
-        (card.InstructionTags && card.InstructionTags.join(';')) || '',
+        instructionsStr,
         (card.TargetRequirement && card.TargetRequirement.join(';')) || ''
       ]);
     }
