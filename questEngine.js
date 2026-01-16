@@ -70,9 +70,20 @@ class QuestEngine {
 
   /**
    * Helper: Get current tags for a card
+   * This includes ALL tags (TypeTags, AspectTags, and mutableTags)
+   * Used for display purposes only
    */
   getCurrentTags(card) {
     const tags = [...card.TypeTags, ...card.AspectTags, ...card.mutableTags];
+    return tags;
+  }
+
+  /**
+   * Helper: Get tags used for draw logic
+   * Only includes TypeTags and mutableTags (AspectTags are excluded)
+   */
+  getDrawTags(card) {
+    const tags = [...card.TypeTags, ...card.mutableTags];
     return tags;
   }
 
@@ -91,7 +102,7 @@ class QuestEngine {
       return deck.length;
     }
     return deck.filter(card => {
-      const cardTags = this.getCurrentTags(card);
+      const cardTags = this.getDrawTags(card);
       return requiredTags.some(req => cardTags.includes(req));
     }).length;
   }
@@ -157,7 +168,7 @@ class QuestEngine {
       return deck;
     }
     return deck.filter(card => {
-      const cardTags = this.getCurrentTags(card);
+      const cardTags = this.getDrawTags(card);
       return requiredTags.some(req => cardTags.includes(req));
     });
   }
@@ -188,7 +199,7 @@ class QuestEngine {
         break;
       }
 
-      const cardTags = this.getCurrentTags(card);
+      const cardTags = this.getDrawTags(card);
       const matches = this.getTagIntersection(cardTags, requiredTags);
 
       // Empty requiredTags means no constraint - accept any card
