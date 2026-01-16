@@ -11,6 +11,7 @@ class QuestEngine {
     this.stepThroughMode = false;
     this.stepIndex = 0;
     this.debugMode = false; // Default to non-verbose logging
+    this.validator = null; // Reference to validator for tracking card draws
     this.stats = {
       drawAttempts: 0,
       fallbacksTriggered: 0,
@@ -177,7 +178,14 @@ class QuestEngine {
     this.stats.drawAttempts++;
     if (deck.length === 0) return null;
     const index = Math.floor(Math.random() * deck.length);
-    return deck[index];
+    const card = deck[index];
+    
+    // Track card draw for validation statistics
+    if (this.validator && card) {
+      this.validator.trackCardDraw(card);
+    }
+    
+    return card;
   }
 
   /**

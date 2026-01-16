@@ -133,6 +133,9 @@ class QuestValidator {
     this.resetStats();
     this.initializeCardTracking();
 
+    // Set validator reference in engine for card draw tracking
+    this.engine.validator = this;
+
     // Clone decks for each iteration to avoid state carryover
     for (let i = 0; i < iterations; i++) {
       if (progressCallback) {
