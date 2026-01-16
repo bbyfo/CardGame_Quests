@@ -43,7 +43,8 @@ class UIManager {
     const debugToggle = document.getElementById('debug-toggle');
     if (debugToggle) {
       debugToggle.addEventListener('change', (e) => {
-        console.log('Debug mode:', e.target.checked);
+        this.engine.debugMode = e.target.checked;
+        console.log('Debug mode:', e.target.checked ? 'Verbose logging enabled' : 'Concise logging enabled');
       });
     }
 
@@ -96,6 +97,12 @@ class UIManager {
     this.mode = 'normal';
     document.getElementById('btn-next-step').disabled = true;
     
+    // Update engine debug mode from checkbox
+    const debugToggle = document.getElementById('debug-toggle');
+    if (debugToggle) {
+      this.engine.debugMode = debugToggle.checked;
+    }
+    
     const selectedVerb = this.getSelectedVerb();
     const quest = this.engine.generateQuest(selectedVerb);
     
@@ -114,6 +121,13 @@ class UIManager {
     this.clearLogs();
     this.mode = 'step-through';
     this.engine.reset();
+    
+    // Update engine debug mode from checkbox
+    const debugToggle = document.getElementById('debug-toggle');
+    if (debugToggle) {
+      this.engine.debugMode = debugToggle.checked;
+    }
+    
     this.stepState = {
       step: 0, // 0: Quest Giver, 1: Harmed Party, 2: Verb, 3: Target, 4: Location, 5: Twist, 6: Reward/Failure
       questGiver: null,

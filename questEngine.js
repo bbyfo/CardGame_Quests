@@ -10,6 +10,7 @@ class QuestEngine {
     this.quest = null;
     this.stepThroughMode = false;
     this.stepIndex = 0;
+    this.debugMode = false; // Default to non-verbose logging
     this.stats = {
       drawAttempts: 0,
       fallbacksTriggered: 0,
@@ -44,15 +45,27 @@ class QuestEngine {
 
   /**
    * Log a message to the logs array
+   * @param {string} message - The message to log
+   * @param {*} data - Optional data to include
+   * @param {boolean} verboseOnly - If true, only log when debug mode is enabled
    */
-  log(message, data = null) {
+  log(message, data = null, verboseOnly = false) {
+    // Skip verbose logs if debug mode is off
+    if (verboseOnly && !this.debugMode) {
+      return;
+    }
+
     const logEntry = {
       timestamp: this.logs.length,
       message: message,
       data: data
     };
     this.logs.push(logEntry);
-    console.log(`[${logEntry.timestamp}] ${message}`, data || '');
+    
+    // Only console.log in debug mode or for important messages
+    if (this.debugMode || !verboseOnly) {
+      console.log(`[${logEntry.timestamp}] ${message}`, data || '');
+    }
   }
 
   /**
@@ -86,15 +99,18 @@ class QuestEngine {
   /**
    * Helper: Get matching requirement tags for a given deck
    * Checks pending instructions and normal matching rules
+   * Prioritizes the most recent (last added) instruction for a deck
    */
   getMatchingRequirement(deckName, defaultTags) {
     // Check if any pending instruction targets this deck
-    for (const instruction of this.pendingInstructions) {
+    // Search in reverse to get the most recent instruction (last added)
+    for (let i = this.pendingInstructions.length - 1; i >= 0; i--) {
+      const instruction = this.pendingInstructions[i];
       if (instruction.targetDeck && instruction.targetDeck.toLowerCase() === deckName.toLowerCase()) {
         this.log(`Using instruction tags from "${instruction.source}" for ${deckName} matching`, {
           instruction: instruction.targetDeck,
           tags: instruction.tags
-        });
+        }, true); // Verbose only
         return instruction.tags;
       }
     }
@@ -127,7 +143,7 @@ class QuestEngine {
             source: card.CardName,
             targetDeck: targetDeck,
             tags: tags
-          });
+          }, true); // Verbose only
         }
       }
     }
@@ -183,18 +199,21 @@ class QuestEngine {
         if (requiredTags.length === 0) {
           this.log(
             `${deckName} Draw #${attempts}: ACCEPTED "${card.CardName}" (no tag constraints)`,
-            { card: card.CardName, noConstraints: true }
+            { card: card.CardName, noConstraints: true },
+            true // Verbose only
           );
         } else {
           this.log(
             `${deckName} Draw #${attempts}: ACCEPTED "${card.CardName}" (matched tags: ${matches.join(', ')})`,
-            { card: card.CardName, matchedTags: matches }
+            { card: card.CardName, matchedTags: matches },
+            true // Verbose only
           );
         }
       } else {
         this.log(
           `${deckName} Draw #${attempts}: REJECTED "${card.CardName}" (no matching tags, needs: ${requiredTags.join(', ')})`,
-          { card: card.CardName, requiredTags: requiredTags }
+          { card: card.CardName, requiredTags: requiredTags },
+          true // Verbose only
         );
 
         if (attempts === 3) {
@@ -203,7 +222,8 @@ class QuestEngine {
           selectedCard = this.drawRandomCard(deck);
           this.log(
             `${deckName} Draw #4 (FALLBACK): Auto-accepted "${selectedCard.CardName}"`,
-            { card: selectedCard.CardName, isFallback: true }
+            { card: selectedCard.CardName, isFallback: true },
+            true // Verbose only
           );
         }
       }
@@ -233,14 +253,16 @@ class QuestEngine {
         card.mutableTags.push(...tags);
         this.log(
           `Modify Effect: "${card.CardName}" gained tags [${tags.join(', ')}]`,
-          { appliedTo: 'ThisCard', tags: tags }
+          { appliedTo: 'ThisCard', tags: tags },
+          true // Verbose only
         );
         this.stats.modifyEffectsApplied++;
       } else {
         // Will be applied to future deck via pending instructions
         this.log(
           `Modify Effect: Tags [${tags.join(', ')}] marked for [${targetDeck}]`,
-          { source: card.CardName, targetDeck: targetDeck, tags: tags }
+          { source: card.CardName, targetDeck: targetDeck, tags: tags },
+          true // Verbose only
         );
       }
     }
@@ -275,7 +297,7 @@ class QuestEngine {
       this.log(`Quest Giver instructions stored: "${questGiver.CardName}" will add requirements to [${deckTargets}]`, {
         source: questGiver.CardName,
         instructions: questGiver.Instructions
-      });
+      }, true); // Verbose only
     }
 
     return questGiver;
@@ -320,7 +342,7 @@ class QuestEngine {
    * STEP 3: Draw Verb
    */
   stepDrawVerb(specificVerb) {
-    this.log('=== STEP 1: Draw Verb ===');
+    this.log('=== STEP 3: Draw Verb ===');
     
     // Use specific verb if provided, otherwise draw random
     let verb = specificVerb;
