@@ -11,13 +11,13 @@
     {
       "Deck": "QuestGiver",
       "CardName": "Archmagus",
-      "TypeTags": ["Arcane", "Order"],
+      "TypeTags": ["Magic", "Order"],
       "AspectTags": ["Magic"],
       "mutableTags": [],
       "Instructions": [
         {
           "TargetDeck": "Target",
-          "Tags": ["Arcane"]
+          "Tags": ["Magic"]
         }
       ]
     },
@@ -30,7 +30,7 @@
       "Instructions": [
         {
           "TargetDeck": "Reward",
-          "Tags": ["Profitable"]
+          "Tags": ["Wealth"]
         }
       ]
     }
@@ -52,7 +52,7 @@
     {
       "Deck": "HarmedParty",
       "CardName": "Ancient Curse",
-      "TypeTags": ["Arcane", "Chaos"],
+      "TypeTags": ["Magic", "Chaos"],
       "AspectTags": ["Magic"],
       "mutableTags": [],
       "Instructions": [
@@ -80,7 +80,11 @@
       "Instructions": [
         {
           "TargetDeck": "Target",
-          "Tags": ["Evil Monster", "Dangerous"]
+          "Tags": ["Evil"]
+        },
+        {
+          "TargetDeck": "Location",
+          "Tags": ["Good"]
         }
       ]
     },
@@ -115,28 +119,28 @@
     {
       "Deck": "Verb",
       "CardName": "Investigate",
-      "TypeTags": ["Order", "Arcane"],
+      "TypeTags": ["Order", "Magic"],
       "AspectTags": ["Mystery"],
       "Instructions": [
         {
           "TargetDeck": "Target",
-          "Tags": ["Arcane", "Ruins"]
+          "Tags": ["Magic", "Nature"]
         }
       ]
     },
     {
       "Deck": "Verb",
-      "CardName": "Rescue",
+      "CardName": "Recover",
       "TypeTags": ["Good", "Holy"],
       "AspectTags": ["Compassion"],
       "Instructions": [
         {
           "TargetDeck": "Target",
-          "Tags": ["Character", "Noble", "Good NPC"]
+          "Tags": ["Good", "Magic"]
         },
         {
           "TargetDeck": "Location",
-          "Tags": ["Prison", "Fortress"]
+          "Tags": ["Martial", "Evil"]
         }
       ]
     },
@@ -148,11 +152,14 @@
       "Instructions": [
         {
           "TargetDeck": "Location",
-          "Tags": ["Building", "Vault", "Fortress"]
+          "Tags": ["Evil", "Chaos"]
         },
         {
           "TargetDeck": "Target",
-          "Tags": ["Treasure", "Vault", "Magic Item", "Artifact", "Jewel"]
+          "Tags": ["Wealth", "Magic"]
+        },{
+          "TargetDeck": "HarmedParty",
+          "Tags": ["Wealth", "Chaos", "Evil"]
         }
       ]
     }
@@ -174,7 +181,7 @@
     {
       "Deck": "Target",
       "CardName": "Forgotten Amulet",
-      "TypeTags": ["Arcane", "Order"],
+      "TypeTags": ["Magic", "Order"],
       "AspectTags": ["Ancient"],
       "mutableTags": [],
       "Instructions": []
@@ -195,7 +202,7 @@
     {
       "Deck": "Target",
       "CardName": "Lost Library",
-      "TypeTags": ["Arcane", "Order"],
+      "TypeTags": ["Magic", "Order"],
       "AspectTags": ["Knowledge"],
       "mutableTags": [],
       "Instructions": []
@@ -257,7 +264,7 @@
     {
       "Deck": "Location",
       "CardName": "Ancient Ruins",
-      "TypeTags": ["Arcane", "Chaos"],
+      "TypeTags": ["Magic", "Chaos"],
       "AspectTags": ["Mystery"],
       "mutableTags": [],
       "Instructions": []
@@ -286,7 +293,7 @@
     {
       "Deck": "Location",
       "CardName": "Haunted Tower",
-      "TypeTags": ["Arcane", "Chaos"],
+      "TypeTags": ["Magic", "Chaos"],
       "AspectTags": ["Magic"],
       "mutableTags": [],
       "Instructions": [
@@ -379,7 +386,7 @@
     {
       "Deck": "Reward",
       "CardName": "Magical Sword",
-      "TypeTags": ["Arcane", "Martial"],
+      "TypeTags": ["Magic", "Martial"],
       "AspectTags": ["Magic"],
       "mutableTags": [],
       "Instructions": [
@@ -400,7 +407,7 @@
     {
       "Deck": "Reward",
       "CardName": "Secret Knowledge",
-      "TypeTags": ["Arcane", "Order"],
+      "TypeTags": ["Magic", "Order"],
       "AspectTags": ["Knowledge"],
       "mutableTags": [],
       "Instructions": []
@@ -426,7 +433,7 @@
     {
       "Deck": "Failure",
       "CardName": "Curse",
-      "TypeTags": ["Arcane", "Evil"],
+      "TypeTags": ["Magic", "Evil"],
       "AspectTags": ["Magic"],
       "mutableTags": [],
       "Instructions": [
