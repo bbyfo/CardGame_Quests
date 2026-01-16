@@ -50,8 +50,9 @@ class QuestEngine {
    * @param {string} message - The message to log
    * @param {*} data - Optional data to include
    * @param {boolean} verboseOnly - If true, only log when debug mode is enabled
+   * @param {string} type - Log type: 'normal', 'error', 'warning'
    */
-  log(message, data = null, verboseOnly = false) {
+  log(message, data = null, verboseOnly = false, type = 'normal') {
     // Skip verbose logs if debug mode is off
     if (verboseOnly && !this.debugMode) {
       return;
@@ -60,7 +61,8 @@ class QuestEngine {
     const logEntry = {
       timestamp: this.logs.length,
       message: message,
-      data: data
+      data: data,
+      type: type
     };
     this.logs.push(logEntry);
     
@@ -409,6 +411,17 @@ class QuestEngine {
     );
     this.log(`Match pool: ${matchCount}/${totalCount} (${percentage}%)`);
 
+    // Check for zero match pool
+    if (requiredTags.length > 0 && matchCount === 0) {
+      this.log(
+        `❌ FATAL ERROR: Zero match pool for Target! No cards in the Target deck have the required tags [${requiredTags.join(', ')}]. Quest generation cannot continue.`,
+        { step: 'Target', requiredTags: requiredTags, deckSize: totalCount },
+        false,
+        'error'
+      );
+      return null;
+    }
+
     const target = this.drawWithFallback(this.decks.targets, requiredTags, 'Target', 'Target');
     
     if (!target) {
@@ -448,6 +461,17 @@ class QuestEngine {
       { requiredTags: requiredTags }
     );
     this.log(`Match pool: ${matchCount}/${totalCount} (${percentage}%)`);
+
+    // Check for zero match pool
+    if (requiredTags.length > 0 && matchCount === 0) {
+      this.log(
+        `❌ FATAL ERROR: Zero match pool for Location! No cards in the Location deck have the required tags [${requiredTags.join(', ')}]. Quest generation cannot continue.`,
+        { step: 'Location', requiredTags: requiredTags, deckSize: totalCount },
+        false,
+        'error'
+      );
+      return null;
+    }
 
     const location = this.drawWithFallback(this.decks.locations, requiredTags, 'Location', 'Location');
     
@@ -489,6 +513,17 @@ class QuestEngine {
     );
     this.log(`Match pool: ${matchCount}/${totalCount} (${percentage}%)`);
 
+    // Check for zero match pool
+    if (requiredTags.length > 0 && matchCount === 0) {
+      this.log(
+        `❌ FATAL ERROR: Zero match pool for Twist! No cards in the Twist deck have the required tags [${requiredTags.join(', ')}]. Quest generation cannot continue.`,
+        { step: 'Twist', requiredTags: requiredTags, deckSize: totalCount },
+        false,
+        'error'
+      );
+      return null;
+    }
+
     const twist = this.drawWithFallback(this.decks.twists, requiredTags, 'Twist', 'Twist');
     
     if (!twist) {
@@ -528,6 +563,17 @@ class QuestEngine {
     );
     this.log(`Reward match pool: ${rewardMatchCount}/${rewardTotalCount} (${rewardPercentage}%)`);
 
+    // Check for zero match pool
+    if (rewardTags.length > 0 && rewardMatchCount === 0) {
+      this.log(
+        `❌ FATAL ERROR: Zero match pool for Reward! No cards in the Reward deck have the required tags [${rewardTags.join(', ')}]. Quest generation cannot continue.`,
+        { step: 'Reward', requiredTags: rewardTags, deckSize: rewardTotalCount },
+        false,
+        'error'
+      );
+      return null;
+    }
+
     const reward = this.drawWithFallback(this.decks.rewards, rewardTags, 'Reward', 'Reward');
     
     if (reward) {
@@ -550,6 +596,17 @@ class QuestEngine {
       { requiredTags: failureTags }
     );
     this.log(`Failure match pool: ${failureMatchCount}/${failureTotalCount} (${failurePercentage}%)`);
+
+    // Check for zero match pool
+    if (failureTags.length > 0 && failureMatchCount === 0) {
+      this.log(
+        `❌ FATAL ERROR: Zero match pool for Failure! No cards in the Failure deck have the required tags [${failureTags.join(', ')}]. Quest generation cannot continue.`,
+        { step: 'Failure', requiredTags: failureTags, deckSize: failureTotalCount },
+        false,
+        'error'
+      );
+      return null;
+    }
 
     const failure = this.drawWithFallback(this.decks.failures, failureTags, 'Failure', 'Failure');
     
@@ -597,7 +654,8 @@ class QuestEngine {
     if (!twist) return null;
 
     // Step 7: Draw Reward and Failure
-    this.stepDrawRewardAndFailure(twist);
+    const rewardFailure = this.stepDrawRewardAndFailure(twist);
+    if (!rewardFailure) return null;
 
     this.log('=== QUEST GENERATION COMPLETE ===');
     this.log(`Total draw attempts: ${this.stats.drawAttempts}`);

@@ -148,6 +148,16 @@ section h4 {
   overflow-y: auto;
 }
 
+.error-message {
+  color: var(--danger-color);
+  font-weight: bold;
+  padding: 20px;
+  text-align: center;
+  background-color: rgba(192, 57, 43, 0.1);
+  border: 2px solid var(--danger-color);
+  border-radius: 4px;
+}
+
 .quest-display {
   background-color: #f8f9fa;
   padding: 15px;
@@ -216,6 +226,14 @@ section h4 {
   margin-bottom: 5px;
   line-height: 1.4;
   word-break: break-word;
+}
+
+.log-entry.log-error {
+  color: var(--log-error);
+  font-weight: bold;
+  background-color: rgba(255, 107, 107, 0.1);
+  padding: 5px;
+  border-left: 3px solid var(--log-error);
 }
 
 .log-num {

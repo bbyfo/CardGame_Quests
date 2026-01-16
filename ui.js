@@ -115,11 +115,15 @@ class UIManager {
     const selectedVerb = this.getSelectedVerb();
     const quest = this.engine.generateQuest(selectedVerb);
     
+    // Always display logs (especially important if quest generation failed)
+    this.displayLogs(this.engine.getLogs());
+    
     if (quest) {
       this.displayQuest(quest);
-      this.displayLogs(this.engine.getLogs());
     } else {
-      this.addLog('ERROR: Quest generation failed');
+      // Quest generation failed - logs will show the detailed error
+      const questOutput = document.getElementById('quest-output');
+      questOutput.innerHTML = '<p class="error-message">Quest generation failed. See log for details.</p>';
     }
   }
 
@@ -165,37 +169,73 @@ class UIManager {
     if (step === 0) {
       // Draw Quest Giver
       this.stepState.questGiver = this.engine.stepDrawQuestGiver();
+      if (!this.stepState.questGiver) {
+        this.displayLogs(this.engine.getLogs());
+        document.getElementById('btn-next-step').disabled = true;
+        return;
+      }
       this.addLog(`Drawn Quest Giver: ${this.stepState.questGiver.CardName}`);
       this.addLog(`Type Tags: [${this.stepState.questGiver.TypeTags.join(', ')}]`);
       this.addLog(`Aspect Tags: [${this.stepState.questGiver.AspectTags.join(', ')}]`);
     } else if (step === 1) {
       // Draw Harmed Party
       this.stepState.harmedParty = this.engine.stepDrawHarmedParty();
+      if (!this.stepState.harmedParty) {
+        this.displayLogs(this.engine.getLogs());
+        document.getElementById('btn-next-step').disabled = true;
+        return;
+      }
       this.addLog(`Drawn Harmed Party: ${this.stepState.harmedParty.CardName}`);
       this.addLog(`Type Tags: [${this.stepState.harmedParty.TypeTags.join(', ')}]`);
       this.addLog(`Aspect Tags: [${this.stepState.harmedParty.AspectTags.join(', ')}]`);
     } else if (step === 2) {
       // Draw Verb
       this.stepState.verb = this.engine.stepDrawVerb(this.stepState.selectedVerb);
+      if (!this.stepState.verb) {
+        this.displayLogs(this.engine.getLogs());
+        document.getElementById('btn-next-step').disabled = true;
+        return;
+      }
       this.addLog(`Drawn Verb: ${this.stepState.verb.CardName}`);
     } else if (step === 3) {
       // Draw Target
       this.stepState.target = this.engine.stepDrawTarget(this.stepState.verb);
+      if (!this.stepState.target) {
+        this.displayLogs(this.engine.getLogs());
+        document.getElementById('btn-next-step').disabled = true;
+        return;
+      }
       this.addLog(`Drawn Target: ${this.stepState.target.CardName}`);
       this.addLog(`Target Tags: [${this.engine.getCurrentTags(this.stepState.target).join(', ')}]`);
     } else if (step === 4) {
       // Draw Location
       this.stepState.location = this.engine.stepDrawLocation(this.stepState.target);
+      if (!this.stepState.location) {
+        this.displayLogs(this.engine.getLogs());
+        document.getElementById('btn-next-step').disabled = true;
+        return;
+      }
       this.addLog(`Drawn Location: ${this.stepState.location.CardName}`);
       this.addLog(`Location Tags: [${this.engine.getCurrentTags(this.stepState.location).join(', ')}]`);
     } else if (step === 5) {
       // Draw Twist
       this.stepState.twist = this.engine.stepDrawTwist(this.stepState.location);
+      if (!this.stepState.twist) {
+        this.displayLogs(this.engine.getLogs());
+        document.getElementById('btn-next-step').disabled = true;
+        return;
+      }
       this.addLog(`Drawn Twist: ${this.stepState.twist.CardName}`);
       this.addLog(`Twist Tags: [${this.engine.getCurrentTags(this.stepState.twist).join(', ')}]`);
     } else if (step === 6) {
       // Draw Reward and Failure
-      const { reward, failure } = this.engine.stepDrawRewardAndFailure(this.stepState.twist);
+      const result = this.engine.stepDrawRewardAndFailure(this.stepState.twist);
+      if (!result) {
+        this.displayLogs(this.engine.getLogs());
+        document.getElementById('btn-next-step').disabled = true;
+        return;
+      }
+      const { reward, failure } = result;
       this.addLog(`Drawn Reward: ${reward.CardName}`);
       this.addLog(`Drawn Failure: ${failure.CardName}`);
       this.stepState.step++; // Allow one more click to end
@@ -378,6 +418,11 @@ class UIManager {
     logs.forEach(log => {
       const logEntry = document.createElement('div');
       logEntry.className = 'log-entry';
+      
+      // Add error class for error logs
+      if (log.type === 'error') {
+        logEntry.classList.add('log-error');
+      }
 
       let content = `<span class="log-num">[${log.timestamp}]</span> ${log.message}`;
       if (log.data && Object.keys(log.data).length > 0) {
