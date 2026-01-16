@@ -23,6 +23,8 @@ class QuestEngine {
   reset() {
     this.logs = [];
     this.quest = {
+      questGiver: null,
+      harmedParty: null,
       verb: null,
       target: null,
       location: null,
@@ -245,7 +247,77 @@ class QuestEngine {
   }
 
   /**
-   * STEP 1: Draw Verb
+   * STEP 1: Draw Quest Giver
+   */
+  stepDrawQuestGiver() {
+    this.log('=== STEP 1: Draw Quest Giver ===');
+    
+    const questGiver = this.drawRandomCard(this.decks.questgivers);
+    
+    if (!questGiver) {
+      this.log('ERROR: No quest givers available');
+      return null;
+    }
+
+    this.quest.questGiver = questGiver;
+    this.log(`Quest Giver drawn: "${questGiver.CardName}"`);
+
+    // Store quest giver's instructions if it targets future decks
+    if (questGiver.Instructions && Array.isArray(questGiver.Instructions) && questGiver.Instructions.length > 0) {
+      for (const instruction of questGiver.Instructions) {
+        this.pendingInstructions.push({
+          source: questGiver.CardName,
+          targetDeck: instruction.TargetDeck,
+          tags: instruction.Tags || []
+        });
+      }
+      const deckTargets = questGiver.Instructions.map(i => `${i.TargetDeck}`).join(', ');
+      this.log(`Quest Giver instructions stored: "${questGiver.CardName}" will add requirements to [${deckTargets}]`, {
+        source: questGiver.CardName,
+        instructions: questGiver.Instructions
+      });
+    }
+
+    return questGiver;
+  }
+
+  /**
+   * STEP 2: Draw Harmed Party
+   */
+  stepDrawHarmedParty() {
+    this.log('=== STEP 2: Draw Harmed Party ===');
+    
+    const harmedParty = this.drawRandomCard(this.decks.harmedparties);
+    
+    if (!harmedParty) {
+      this.log('ERROR: No harmed parties available');
+      return null;
+    }
+
+    this.quest.harmedParty = harmedParty;
+    this.log(`Harmed Party drawn: "${harmedParty.CardName}"`);
+
+    // Store harmed party's instructions if it targets future decks
+    if (harmedParty.Instructions && Array.isArray(harmedParty.Instructions) && harmedParty.Instructions.length > 0) {
+      for (const instruction of harmedParty.Instructions) {
+        this.pendingInstructions.push({
+          source: harmedParty.CardName,
+          targetDeck: instruction.TargetDeck,
+          tags: instruction.Tags || []
+        });
+      }
+      const deckTargets = harmedParty.Instructions.map(i => `${i.TargetDeck}`).join(', ');
+      this.log(`Harmed Party instructions stored: "${harmedParty.CardName}" will add requirements to [${deckTargets}]`, {
+        source: harmedParty.CardName,
+        instructions: harmedParty.Instructions
+      });
+    }
+
+    return harmedParty;
+  }
+
+  /**
+   * STEP 3: Draw Verb
    */
   stepDrawVerb(specificVerb) {
     this.log('=== STEP 1: Draw Verb ===');
@@ -285,10 +357,10 @@ class QuestEngine {
   }
 
   /**
-   * STEP 2: Draw Target
+   * STEP 4: Draw Target
    */
   stepDrawTarget(verb) {
-    this.log('=== STEP 2: Draw Target ===');
+    this.log('=== STEP 4: Draw Target ===');
     
     // Check if verb has instruction targeting Target
     const requiredTags = this.getMatchingRequirement('Target', verb.TargetRequirement);
@@ -324,10 +396,10 @@ class QuestEngine {
   }
 
   /**
-   * STEP 3: Draw Location
+   * STEP 5: Draw Location
    */
   stepDrawLocation(target) {
-    this.log('=== STEP 3: Draw Location ===');
+    this.log('=== STEP 5: Draw Location ===');
     
     // Check if any pending instruction targets Location
     // Use empty array as default - only explicit instructions apply, not inherited tags
@@ -367,7 +439,7 @@ class QuestEngine {
    * STEP 4: Draw Twist
    */
   stepDrawTwist(location) {
-    this.log('=== STEP 4: Draw Twist ===');
+    this.log('=== STEP 6: Draw Twist ===');
     
     // Check if any pending instruction targets Twist
     // Use empty array as default - only explicit instructions apply, not inherited tags
@@ -404,10 +476,10 @@ class QuestEngine {
   }
 
   /**
-   * STEP 5: Draw Reward and Failure
+   * STEP 7: Draw Reward and Failure
    */
   stepDrawRewardAndFailure(twist) {
-    this.log('=== STEP 5: Draw Reward and Failure ===');
+    this.log('=== STEP 7: Draw Reward and Failure ===');
 
     // Check for pending instructions targeting Reward
     // Use empty array as default - only explicit instructions apply, not inherited tags
@@ -466,23 +538,31 @@ class QuestEngine {
     
     this.log('=== QUEST GENERATION STARTED ===');
 
-    // Step 1: Draw Verb
+    // Step 1: Draw Quest Giver
+    const questGiver = this.stepDrawQuestGiver();
+    if (!questGiver) return null;
+
+    // Step 2: Draw Harmed Party
+    const harmedParty = this.stepDrawHarmedParty();
+    if (!harmedParty) return null;
+
+    // Step 3: Draw Verb
     const verb = this.stepDrawVerb(specificVerb);
     if (!verb) return null;
 
-    // Step 2: Draw Target
+    // Step 4: Draw Target
     const target = this.stepDrawTarget(verb);
     if (!target) return null;
 
-    // Step 3: Draw Location
+    // Step 5: Draw Location
     const location = this.stepDrawLocation(target);
     if (!location) return null;
 
-    // Step 4: Draw Twist
+    // Step 6: Draw Twist
     const twist = this.stepDrawTwist(location);
     if (!twist) return null;
 
-    // Step 5: Draw Reward and Failure
+    // Step 7: Draw Reward and Failure
     this.stepDrawRewardAndFailure(twist);
 
     this.log('=== QUEST GENERATION COMPLETE ===');

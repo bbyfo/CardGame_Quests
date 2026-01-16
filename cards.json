@@ -1,4 +1,76 @@
 {
+  "questgivers": [
+    {
+      "Deck": "QuestGiver",
+      "CardName": "King",
+      "TypeTags": ["Royalty", "Authority"],
+      "AspectTags": ["Leadership"],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "Deck": "QuestGiver",
+      "CardName": "Archmagus",
+      "TypeTags": ["Wizard", "Authority"],
+      "AspectTags": ["Magic"],
+      "mutableTags": [],
+      "Instructions": [
+        {
+          "TargetDeck": "Target",
+          "Tags": ["Arcane"]
+        }
+      ]
+    },
+    {
+      "Deck": "QuestGiver",
+      "CardName": "Merchant Guild",
+      "TypeTags": ["Commerce", "Organization"],
+      "AspectTags": ["Wealth"],
+      "mutableTags": [],
+      "Instructions": [
+        {
+          "TargetDeck": "Reward",
+          "Tags": ["Profitable"]
+        }
+      ]
+    }
+  ],
+  "harmedparties": [
+    {
+      "Deck": "HarmedParty",
+      "CardName": "Demon Lord",
+      "TypeTags": ["Evil", "Supernatural"],
+      "AspectTags": ["Darkness"],
+      "mutableTags": [],
+      "Instructions": [
+        {
+          "TargetDeck": "Target",
+          "Tags": ["Evil"]
+        }
+      ]
+    },
+    {
+      "Deck": "HarmedParty",
+      "CardName": "Ancient Curse",
+      "TypeTags": ["Magical", "Danger"],
+      "AspectTags": ["Magic"],
+      "mutableTags": [],
+      "Instructions": [
+        {
+          "TargetDeck": "Failure",
+          "Tags": ["Cursed"]
+        }
+      ]
+    },
+    {
+      "Deck": "HarmedParty",
+      "CardName": "Corporate Rival",
+      "TypeTags": ["Business", "Competition"],
+      "AspectTags": ["Commerce"],
+      "mutableTags": [],
+      "Instructions": []
+    }
+  ],
   "verbs": [
     {
       "Deck": "Verb",

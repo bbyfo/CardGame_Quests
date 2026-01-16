@@ -209,6 +209,8 @@ class CSVImporter {
    */
   static organizeByDeck(cards) {
     const organized = {
+      questgivers: [],
+      harmedparties: [],
       verbs: [],
       targets: [],
       locations: [],
@@ -218,6 +220,8 @@ class CSVImporter {
     };
 
     const deckMap = {
+      'questgiver': 'questgivers',
+      'harmedparty': 'harmedparties',
       'verb': 'verbs',
       'target': 'targets',
       'location': 'locations',
@@ -245,6 +249,8 @@ class CSVImporter {
 
     // Check deck sizes
     const minSizes = {
+      questgivers: 2,
+      harmedparties: 2,
       verbs: 3,
       targets: 4,
       locations: 3,
@@ -285,6 +291,10 @@ class CSVImporter {
    */
   static getCSVTemplate() {
     return `Deck,CardName,TypeTags,AspectTags,Instructions,TargetRequirement
+QuestGiver,King,Royalty;Authority,Leadership,,
+QuestGiver,Noble House,Aristocracy;Wealth,Power,,
+HarmedParty,Demon Lord,Evil;Supernatural,Darkness,,
+HarmedParty,Corporate Rival,Business;Competition,Commerce,,
 Verb,Defend,Protective;Action,Military,Target[Evil Monster],Evil Monster
 Verb,Retrieve,Heroic;Action,Quest,,Magical
 Verb,Heist,Criminal;Action,Stealth,Location[Building;Vault;Fortress]|Target[Magic Item;Artifact;Jewel],City;Vault

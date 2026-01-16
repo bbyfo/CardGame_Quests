@@ -6,6 +6,8 @@
 class DataLoader {
   constructor() {
     this.decks = {
+      questgivers: [],
+      harmedparties: [],
       verbs: [],
       targets: [],
       locations: [],
@@ -38,7 +40,7 @@ class DataLoader {
    * Populate decks from loaded data
    */
   populateDecks(data) {
-    const deckNames = ['verbs', 'targets', 'locations', 'twists', 'rewards', 'failures'];
+    const deckNames = ['questgivers', 'harmedparties', 'verbs', 'targets', 'locations', 'twists', 'rewards', 'failures'];
     
     deckNames.forEach(deckName => {
       if (data[deckName] && Array.isArray(data[deckName])) {
