@@ -1,0 +1,365 @@
+/**
+ * csvImporter.js
+ * Parse CSV files and convert to quest card JSON format
+ */
+
+class CSVImporter {
+  /**
+   * Parse CSV file and convert to JSON format
+   */
+  static async parseCSV(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      
+      reader.onload = (event) => {
+        try {
+          const csv = event.target.result;
+          const json = this.csvToJson(csv);
+          resolve(json);
+        } catch (error) {
+          reject(error);
+        }
+      };
+      
+      reader.onerror = () => {
+        reject(new Error('Failed to read file'));
+      };
+      
+      reader.readAsText(file);
+    });
+  }
+
+  /**
+   * Convert CSV text to JSON format
+   */
+  static csvToJson(csvText) {
+    const lines = csvText.trim().split('\n');
+    if (lines.length < 2) {
+      throw new Error('CSV must have headers and at least one data row');
+    }
+
+    // Parse header row
+    const headers = this.parseCSVLine(lines[0]);
+    
+    // Validate required columns
+    const required = ['Deck', 'CardName'];
+    const missing = required.filter(col => !headers.includes(col));
+    if (missing.length > 0) {
+      throw new Error(`Missing required columns: ${missing.join(', ')}`);
+    }
+
+    // Parse data rows
+    const cards = [];
+    for (let i = 1; i < lines.length; i++) {
+      if (lines[i].trim() === '') continue; // Skip empty lines
+      
+      const values = this.parseCSVLine(lines[i]);
+      if (values.length === 0) continue;
+
+      try {
+        const card = this.rowToCard(headers, values);
+        cards.push(card);
+      } catch (error) {
+        throw new Error(`Row ${i + 1}: ${error.message}`);
+      }
+    }
+
+    if (cards.length === 0) {
+      throw new Error('No valid card data found in CSV');
+    }
+
+    // Organize by deck
+    const organized = this.organizeByDeck(cards);
+    return organized;
+  }
+
+  /**
+   * Parse a CSV line handling quoted fields
+   */
+  static parseCSVLine(line) {
+    const result = [];
+    let current = '';
+    let inQuotes = false;
+
+    for (let i = 0; i < line.length; i++) {
+      const char = line[i];
+      const nextChar = line[i + 1];
+
+      if (char === '"') {
+        if (inQuotes && nextChar === '"') {
+          // Escaped quote
+          current += '"';
+          i++;
+        } else {
+          // Toggle quote state
+          inQuotes = !inQuotes;
+        }
+      } else if (char === ',' && !inQuotes) {
+        // End of field
+        result.push(current.trim());
+        current = '';
+      } else {
+        current += char;
+      }
+    }
+
+    // Don't forget last field
+    result.push(current.trim());
+    return result;
+  }
+
+  /**
+   * Convert CSV row to card object
+   */
+  static rowToCard(headers, values) {
+    const card = {};
+
+    // Map CSV columns to card properties
+    for (let i = 0; i < headers.length && i < values.length; i++) {
+      const header = headers[i].trim();
+      let value = values[i].trim();
+
+      if (!header) continue; // Skip empty headers
+
+      // Handle special array fields
+      if (['TypeTags', 'AspectTags', 'InstructionTags'].includes(header)) {
+        card[header] = this.parseTags(value);
+      } else if (header === 'mutableTags') {
+        card[header] = this.parseTags(value) || [];
+      } else if (header === 'TargetRequirement') {
+        card[header] = this.parseTags(value) || [];
+      } else if (value === '') {
+        // Empty string becomes null for instruction fields
+        if (['InstructionType', 'InstructionSubType', 'InstructionTarget'].includes(header)) {
+          card[header] = null;
+        } else {
+          card[header] = value;
+        }
+      } else {
+        card[header] = value;
+      }
+    }
+
+    // Validate required fields
+    if (!card.Deck) throw new Error('Missing Deck');
+    if (!card.CardName) throw new Error('Missing CardName');
+
+    // Set defaults for missing fields
+    card.TypeTags = card.TypeTags || [];
+    card.AspectTags = card.AspectTags || [];
+    card.mutableTags = card.mutableTags || [];
+    card.InstructionType = card.InstructionType || null;
+    card.InstructionSubType = card.InstructionSubType || null;
+    card.InstructionTarget = card.InstructionTarget || null;
+    card.InstructionTags = card.InstructionTags || [];
+
+    // TargetRequirement only for Verbs
+    if (card.Deck.toLowerCase() !== 'verb') {
+      delete card.TargetRequirement;
+    } else {
+      card.TargetRequirement = card.TargetRequirement || [];
+    }
+
+    return card;
+  }
+
+  /**
+   * Parse tags from semicolon or pipe separated string
+   */
+  static parseTags(tagString) {
+    if (!tagString || tagString === '') return [];
+    
+    // Support multiple separators: semicolon, pipe, comma
+    const separators = /[;|,]/;
+    return tagString
+      .split(separators)
+      .map(tag => tag.trim())
+      .filter(tag => tag.length > 0);
+  }
+
+  /**
+   * Organize cards by deck
+   */
+  static organizeByDeck(cards) {
+    const organized = {
+      verbs: [],
+      targets: [],
+      locations: [],
+      twists: [],
+      rewards: [],
+      failures: []
+    };
+
+    const deckMap = {
+      'verb': 'verbs',
+      'target': 'targets',
+      'location': 'locations',
+      'twist': 'twists',
+      'reward': 'rewards',
+      'failure': 'failures'
+    };
+
+    for (const card of cards) {
+      const deckKey = deckMap[card.Deck.toLowerCase()];
+      if (!deckKey) {
+        throw new Error(`Invalid deck: ${card.Deck}. Must be one of: Verb, Target, Location, Twist, Reward, Failure`);
+      }
+      organized[deckKey].push(card);
+    }
+
+    return organized;
+  }
+
+  /**
+   * Validate deck structure
+   */
+  static validateDecks(decks) {
+    const errors = [];
+
+    // Check deck sizes
+    const minSizes = {
+      verbs: 3,
+      targets: 4,
+      locations: 3,
+      twists: 3,
+      rewards: 2,
+      failures: 2
+    };
+
+    for (const [deck, minSize] of Object.entries(minSizes)) {
+      if (decks[deck].length < minSize) {
+        errors.push(`${deck}: ${decks[deck].length} cards (minimum ${minSize})`);
+      }
+    }
+
+    // Check verb targets have TargetRequirement
+    for (const verb of decks.verbs) {
+      if (!verb.TargetRequirement || verb.TargetRequirement.length === 0) {
+        errors.push(`Verb "${verb.CardName}": Missing TargetRequirement`);
+      }
+    }
+
+    // Check for duplicate card names within deck
+    for (const [deckName, cards] of Object.entries(decks)) {
+      const names = new Set();
+      for (const card of cards) {
+        if (names.has(card.CardName)) {
+          errors.push(`${deckName}: Duplicate card name "${card.CardName}"`);
+        }
+        names.add(card.CardName);
+      }
+    }
+
+    return errors;
+  }
+
+  /**
+   * Get CSV template as string
+   */
+  static getCSVTemplate() {
+    return `Deck,CardName,TypeTags,AspectTags,InstructionType,InstructionSubType,InstructionTarget,InstructionTags,TargetRequirement
+Verb,Defend,Protective;Action,Military,Modify,Add,Target,,Evil Monster
+Verb,Retrieve,Heroic;Action,Quest,,,,Magical
+Target,Ironfang Raider,Evil Monster;Humanoid,Military,Modify,Add,ThisCard,Hostile,
+Target,Forgotten Amulet,Magical;Artifact,Ancient,,,,
+Location,Dark Forest,Wilderness;Dangerous,Nature,Modify,Add,Twist,Perilous,
+Location,Ancient Ruins,Exploration;Ancient,Mystery,,,,
+Twist,Betrayal,Danger;Social,Mystery,Modify,Add,Failure,Treacherous,
+Twist,Time Pressure,Challenge;Urgency,Quest,,,,
+Reward,Gold Coins,Treasure;Wealth,Commerce,,,,
+Reward,Magical Sword,Weapon;Magical,Magic,Modify,Add,ThisCard,Enchanted,
+Failure,Death,Permanent;Catastrophic,Doom,,,,
+Failure,Curse,Magical;Permanent,Magic,Modify,Add,ThisCard,Afflicted,`;
+  }
+
+  /**
+   * Download CSV template
+   */
+  static downloadTemplate() {
+    const csv = this.getCSVTemplate();
+    const blob = new Blob([csv], { type: 'text/csv' });
+    const url = window.URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'quest_cards_template.csv';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    window.URL.revokeObjectURL(url);
+  }
+
+  /**
+   * Convert JSON decks to CSV format
+   */
+  static jsonToCSV(decks) {
+    const rows = [];
+    
+    // Header
+    rows.push([
+      'Deck',
+      'CardName',
+      'TypeTags',
+      'AspectTags',
+      'InstructionType',
+      'InstructionSubType',
+      'InstructionTarget',
+      'InstructionTags',
+      'TargetRequirement'
+    ]);
+
+    // Collect all cards from all decks
+    const allCards = [];
+    for (const [deckName, cards] of Object.entries(decks)) {
+      for (const card of cards) {
+        allCards.push({ deckName: deckName.slice(0, -1), ...card }); // Remove 's' from plural
+      }
+    }
+
+    // Convert to rows
+    for (const card of allCards) {
+      rows.push([
+        card.Deck || card.deckName,
+        card.CardName,
+        card.TypeTags?.join(';') || '',
+        card.AspectTags?.join(';') || '',
+        card.InstructionType || '',
+        card.InstructionSubType || '',
+        card.InstructionTarget || '',
+        card.InstructionTags?.join(';') || '',
+        card.TargetRequirement?.join(';') || ''
+      ]);
+    }
+
+    // Convert to CSV string
+    return rows.map(row => 
+      row.map(cell => {
+        // Escape quotes and wrap in quotes if needed
+        if (cell.includes(',') || cell.includes('"') || cell.includes('\n')) {
+          return `"${cell.replace(/"/g, '""')}"`;
+        }
+        return cell;
+      }).join(',')
+    ).join('\n');
+  }
+
+  /**
+   * Download decks as CSV
+   */
+  static downloadAsCSV(decks) {
+    const csv = this.jsonToCSV(decks);
+    const blob = new Blob([csv], { type: 'text/csv' });
+    const url = window.URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'quest_cards.csv';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    window.URL.revokeObjectURL(url);
+  }
+}
+
+// Export for use in modules
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = CSVImporter;
+}

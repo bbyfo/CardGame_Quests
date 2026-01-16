@@ -15,20 +15,37 @@ class UIManager {
    * Initialize UI - bind event handlers
    */
   initialize() {
+    // Helper to safely bind event listeners
+    const bind = (id, event, handler) => {
+      const el = document.getElementById(id);
+      if (el) el.addEventListener(event, handler);
+    };
+
     // Controls Panel buttons
-    document.getElementById('btn-generate').addEventListener('click', () => this.handleGenerate());
-    document.getElementById('btn-step-through').addEventListener('click', () => this.handleStepThrough());
-    document.getElementById('btn-next-step').addEventListener('click', () => this.handleNextStep());
-    document.getElementById('btn-validate').addEventListener('click', () => this.handleValidate());
-    document.getElementById('btn-clear-logs').addEventListener('click', () => this.handleClearLogs());
+    bind('btn-generate', 'click', () => this.handleGenerate());
+    bind('btn-step-through', 'click', () => this.handleStepThrough());
+    bind('btn-next-step', 'click', () => this.handleNextStep());
+    bind('btn-validate', 'click', () => this.handleValidate());
+    bind('btn-clear-logs', 'click', () => this.handleClearLogs());
+    bind('btn-import-csv', 'click', () => this.handleImportCSV());
+    bind('btn-export-csv', 'click', () => this.handleExportCSV());
+    bind('btn-csv-template', 'click', () => this.handleDownloadTemplate());
+    bind('csv-file-input', 'change', (e) => this.handleCSVFileSelected(e));
 
     // Settings
-    document.getElementById('seed-input').addEventListener('change', (e) => {
-      this.setSeed(e.target.value);
-    });
-    document.getElementById('debug-toggle').addEventListener('change', (e) => {
-      console.log('Debug mode:', e.target.checked);
-    });
+    const seedInput = document.getElementById('seed-input');
+    if (seedInput) {
+      seedInput.addEventListener('change', (e) => {
+        this.setSeed(e.target.value);
+      });
+    }
+
+    const debugToggle = document.getElementById('debug-toggle');
+    if (debugToggle) {
+      debugToggle.addEventListener('change', (e) => {
+        console.log('Debug mode:', e.target.checked);
+      });
+    }
   }
 
   /**
@@ -288,6 +305,85 @@ class UIManager {
   setSeed(seed) {
     // In a full implementation, this would seed a PRNG
     console.log('Seed set to:', seed);
+  }
+
+  /**
+   * Handle CSV import button click
+   */
+  handleImportCSV() {
+    document.getElementById('csv-file-input').click();
+  }
+
+  /**
+   * Handle CSV file selection
+   */
+  async handleCSVFileSelected(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    this.clearLogs();
+    this.addLog(`Loading CSV file: ${file.name}...`);
+
+    try {
+      const decks = await CSVImporter.parseCSV(file);
+      this.addLog('✓ CSV parsed successfully');
+
+      // Validate decks
+      const errors = CSVImporter.validateDecks(decks);
+      if (errors.length > 0) {
+        this.addLog('⚠️ Validation warnings:');
+        errors.forEach(error => this.addLog(`  - ${error}`));
+      }
+
+      // Show summary
+      this.addLog(`\n📊 Deck Summary:`);
+      this.addLog(`  Verbs: ${decks.verbs.length}`);
+      this.addLog(`  Targets: ${decks.targets.length}`);
+      this.addLog(`  Locations: ${decks.locations.length}`);
+      this.addLog(`  Twists: ${decks.twists.length}`);
+      this.addLog(`  Rewards: ${decks.rewards.length}`);
+      this.addLog(`  Failures: ${decks.failures.length}`);
+      this.addLog(`  Total: ${Object.values(decks).reduce((sum, arr) => sum + arr.length, 0)} cards`);
+
+      // Update engine with new decks
+      this.engine.decks = decks;
+      this.validator.dataLoader.decks = decks;
+      this.validator.dataLoader.allCards = Object.values(decks).flat();
+
+      this.addLog('\n✓ Decks loaded successfully! Ready to generate quests.');
+      this.addLog('Tip: Run validation to check card balance.');
+
+      // Reset file input
+      event.target.value = '';
+    } catch (error) {
+      this.addLog(`❌ CSV Import Error: ${error.message}`);
+      event.target.value = '';
+    }
+  }
+
+  /**
+   * Handle CSV export button click
+   */
+  handleExportCSV() {
+    try {
+      CSVImporter.downloadAsCSV(this.engine.decks);
+      this.addLog('✓ CSV exported as quest_cards.csv');
+    } catch (error) {
+      this.addLog(`❌ CSV Export Error: ${error.message}`);
+    }
+  }
+
+  /**
+   * Handle CSV template download
+   */
+  handleDownloadTemplate() {
+    try {
+      CSVImporter.downloadTemplate();
+      this.addLog('✓ CSV template downloaded as quest_cards_template.csv');
+      this.addLog('Edit the template in Google Sheets or Excel, then import it here.');
+    } catch (error) {
+      this.addLog(`❌ Template Download Error: ${error.message}`);
+    }
   }
 }
 

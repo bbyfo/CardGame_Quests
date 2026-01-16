@@ -48,6 +48,14 @@
         </div>
 
         <div class="control-group">
+          <h3>Data Management</h3>
+          <button id="btn-csv-template" class="btn btn-secondary">Download CSV Template</button>
+          <button id="btn-import-csv" class="btn btn-primary">Import from CSV</button>
+          <button id="btn-export-csv" class="btn btn-secondary">Export as CSV</button>
+          <input type="file" id="csv-file-input" accept=".csv" style="display: none;">
+        </div>
+
+        <div class="control-group">
           <button id="btn-clear-logs" class="btn btn-danger">Clear Logs</button>
         </div>
       </section>
@@ -76,6 +84,7 @@
   <script src="dataLoader.js"></script>
   <script src="questEngine.js"></script>
   <script src="validator.js"></script>
+  <script src="csvImporter.js"></script>
   <script src="ui.js"></script>
   <script src="app.js"></script>
 </body>
