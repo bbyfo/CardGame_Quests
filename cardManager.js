@@ -55,20 +55,16 @@ class CardManager {
       if (Array.isArray(deck)) {
         deck.forEach(card => {
           if (card.TypeTags) {
-            card.TypeTags.forEach(tag => this.allTags.type.add(tag));
+            card.TypeTags.forEach(tag => {
+              this.allTags.type.add(tag);
+              this.allTags.instructionTags.add(tag); // TypeTags available for instructions
+            });
           }
           if (card.AspectTags) {
             card.AspectTags.forEach(tag => this.allTags.aspect.add(tag));
           }
           if (card.mutableTags) {
             card.mutableTags.forEach(tag => this.allTags.mutable.add(tag));
-          }
-          if (card.Instructions) {
-            card.Instructions.forEach(instr => {
-              if (instr.Tags) {
-                instr.Tags.forEach(tag => this.allTags.instructionTags.add(tag));
-              }
-            });
           }
         });
       }
@@ -410,8 +406,10 @@ class CardManager {
    */
   openInstructionModal() {
     const modal = document.getElementById('instruction-modal');
+    const title = document.getElementById('instruction-modal-title');
     if (modal) {
       modal.style.display = 'flex';
+      if (title) title.textContent = 'Add Instruction';
       this.editingInstructionIndex = -1; // -1 means adding new
       this.instructionData.push({ TargetDeck: '', Tags: [] });
     }
@@ -439,10 +437,12 @@ class CardManager {
       this.addTag('instruction-tags', tag);
     });
 
-    // Open modal
+    // Open modal with edit title
     const modal = document.getElementById('instruction-modal');
+    const title = document.getElementById('instruction-modal-title');
     if (modal) {
       modal.style.display = 'flex';
+      if (title) title.textContent = 'Edit Instruction';
     }
   }
 
@@ -472,6 +472,11 @@ class CardManager {
     }
 
     const tags = this.getTagsFromList('instruction-tags-list');
+    if (tags.length === 0) {
+      alert('Please add at least one tag to the instruction');
+      return;
+    }
+
     const instruction = {
       TargetDeck: targetDeck,
       Tags: tags
