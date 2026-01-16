@@ -11,13 +11,13 @@
     {
       "Deck": "QuestGiver",
       "CardName": "Archmagus",
-      "TypeTags": ["Magic", "Order"],
-      "AspectTags": ["Magic"],
+      "TypeTags": ["Arcane", "Order"],
+      "AspectTags": ["Arcane"],
       "mutableTags": [],
       "Instructions": [
         {
           "TargetDeck": "Target",
-          "Tags": ["Magic"]
+          "Tags": ["Arcane"]
         }
       ]
     },
@@ -52,8 +52,8 @@
     {
       "Deck": "HarmedParty",
       "CardName": "Ancient Curse",
-      "TypeTags": ["Magic", "Chaos"],
-      "AspectTags": ["Magic"],
+      "TypeTags": ["Arcane", "Chaos"],
+      "AspectTags": ["Arcane"],
       "mutableTags": [],
       "Instructions": [
         {
@@ -96,7 +96,7 @@
       "Instructions": [
         {
           "TargetDeck": "Target",
-          "Tags": ["Magical"]
+          "Tags": ["Arcane"]
         }
       ]
     },
@@ -119,12 +119,12 @@
     {
       "Deck": "Verb",
       "CardName": "Investigate",
-      "TypeTags": ["Order", "Magic"],
+      "TypeTags": ["Order", "Arcane"],
       "AspectTags": ["Mystery"],
       "Instructions": [
         {
           "TargetDeck": "Target",
-          "Tags": ["Magic", "Nature"]
+          "Tags": ["Arcane", "Nature"]
         }
       ]
     },
@@ -136,7 +136,7 @@
       "Instructions": [
         {
           "TargetDeck": "Target",
-          "Tags": ["Good", "Magic"]
+          "Tags": ["Good", "Arcane"]
         },
         {
           "TargetDeck": "Location",
@@ -156,7 +156,7 @@
         },
         {
           "TargetDeck": "Target",
-          "Tags": ["Wealth", "Magic"]
+          "Tags": ["Wealth", "Arcane"]
         },{
           "TargetDeck": "HarmedParty",
           "Tags": ["Wealth", "Chaos", "Evil"]
@@ -181,7 +181,7 @@
     {
       "Deck": "Target",
       "CardName": "Forgotten Amulet",
-      "TypeTags": ["Magic", "Order"],
+      "TypeTags": ["Arcane", "Order"],
       "AspectTags": ["Ancient"],
       "mutableTags": [],
       "Instructions": []
@@ -202,7 +202,7 @@
     {
       "Deck": "Target",
       "CardName": "Lost Library",
-      "TypeTags": ["Magic", "Order"],
+      "TypeTags": ["Arcane", "Order"],
       "AspectTags": ["Knowledge"],
       "mutableTags": [],
       "Instructions": []
@@ -224,7 +224,7 @@
       "Deck": "Target",
       "CardName": "Draconic Drake",
       "TypeTags": ["Evil", "Chaos"],
-      "AspectTags": ["Magic"],
+      "AspectTags": ["Arcane"],
       "mutableTags": [],
       "Instructions": [
         {
@@ -237,7 +237,7 @@
       "Deck": "Target",
       "CardName": "Elder Mosskeeper",
       "TypeTags": ["Good", "Nature"],
-      "AspectTags": ["Magic"],
+      "AspectTags": ["Arcane"],
       "mutableTags": [],
       "Instructions": [
         {
@@ -264,7 +264,7 @@
     {
       "Deck": "Location",
       "CardName": "Ancient Ruins",
-      "TypeTags": ["Magic", "Chaos"],
+      "TypeTags": ["Arcane", "Chaos"],
       "AspectTags": ["Mystery"],
       "mutableTags": [],
       "Instructions": []
@@ -293,8 +293,8 @@
     {
       "Deck": "Location",
       "CardName": "Haunted Tower",
-      "TypeTags": ["Magic", "Chaos"],
-      "AspectTags": ["Magic"],
+      "TypeTags": ["Arcane", "Chaos"],
+      "AspectTags": ["Arcane"],
       "mutableTags": [],
       "Instructions": [
         {
@@ -386,8 +386,8 @@
     {
       "Deck": "Reward",
       "CardName": "Magical Sword",
-      "TypeTags": ["Magic", "Martial"],
-      "AspectTags": ["Magic"],
+      "TypeTags": ["Arcane", "Martial"],
+      "AspectTags": ["Arcane"],
       "mutableTags": [],
       "Instructions": [
         {
@@ -407,7 +407,7 @@
     {
       "Deck": "Reward",
       "CardName": "Secret Knowledge",
-      "TypeTags": ["Magic", "Order"],
+      "TypeTags": ["Arcane", "Order"],
       "AspectTags": ["Knowledge"],
       "mutableTags": [],
       "Instructions": []
@@ -433,8 +433,8 @@
     {
       "Deck": "Failure",
       "CardName": "Curse",
-      "TypeTags": ["Magic", "Evil"],
-      "AspectTags": ["Magic"],
+      "TypeTags": ["Arcane", "Evil"],
+      "AspectTags": ["Arcane"],
       "mutableTags": [],
       "Instructions": [
         {
