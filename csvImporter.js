@@ -233,7 +233,7 @@ class CSVImporter {
     for (const card of cards) {
       const deckKey = deckMap[card.Deck.toLowerCase()];
       if (!deckKey) {
-        throw new Error(`Invalid deck: ${card.Deck}. Must be one of: Verb, Target, Location, Twist, Reward, Failure`);
+        throw new Error(`Invalid deck: ${card.Deck}. Must be one of: QuestGiver, HarmedParty, Verb, Target, Location, Twist, Reward, Failure`);
       }
       organized[deckKey].push(card);
     }

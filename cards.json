@@ -123,7 +123,10 @@
       "Instructions": [
         {
           "TargetDeck": "Target",
-          "Tags": ["Noble"]
+          "Tags": ["Noble", "Good NPC"]
+        },{
+            "TargetDeck": "Location",
+            "Tags": ["Prison", "Fortress"]
         }
       ]
     },
@@ -205,6 +208,19 @@
       "Deck": "Target",
       "CardName": "Draconic Drake",
       "TypeTags": ["Evil Monster", "Creature"],
+      "AspectTags": ["Magic"],
+      "mutableTags": [],
+      "Instructions": [
+        {
+          "TargetDeck": "ThisCard",
+          "Tags": ["Powerful"]
+        }
+      ]
+    },
+    {
+      "Deck": "Target",
+      "CardName": "Elder Mosskeeper",
+      "TypeTags": ["Good NPC", "Wanderer"],
       "AspectTags": ["Magic"],
       "mutableTags": [],
       "Instructions": [

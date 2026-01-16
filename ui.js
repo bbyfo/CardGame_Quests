@@ -115,7 +115,9 @@ class UIManager {
     this.mode = 'step-through';
     this.engine.reset();
     this.stepState = {
-      step: 0, // 0: Start, 1: Verb, 2: Target, 3: Location, 4: Twist, 5: Reward/Failure
+      step: 0, // 0: Quest Giver, 1: Harmed Party, 2: Verb, 3: Target, 4: Location, 5: Twist, 6: Reward/Failure
+      questGiver: null,
+      harmedParty: null,
       verb: null,
       target: null,
       location: null,
@@ -138,33 +140,44 @@ class UIManager {
     const step = this.stepState.step;
 
     if (step === 0) {
+      // Draw Quest Giver
+      this.stepState.questGiver = this.engine.stepDrawQuestGiver();
+      this.addLog(`Drawn Quest Giver: ${this.stepState.questGiver.CardName}`);
+      this.addLog(`Type Tags: [${this.stepState.questGiver.TypeTags.join(', ')}]`);
+      this.addLog(`Aspect Tags: [${this.stepState.questGiver.AspectTags.join(', ')}]`);
+    } else if (step === 1) {
+      // Draw Harmed Party
+      this.stepState.harmedParty = this.engine.stepDrawHarmedParty();
+      this.addLog(`Drawn Harmed Party: ${this.stepState.harmedParty.CardName}`);
+      this.addLog(`Type Tags: [${this.stepState.harmedParty.TypeTags.join(', ')}]`);
+      this.addLog(`Aspect Tags: [${this.stepState.harmedParty.AspectTags.join(', ')}]`);
+    } else if (step === 2) {
       // Draw Verb
       this.stepState.verb = this.engine.stepDrawVerb(this.stepState.selectedVerb);
       this.addLog(`Drawn Verb: ${this.stepState.verb.CardName}`);
-      const deckInfo = this.stepState.verb.InstructionDeck ? `<b>${this.stepState.verb.InstructionDeck}</b> with ` : '';
-      this.addLog(`Target Deck Requirement: ${deckInfo}[${this.stepState.verb.TargetRequirement.join(', ')}]`);
-    } else if (step === 1) {
+      this.addLog(`Target Requirement: [${this.stepState.verb.TargetRequirement.join(', ')}]`);
+    } else if (step === 3) {
       // Draw Target
       this.stepState.target = this.engine.stepDrawTarget(this.stepState.verb);
       this.addLog(`Drawn Target: ${this.stepState.target.CardName}`);
       this.addLog(`Target Tags: [${this.engine.getCurrentTags(this.stepState.target).join(', ')}]`);
-    } else if (step === 2) {
+    } else if (step === 4) {
       // Draw Location
       this.stepState.location = this.engine.stepDrawLocation(this.stepState.target);
       this.addLog(`Drawn Location: ${this.stepState.location.CardName}`);
       this.addLog(`Location Tags: [${this.engine.getCurrentTags(this.stepState.location).join(', ')}]`);
-    } else if (step === 3) {
+    } else if (step === 5) {
       // Draw Twist
       this.stepState.twist = this.engine.stepDrawTwist(this.stepState.location);
       this.addLog(`Drawn Twist: ${this.stepState.twist.CardName}`);
       this.addLog(`Twist Tags: [${this.engine.getCurrentTags(this.stepState.twist).join(', ')}]`);
-    } else if (step === 4) {
+    } else if (step === 6) {
       // Draw Reward and Failure
       const { reward, failure } = this.engine.stepDrawRewardAndFailure(this.stepState.twist);
       this.addLog(`Drawn Reward: ${reward.CardName}`);
       this.addLog(`Drawn Failure: ${failure.CardName}`);
       this.stepState.step++; // Allow one more click to end
-    } else if (step === 5) {
+    } else if (step === 7) {
       this.addLog('Quest complete! Click "Generate Quest" to start a new quest.');
       document.getElementById('btn-next-step').disabled = true;
       this.displayQuest(this.engine.getQuest());
@@ -394,6 +407,8 @@ class UIManager {
 
       // Show summary
       this.addLog(`\n📊 Deck Summary:`);
+      this.addLog(`  Quest Givers: ${decks.questgivers.length}`);
+      this.addLog(`  Harmed Parties: ${decks.harmedparties.length}`);
       this.addLog(`  Verbs: ${decks.verbs.length}`);
       this.addLog(`  Targets: ${decks.targets.length}`);
       this.addLog(`  Locations: ${decks.locations.length}`);
