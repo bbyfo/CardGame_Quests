@@ -90,10 +90,10 @@ JSON File → loadData() → populateDecks() → initializeCard()
 **Algorithm Flow**:
 ```
 1. Draw Verb (random)
-   → Extract verb.TargetRequirement
+   → Extract verb.Instructions for Target deck
 
 2. Draw Target
-   → Match pool = cards with tags from TargetRequirement
+   → Match pool = cards with tags from verb's Instructions
    → Draw with fallback (3 fails → auto-accept 4th)
    → Apply target's Modify effects
 
@@ -240,8 +240,7 @@ let uiManager;     // UIManager instance
   "InstructionType": "Modify|null",
   "InstructionSubType": "Add|null",
   "InstructionTarget": "ThisCard|Target|Location|Twist|Reward|Failure|null",
-  "InstructionTags": ["tag1", "tag2", ...],
-  "TargetRequirement": ["tag1", "tag2", ...]  // Only for Verbs
+  "InstructionTags": ["tag1", "tag2", ...]
 }
 ```
 

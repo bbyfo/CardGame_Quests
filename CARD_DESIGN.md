@@ -22,7 +22,7 @@ This guide helps you create balanced, interesting card decks for the Quest Syste
 ### Verb Deck (5-8 cards)
 **Purpose**: Define the quest objective
 
-**TargetRequirement**: Must match some targets!
+**Instructions**: Must include Target matching instructions!
 
 **Design Tips**:
 - Use 2-3 TypeTags that clearly identify what kind of target is needed

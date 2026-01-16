@@ -26,25 +26,25 @@ Result: Cards loaded into Quest System
 ## CSV Column Format
 
 ```
-Deck | CardName | TypeTags | AspectTags | InstructionType | InstructionSubType | InstructionTarget | InstructionTags | TargetRequirement
+Deck | CardName | TypeTags | AspectTags | InstructionType | InstructionSubType | InstructionTarget | InstructionTags
 ```
 
 ### Simple Example
 
 ```csv
-Deck,CardName,TypeTags,AspectTags,InstructionType,InstructionSubType,InstructionTarget,InstructionTags,TargetRequirement
-Verb,Defend,Protective,Military,,,,Evil Monster
-Target,Raider,Evil;Monster,Military,Modify,Add,ThisCard,Hostile,
-Location,Forest,Wilderness,Nature,Modify,Add,Twist,Perilous,
-Twist,Ambush,Combat,Military,,,,
-Reward,Gold,Treasure,Commerce,,,,
-Failure,Death,Final,Doom,,,,
+Deck,CardName,TypeTags,AspectTags,InstructionType,InstructionSubType,InstructionTarget,InstructionTags
+Verb,Defend,Protective,Military,Modify,Add,Target,Evil Monster;Dangerous
+Target,Raider,Evil;Monster,Military,Modify,Add,ThisCard,Hostile
+Location,Forest,Wilderness,Nature,Modify,Add,Twist,Perilous
+Twist,Ambush,Combat,Military
+Reward,Gold,Treasure,Commerce
+Failure,Death,Final,Doom
 ```
 
 ## Key Points
 
 ✓ **Tags use semicolons**: `Evil Monster;Humanoid`
-✓ **Verbs need TargetRequirement**: What targets qualify
+✓ **Verbs need Instructions**: What targets qualify
 ✓ **Modify adds tags**: To ThisCard, Target, Location, Twist, Reward, or Failure
 ✓ **Empty cells okay**: Most columns optional except Deck and CardName
 ✓ **Deck values**: Verb, Target, Location, Twist, Reward, Failure (exact spelling!)
@@ -63,7 +63,7 @@ When you import, the app checks:
 - ✅ Required columns present
 - ✅ Valid deck names
 - ✅ No duplicate card names
-- ✅ Verbs have TargetRequirement
+- ✅ Verbs have Instructions
 - ✅ Minimum deck sizes
 - ⚠️ Warns if issues found (but still loads)
 
@@ -98,7 +98,7 @@ When you import, the app checks:
 |-------|-----|
 | "Invalid deck" | Check spelling: Verb, Target, Location, Twist, Reward, Failure |
 | "Duplicate card name" | Each card in a deck must have unique name |
-| "Missing TargetRequirement" | All Verbs need a TargetRequirement |
+| "Missing Instructions" | All Verbs need Instructions |
 | Tags not working | Use semicolons: `Tag1;Tag2` not `Tag1,Tag2` |
 | Import shows warnings | Usually okay to proceed, but check log |
 
@@ -128,39 +128,39 @@ When you import, the app checks:
 
 ### Template (when you download)
 ```csv
-Deck,CardName,TypeTags,AspectTags,InstructionType,InstructionSubType,InstructionTarget,InstructionTags,TargetRequirement
-Verb,Defend,Protective;Action,Military,Modify,Add,Target,,Evil Monster
-Verb,Retrieve,Heroic;Action,Quest,,,,Magical
-Target,Ironfang Raider,Evil Monster;Humanoid,Military,Modify,Add,ThisCard,Hostile,
-Target,Forgotten Amulet,Magical;Artifact,Ancient,,,,
-Location,Dark Forest,Wilderness;Dangerous,Nature,Modify,Add,Twist,Perilous,
-Location,Ancient Ruins,Exploration;Ancient,Mystery,,,,
-Twist,Betrayal,Danger;Social,Mystery,Modify,Add,Failure,Treacherous,
-Twist,Time Pressure,Challenge;Urgency,Quest,,,,
-Reward,Gold Coins,Treasure;Wealth,Commerce,,,,
-Reward,Magical Sword,Weapon;Magical,Magic,Modify,Add,ThisCard,Enchanted,
-Failure,Death,Permanent;Catastrophic,Doom,,,,
-Failure,Curse,Magical;Permanent,Magic,Modify,Add,ThisCard,Afflicted,
+Deck,CardName,TypeTags,AspectTags,InstructionType,InstructionSubType,InstructionTarget,InstructionTags
+Verb,Defend,Protective;Action,Military,Modify,Add,Target,Evil Monster;Dangerous
+Verb,Retrieve,Heroic;Action,Quest,Modify,Add,Target,Magical
+Target,Ironfang Raider,Evil Monster;Humanoid,Military,Modify,Add,ThisCard,Hostile
+Target,Forgotten Amulet,Magical;Artifact,Ancient
+Location,Dark Forest,Wilderness;Dangerous,Nature,Modify,Add,Twist,Perilous
+Location,Ancient Ruins,Exploration;Ancient,Mystery
+Twist,Betrayal,Danger;Social,Mystery,Modify,Add,Failure,Treacherous
+Twist,Time Pressure,Challenge;Urgency,Quest
+Reward,Gold Coins,Treasure;Wealth,Commerce
+Reward,Magical Sword,Weapon;Magical,Magic,Modify,Add,ThisCard,Enchanted
+Failure,Death,Permanent;Catastrophic,Doom
+Failure,Curse,Magical;Permanent,Magic,Modify,Add,ThisCard,Afflicted
 ```
 
 ### Your Custom Deck (what you upload)
 ```csv
-Deck,CardName,TypeTags,AspectTags,InstructionType,InstructionSubType,InstructionTarget,InstructionTags,TargetRequirement
-Verb,Rescue,Heroic,Compassion,,,,NPC;Prisoner
-Verb,Investigate,Action,Mystery,,,,
-Verb,Destroy,Violent,Combat,Modify,Add,ThisCard,Dangerous,Structure
-Target,Princess Celeste,NPC;Character,Royalty,Modify,Add,Reward,Noble,
-Target,Forbidden Tome,Artifact;Book,Knowledge,,,,
-Target,Dark Tower,Structure;Building,Evil,Modify,Add,Location,Sinister,
-Location,Royal Castle,Building,Royalty,,,,
-Location,Forgotten Library,Building,Knowledge,,,,
-Location,Shadowpeak Mountain,Wilderness,Nature,Modify,Add,Twist,Treacherous,
-Twist,Time Limit,Challenge,Urgency,,,,
-Twist,Ancient Guardian,Creature,Magic,,,,
-Reward,Royal Recognition,Status,Royalty,,,,
-Reward,Magical Artifact,Artifact,Magic,,,,
-Failure,Imprisonment,Confinement,Doom,Modify,Add,ThisCard,Chained,
-Failure,Loss of Memory,Curse,Doom,,,,
+Deck,CardName,TypeTags,AspectTags,InstructionType,InstructionSubType,InstructionTarget,InstructionTags
+Verb,Rescue,Heroic,Compassion,Modify,Add,Target,NPC;Prisoner
+Verb,Investigate,Action,Mystery,Modify,Add,Target,Arcane;Ruins
+Verb,Destroy,Violent,Combat,Modify,Add,Target,Structure
+Target,Princess Celeste,NPC;Character,Royalty,Modify,Add,Reward,Noble
+Target,Forbidden Tome,Artifact;Book,Knowledge
+Target,Dark Tower,Structure;Building,Evil,Modify,Add,Location,Sinister
+Location,Royal Castle,Building,Royalty
+Location,Forgotten Library,Building,Knowledge
+Location,Shadowpeak Mountain,Wilderness,Nature,Modify,Add,Twist,Treacherous
+Twist,Time Limit,Challenge,Urgency
+Twist,Ancient Guardian,Creature,Magic
+Reward,Royal Recognition,Status,Royalty
+Reward,Magical Artifact,Artifact,Magic
+Failure,Imprisonment,Confinement,Doom,Modify,Add,ThisCard,Chained
+Failure,Loss of Memory,Curse,Doom
 ```
 
 When you export from the app, you get the same format back.

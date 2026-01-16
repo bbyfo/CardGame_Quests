@@ -77,11 +77,10 @@
       "CardName": "Defend",
       "TypeTags": ["Protective", "Action"],
       "AspectTags": ["Military"],
-      "TargetRequirement": ["Evil Monster"],
       "Instructions": [
         {
           "TargetDeck": "Target",
-          "Tags": ["Dangerous"]
+          "Tags": ["Evil Monster", "Dangerous"]
         }
       ]
     },
@@ -90,16 +89,23 @@
       "CardName": "Retrieve",
       "TypeTags": ["Heroic", "Action"],
       "AspectTags": ["Quest"],
-      "TargetRequirement": ["Magical"],
-      "Instructions": []
+      "Instructions": [
+        {
+          "TargetDeck": "Target",
+          "Tags": ["Magical"]
+        }
+      ]
     },
     {
       "Deck": "Verb",
       "CardName": "Destroy",
       "TypeTags": ["Violent", "Action"],
       "AspectTags": ["Combat"],
-      "TargetRequirement": ["Structure"],
       "Instructions": [
+        {
+          "TargetDeck": "Target",
+          "Tags": ["Structure"]
+        },
         {
           "TargetDeck": "ThisCard",
           "Tags": ["Dangerous"]
@@ -111,22 +117,26 @@
       "CardName": "Investigate",
       "TypeTags": ["Exploration", "Action"],
       "AspectTags": ["Mystery"],
-      "TargetRequirement": ["Arcane", "Ruins"],
-      "Instructions": []
+      "Instructions": [
+        {
+          "TargetDeck": "Target",
+          "Tags": ["Arcane", "Ruins"]
+        }
+      ]
     },
     {
       "Deck": "Verb",
       "CardName": "Rescue",
       "TypeTags": ["Heroic", "Action"],
       "AspectTags": ["Compassion"],
-      "TargetRequirement": ["Character"],
       "Instructions": [
         {
           "TargetDeck": "Target",
-          "Tags": ["Noble", "Good NPC"]
-        },{
-            "TargetDeck": "Location",
-            "Tags": ["Prison", "Fortress"]
+          "Tags": ["Character", "Noble", "Good NPC"]
+        },
+        {
+          "TargetDeck": "Location",
+          "Tags": ["Prison", "Fortress"]
         }
       ]
     },
@@ -135,7 +145,6 @@
       "CardName": "Heist",
       "TypeTags": ["Criminal", "Action"],
       "AspectTags": ["Stealth"],
-      "TargetRequirement": ["Treasure", "Vault"],
       "Instructions": [
         {
           "TargetDeck": "Location",
@@ -143,7 +152,7 @@
         },
         {
           "TargetDeck": "Target",
-          "Tags": ["Magic Item", "Artifact", "Jewel"]
+          "Tags": ["Treasure", "Vault", "Magic Item", "Artifact", "Jewel"]
         }
       ]
     }
@@ -430,7 +439,7 @@
     {
       "Deck": "Failure",
       "CardName": "Loss of Treasure",
-      "TypeTags": ["Economic", "Temporary"],
+      "TypeTags": ["Loss", "Temporary"],
       "AspectTags": ["Commerce"],
       "mutableTags": [],
       "Instructions": []

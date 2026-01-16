@@ -27,13 +27,13 @@ You now have complete CSV import/export functionality that lets you:
 ### CSV Template Format
 
 ```
-Deck,CardName,TypeTags,AspectTags,InstructionType,InstructionSubType,InstructionTarget,InstructionTags,TargetRequirement
-Verb,Defend,Protective;Action,Military,Modify,Add,Target,,Evil Monster
-Target,Ironfang Raider,Evil Monster;Humanoid,Military,Modify,Add,ThisCard,Hostile,
-Location,Dark Forest,Wilderness;Dangerous,Nature,Modify,Add,Twist,Perilous,
-Twist,Betrayal,Danger;Social,Mystery,Modify,Add,Failure,Treacherous,
-Reward,Gold Coins,Treasure;Wealth,Commerce,,,,
-Failure,Death,Permanent;Catastrophic,Doom,,,,
+Deck,CardName,TypeTags,AspectTags,InstructionType,InstructionSubType,InstructionTarget,InstructionTags
+Verb,Defend,Protective;Action,Military,Modify,Add,Target,Evil Monster;Dangerous
+Target,Ironfang Raider,Evil Monster;Humanoid,Military,Modify,Add,ThisCard,Hostile
+Location,Dark Forest,Wilderness;Dangerous,Nature,Modify,Add,Twist,Perilous
+Twist,Betrayal,Danger;Social,Mystery,Modify,Add,Failure,Treacherous
+Reward,Gold Coins,Treasure;Wealth,Commerce
+Failure,Death,Permanent;Catastrophic,Doom
 ```
 
 ### Key Features
@@ -46,7 +46,6 @@ Failure,Death,Permanent;Catastrophic,Doom,,,,
 ✅ **Deck Validation**
 - Checks all required columns present
 - Validates deck names (Verb, Target, Location, etc.)
-- Ensures verbs have TargetRequirement
 - Detects duplicate card names
 - Reports all errors with line numbers
 
@@ -234,7 +233,7 @@ TargetReq:       "Evil Monster;Magical;Character"
 
 ### Uniqueness
 - ✓ Card names unique within deck
-- ✓ Verbs must have TargetRequirement
+- ✓ Verbs must have Instructions
 
 ### Error Reporting
 - Shows line number of errors
@@ -258,8 +257,8 @@ Error: "CSV must have headers and at least one data row"
 Error: "Missing required columns: Deck, CardName"
 → Headers don't include required fields
 
-Error: "Row 5: Missing TargetRequirement"
-→ Verb on row 5 without requirement
+Error: "Row 5: Missing Instructions"
+→ Verb on row 5 without instructions
 ```
 
 ### Data Validation Errors

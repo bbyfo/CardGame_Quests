@@ -13,7 +13,6 @@ A comprehensive web-based GUI for managing quest system cards with autocomplete,
 ### Smart Autocomplete
 - **Type Tags autocomplete** - Suggestions based on existing tags in your deck
 - **Aspect Tags autocomplete** - Real-time suggestions to maintain consistency
-- **Target Requirement autocomplete** - For Verb cards, suggests matching targets
 - **Instruction Tags autocomplete** - For instruction tags
 
 ### Card Organization
@@ -27,7 +26,7 @@ A comprehensive web-based GUI for managing quest system cards with autocomplete,
   - Reward
   - Failure
 
-- **Deck-specific fields**: Verb cards show Target Requirement field; other decks don't
+- **All decks use the same instruction system** - Uniform Instructions model across all card types
 
 ### Card Browsing & Filtering
 - **Filter by deck type** - Show only cards from selected deck
@@ -57,7 +56,6 @@ A comprehensive web-based GUI for managing quest system cards with autocomplete,
 
 2. **Select Deck Type**
    - Choose which deck this card belongs to (Quest Giver, Verb, etc.)
-   - For Verb cards, a "Target Requirement" field will appear
 
 3. **Enter Card Name**
    - Type the card's name (e.g., "King", "Retrieve", "Dragon's Hoard")
@@ -136,7 +134,7 @@ A comprehensive web-based GUI for managing quest system cards with autocomplete,
 - **Type Tags** - Describe the card's category or kind (Royalty, Wizard, Evil, etc.)
 - **Aspect Tags** - Describe themes or qualities (Leadership, Magic, Darkness, etc.)
 - **Mutable Tags** - State that changes (Cursed, Blessed, etc.)
-- **Target Requirements** (Verbs only) - Describe what the verb needs (Evil Monster, Structure, etc.)
+- **Instructions** - Describe what targets/decks qualify or what effects are applied
 
 ### Card Organization Best Practices
 - **Consistent naming** - Use the same capitalization and spelling

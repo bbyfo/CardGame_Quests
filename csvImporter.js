@@ -126,8 +126,6 @@ class CSVImporter {
         card[header] = this.parseTags(value);
       } else if (header === 'mutableTags') {
         card[header] = this.parseTags(value) || [];
-      } else if (header === 'TargetRequirement') {
-        card[header] = this.parseTags(value) || [];
       } else if (header === 'Instructions') {
         // Instructions: pipe-separated deck instructions
         // Format: Location[Building;Vault;Fortress]|Target[Magic Item;Artifact]
@@ -148,13 +146,6 @@ class CSVImporter {
     card.AspectTags = card.AspectTags || [];
     card.mutableTags = card.mutableTags || [];
     card.Instructions = card.Instructions || [];
-
-    // TargetRequirement only for Verbs
-    if (card.Deck.toLowerCase() !== 'verb') {
-      delete card.TargetRequirement;
-    } else {
-      card.TargetRequirement = card.TargetRequirement || [];
-    }
 
     return card;
   }
@@ -265,13 +256,6 @@ class CSVImporter {
       }
     }
 
-    // Check verb targets have TargetRequirement
-    for (const verb of decks.verbs) {
-      if (!verb.TargetRequirement || verb.TargetRequirement.length === 0) {
-        errors.push(`Verb "${verb.CardName}": Missing TargetRequirement (must specify what kind of Target this verb works with, e.g., "Evil Monster", "Character", "Location")`);
-      }
-    }
-
     // Check for duplicate card names within deck
     for (const [deckName, cards] of Object.entries(decks)) {
       const names = new Set();
@@ -290,27 +274,27 @@ class CSVImporter {
    * Get CSV template as string
    */
   static getCSVTemplate() {
-    return `Deck,CardName,TypeTags,AspectTags,Instructions,TargetRequirement
-QuestGiver,King,Royalty;Authority,Leadership,,
-QuestGiver,Noble House,Aristocracy;Wealth,Power,,
-HarmedParty,Demon Lord,Evil;Supernatural,Darkness,,
-HarmedParty,Corporate Rival,Business;Competition,Commerce,,
-Verb,Defend,Protective;Action,Military,Target[Evil Monster],Evil Monster
-Verb,Retrieve,Heroic;Action,Quest,,Magical
-Verb,Heist,Criminal;Action,Stealth,Location[Building;Vault;Fortress]|Target[Magic Item;Artifact;Jewel],City;Vault
-Target,Ironfang Raider,Evil Monster;Humanoid,Military,ThisCard[Hostile],
-Target,Forgotten Amulet,Magical;Artifact,Ancient,,
-Target,Castle Guard,Structure;Humanoid,Military,Location[Fortified],
-Location,Dark Forest,Wilderness;Dangerous,Nature,Twist[Perilous],
-Location,Ancient Ruins,Exploration;Ancient,Mystery,,
-Location,Bank Vault,Building;Secure,Commerce,Reward[Protected]|Failure[Protected],
-Twist,Betrayal,Danger;Social,Mystery,Failure[Treacherous],
-Twist,Time Pressure,Challenge;Urgency,Quest,,
-Twist,Sabotage,Danger;Deception,Crime,Reward[Compromised]|Failure[Compromised],
-Reward,Gold Coins,Treasure;Wealth,Commerce,,
-Reward,Magical Sword,Weapon;Magical,Magic,ThisCard[Enchanted],
-Failure,Death,Permanent;Catastrophic,Doom,,
-Failure,Curse,Magical;Permanent,Magic,ThisCard[Afflicted],`;
+    return `Deck,CardName,TypeTags,AspectTags,Instructions
+QuestGiver,King,Royalty;Authority,Leadership,
+QuestGiver,Noble House,Aristocracy;Wealth,Power,
+HarmedParty,Demon Lord,Evil;Supernatural,Darkness,
+HarmedParty,Corporate Rival,Business;Competition,Commerce,
+Verb,Defend,Protective;Action,Military,Target[Evil Monster;Dangerous]
+Verb,Retrieve,Heroic;Action,Quest,Target[Magical]
+Verb,Heist,Criminal;Action,Stealth,Location[Building;Vault;Fortress]|Target[Magic Item;Artifact;Jewel;Treasure;Vault]
+Target,Ironfang Raider,Evil Monster;Humanoid,Military,ThisCard[Hostile]
+Target,Forgotten Amulet,Magical;Artifact,Ancient,
+Target,Castle Guard,Structure;Humanoid,Military,Location[Fortified]
+Location,Dark Forest,Wilderness;Dangerous,Nature,Twist[Perilous]
+Location,Ancient Ruins,Exploration;Ancient,Mystery,
+Location,Bank Vault,Building;Secure,Commerce,Reward[Protected]|Failure[Protected]
+Twist,Betrayal,Danger;Social,Mystery,Failure[Treacherous]
+Twist,Time Pressure,Challenge;Urgency,Quest,
+Twist,Sabotage,Danger;Deception,Crime,Reward[Compromised]|Failure[Compromised]
+Reward,Gold Coins,Treasure;Wealth,Commerce,
+Reward,Magical Sword,Weapon;Magical,Magic,ThisCard[Enchanted]
+Failure,Death,Permanent;Catastrophic,Doom,
+Failure,Curse,Magical;Permanent,Magic,ThisCard[Afflicted]`;
   }
 
   /**
@@ -341,8 +325,7 @@ Failure,Curse,Magical;Permanent,Magic,ThisCard[Afflicted],`;
       'CardName',
       'TypeTags',
       'AspectTags',
-      'Instructions',
-      'TargetRequirement'
+      'Instructions'
     ]);
 
     // Collect all cards from all decks
@@ -368,8 +351,7 @@ Failure,Curse,Magical;Permanent,Magic,ThisCard[Afflicted],`;
         card.CardName,
         (card.TypeTags && card.TypeTags.join(';')) || '',
         (card.AspectTags && card.AspectTags.join(';')) || '',
-        instructionsStr,
-        (card.TargetRequirement && card.TargetRequirement.join(';')) || ''
+        instructionsStr
       ]);
     }
 

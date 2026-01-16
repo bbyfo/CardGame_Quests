@@ -13,7 +13,6 @@ class CardManager {
       type: new Set(),
       aspect: new Set(),
       mutable: new Set(),
-      targetRequirement: new Set(),
       instructionTags: new Set()
     };
     this.init();
@@ -49,9 +48,6 @@ class CardManager {
           }
           if (card.mutableTags) {
             card.mutableTags.forEach(tag => this.allTags.mutable.add(tag));
-          }
-          if (card.TargetRequirement) {
-            card.TargetRequirement.forEach(tag => this.allTags.targetRequirement.add(tag));
           }
           if (card.Instructions) {
             card.Instructions.forEach(instr => {
@@ -97,7 +93,6 @@ class CardManager {
     this.setupTagAutocomplete('type-tags-input', 'type-tags-suggestions', Array.from(this.allTags.type));
     this.setupTagAutocomplete('aspect-tags-input', 'aspect-tags-suggestions', Array.from(this.allTags.aspect));
     this.setupTagAutocomplete('mutable-tags-input', null, Array.from(this.allTags.mutable));
-    this.setupTagAutocomplete('target-requirement', 'target-requirement-suggestions', Array.from(this.allTags.targetRequirement));
 
     // Add instruction button
     const addInstrBtn = document.getElementById('btn-add-instruction');
@@ -245,7 +240,6 @@ class CardManager {
       'type-tags-input': 'type-tags-list',
       'aspect-tags-input': 'aspect-tags-list',
       'mutable-tags-input': 'mutable-tags-list',
-      'target-requirement': 'target-requirement-list',
       'instruction-tags': 'instruction-tags-list'
     };
     return mapping[inputId] || null;
@@ -276,13 +270,7 @@ class CardManager {
    * Handle deck selection change
    */
   handleDeckChange(e) {
-    const deckSelect = e.target.value;
-    const targetRequirementGroup = document.getElementById('target-requirement-group');
-    
-    // Show target requirement only for Verbs
-    if (targetRequirementGroup) {
-      targetRequirementGroup.style.display = deckSelect === 'verbs' ? 'flex' : 'none';
-    }
+    // All card types now use the same Instructions system (consolidated from TargetRequirement)
   }
 
   /**
@@ -307,11 +295,6 @@ class CardManager {
       mutableTags: this.getTagsFromList('mutable-tags-list'),
       Instructions: this.instructionData
     };
-
-    // Add TargetRequirement for Verbs
-    if (deckSelect === 'verbs') {
-      cardData.TargetRequirement = this.getTagsFromList('target-requirement-list');
-    }
 
     // Add or update the card
     if (!Array.isArray(this.cards[deckSelect])) {
@@ -527,11 +510,6 @@ class CardManager {
     this.clearTagList('mutable-tags-list');
     card.mutableTags.forEach(tag => this.addTag('mutable-tags-input', tag));
 
-    if (card.TargetRequirement) {
-      this.clearTagList('target-requirement-list');
-      card.TargetRequirement.forEach(tag => this.addTag('target-requirement', tag));
-    }
-
     // Set instructions
     this.instructionData = JSON.parse(JSON.stringify(card.Instructions || []));
     this.renderInstructions();
@@ -570,18 +548,12 @@ class CardManager {
     this.clearTagList('type-tags-list');
     this.clearTagList('aspect-tags-list');
     this.clearTagList('mutable-tags-list');
-    this.clearTagList('target-requirement-list');
     this.instructionData = [];
     this.renderInstructions();
 
     const cancelBtn = document.getElementById('btn-cancel-edit');
     if (cancelBtn) {
       cancelBtn.style.display = 'none';
-    }
-
-    const targetRequirementGroup = document.getElementById('target-requirement-group');
-    if (targetRequirementGroup) {
-      targetRequirementGroup.style.display = 'none';
     }
   }
 

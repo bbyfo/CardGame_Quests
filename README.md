@@ -114,10 +114,10 @@ Each card object has the following structure:
 
 ### Step 1: Draw Verb
 - Select a random Verb card
-- Extract the Verb's TargetRequirement (array of tag requirements)
+- Extract the Verb's Instructions (array of matching requirements)
 
 ### Step 2: Draw Target
-- Compute match pool: count cards with at least one tag from TargetRequirement
+- Compute match pool: count cards with at least one tag from Verb's Instructions for Target deck
 - Draw randomly until:
   - A card matches (accepted)
   - 3 cards don't match (fallback: auto-accept the 4th)
@@ -211,7 +211,7 @@ Edit `cards.json` to add your own cards:
 
 ### Design Tips
 - Use 8-12 cards per deck for good variety
-- Ensure TargetRequirement tags match some cards in the Target deck
+- Ensure Verb Instructions for Target deck match some cards in the Target deck
 - Use Modify effects to create cascading effects
 - Test with validation mode to find bottlenecks
 

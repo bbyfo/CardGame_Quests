@@ -218,7 +218,7 @@ Click "Generate Quest" button
 
 ### Too many fallbacks
 **Solution**: Verb requirements too strict
-- Reduce specificity of TargetRequirement
+- Reduce specificity of Verb Instructions
 - Add matching tags to more target cards
 - Check validation report for bottlenecks
 

@@ -335,7 +335,6 @@ class QuestEngine {
 
     this.quest.verb = verb;
     this.log(`Verb drawn: "${verb.CardName}"`);
-    this.log(`Verb target requirement: [${verb.TargetRequirement.join(', ')}]`, { requirement: verb.TargetRequirement });
 
     // Store verb's instructions if it targets future decks
     if (verb.Instructions && Array.isArray(verb.Instructions) && verb.Instructions.length > 0) {
@@ -362,8 +361,8 @@ class QuestEngine {
   stepDrawTarget(verb) {
     this.log('=== STEP 4: Draw Target ===');
     
-    // Check if verb has instruction targeting Target
-    const requiredTags = this.getMatchingRequirement('Target', verb.TargetRequirement);
+    // Check if verb has instruction targeting Target deck
+    const requiredTags = this.getMatchingRequirement('Target', []);
     
     const matchCount = this.countMatchingCards(this.decks.targets, requiredTags);
     const totalCount = this.decks.targets.length;

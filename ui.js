@@ -155,7 +155,6 @@ class UIManager {
       // Draw Verb
       this.stepState.verb = this.engine.stepDrawVerb(this.stepState.selectedVerb);
       this.addLog(`Drawn Verb: ${this.stepState.verb.CardName}`);
-      this.addLog(`Target Requirement: [${this.stepState.verb.TargetRequirement.join(', ')}]`);
     } else if (step === 3) {
       // Draw Target
       this.stepState.target = this.engine.stepDrawTarget(this.stepState.verb);

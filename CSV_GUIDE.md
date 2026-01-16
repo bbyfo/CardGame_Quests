@@ -50,7 +50,7 @@ You can now manage your card data in Google Sheets and import it into the Quest 
 ### Column Headers
 
 ```
-Deck,CardName,TypeTags,AspectTags,InstructionType,InstructionSubType,InstructionTarget,InstructionTags,TargetRequirement
+Deck,CardName,TypeTags,AspectTags,InstructionType,InstructionSubType,InstructionTarget,InstructionTags
 ```
 
 ### Column Definitions
@@ -65,19 +65,18 @@ Deck,CardName,TypeTags,AspectTags,InstructionType,InstructionSubType,Instruction
 | **InstructionSubType** | Text | No | Add | Currently only "Add" supported |
 | **InstructionTarget** | Text | No | ThisCard, Target, Location, Twist, Reward, Failure | Where the tags go |
 | **InstructionTags** | Text | No | Hostile;Powerful | Semicolon-separated (;) |
-| **TargetRequirement** | Text | No* | Evil Monster | Semicolon-separated (;) *Required only for Verb deck |
 
 ### Example CSV
 
 ```
-Deck,CardName,TypeTags,AspectTags,InstructionType,InstructionSubType,InstructionTarget,InstructionTags,TargetRequirement
-Verb,Defend,Protective;Action,Military,Modify,Add,Target,,Evil Monster
-Verb,Retrieve,Heroic;Action,Quest,,,,Magical
-Target,Ironfang Raider,Evil Monster;Humanoid,Military,Modify,Add,ThisCard,Hostile,
-Target,Forbidden Amulet,Magical;Artifact,Ancient,,,,
-Location,Dark Forest,Wilderness;Dangerous,Nature,Modify,Add,Twist,Perilous,
-Location,Ancient Ruins,Exploration;Ancient,Mystery,,,,
-Twist,Betrayal,Danger;Social,Mystery,Modify,Add,Failure,Treacherous,
+Deck,CardName,TypeTags,AspectTags,InstructionType,InstructionSubType,InstructionTarget,InstructionTags
+Verb,Defend,Protective;Action,Military,Modify,Add,Target,Evil Monster;Dangerous
+Verb,Retrieve,Heroic;Action,Quest,Modify,Add,Target,Magical
+Target,Ironfang Raider,Evil Monster;Humanoid,Military,Modify,Add,ThisCard,Hostile
+Target,Forbidden Amulet,Magical;Artifact,Ancient
+Location,Dark Forest,Wilderness;Dangerous,Nature,Modify,Add,Twist,Perilous
+Location,Ancient Ruins,Exploration;Ancient,Mystery
+Twist,Betrayal,Danger;Social,Mystery,Modify,Add,Failure,Treacherous
 Twist,Time Pressure,Challenge;Urgency,Quest,,,,
 Reward,Gold Coins,Treasure;Wealth,Commerce,,,,
 Reward,Magical Sword,Weapon;Magical,Magic,Modify,Add,ThisCard,Enchanted,
@@ -157,7 +156,7 @@ When you import CSV, the app checks:
   - Failures: 2+ cards
 
 ✓ **Unique card names** within each deck  
-✓ **Verb TargetRequirement**: All verbs must have requirements
+✓ **Verb Instructions**: All verbs must have instructions
 
 ⚠️ **Warnings** (non-blocking):
 - Decks below recommended sizes
@@ -173,7 +172,7 @@ When you import CSV, the app checks:
 | "Missing required columns" | Headers incorrect | Use template from app |
 | "Invalid deck: XYZ" | Deck name misspelled | Use exact names: Verb, Target, Location, Twist, Reward, Failure |
 | "Duplicate card name" | Same name in one deck | Rename one of the cards |
-| "Missing TargetRequirement" | Verb without targets | Add requirement for each verb |
+| "Missing Instructions" | Verb without instructions | Add instruction for each verb |
 | "CSV must have headers" | No header row | First row must be headers |
 
 ### Error Messages in Log
@@ -185,10 +184,10 @@ When import fails, check the log window for:
 
 Example:
 ```
-Row 5: Missing TargetRequirement
+Row 5: Missing Instructions
 ```
 
-Means row 5 is a Verb without a TargetRequirement.
+Means row 5 is a Verb without Instructions.
 
 ## Tips & Tricks
 
