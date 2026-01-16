@@ -146,21 +146,28 @@
   font-size: 0.9rem;
   font-weight: 500;
   white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.tag:hover {
+  background-color: #5568d3;
+}
+
+.tag::after {
+  content: '×';
+  margin-left: 0.5rem;
+  font-weight: bold;
+  font-size: 1.2rem;
+  opacity: 0.8;
+}
+
+.tag:hover::after {
+  opacity: 1;
 }
 
 .tag.empty {
   display: none;
-}
-
-.tag-remove {
-  cursor: pointer;
-  font-weight: bold;
-  color: rgba(255, 255, 255, 0.8);
-  transition: color 0.2s;
-}
-
-.tag-remove:hover {
-  color: white;
 }
 
 /* Instructions List */

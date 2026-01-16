@@ -268,18 +268,16 @@ class CardManager {
     const list = document.getElementById(listId);
     if (!list) return;
 
-    // Check if tag already exists
-    const existingTags = Array.from(list.querySelectorAll('.tag')).map(t => t.textContent.replace('×', '').trim());
+    // Check if tag already exists (clean comparison, no need to trim '×')
+    const existingTags = Array.from(list.querySelectorAll('.tag')).map(t => t.textContent.trim());
     if (existingTags.includes(tagValue)) return;
 
     const tag = document.createElement('span');
     tag.className = 'tag';
-    tag.innerHTML = `
-      ${tagValue}
-      <span class="tag-remove">×</span>
-    `;
+    tag.textContent = tagValue; // Clean text only, '×' added via CSS ::after
 
-    tag.querySelector('.tag-remove').addEventListener('click', () => {
+    // Click anywhere on tag to remove it
+    tag.addEventListener('click', () => {
       tag.remove();
     });
 
@@ -306,7 +304,7 @@ class CardManager {
     const list = document.getElementById(listId);
     if (!list) return [];
     return Array.from(list.querySelectorAll('.tag'))
-      .map(tag => tag.textContent.replace('×', '').trim())
+      .map(tag => tag.textContent.trim())
       .filter(text => text.length > 0);
   }
 
