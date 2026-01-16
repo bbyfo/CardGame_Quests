@@ -254,6 +254,20 @@ class UIManager {
       <div class="quest-display">
         <h3>Generated Quest</h3>
         <div class="quest-role">
+          <strong>Quest Giver:</strong> ${quest.questGiver.CardName}
+          <div class="tags">
+            <span class="tag-label">Type Tags:</span> ${quest.questGiver.TypeTags.join(', ')}
+            <span class="tag-label">Aspect Tags:</span> ${quest.questGiver.AspectTags.join(', ')}
+          </div>
+        </div>
+        <div class="quest-role">
+          <strong>Harmed Party:</strong> ${quest.harmedParty.CardName}
+          <div class="tags">
+            <span class="tag-label">Type Tags:</span> ${quest.harmedParty.TypeTags.join(', ')}
+            <span class="tag-label">Aspect Tags:</span> ${quest.harmedParty.AspectTags.join(', ')}
+          </div>
+        </div>
+        <div class="quest-role">
           <strong>Verb:</strong> ${quest.verb.CardName}
         </div>
         <div class="quest-role">
