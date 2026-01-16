@@ -99,7 +99,8 @@ class UIManager {
       // Draw Verb
       this.stepState.verb = this.engine.stepDrawVerb();
       this.addLog(`Drawn Verb: ${this.stepState.verb.CardName}`);
-      this.addLog(`Target Requirement: [${this.stepState.verb.TargetRequirement.join(', ')}]`);
+      const deckInfo = this.stepState.verb.InstructionDeck ? `<b>${this.stepState.verb.InstructionDeck}</b> with ` : '';
+      this.addLog(`Target Deck Requirement: ${deckInfo}[${this.stepState.verb.TargetRequirement.join(', ')}]`);
     } else if (step === 1) {
       // Draw Target
       this.stepState.target = this.engine.stepDrawTarget(this.stepState.verb);
@@ -117,7 +118,7 @@ class UIManager {
       this.addLog(`Twist Tags: [${this.engine.getCurrentTags(this.stepState.twist).join(', ')}]`);
     } else if (step === 4) {
       // Draw Reward and Failure
-      const { reward, failure } = this.engine.stepDrawRewardAndFailure();
+      const { reward, failure } = this.engine.stepDrawRewardAndFailure(this.stepState.twist);
       this.addLog(`Drawn Reward: ${reward.CardName}`);
       this.addLog(`Drawn Failure: ${failure.CardName}`);
       this.stepState.step++; // Allow one more click to end

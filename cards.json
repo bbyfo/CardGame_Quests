@@ -8,7 +8,7 @@
       "TargetRequirement": ["Evil Monster"],
       "InstructionType": "Modify",
       "InstructionSubType": "Add",
-      "InstructionTarget": "Target",
+      "InstructionDeck": "Target",
       "InstructionTags": []
     },
     {
@@ -19,7 +19,7 @@
       "TargetRequirement": ["Magical"],
       "InstructionType": null,
       "InstructionSubType": null,
-      "InstructionTarget": null,
+      "InstructionDeck": null,
       "InstructionTags": []
     },
     {
@@ -30,7 +30,7 @@
       "TargetRequirement": ["Structure"],
       "InstructionType": "Modify",
       "InstructionSubType": "Add",
-      "InstructionTarget": "ThisCard",
+      "InstructionDeck": "ThisCard",
       "InstructionTags": ["Dangerous"]
     },
     {
@@ -38,10 +38,10 @@
       "CardName": "Investigate",
       "TypeTags": ["Exploration", "Action"],
       "AspectTags": ["Mystery"],
-      "TargetRequirement": ["Location"],
+      "TargetRequirement": ["Arcane", "Ruins"],
       "InstructionType": null,
       "InstructionSubType": null,
-      "InstructionTarget": null,
+      "InstructionDeck": null,
       "InstructionTags": []
     },
     {
@@ -52,7 +52,7 @@
       "TargetRequirement": ["Character"],
       "InstructionType": "Modify",
       "InstructionSubType": "Add",
-      "InstructionTarget": "Target",
+      "InstructionDeck": "Target",
       "InstructionTags": ["Noble"]
     }
   ],
@@ -65,7 +65,7 @@
       "mutableTags": [],
       "InstructionType": "Modify",
       "InstructionSubType": "Add",
-      "InstructionTarget": "ThisCard",
+      "InstructionDeck": "ThisCard",
       "InstructionTags": ["Hostile"]
     },
     {
@@ -76,7 +76,7 @@
       "mutableTags": [],
       "InstructionType": null,
       "InstructionSubType": null,
-      "InstructionTarget": null,
+      "InstructionDeck": null,
       "InstructionTags": []
     },
     {
@@ -87,7 +87,7 @@
       "mutableTags": [],
       "InstructionType": "Modify",
       "InstructionSubType": "Add",
-      "InstructionTarget": "Location",
+      "InstructionDeck": "Location",
       "InstructionTags": ["Fortified"]
     },
     {
@@ -98,7 +98,7 @@
       "mutableTags": [],
       "InstructionType": null,
       "InstructionSubType": null,
-      "InstructionTarget": null,
+      "InstructionDeck": null,
       "InstructionTags": []
     },
     {
@@ -109,7 +109,7 @@
       "mutableTags": [],
       "InstructionType": "Modify",
       "InstructionSubType": "Add",
-      "InstructionTarget": "Reward",
+      "InstructionDeck": "Reward",
       "InstructionTags": ["Honor"]
     },
     {
@@ -120,7 +120,7 @@
       "mutableTags": [],
       "InstructionType": "Modify",
       "InstructionSubType": "Add",
-      "InstructionTarget": "ThisCard",
+      "InstructionDeck": "ThisCard",
       "InstructionTags": ["Powerful"]
     }
   ],
@@ -133,7 +133,7 @@
       "mutableTags": [],
       "InstructionType": "Modify",
       "InstructionSubType": "Add",
-      "InstructionTarget": "Twist",
+      "InstructionDeck": "Twist",
       "InstructionTags": ["Perilous"]
     },
     {
@@ -144,7 +144,7 @@
       "mutableTags": [],
       "InstructionType": null,
       "InstructionSubType": null,
-      "InstructionTarget": null,
+      "InstructionDeck": null,
       "InstructionTags": []
     },
     {
@@ -155,7 +155,7 @@
       "mutableTags": [],
       "InstructionType": "Modify",
       "InstructionSubType": "Add",
-      "InstructionTarget": "ThisCard",
+      "InstructionDeck": "ThisCard",
       "InstructionTags": ["Hidden"]
     },
     {
@@ -166,7 +166,7 @@
       "mutableTags": [],
       "InstructionType": null,
       "InstructionSubType": null,
-      "InstructionTarget": null,
+      "InstructionDeck": null,
       "InstructionTags": []
     },
     {
@@ -177,7 +177,7 @@
       "mutableTags": [],
       "InstructionType": "Modify",
       "InstructionSubType": "Add",
-      "InstructionTarget": "Failure",
+      "InstructionDeck": "Failure",
       "InstructionTags": ["Cursed"]
     }
   ],
@@ -190,7 +190,7 @@
       "mutableTags": [],
       "InstructionType": "Modify",
       "InstructionSubType": "Add",
-      "InstructionTarget": "Failure",
+      "InstructionDeck": "Failure",
       "InstructionTags": ["Treacherous"]
     },
     {
@@ -201,7 +201,7 @@
       "mutableTags": [],
       "InstructionType": null,
       "InstructionSubType": null,
-      "InstructionTarget": null,
+      "InstructionDeck": null,
       "InstructionTags": []
     },
     {
@@ -212,7 +212,7 @@
       "mutableTags": [],
       "InstructionType": "Modify",
       "InstructionSubType": "Add",
-      "InstructionTarget": "Reward",
+      "InstructionDeck": "Reward",
       "InstructionTags": ["Fortunate"]
     },
     {
@@ -223,7 +223,7 @@
       "mutableTags": [],
       "InstructionType": "Modify",
       "InstructionSubType": "Add",
-      "InstructionTarget": "ThisCard",
+      "InstructionDeck": "ThisCard",
       "InstructionTags": ["Deadly"]
     }
   ],
@@ -236,7 +236,7 @@
       "mutableTags": [],
       "InstructionType": null,
       "InstructionSubType": null,
-      "InstructionTarget": null,
+      "InstructionDeck": null,
       "InstructionTags": []
     },
     {
@@ -247,7 +247,7 @@
       "mutableTags": [],
       "InstructionType": "Modify",
       "InstructionSubType": "Add",
-      "InstructionTarget": "ThisCard",
+      "InstructionDeck": "ThisCard",
       "InstructionTags": ["Enchanted"]
     },
     {
@@ -258,7 +258,7 @@
       "mutableTags": [],
       "InstructionType": null,
       "InstructionSubType": null,
-      "InstructionTarget": null,
+      "InstructionDeck": null,
       "InstructionTags": []
     },
     {
@@ -269,7 +269,7 @@
       "mutableTags": [],
       "InstructionType": null,
       "InstructionSubType": null,
-      "InstructionTarget": null,
+      "InstructionDeck": null,
       "InstructionTags": []
     }
   ],
@@ -282,7 +282,7 @@
       "mutableTags": [],
       "InstructionType": null,
       "InstructionSubType": null,
-      "InstructionTarget": null,
+      "InstructionDeck": null,
       "InstructionTags": []
     },
     {
@@ -293,7 +293,7 @@
       "mutableTags": [],
       "InstructionType": null,
       "InstructionSubType": null,
-      "InstructionTarget": null,
+      "InstructionDeck": null,
       "InstructionTags": []
     },
     {
@@ -304,7 +304,7 @@
       "mutableTags": [],
       "InstructionType": "Modify",
       "InstructionSubType": "Add",
-      "InstructionTarget": "ThisCard",
+      "InstructionDeck": "ThisCard",
       "InstructionTags": ["Afflicted"]
     },
     {
@@ -315,7 +315,7 @@
       "mutableTags": [],
       "InstructionType": null,
       "InstructionSubType": null,
-      "InstructionTarget": null,
+      "InstructionDeck": null,
       "InstructionTags": []
     }
   ]

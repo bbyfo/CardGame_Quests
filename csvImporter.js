@@ -130,7 +130,7 @@ class CSVImporter {
         card[header] = this.parseTags(value) || [];
       } else if (value === '') {
         // Empty string becomes null for instruction fields
-        if (['InstructionType', 'InstructionSubType', 'InstructionTarget'].includes(header)) {
+        if (['InstructionType', 'InstructionSubType', 'InstructionDeck'].includes(header)) {
           card[header] = null;
         } else {
           card[header] = value;
@@ -150,7 +150,7 @@ class CSVImporter {
     card.mutableTags = card.mutableTags || [];
     card.InstructionType = card.InstructionType || null;
     card.InstructionSubType = card.InstructionSubType || null;
-    card.InstructionTarget = card.InstructionTarget || null;
+    card.InstructionDeck = card.InstructionDeck || null;
     card.InstructionTags = card.InstructionTags || [];
 
     // TargetRequirement only for Verbs
@@ -235,7 +235,7 @@ class CSVImporter {
     // Check verb targets have TargetRequirement
     for (const verb of decks.verbs) {
       if (!verb.TargetRequirement || verb.TargetRequirement.length === 0) {
-        errors.push(`Verb "${verb.CardName}": Missing TargetRequirement`);
+        errors.push(`Verb "${verb.CardName}": Missing TargetRequirement (must specify what kind of Target this verb works with, e.g., "Evil Monster", "Character", "Location")`);
       }
     }
 
@@ -257,7 +257,7 @@ class CSVImporter {
    * Get CSV template as string
    */
   static getCSVTemplate() {
-    return `Deck,CardName,TypeTags,AspectTags,InstructionType,InstructionSubType,InstructionTarget,InstructionTags,TargetRequirement
+    return `Deck,CardName,TypeTags,AspectTags,InstructionType,InstructionSubType,InstructionDeck,InstructionTags,TargetRequirement
 Verb,Defend,Protective;Action,Military,Modify,Add,Target,,Evil Monster
 Verb,Retrieve,Heroic;Action,Quest,,,,Magical
 Target,Ironfang Raider,Evil Monster;Humanoid,Military,Modify,Add,ThisCard,Hostile,
@@ -302,7 +302,7 @@ Failure,Curse,Magical;Permanent,Magic,Modify,Add,ThisCard,Afflicted,`;
       'AspectTags',
       'InstructionType',
       'InstructionSubType',
-      'InstructionTarget',
+      'InstructionDeck',
       'InstructionTags',
       'TargetRequirement'
     ]);
@@ -320,13 +320,13 @@ Failure,Curse,Magical;Permanent,Magic,Modify,Add,ThisCard,Afflicted,`;
       rows.push([
         card.Deck || card.deckName,
         card.CardName,
-        card.TypeTags?.join(';') || '',
-        card.AspectTags?.join(';') || '',
+        (card.TypeTags && card.TypeTags.join(';')) || '',
+        (card.AspectTags && card.AspectTags.join(';')) || '',
         card.InstructionType || '',
         card.InstructionSubType || '',
-        card.InstructionTarget || '',
-        card.InstructionTags?.join(';') || '',
-        card.TargetRequirement?.join(';') || ''
+        card.InstructionDeck || '',
+        (card.InstructionTags && card.InstructionTags.join(';')) || '',
+        (card.TargetRequirement && card.TargetRequirement.join(';')) || ''
       ]);
     }
 

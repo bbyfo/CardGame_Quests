@@ -36,6 +36,8 @@ class QuestEngine {
       fallbacksTriggered: 0,
       modifyEffectsApplied: 0
     };
+    // Pending instructions from cards that target future decks
+    this.pendingInstructions = [];
   }
 
   /**
@@ -80,6 +82,49 @@ class QuestEngine {
   }
 
   /**
+   * Helper: Get matching requirement tags for a given deck
+   * Checks pending instructions and normal matching rules
+   */
+  getMatchingRequirement(deckName, defaultTags) {
+    // Check if any pending instruction targets this deck
+    for (const instruction of this.pendingInstructions) {
+      if (instruction.target.toLowerCase() === deckName.toLowerCase()) {
+        this.log(`Using instruction tags from "${instruction.source}" for ${deckName} matching`, {
+          instruction: instruction.target,
+          tags: instruction.tags
+        });
+        return instruction.tags;
+      }
+    }
+    // Otherwise use default requirement
+    return defaultTags;
+  }
+
+  /**
+   * Helper: Store pending instruction from a drawn card
+   */
+  storePendingInstruction(card) {
+    if (card.InstructionType && card.InstructionDeck) {
+      // Don't store if target is "ThisCard" (applied immediately)
+      if (card.InstructionDeck.toLowerCase() === 'thiscard') {
+        return;
+      }
+      
+      this.pendingInstructions.push({
+        source: card.CardName,
+        type: card.InstructionType,
+        subType: card.InstructionSubType,
+        target: card.InstructionDeck,
+        tags: card.InstructionTags
+      });
+      this.log(`Instruction stored: "${card.CardName}" will add [${card.InstructionTags.join(', ')}] to ${card.InstructionDeck}`, {
+        source: card.CardName,
+        instruction: card.InstructionDeck
+      });
+    }
+  }
+
+  /**
    * Helper: Get cards matching criteria
    */
   getMatchingCards(deck, requiredTags) {
@@ -121,12 +166,22 @@ class QuestEngine {
       const cardTags = this.getCurrentTags(card);
       const matches = this.getTagIntersection(cardTags, requiredTags);
 
-      if (matches.length > 0) {
+      // Empty requiredTags means no constraint - accept any card
+      const isMatch = requiredTags.length === 0 || matches.length > 0;
+
+      if (isMatch) {
         selectedCard = card;
-        this.log(
-          `${deckName} Draw #${attempts}: ACCEPTED "${card.CardName}" (matched tags: ${matches.join(', ')})`,
-          { card: card.CardName, matchedTags: matches }
-        );
+        if (requiredTags.length === 0) {
+          this.log(
+            `${deckName} Draw #${attempts}: ACCEPTED "${card.CardName}" (no tag constraints)`,
+            { card: card.CardName, noConstraints: true }
+          );
+        } else {
+          this.log(
+            `${deckName} Draw #${attempts}: ACCEPTED "${card.CardName}" (matched tags: ${matches.join(', ')})`,
+            { card: card.CardName, matchedTags: matches }
+          );
+        }
       } else {
         this.log(
           `${deckName} Draw #${attempts}: REJECTED "${card.CardName}" (no matching tags, needs: ${requiredTags.join(', ')})`,
@@ -160,12 +215,12 @@ class QuestEngine {
       source: card.CardName,
       type: card.InstructionType,
       subType: card.InstructionSubType,
-      target: card.InstructionTarget,
+      target: card.InstructionDeck,
       tags: card.InstructionTags
     };
 
     if (card.InstructionSubType === 'Add') {
-      if (card.InstructionTarget === 'ThisCard') {
+      if (card.InstructionDeck === 'ThisCard') {
         card.mutableTags.push(...card.InstructionTags);
         this.log(
           `Modify Effect: "${card.CardName}" gained tags [${card.InstructionTags.join(', ')}]`,
@@ -180,8 +235,8 @@ class QuestEngine {
       } else {
         // Target is another role (Location, Twist, Reward, Failure)
         this.log(
-          `Modify Effect: Tags [${card.InstructionTags.join(', ')}] marked for ${card.InstructionTarget}`,
-          { appliedTo: card.InstructionTarget, tags: card.InstructionTags, source: card.CardName }
+          `Modify Effect: Tags [${card.InstructionTags.join(', ')}] marked for ${card.InstructionDeck}`,
+          { appliedTo: card.InstructionDeck, tags: card.InstructionTags, source: card.CardName }
         );
         return instruction;
       }
@@ -207,6 +262,21 @@ class QuestEngine {
     this.log(`Verb drawn: "${verb.CardName}"`);
     this.log(`Verb target requirement: [${verb.TargetRequirement.join(', ')}]`, { requirement: verb.TargetRequirement });
 
+    // Store verb's instruction if it targets a future deck
+    if (verb.InstructionType && verb.InstructionDeck) {
+      this.pendingInstructions.push({
+        source: verb.CardName,
+        type: verb.InstructionType,
+        subType: verb.InstructionSubType,
+        target: verb.InstructionDeck,
+        tags: verb.InstructionTags
+      });
+      this.log(`Verb instruction stored: "${verb.CardName}" will add [${verb.InstructionTags.join(', ')}] to ${verb.InstructionDeck}`, {
+        source: verb.CardName,
+        instruction: verb.InstructionDeck
+      });
+    }
+
     return verb;
   }
 
@@ -215,7 +285,10 @@ class QuestEngine {
    */
   stepDrawTarget(verb) {
     this.log('=== STEP 2: Draw Target ===');
-    const requiredTags = verb.TargetRequirement;
+    
+    // Check if verb has instruction targeting Target
+    const requiredTags = this.getMatchingRequirement('Target', verb.TargetRequirement);
+    
     const matchCount = this.countMatchingCards(this.decks.targets, requiredTags);
     const totalCount = this.decks.targets.length;
     const percentage = ((matchCount / totalCount) * 100).toFixed(1);
@@ -239,6 +312,9 @@ class QuestEngine {
 
     // Apply target's Modify effects
     this.applyModifyEffects(target, null);
+    
+    // Store target's instruction if it targets a future deck
+    this.storePendingInstruction(target);
 
     return target;
   }
@@ -248,13 +324,16 @@ class QuestEngine {
    */
   stepDrawLocation(target) {
     this.log('=== STEP 3: Draw Location ===');
-    const requiredTags = this.getCurrentTags(target);
+    
+    // Check if any pending instruction targets Location
+    const requiredTags = this.getMatchingRequirement('Location', this.getCurrentTags(target));
+    
     const matchCount = this.countMatchingCards(this.decks.locations, requiredTags);
     const totalCount = this.decks.locations.length;
     const percentage = ((matchCount / totalCount) * 100).toFixed(1);
 
     this.log(
-      `Looking for location matching target tags: [${requiredTags.join(', ')}]`,
+      `Looking for location matching tags: [${requiredTags.join(', ')}]`,
       { requiredTags: requiredTags }
     );
     this.log(`Match pool: ${matchCount}/${totalCount} (${percentage}%)`);
@@ -272,6 +351,9 @@ class QuestEngine {
 
     // Apply location's Modify effects
     this.applyModifyEffects(location, null);
+    
+    // Store location's instruction if it targets a future deck
+    this.storePendingInstruction(location);
 
     return location;
   }
@@ -281,13 +363,16 @@ class QuestEngine {
    */
   stepDrawTwist(location) {
     this.log('=== STEP 4: Draw Twist ===');
-    const requiredTags = this.getCurrentTags(location);
+    
+    // Check if any pending instruction targets Twist
+    const requiredTags = this.getMatchingRequirement('Twist', this.getCurrentTags(location));
+    
     const matchCount = this.countMatchingCards(this.decks.twists, requiredTags);
     const totalCount = this.decks.twists.length;
     const percentage = ((matchCount / totalCount) * 100).toFixed(1);
 
     this.log(
-      `Looking for twist matching location tags: [${requiredTags.join(', ')}]`,
+      `Looking for twist matching tags: [${requiredTags.join(', ')}]`,
       { requiredTags: requiredTags }
     );
     this.log(`Match pool: ${matchCount}/${totalCount} (${percentage}%)`);
@@ -305,6 +390,9 @@ class QuestEngine {
 
     // Apply twist's Modify effects
     this.applyModifyEffects(twist, null);
+    
+    // Store twist's instruction if it targets a future deck
+    this.storePendingInstruction(twist);
 
     return twist;
   }
@@ -312,23 +400,51 @@ class QuestEngine {
   /**
    * STEP 5: Draw Reward and Failure
    */
-  stepDrawRewardAndFailure() {
+  stepDrawRewardAndFailure(twist) {
     this.log('=== STEP 5: Draw Reward and Failure ===');
 
-    // Draw Reward
-    const reward = this.drawRandomCard(this.decks.rewards);
+    // Check for pending instructions targeting Reward
+    const rewardTags = this.getMatchingRequirement('Reward', this.getCurrentTags(twist));
+    const rewardMatchCount = this.countMatchingCards(this.decks.rewards, rewardTags);
+    const rewardTotalCount = this.decks.rewards.length;
+    const rewardPercentage = ((rewardMatchCount / rewardTotalCount) * 100).toFixed(1);
+
+    this.log(
+      `Looking for reward matching tags: [${rewardTags.join(', ')}]`,
+      { requiredTags: rewardTags }
+    );
+    this.log(`Reward match pool: ${rewardMatchCount}/${rewardTotalCount} (${rewardPercentage}%)`);
+
+    const reward = this.drawWithFallback(this.decks.rewards, rewardTags, 'Reward', 'Reward');
+    
     if (reward) {
       this.quest.reward = reward;
       this.log(`Reward selected: "${reward.CardName}"`);
+      this.log(`Reward current tags: [${this.getCurrentTags(reward).join(', ')}]`);
       this.applyModifyEffects(reward, null);
+      this.storePendingInstruction(reward);
     }
 
-    // Draw Failure
-    const failure = this.drawRandomCard(this.decks.failures);
+    // Check for pending instructions targeting Failure
+    const failureTags = this.getMatchingRequirement('Failure', this.getCurrentTags(twist));
+    const failureMatchCount = this.countMatchingCards(this.decks.failures, failureTags);
+    const failureTotalCount = this.decks.failures.length;
+    const failurePercentage = ((failureMatchCount / failureTotalCount) * 100).toFixed(1);
+
+    this.log(
+      `Looking for failure matching tags: [${failureTags.join(', ')}]`,
+      { requiredTags: failureTags }
+    );
+    this.log(`Failure match pool: ${failureMatchCount}/${failureTotalCount} (${failurePercentage}%)`);
+
+    const failure = this.drawWithFallback(this.decks.failures, failureTags, 'Failure', 'Failure');
+    
     if (failure) {
       this.quest.failure = failure;
       this.log(`Failure selected: "${failure.CardName}"`);
+      this.log(`Failure current tags: [${this.getCurrentTags(failure).join(', ')}]`);
       this.applyModifyEffects(failure, null);
+      this.storePendingInstruction(failure);
     }
 
     return { reward, failure };
@@ -359,7 +475,7 @@ class QuestEngine {
     if (!twist) return null;
 
     // Step 5: Draw Reward and Failure
-    this.stepDrawRewardAndFailure();
+    this.stepDrawRewardAndFailure(twist);
 
     this.log('=== QUEST GENERATION COMPLETE ===');
     this.log(`Total draw attempts: ${this.stats.drawAttempts}`);
