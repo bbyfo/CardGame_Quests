@@ -253,12 +253,39 @@ class UIManager {
     // Card Utilization
     const cardDiv = document.createElement('div');
     cardDiv.className = 'report-section';
+    
+    // Build dead cards list
+    let deadCardsHTML = '';
+    if (report.cardUtilization.deadCards.count > 0) {
+      deadCardsHTML = '<ul>' + report.cardUtilization.deadCards.cards
+        .slice(0, 10)
+        .map(c => `<li>${c.name} (${c.deck})</li>`)
+        .join('') + '</ul>';
+      if (report.cardUtilization.deadCards.count > 10) {
+        deadCardsHTML += `<p><em>...and ${report.cardUtilization.deadCards.count - 10} more</em></p>`;
+      }
+    }
+    
+    // Build overactive cards list
+    let overactiveCardsHTML = '';
+    if (report.cardUtilization.overactiveCards.count > 0) {
+      overactiveCardsHTML = '<ul>' + report.cardUtilization.overactiveCards.cards
+        .slice(0, 10)
+        .map(c => `<li>${c.name} (${c.deck}): ${c.selectedCount} times (${c.ratio}x expected)</li>`)
+        .join('') + '</ul>';
+      if (report.cardUtilization.overactiveCards.count > 10) {
+        overactiveCardsHTML += `<p><em>...and ${report.cardUtilization.overactiveCards.count - 10} more</em></p>`;
+      }
+    }
+    
     cardDiv.innerHTML = `
       <h4>Card Utilization</h4>
       <p><strong>Total Cards:</strong> ${report.cardUtilization.totalCards}</p>
       <p><strong>Cards Used:</strong> ${report.cardUtilization.cardsUsed}</p>
       <p><strong>Dead Cards:</strong> ${report.cardUtilization.deadCards.count}</p>
+      ${deadCardsHTML}
       <p><strong>Overactive Cards:</strong> ${report.cardUtilization.overactiveCards.count}</p>
+      ${overactiveCardsHTML}
     `;
     questOutput.appendChild(cardDiv);
 
