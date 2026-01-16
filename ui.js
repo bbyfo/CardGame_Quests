@@ -46,6 +46,46 @@ class UIManager {
         console.log('Debug mode:', e.target.checked);
       });
     }
+
+    // Populate verb selector
+    this.populateVerbSelector();
+  }
+
+  /**
+   * Populate the verb selector dropdown with distinct verbs
+   */
+  populateVerbSelector() {
+    const selector = document.getElementById('verb-selector');
+    if (!selector) return;
+
+    // Clear existing options except the first one
+    while (selector.options.length > 1) {
+      selector.remove(1);
+    }
+
+    // Get distinct verbs from the engine's deck
+    const verbs = this.engine.decks.verbs;
+    const verbNames = [...new Set(verbs.map(v => v.CardName))].sort();
+
+    // Add verb options
+    for (const verbName of verbNames) {
+      const option = document.createElement('option');
+      option.value = verbName;
+      option.textContent = verbName;
+      selector.appendChild(option);
+    }
+  }
+
+  /**
+   * Get the selected verb from the dropdown (or null for random)
+   */
+  getSelectedVerb() {
+    const selector = document.getElementById('verb-selector');
+    if (!selector || !selector.value) return null;
+
+    const verbName = selector.value;
+    const verb = this.engine.decks.verbs.find(v => v.CardName === verbName);
+    return verb || null;
   }
 
   /**
@@ -56,7 +96,8 @@ class UIManager {
     this.mode = 'normal';
     document.getElementById('btn-next-step').disabled = true;
     
-    const quest = this.engine.generateQuest();
+    const selectedVerb = this.getSelectedVerb();
+    const quest = this.engine.generateQuest(selectedVerb);
     
     if (quest) {
       this.displayQuest(quest);
@@ -78,7 +119,8 @@ class UIManager {
       verb: null,
       target: null,
       location: null,
-      twist: null
+      twist: null,
+      selectedVerb: this.getSelectedVerb()
     };
 
     document.getElementById('btn-next-step').disabled = false;
@@ -97,7 +139,7 @@ class UIManager {
 
     if (step === 0) {
       // Draw Verb
-      this.stepState.verb = this.engine.stepDrawVerb();
+      this.stepState.verb = this.engine.stepDrawVerb(this.stepState.selectedVerb);
       this.addLog(`Drawn Verb: ${this.stepState.verb.CardName}`);
       const deckInfo = this.stepState.verb.InstructionDeck ? `<b>${this.stepState.verb.InstructionDeck}</b> with ` : '';
       this.addLog(`Target Deck Requirement: ${deckInfo}[${this.stepState.verb.TargetRequirement.join(', ')}]`);
@@ -350,6 +392,9 @@ class UIManager {
       this.engine.decks = decks;
       this.validator.dataLoader.decks = decks;
       this.validator.dataLoader.allCards = Object.values(decks).flat();
+
+      // Repopulate verb selector with new decks
+      this.populateVerbSelector();
 
       this.addLog('\n✓ Decks loaded successfully! Ready to generate quests.');
       this.addLog('Tip: Run validation to check card balance.');

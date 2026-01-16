@@ -249,9 +249,14 @@ class QuestEngine {
   /**
    * STEP 1: Draw Verb
    */
-  stepDrawVerb() {
+  stepDrawVerb(specificVerb) {
     this.log('=== STEP 1: Draw Verb ===');
-    const verb = this.drawRandomCard(this.decks.verbs);
+    
+    // Use specific verb if provided, otherwise draw random
+    let verb = specificVerb;
+    if (!verb) {
+      verb = this.drawRandomCard(this.decks.verbs);
+    }
     
     if (!verb) {
       this.log('ERROR: No verbs available');
@@ -453,13 +458,13 @@ class QuestEngine {
   /**
    * Generate a complete quest
    */
-  generateQuest() {
+  generateQuest(specificVerb) {
     this.reset();
     
     this.log('=== QUEST GENERATION STARTED ===');
 
     // Step 1: Draw Verb
-    const verb = this.stepDrawVerb();
+    const verb = this.stepDrawVerb(specificVerb);
     if (!verb) return null;
 
     // Step 2: Draw Target
