@@ -143,7 +143,7 @@ class UIManager {
     }
     
     this.stepState = {
-      step: 0, // 0: Quest Giver, 1: Harmed Party, 2: Verb, 3: Target, 4: Location, 5: Twist, 6: Reward/Failure
+      step: 0, // 0: Verb, 1: Quest Giver, 2: Harmed Party, 3: Target, 4: Location, 5: Twist, 6: Reward/Failure
       questGiver: null,
       harmedParty: null,
       verb: null,
@@ -168,6 +168,15 @@ class UIManager {
     const step = this.stepState.step;
 
     if (step === 0) {
+      // Draw Verb
+      this.stepState.verb = this.engine.stepDrawVerb(this.stepState.selectedVerb);
+      if (!this.stepState.verb) {
+        this.displayLogs(this.engine.getLogs());
+        document.getElementById('btn-next-step').disabled = true;
+        return;
+      }
+      this.addLog(`Drawn Verb: ${this.stepState.verb.CardName}`);
+    } else if (step === 1) {
       // Draw Quest Giver
       this.stepState.questGiver = this.engine.stepDrawQuestGiver();
       if (!this.stepState.questGiver) {
@@ -178,7 +187,7 @@ class UIManager {
       this.addLog(`Drawn Quest Giver: ${this.stepState.questGiver.CardName}`);
       this.addLog(`Type Tags: [${this.stepState.questGiver.TypeTags.join(', ')}]`);
       this.addLog(`Aspect Tags: [${this.stepState.questGiver.AspectTags.join(', ')}]`);
-    } else if (step === 1) {
+    } else if (step === 2) {
       // Draw Harmed Party
       this.stepState.harmedParty = this.engine.stepDrawHarmedParty();
       if (!this.stepState.harmedParty) {
@@ -189,15 +198,6 @@ class UIManager {
       this.addLog(`Drawn Harmed Party: ${this.stepState.harmedParty.CardName}`);
       this.addLog(`Type Tags: [${this.stepState.harmedParty.TypeTags.join(', ')}]`);
       this.addLog(`Aspect Tags: [${this.stepState.harmedParty.AspectTags.join(', ')}]`);
-    } else if (step === 2) {
-      // Draw Verb
-      this.stepState.verb = this.engine.stepDrawVerb(this.stepState.selectedVerb);
-      if (!this.stepState.verb) {
-        this.displayLogs(this.engine.getLogs());
-        document.getElementById('btn-next-step').disabled = true;
-        return;
-      }
-      this.addLog(`Drawn Verb: ${this.stepState.verb.CardName}`);
     } else if (step === 3) {
       // Draw Target
       this.stepState.target = this.engine.stepDrawTarget(this.stepState.verb);
@@ -357,6 +357,9 @@ class UIManager {
       <div class="quest-display">
         <h3>Generated Quest</h3>
         <div class="quest-role">
+          <strong>Verb:</strong> ${quest.verb.CardName}
+        </div>
+        <div class="quest-role">
           <strong>Quest Giver:</strong> ${quest.questGiver.CardName}
           <div class="tags">
             <span class="tag-label">Type Tags:</span> ${quest.questGiver.TypeTags.join(', ')}
@@ -369,9 +372,6 @@ class UIManager {
             <span class="tag-label">Type Tags:</span> ${quest.harmedParty.TypeTags.join(', ')}
             <span class="tag-label">Aspect Tags:</span> ${quest.harmedParty.AspectTags.join(', ')}
           </div>
-        </div>
-        <div class="quest-role">
-          <strong>Verb:</strong> ${quest.verb.CardName}
         </div>
         <div class="quest-role">
           <strong>Target:</strong> ${quest.target.CardName}

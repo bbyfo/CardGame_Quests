@@ -69,12 +69,14 @@ JSON File → loadData() → populateDecks() → initializeCard()
 - `QuestEngine`
 
 **Key Methods**:
-- `generateQuest()` - Execute full 5-step algorithm
+- `generateQuest()` - Execute full 7-step algorithm
 - `stepDrawVerb()` - Step 1
-- `stepDrawTarget(verb)` - Step 2
-- `stepDrawLocation(target)` - Step 3
-- `stepDrawTwist(location)` - Step 4
-- `stepDrawRewardAndFailure()` - Step 5
+- `stepDrawQuestGiver()` - Step 2
+- `stepDrawHarmedParty()` - Step 3
+- `stepDrawTarget(verb)` - Step 4
+- `stepDrawLocation(target)` - Step 5
+- `stepDrawTwist(location)` - Step 6
+- `stepDrawRewardAndFailure(twist)` - Step 7
 
 **Helper Methods**:
 - `log(message, data)` - Add entry to logs
@@ -92,22 +94,28 @@ JSON File → loadData() → populateDecks() → initializeCard()
 1. Draw Verb (random)
    → Extract verb.Instructions for Target deck
 
-2. Draw Target
+2. Draw Quest Giver (random)
+   → Extract quest giver's Instructions if any
+
+3. Draw Harmed Party (random)
+   → Extract harmed party's Instructions if any
+
+4. Draw Target
    → Match pool = cards with tags from verb's Instructions
    → Draw with fallback (3 fails → auto-accept 4th)
    → Apply target's Modify effects
 
-3. Draw Location
+5. Draw Location
    → Match pool = cards with tags from target's currentTags
    → Draw with fallback
    → Apply location's Modify effects
 
-4. Draw Twist
+6. Draw Twist
    → Match pool = cards with tags from location's currentTags
    → Draw with fallback
    → Apply twist's Modify effects
 
-5. Draw Reward & Failure
+7. Draw Reward & Failure
    → No matching required
    → Apply their Modify effects
 ```

@@ -295,10 +295,10 @@ class QuestEngine {
   }
 
   /**
-   * STEP 1: Draw Quest Giver
+   * STEP 2: Draw Quest Giver
    */
   stepDrawQuestGiver() {
-    this.log('=== STEP 1: Draw Quest Giver ===');
+    this.log('=== STEP 2: Draw Quest Giver ===');
     
     const questGiver = this.drawRandomCard(this.decks.questgivers);
     
@@ -327,10 +327,10 @@ class QuestEngine {
   }
 
   /**
-   * STEP 2: Draw Harmed Party
+   * STEP 3: Draw Harmed Party
    */
   stepDrawHarmedParty() {
-    this.log('=== STEP 2: Draw Harmed Party ===');
+    this.log('=== STEP 3: Draw Harmed Party ===');
     
     const harmedParty = this.drawRandomCard(this.decks.harmedparties);
     
@@ -359,10 +359,10 @@ class QuestEngine {
   }
 
   /**
-   * STEP 3: Draw Verb
+   * STEP 1: Draw Verb
    */
   stepDrawVerb(specificVerb) {
-    this.log('=== STEP 3: Draw Verb ===');
+    this.log('=== STEP 1: Draw Verb ===');
     
     // Use specific verb if provided, otherwise draw random
     let verb = specificVerb;
@@ -652,17 +652,17 @@ class QuestEngine {
     
     this.log('=== QUEST GENERATION STARTED ===');
 
-    // Step 1: Draw Quest Giver
+    // Step 1: Draw Verb
+    const verb = this.stepDrawVerb(specificVerb);
+    if (!verb) return null;
+
+    // Step 2: Draw Quest Giver
     const questGiver = this.stepDrawQuestGiver();
     if (!questGiver) return null;
 
-    // Step 2: Draw Harmed Party
+    // Step 3: Draw Harmed Party
     const harmedParty = this.stepDrawHarmedParty();
     if (!harmedParty) return null;
-
-    // Step 3: Draw Verb
-    const verb = this.stepDrawVerb(specificVerb);
-    if (!verb) return null;
 
     // Step 4: Draw Target
     const target = this.stepDrawTarget(verb);
