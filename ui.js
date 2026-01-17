@@ -353,11 +353,21 @@ class UIManager {
     const container = document.getElementById('quest-output');
     container.innerHTML = '';
 
+    // Helper function to format instructions
+    const formatInstructions = (instructions) => {
+      if (!instructions || instructions.length === 0) return '';
+      return `<div class="instructions">
+        <span class="tag-label">Instructions:</span>
+        ${instructions.map(inst => `<div class="instruction-item">${inst.TargetDeck}: [${inst.Tags.join(', ')}]</div>`).join('')}
+      </div>`;
+    };
+
     const questHTML = `
       <div class="quest-display">
         <h3>Generated Quest</h3>
         <div class="quest-role">
           <strong>Verb:</strong> ${quest.verb.CardName}
+          ${formatInstructions(quest.verb.Instructions)}
         </div>
         <div class="quest-role">
           <strong>Quest Giver:</strong> ${quest.questGiver.CardName}
@@ -365,6 +375,7 @@ class UIManager {
             <span class="tag-label">Type Tags:</span> ${quest.questGiver.TypeTags.join(', ')}
             <span class="tag-label">Aspect Tags:</span> ${quest.questGiver.AspectTags.join(', ')}
           </div>
+          ${formatInstructions(quest.questGiver.Instructions)}
         </div>
         <div class="quest-role">
           <strong>Harmed Party:</strong> ${quest.harmedParty.CardName}
@@ -372,6 +383,7 @@ class UIManager {
             <span class="tag-label">Type Tags:</span> ${quest.harmedParty.TypeTags.join(', ')}
             <span class="tag-label">Aspect Tags:</span> ${quest.harmedParty.AspectTags.join(', ')}
           </div>
+          ${formatInstructions(quest.harmedParty.Instructions)}
         </div>
         <div class="quest-role">
           <strong>Target:</strong> ${quest.target.CardName}
@@ -380,6 +392,7 @@ class UIManager {
             <span class="tag-label">Aspect Tags:</span> ${quest.target.AspectTags.join(', ')}
             ${quest.target.mutableTags.length > 0 ? `<span class="tag-label">Mutable Tags:</span> ${quest.target.mutableTags.join(', ')}` : ''}
           </div>
+          ${formatInstructions(quest.target.Instructions)}
         </div>
         <div class="quest-role">
           <strong>Location:</strong> ${quest.location.CardName}
@@ -388,6 +401,7 @@ class UIManager {
             <span class="tag-label">Aspect Tags:</span> ${quest.location.AspectTags.join(', ')}
             ${quest.location.mutableTags.length > 0 ? `<span class="tag-label">Mutable Tags:</span> ${quest.location.mutableTags.join(', ')}` : ''}
           </div>
+          ${formatInstructions(quest.location.Instructions)}
         </div>
         <div class="quest-role">
           <strong>Twist:</strong> ${quest.twist.CardName}
@@ -396,12 +410,15 @@ class UIManager {
             <span class="tag-label">Aspect Tags:</span> ${quest.twist.AspectTags.join(', ')}
             ${quest.twist.mutableTags.length > 0 ? `<span class="tag-label">Mutable Tags:</span> ${quest.twist.mutableTags.join(', ')}` : ''}
           </div>
+          ${formatInstructions(quest.twist.Instructions)}
         </div>
         <div class="quest-role">
           <strong>Reward:</strong> ${quest.reward.CardName}
+          ${formatInstructions(quest.reward.Instructions)}
         </div>
         <div class="quest-role">
           <strong>Failure:</strong> ${quest.failure.CardName}
+          ${formatInstructions(quest.failure.Instructions)}
         </div>
       </div>
     `;
