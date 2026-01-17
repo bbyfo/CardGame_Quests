@@ -17,7 +17,6 @@ class CardManager {
       instructionTags: new Set()
     };
     this.autocompleteSetupDone = false; // Track if event listeners are set up
-    this.apiUrl = 'http://localhost:3000/api/cards'; // Backend API
     this.serverMode = false; // Detected if server is available
     this.init();
   }
@@ -29,7 +28,7 @@ class CardManager {
       
       if (this.serverMode) {
         // Load from server API
-        const response = await fetch(this.apiUrl);
+        const response = await fetch(CONFIG.API_CARDS);
         if (response.ok) {
           this.cards = await response.json();
           console.log('✓ Loaded cards from server');
@@ -69,7 +68,7 @@ class CardManager {
    */
   async detectServer() {
     try {
-      const response = await fetch('http://localhost:3000/api/health', {
+      const response = await fetch(CONFIG.API_HEALTH, {
         method: 'GET',
         signal: AbortSignal.timeout(2000) // 2 second timeout
       });
@@ -88,7 +87,7 @@ class CardManager {
     if (this.serverMode) {
       // Save to server
       try {
-        const response = await fetch(this.apiUrl, {
+        const response = await fetch(CONFIG.API_CARDS, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(this.cards)
