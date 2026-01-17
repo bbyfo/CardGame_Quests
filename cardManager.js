@@ -652,6 +652,9 @@ class CardManager {
     list.innerHTML = '';
     let cardCount = 0;
 
+    // Collect all matching cards
+    const allCards = [];
+
     for (const deckName in this.cards) {
       if (filterDeck && deckName !== filterDeck) continue;
 
@@ -660,53 +663,60 @@ class CardManager {
 
       deck.forEach(card => {
         if (searchQuery && !card.CardName.toLowerCase().includes(searchQuery)) return;
-
-        const deckDisplayName = this.getDeckDisplayName(deckName);
-        const item = document.createElement('div');
-        item.className = 'card-item';
-        
-        // Create separate sections for TypeTags and AspectTags
-        const typeTagsHtml = card.TypeTags.length > 0 ? `
-          <div class="tag-group">
-            <span class="tag-group-label">Type:</span>
-            <div class="tag-group-tags">
-              ${card.TypeTags.map(t => `<span class="tag tag-type">${t}</span>`).join('')}
-            </div>
-          </div>
-        ` : '';
-        
-        const aspectTagsHtml = card.AspectTags.length > 0 ? `
-          <div class="tag-group">
-            <span class="tag-group-label">Aspect:</span>
-            <div class="tag-group-tags">
-              ${card.AspectTags.map(t => `<span class="tag tag-aspect">${t}</span>`).join('')}
-            </div>
-          </div>
-        ` : '';
-
-        item.innerHTML = `
-          <h4>${card.CardName}</h4>
-          <span class="card-deck">${deckDisplayName}</span>
-          <div class="card-tags">
-            ${typeTagsHtml}
-            ${aspectTagsHtml}
-          </div>
-          <div class="card-item-actions">
-            <button class="btn btn-secondary btn-edit" data-deck="${deckName}" data-name="${card.CardName}">Edit</button>
-            <button class="btn btn-danger btn-delete" data-deck="${deckName}" data-name="${card.CardName}">Delete</button>
-          </div>
-        `;
-
-        const editBtn = item.querySelector('.btn-edit');
-        const deleteBtn = item.querySelector('.btn-delete');
-
-        editBtn.addEventListener('click', () => this.loadCardForEdit(deckName, card.CardName));
-        deleteBtn.addEventListener('click', () => this.deleteCard(deckName, card.CardName));
-
-        list.appendChild(item);
-        cardCount++;
+        allCards.push({ card, deckName });
       });
     }
+
+    // Sort cards alphabetically by CardName
+    allCards.sort((a, b) => a.card.CardName.localeCompare(b.card.CardName));
+
+    // Render sorted cards
+    allCards.forEach(({ card, deckName }) => {
+      const deckDisplayName = this.getDeckDisplayName(deckName);
+      const item = document.createElement('div');
+      item.className = 'card-item';
+      
+      // Create separate sections for TypeTags and AspectTags
+      const typeTagsHtml = card.TypeTags.length > 0 ? `
+        <div class="tag-group">
+          <span class="tag-group-label">Type:</span>
+          <div class="tag-group-tags">
+            ${card.TypeTags.map(t => `<span class="tag tag-type">${t}</span>`).join('')}
+          </div>
+        </div>
+      ` : '';
+      
+      const aspectTagsHtml = card.AspectTags.length > 0 ? `
+        <div class="tag-group">
+          <span class="tag-group-label">Aspect:</span>
+          <div class="tag-group-tags">
+            ${card.AspectTags.map(t => `<span class="tag tag-aspect">${t}</span>`).join('')}
+          </div>
+        </div>
+      ` : '';
+
+      item.innerHTML = `
+        <h4>${card.CardName}</h4>
+        <span class="card-deck">${deckDisplayName}</span>
+        <div class="card-tags">
+          ${typeTagsHtml}
+          ${aspectTagsHtml}
+        </div>
+        <div class="card-item-actions">
+          <button class="btn btn-secondary btn-edit" data-deck="${deckName}" data-name="${card.CardName}">Edit</button>
+          <button class="btn btn-danger btn-delete" data-deck="${deckName}" data-name="${card.CardName}">Delete</button>
+        </div>
+      `;
+
+      const editBtn = item.querySelector('.btn-edit');
+      const deleteBtn = item.querySelector('.btn-delete');
+
+      editBtn.addEventListener('click', () => this.loadCardForEdit(deckName, card.CardName));
+      deleteBtn.addEventListener('click', () => this.deleteCard(deckName, card.CardName));
+
+      list.appendChild(item);
+      cardCount++;
+    });
 
     if (cardCount === 0) {
       list.innerHTML = '<div class="card-item no-results"><p>No cards found</p></div>';
