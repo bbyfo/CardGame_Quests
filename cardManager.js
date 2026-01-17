@@ -94,8 +94,8 @@ class CardManager {
         });
         
         if (response.ok) {
-          console.log('✓ Cards saved to server (cards.json)');
-          this.showNotification('✓ Cards saved to server', 'success');
+          console.log('✓ Cards saved to database');
+          this.showNotification('✓ Cards saved to database', 'success');
           
           // Also save to localStorage as backup
           localStorage.setItem('cardManagerCards', JSON.stringify(this.cards));
@@ -111,7 +111,7 @@ class CardManager {
       // Save to localStorage only
       localStorage.setItem('cardManagerCards', JSON.stringify(this.cards));
       console.log('✓ Cards saved to localStorage');
-      this.showSaveReminder();
+      this.showNotification('⚠️ Server offline - saved to localStorage only', 'warning');
     }
   }
   
@@ -791,68 +791,6 @@ class CardManager {
   }
 
   /**
-   * Save cards to localStorage for persistence
-   */
-  saveCardsToFile() {
-    // Convert cards object to JSON format
-    const cardsJson = JSON.stringify(this.cards, null, 2);
-    
-    // Save to localStorage
-    localStorage.setItem('cardManagerCards', cardsJson);
-    console.log('✓ Cards saved to localStorage');
-    
-    // Also try to save to cards.json via downloadable file
-    // (Browser security prevents direct file writing, but we can notify the user)
-    this.showSaveReminder();
-  }
-  
-  /**
-   * Show reminder to export cards
-   */
-  showSaveReminder() {
-    const existingReminder = document.getElementById('export-reminder');
-    if (existingReminder) return; // Already showing
-    
-    const reminder = document.createElement('div');
-    reminder.id = 'export-reminder';
-    reminder.style.cssText = `
-      position: fixed;
-      top: 80px;
-      right: 20px;
-      background: #f39c12;
-      color: white;
-      padding: 15px 20px;
-      border-radius: 4px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-      z-index: 10000;
-      max-width: 300px;
-      font-size: 14px;
-    `;
-    reminder.innerHTML = `
-      <strong>⚠️ Don't forget!</strong><br>
-      Click "📥 Export Cards" to save your changes to cards.json
-      <button onclick="this.parentElement.remove()" style="
-        background: white;
-        color: #f39c12;
-        border: none;
-        padding: 5px 10px;
-        margin-top: 10px;
-        border-radius: 3px;
-        cursor: pointer;
-        font-weight: bold;
-      ">Got it</button>
-    `;
-    document.body.appendChild(reminder);
-    
-    // Auto-remove after 10 seconds
-    setTimeout(() => {
-      if (reminder.parentElement) {
-        reminder.remove();
-      }
-    }, 10000);
-  }
-
-  /**
    * Export cards as JSON
    */
   exportCards() {
@@ -913,10 +851,10 @@ class CardManager {
   }
 
   /**
-   * Reset to default cards from cards.json
+   * Reset to default cards from database
    */
   async resetToDefaults() {
-    if (!confirm('This will clear all your changes and reload the default cards. Are you sure?')) {
+    if (!confirm('This will clear all your changes and reload the default cards from the database. Are you sure?')) {
       return;
     }
 
@@ -924,12 +862,24 @@ class CardManager {
       // Clear localStorage
       localStorage.removeItem('cardManagerCards');
       
-      // Reload from cards.json
-      if (!this.dataLoader) {
-        this.dataLoader = new DataLoader();
+      // Reload from server/database
+      if (this.serverMode) {
+        const response = await fetch(CONFIG.API_CARDS);
+        if (response.ok) {
+          this.cards = await response.json();
+          console.log('✓ Cards reloaded from database');
+        } else {
+          throw new Error('Failed to reload from server');
+        }
+      } else {
+        // Fall back to cards.json if server offline
+        if (!this.dataLoader) {
+          this.dataLoader = new DataLoader();
+        }
+        await this.dataLoader.loadData('cards.json');
+        this.cards = this.dataLoader.decks;
+        console.log('✓ Cards reloaded from cards.json');
       }
-      await this.dataLoader.loadData('cards.json');
-      this.cards = this.dataLoader.decks;
       
       this.extractAllTags();
       this.refreshAutocomplete();

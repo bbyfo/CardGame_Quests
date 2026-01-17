@@ -15,7 +15,7 @@ async function initializeApp() {
   try {
     // Create DataLoader and load card data
     dataLoader = new DataLoader();
-    await dataLoader.loadData('cards.json');
+    await dataLoader.loadFromAPI('/api/cards');
 
     // Create QuestEngine with loaded decks
     questEngine = new QuestEngine(dataLoader.getDecks());

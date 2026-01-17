@@ -39,6 +39,26 @@ class DataLoader {
   }
 
   /**
+   * Load card data from API endpoint (for database mode)
+   */
+  async loadFromAPI(apiPath = '/api/cards') {
+    try {
+      // Add timestamp to prevent browser caching
+      const cacheBuster = `?_=${Date.now()}`;
+      const response = await fetch(apiPath + cacheBuster);
+      if (!response.ok) {
+        throw new Error(`Failed to load from API: ${response.statusText}`);
+      }
+      const data = await response.json();
+      this.populateDecks(data);
+      return this.decks;
+    } catch (error) {
+      console.error('DataLoader API error:', error);
+      throw error;
+    }
+  }
+
+  /**
    * Populate decks from loaded data
    */
   populateDecks(data) {

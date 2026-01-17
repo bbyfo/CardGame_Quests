@@ -500,11 +500,11 @@ class UIManager {
    */
   async handleReloadData() {
     this.clearLogs();
-    this.addLog('🔄 Reloading card data from cards.json...');
+    this.addLog('🔄 Reloading card data from database...');
 
     try {
-      // Reload data from cards.json
-      await dataLoader.loadData('cards.json');
+      // Reload data from database via API
+      await dataLoader.loadFromAPI('/api/cards');
       
       // Update engine with fresh decks
       this.engine.decks = dataLoader.getDecks();
@@ -516,7 +516,7 @@ class UIManager {
       // Repopulate verb selector
       this.populateVerbSelector();
       
-      this.addLog(`✓ Card data reloaded successfully`);
+      this.addLog(`✓ Card data reloaded successfully from database`);
       this.addLog(`Loaded ${dataLoader.getAllCards().length} cards across 6 decks`);
       this.addLog(`Engine now has ${this.engine.decks.rewards.length} reward cards`);
     } catch (error) {
