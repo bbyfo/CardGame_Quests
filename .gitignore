@@ -2,3 +2,4 @@ node_modules/
 *.backup.*.json
 npm-debug.log
 .DS_Store
+.env
