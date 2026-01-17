@@ -3,429 +3,729 @@
     {
       "Deck": "QuestGiver",
       "CardName": "King",
-      "TypeTags": ["Order", "Martial"],
-      "AspectTags": ["Leadership"],
+      "TypeTags": [
+        "Order",
+        "Martial"
+      ],
+      "AspectTags": [
+        "Leadership"
+      ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "id": "QuestGiver-King-0.844562560488323"
     },
     {
       "Deck": "QuestGiver",
       "CardName": "Archmagus",
-      "TypeTags": ["Arcane", "Order"],
-      "AspectTags": ["Arcane"],
+      "TypeTags": [
+        "Arcane",
+        "Order"
+      ],
+      "AspectTags": [
+        "Arcane"
+      ],
       "mutableTags": [],
       "Instructions": [
         {
           "TargetDeck": "Target",
-          "Tags": ["Arcane"]
+          "Tags": [
+            "Arcane"
+          ]
         }
-      ]
+      ],
+      "id": "QuestGiver-Archmagus-0.664995457557898"
     },
     {
       "Deck": "QuestGiver",
       "CardName": "Merchant Guild",
-      "TypeTags": ["Wealth", "Order"],
-      "AspectTags": ["Wealth"],
+      "TypeTags": [
+        "Wealth",
+        "Order"
+      ],
+      "AspectTags": [
+        "Wealth"
+      ],
       "mutableTags": [],
       "Instructions": [
         {
           "TargetDeck": "Reward",
-          "Tags": ["Wealth"]
+          "Tags": [
+            "Wealth"
+          ]
         }
-      ]
+      ],
+      "id": "QuestGiver-Merchant Guild-0.14915172203941585"
     }
   ],
   "harmedparties": [
     {
       "Deck": "HarmedParty",
       "CardName": "Demon Lord",
-      "TypeTags": ["Evil", "Chaos"],
-      "AspectTags": ["Darkness"],
+      "TypeTags": [
+        "Evil",
+        "Chaos"
+      ],
+      "AspectTags": [
+        "Darkness"
+      ],
       "mutableTags": [],
       "Instructions": [
         {
           "TargetDeck": "Target",
-          "Tags": ["Evil"]
+          "Tags": [
+            "Evil"
+          ]
         }
-      ]
+      ],
+      "id": "HarmedParty-Demon Lord-0.17404599516507002"
     },
     {
       "Deck": "HarmedParty",
       "CardName": "Ancient Curse",
-      "TypeTags": ["Arcane", "Chaos"],
-      "AspectTags": ["Arcane"],
+      "TypeTags": [
+        "Arcane",
+        "Chaos"
+      ],
+      "AspectTags": [
+        "Arcane"
+      ],
       "mutableTags": [],
       "Instructions": [
         {
           "TargetDeck": "Failure",
-          "Tags": ["Evil", "Arcane"]
+          "Tags": [
+            "Evil",
+            "Arcane"
+          ]
         }
-      ]
+      ],
+      "id": "HarmedParty-Ancient Curse-0.07182027062365037"
     },
     {
       "Deck": "HarmedParty",
       "CardName": "Corporate Rival",
-      "TypeTags": ["Wealth", "Chaos"],
-      "AspectTags": ["Commerce"],
+      "TypeTags": [
+        "Wealth",
+        "Chaos"
+      ],
+      "AspectTags": [
+        "Commerce"
+      ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "id": "HarmedParty-Corporate Rival-0.949121808671731"
     }
   ],
   "verbs": [
     {
       "Deck": "Verb",
       "CardName": "Defend",
-      "TypeTags": ["Martial", "Order"],
-      "AspectTags": ["Military"],
+      "TypeTags": [
+        "Martial",
+        "Order"
+      ],
+      "AspectTags": [
+        "Military"
+      ],
       "Instructions": [
         {
           "TargetDeck": "Target",
-          "Tags": ["Evil"]
+          "Tags": [
+            "Evil"
+          ]
         },
         {
           "TargetDeck": "Location",
-          "Tags": ["Good"]
+          "Tags": [
+            "Good"
+          ]
         }
-      ]
+      ],
+      "mutableTags": [],
+      "id": "Verb-Defend-0.7966836893037023"
     },
     {
       "Deck": "Verb",
       "CardName": "Retrieve",
-      "TypeTags": ["Good", "Order"],
-      "AspectTags": ["Quest"],
+      "TypeTags": [
+        "Good",
+        "Order"
+      ],
+      "AspectTags": [
+        "Quest"
+      ],
       "Instructions": [
         {
           "TargetDeck": "Target",
-          "Tags": ["Arcane"]
+          "Tags": [
+            "Arcane"
+          ]
         }
-      ]
+      ],
+      "mutableTags": [],
+      "id": "Verb-Retrieve-0.7769948243584289"
     },
     {
       "Deck": "Verb",
       "CardName": "Destroy",
-      "TypeTags": ["Chaos", "Martial"],
-      "AspectTags": ["Combat"],
+      "TypeTags": [
+        "Chaos",
+        "Martial"
+      ],
+      "AspectTags": [
+        "Combat"
+      ],
       "Instructions": [
         {
           "TargetDeck": "Target",
-          "Tags": ["Good", "Order"]
+          "Tags": [
+            "Good",
+            "Order"
+          ]
         },
         {
           "TargetDeck": "Location",
-          "Tags": ["Nature", "Good"]
+          "Tags": [
+            "Nature",
+            "Good"
+          ]
         }
-      ]
+      ],
+      "mutableTags": [],
+      "id": "Verb-Destroy-0.6754406252657384"
     },
     {
       "Deck": "Verb",
       "CardName": "Investigate",
-      "TypeTags": ["Order", "Arcane"],
-      "AspectTags": ["Mystery"],
+      "TypeTags": [
+        "Order",
+        "Arcane"
+      ],
+      "AspectTags": [
+        "Mystery"
+      ],
       "Instructions": [
         {
           "TargetDeck": "Target",
-          "Tags": ["Arcane", "Nature"]
+          "Tags": [
+            "Arcane",
+            "Nature"
+          ]
         }
-      ]
+      ],
+      "mutableTags": [],
+      "id": "Verb-Investigate-0.9577519442819"
     },
     {
       "Deck": "Verb",
       "CardName": "Recover",
-      "TypeTags": ["Good", "Holy"],
-      "AspectTags": ["Compassion"],
+      "TypeTags": [
+        "Good",
+        "Holy"
+      ],
+      "AspectTags": [
+        "Compassion"
+      ],
       "Instructions": [
         {
           "TargetDeck": "Target",
-          "Tags": ["Good", "Arcane"]
+          "Tags": [
+            "Good",
+            "Arcane"
+          ]
         },
         {
           "TargetDeck": "Location",
-          "Tags": ["Martial", "Evil"]
+          "Tags": [
+            "Martial",
+            "Evil"
+          ]
         }
-      ]
+      ],
+      "mutableTags": [],
+      "id": "Verb-Recover-0.6934478172396541"
     },
     {
       "Deck": "Verb",
       "CardName": "Heist",
-      "TypeTags": ["Chaos", "Wealth"],
-      "AspectTags": ["Stealth"],
+      "TypeTags": [
+        "Chaos",
+        "Wealth"
+      ],
+      "AspectTags": [
+        "Stealth"
+      ],
       "Instructions": [
         {
           "TargetDeck": "Location",
-          "Tags": ["Evil", "Chaos"]
+          "Tags": [
+            "Evil",
+            "Chaos"
+          ]
         },
         {
           "TargetDeck": "Target",
-          "Tags": ["Wealth", "Arcane"]
+          "Tags": [
+            "Wealth",
+            "Arcane"
+          ]
         },
         {
           "TargetDeck": "HarmedParty",
-          "Tags": ["Wealth", "Chaos", "Evil"]
+          "Tags": [
+            "Wealth",
+            "Chaos",
+            "Evil"
+          ]
         }
-      ]
+      ],
+      "mutableTags": [],
+      "id": "Verb-Heist-0.6461371042604421"
     }
   ],
   "targets": [
     {
       "Deck": "Target",
       "CardName": "Ironfang Raider",
-      "TypeTags": ["Evil", "Martial"],
-      "AspectTags": ["Military"],
+      "TypeTags": [
+        "Evil",
+        "Martial"
+      ],
+      "AspectTags": [
+        "Military"
+      ],
       "mutableTags": [],
       "Instructions": [
         {
           "TargetDeck": "Location",
-          "Tags": ["Evil", "Chaos"]
+          "Tags": [
+            "Evil",
+            "Chaos"
+          ]
         },
         {
           "TargetDeck": "Location",
-          "Tags": ["Martial", "Evil"]
+          "Tags": [
+            "Martial",
+            "Evil"
+          ]
         }
-      ]
+      ],
+      "id": "Target-Ironfang Raider-0.4758886607581486"
     },
     {
       "Deck": "Target",
       "CardName": "Forgotten Amulet",
-      "TypeTags": ["Arcane", "Order"],
-      "AspectTags": ["Ancient"],
+      "TypeTags": [
+        "Arcane",
+        "Order"
+      ],
+      "AspectTags": [
+        "Ancient"
+      ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "id": "Target-Forgotten Amulet-0.6426761710261648"
     },
     {
       "Deck": "Target",
       "CardName": "Castle Gate",
-      "TypeTags": ["Martial", "Order"],
-      "AspectTags": ["Military"],
+      "TypeTags": [
+        "Martial",
+        "Order"
+      ],
+      "AspectTags": [
+        "Military"
+      ],
       "mutableTags": [],
       "Instructions": [
         {
           "TargetDeck": "Location",
-          "Tags": ["Order", "Martial"]
+          "Tags": [
+            "Order",
+            "Martial"
+          ]
         }
-      ]
+      ],
+      "id": "Target-Castle Gate-0.8800649922889421"
     },
     {
       "Deck": "Target",
       "CardName": "Lost Library",
-      "TypeTags": ["Arcane", "Order"],
-      "AspectTags": ["Knowledge"],
+      "TypeTags": [
+        "Arcane",
+        "Order"
+      ],
+      "AspectTags": [
+        "Knowledge"
+      ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "id": "Target-Lost Library-0.05274728327167655"
     },
     {
       "Deck": "Target",
       "CardName": "Captured Knight",
-      "TypeTags": ["Good", "Martial"],
-      "AspectTags": ["Military"],
+      "TypeTags": [
+        "Good",
+        "Martial"
+      ],
+      "AspectTags": [
+        "Military"
+      ],
       "mutableTags": [],
       "Instructions": [
         {
           "TargetDeck": "Reward",
-          "Tags": ["Wealth", "Order"]
+          "Tags": [
+            "Wealth",
+            "Order"
+          ]
         },
         {
           "TargetDeck": "Location",
-          "Tags": ["Evil", "Chaos"]
+          "Tags": [
+            "Evil",
+            "Chaos"
+          ]
         }
-      ]
+      ],
+      "id": "Target-Captured Knight-0.8910200636941753"
     },
     {
       "Deck": "Target",
       "CardName": "Draconic Drake",
-      "TypeTags": ["Evil", "Chaos"],
-      "AspectTags": ["Arcane"],
+      "TypeTags": [
+        "Evil",
+        "Chaos"
+      ],
+      "AspectTags": [
+        "Arcane"
+      ],
       "mutableTags": [],
       "Instructions": [
         {
           "TargetDeck": "Location",
-          "Tags": ["Nature", "Chaos"]
+          "Tags": [
+            "Nature",
+            "Chaos"
+          ]
         }
-      ]
+      ],
+      "id": "Target-Draconic Drake-0.17867598130577267"
     },
     {
       "Deck": "Target",
       "CardName": "Elder Mosskeeper",
-      "TypeTags": ["Good", "Nature"],
-      "AspectTags": ["Arcane"],
+      "TypeTags": [
+        "Good",
+        "Nature"
+      ],
+      "AspectTags": [
+        "Arcane"
+      ],
       "mutableTags": [],
       "Instructions": [
         {
           "TargetDeck": "Location",
-          "Tags": ["Nature"]
+          "Tags": [
+            "Nature"
+          ]
         }
-      ]
+      ],
+      "id": "Target-Elder Mosskeeper-0.5772717420116035"
     }
   ],
   "locations": [
     {
       "Deck": "Location",
       "CardName": "Dark Forest",
-      "TypeTags": ["Nature", "Chaos"],
-      "AspectTags": ["Nature"],
+      "TypeTags": [
+        "Nature",
+        "Evil"
+      ],
+      "AspectTags": [],
       "mutableTags": [],
       "Instructions": [
         {
           "TargetDeck": "Twist",
-          "Tags": ["Nature", "Chaos"]
+          "Tags": [
+            "Nature",
+            "Chaos"
+          ]
         },
         {
           "TargetDeck": "Reward",
-          "Tags": ["Nature"]
+          "Tags": [
+            "Nature"
+          ]
         }
       ]
     },
     {
       "Deck": "Location",
       "CardName": "Ancient Ruins",
-      "TypeTags": ["Arcane", "Chaos"],
-      "AspectTags": ["Mystery"],
+      "TypeTags": [
+        "Arcane",
+        "Chaos"
+      ],
+      "AspectTags": [
+        "Mystery"
+      ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "id": "Location-Ancient Ruins-0.48965184261213346"
     },
     {
       "Deck": "Location",
       "CardName": "Underground Cavern",
-      "TypeTags": ["Nature", "Chaos"],
-      "AspectTags": ["Nature"],
+      "TypeTags": [
+        "Nature",
+        "Chaos"
+      ],
+      "AspectTags": [
+        "Nature"
+      ],
       "mutableTags": [],
       "Instructions": [
         {
           "TargetDeck": "Twist",
-          "Tags": ["Chaos", "Nature"]
+          "Tags": [
+            "Chaos",
+            "Nature"
+          ]
         }
-      ]
+      ],
+      "id": "Location-Underground Cavern-0.7656821063485766"
     },
     {
       "Deck": "Location",
       "CardName": "Royal Palace",
-      "TypeTags": ["Order", "Wealth"],
-      "AspectTags": ["Military"],
+      "TypeTags": [
+        "Order",
+        "Wealth"
+      ],
+      "AspectTags": [
+        "Military"
+      ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "id": "Location-Royal Palace-0.8633894195611942"
     },
     {
       "Deck": "Location",
       "CardName": "Haunted Tower",
-      "TypeTags": ["Arcane", "Chaos"],
-      "AspectTags": ["Arcane"],
+      "TypeTags": [
+        "Arcane",
+        "Chaos"
+      ],
+      "AspectTags": [
+        "Arcane"
+      ],
       "mutableTags": [],
       "Instructions": [
         {
           "TargetDeck": "Failure",
-          "Tags": ["Evil", "Chaos"]
+          "Tags": [
+            "Evil",
+            "Chaos"
+          ]
         },
         {
           "TargetDeck": "Twist",
-          "Tags": ["Arcane", "Evil"]
+          "Tags": [
+            "Arcane",
+            "Evil"
+          ]
         }
-      ]
+      ],
+      "id": "Location-Haunted Tower-0.8606925929543499"
     },
     {
       "Deck": "Location",
       "CardName": "Bank Vault",
-      "TypeTags": ["Wealth", "Order"],
-      "AspectTags": ["Commerce"],
+      "TypeTags": [
+        "Wealth",
+        "Order"
+      ],
+      "AspectTags": [
+        "Commerce"
+      ],
       "mutableTags": [],
       "Instructions": [
         {
           "TargetDeck": "Reward",
-          "Tags": ["Wealth"]
+          "Tags": [
+            "Wealth"
+          ]
         }
-      ]
+      ],
+      "id": "Location-Bank Vault-0.30657438150029215"
     }
   ],
   "twists": [
     {
       "Deck": "Twist",
       "CardName": "Betrayal",
-      "TypeTags": ["Evil", "Chaos"],
-      "AspectTags": ["Mystery"],
+      "TypeTags": [
+        "Evil",
+        "Chaos"
+      ],
+      "AspectTags": [
+        "Mystery"
+      ],
       "mutableTags": [],
       "Instructions": [
         {
           "TargetDeck": "Failure",
-          "Tags": ["Evil", "Chaos"]
+          "Tags": [
+            "Evil",
+            "Chaos"
+          ]
         },
         {
           "TargetDeck": "Reward",
-          "Tags": ["Good", "Order"]
+          "Tags": [
+            "Good",
+            "Order"
+          ]
         }
-      ]
+      ],
+      "id": "Twist-Betrayal-0.4599964506631683"
     },
     {
       "Deck": "Twist",
       "CardName": "Time Pressure",
-      "TypeTags": ["Chaos", "Order"],
-      "AspectTags": ["Quest"],
+      "TypeTags": [
+        "Chaos",
+        "Order"
+      ],
+      "AspectTags": [
+        "Quest"
+      ],
       "mutableTags": [],
       "Instructions": [
         {
           "TargetDeck": "Failure",
-          "Tags": ["Chaos"]
+          "Tags": [
+            "Chaos"
+          ]
         }
-      ]
+      ],
+      "id": "Twist-Time Pressure-0.002727774457773724"
     },
     {
       "Deck": "Twist",
       "CardName": "Hidden Ally",
-      "TypeTags": ["Good", "Order"],
-      "AspectTags": ["Compassion"],
+      "TypeTags": [
+        "Good",
+        "Order"
+      ],
+      "AspectTags": [
+        "Compassion"
+      ],
       "mutableTags": [],
       "Instructions": [
         {
           "TargetDeck": "Reward",
-          "Tags": ["Good", "Order"]
+          "Tags": [
+            "Good",
+            "Order"
+          ]
         }
-      ]
+      ],
+      "id": "Twist-Hidden Ally-0.09578304642776803"
     },
     {
       "Deck": "Twist",
       "CardName": "Environmental Hazard",
-      "TypeTags": ["Nature", "Chaos"],
-      "AspectTags": ["Nature"],
+      "TypeTags": [
+        "Nature",
+        "Chaos"
+      ],
+      "AspectTags": [
+        "Nature"
+      ],
       "mutableTags": [],
       "Instructions": [
         {
           "TargetDeck": "Reward",
-          "Tags": ["Nature"]
+          "Tags": [
+            "Nature"
+          ]
         },
         {
           "TargetDeck": "Failure",
-          "Tags": ["Chaos"]
+          "Tags": [
+            "Chaos"
+          ]
         }
-      ]
+      ],
+      "id": "Twist-Environmental Hazard-0.09167171234770899"
     }
   ],
   "rewards": [
     {
       "Deck": "Reward",
       "CardName": "Gold Coins",
-      "TypeTags": ["Wealth", "Order"],
-      "AspectTags": ["Commerce"],
+      "TypeTags": [
+        "Wealth",
+        "Order"
+      ],
+      "AspectTags": [
+        "Commerce"
+      ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "id": "Reward-Gold Coins-0.8169656837533134"
     },
     {
       "Deck": "Reward",
       "CardName": "Magical Sword",
-      "TypeTags": ["Arcane", "Martial"],
+      "TypeTags": [
+        "Arcane",
+        "Martial"
+      ],
       "AspectTags": [],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "id": "Reward-Magical Sword-0.7941643060719105"
     },
     {
       "Deck": "Reward",
       "CardName": "Knight's Honor",
-      "TypeTags": ["Good", "Order"],
-      "AspectTags": ["Military"],
+      "TypeTags": [
+        "Good",
+        "Order"
+      ],
+      "AspectTags": [
+        "Military"
+      ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "id": "Reward-Knight's Honor-0.9875888706744819"
     },
     {
       "Deck": "Reward",
       "CardName": "Secret Knowledge",
-      "TypeTags": ["Arcane", "Order"],
-      "AspectTags": ["Knowledge"],
+      "TypeTags": [
+        "Arcane",
+        "Order"
+      ],
+      "AspectTags": [
+        "Knowledge"
+      ],
+      "mutableTags": [],
+      "Instructions": [],
+      "id": "Reward-Secret Knowledge-0.9949031812960222"
+    },
+    {
+      "Deck": "Reward",
+      "CardName": "Elderbloom Petal",
+      "TypeTags": [
+        "Nature"
+      ],
+      "AspectTags": [],
       "mutableTags": [],
       "Instructions": []
     }
@@ -434,39 +734,66 @@
     {
       "Deck": "Failure",
       "CardName": "Death",
-      "TypeTags": ["Evil", "Chaos"],
-      "AspectTags": ["Doom"],
+      "TypeTags": [
+        "Evil",
+        "Chaos"
+      ],
+      "AspectTags": [
+        "Doom"
+      ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "id": "Failure-Death-0.4764372685834647"
     },
     {
       "Deck": "Failure",
       "CardName": "Imprisonment",
-      "TypeTags": ["Order", "Evil"],
-      "AspectTags": ["Doom"],
+      "TypeTags": [
+        "Order",
+        "Evil"
+      ],
+      "AspectTags": [
+        "Doom"
+      ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "id": "Failure-Imprisonment-0.2962220667746269"
     },
     {
       "Deck": "Failure",
       "CardName": "Curse",
-      "TypeTags": ["Arcane", "Evil"],
-      "AspectTags": ["Arcane"],
+      "TypeTags": [
+        "Arcane",
+        "Evil"
+      ],
+      "AspectTags": [
+        "Arcane"
+      ],
       "mutableTags": [],
       "Instructions": [
         {
           "TargetDeck": "",
-          "Tags": ["Arcane", "Chaos"]
+          "Tags": [
+            "Arcane",
+            "Chaos"
+          ]
         }
-      ]
+      ],
+      "id": "Failure-Curse-0.6241333102331424"
     },
     {
       "Deck": "Failure",
       "CardName": "Loss of Treasure",
-      "TypeTags": ["Wealth", "Chaos"],
-      "AspectTags": ["Commerce"],
+      "TypeTags": [
+        "Wealth",
+        "Chaos"
+      ],
+      "AspectTags": [
+        "Commerce"
+      ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "id": "Failure-Loss of Treasure-0.16116154069377642"
     }
   ]
 }

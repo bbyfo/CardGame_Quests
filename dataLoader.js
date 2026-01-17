@@ -23,7 +23,9 @@ class DataLoader {
    */
   async loadData(dataPath = 'cards.json') {
     try {
-      const response = await fetch(dataPath);
+      // Add timestamp to prevent browser caching
+      const cacheBuster = `?_=${Date.now()}`;
+      const response = await fetch(dataPath + cacheBuster);
       if (!response.ok) {
         throw new Error(`Failed to load ${dataPath}: ${response.statusText}`);
       }
@@ -41,6 +43,9 @@ class DataLoader {
    */
   populateDecks(data) {
     const deckNames = ['questgivers', 'harmedparties', 'verbs', 'targets', 'locations', 'twists', 'rewards', 'failures'];
+    
+    // Clear allCards when repopulating (for reload scenarios)
+    this.allCards = [];
     
     deckNames.forEach(deckName => {
       if (data[deckName] && Array.isArray(data[deckName])) {

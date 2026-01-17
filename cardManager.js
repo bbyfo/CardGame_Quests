@@ -696,6 +696,56 @@ class CardManager {
     // Save to localStorage
     localStorage.setItem('cardManagerCards', cardsJson);
     console.log('✓ Cards saved to localStorage');
+    
+    // Also try to save to cards.json via downloadable file
+    // (Browser security prevents direct file writing, but we can notify the user)
+    this.showSaveReminder();
+  }
+  
+  /**
+   * Show reminder to export cards
+   */
+  showSaveReminder() {
+    const existingReminder = document.getElementById('export-reminder');
+    if (existingReminder) return; // Already showing
+    
+    const reminder = document.createElement('div');
+    reminder.id = 'export-reminder';
+    reminder.style.cssText = `
+      position: fixed;
+      top: 80px;
+      right: 20px;
+      background: #f39c12;
+      color: white;
+      padding: 15px 20px;
+      border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      z-index: 10000;
+      max-width: 300px;
+      font-size: 14px;
+    `;
+    reminder.innerHTML = `
+      <strong>⚠️ Don't forget!</strong><br>
+      Click "📥 Export Cards" to save your changes to cards.json
+      <button onclick="this.parentElement.remove()" style="
+        background: white;
+        color: #f39c12;
+        border: none;
+        padding: 5px 10px;
+        margin-top: 10px;
+        border-radius: 3px;
+        cursor: pointer;
+        font-weight: bold;
+      ">Got it</button>
+    `;
+    document.body.appendChild(reminder);
+    
+    // Auto-remove after 10 seconds
+    setTimeout(() => {
+      if (reminder.parentElement) {
+        reminder.remove();
+      }
+    }, 10000);
   }
 
   /**

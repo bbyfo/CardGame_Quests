@@ -27,6 +27,7 @@ class UIManager {
     bind('btn-next-step', 'click', () => this.handleNextStep());
     bind('btn-validate', 'click', () => this.handleValidate());
     bind('btn-clear-logs', 'click', () => this.handleClearLogs());
+    bind('btn-reload-data', 'click', () => this.handleReloadData());
     bind('btn-import-csv', 'click', () => this.handleImportCSV());
     bind('btn-export-csv', 'click', () => this.handleExportCSV());
     bind('btn-csv-template', 'click', () => this.handleDownloadTemplate());
@@ -461,6 +462,36 @@ class UIManager {
    */
   handleClearLogs() {
     this.clearLogs();
+  }
+
+  /**
+   * Handle Reload Card Data button
+   */
+  async handleReloadData() {
+    this.clearLogs();
+    this.addLog('🔄 Reloading card data from cards.json...');
+
+    try {
+      // Reload data from cards.json
+      await dataLoader.loadData('cards.json');
+      
+      // Update engine with fresh decks
+      this.engine.decks = dataLoader.getDecks();
+      
+      // Debug: Verify the update worked
+      console.log('Engine rewards after reload:', this.engine.decks.rewards);
+      console.log('Reward count in engine:', this.engine.decks.rewards.length);
+      
+      // Repopulate verb selector
+      this.populateVerbSelector();
+      
+      this.addLog(`✓ Card data reloaded successfully`);
+      this.addLog(`Loaded ${dataLoader.getAllCards().length} cards across 6 decks`);
+      this.addLog(`Engine now has ${this.engine.decks.rewards.length} reward cards`);
+    } catch (error) {
+      this.addLog(`❌ ERROR: Failed to reload card data: ${error.message}`);
+      console.error('Reload error:', error);
+    }
   }
 
   /**
