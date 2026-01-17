@@ -236,6 +236,64 @@ section h4 {
   border-left: 3px solid var(--log-error);
 }
 
+.log-entry.log-rejected {
+  color: #d4aa00;
+  background-color: rgba(212, 170, 0, 0.08);
+  padding: 3px;
+  border-left: 2px solid #d4aa00;
+}
+
+.log-entry.log-fallback {
+  color: #e8a500;
+  background-color: rgba(232, 165, 0, 0.1);
+  padding: 3px;
+  border-left: 2px solid #e8a500;
+}
+
+/* Match pool color gradient based on percentage */
+.log-entry.log-pool-critical {
+  color: #ff4444;
+  background-color: rgba(255, 68, 68, 0.12);
+  padding: 3px;
+  border-left: 3px solid #ff4444;
+  font-weight: bold;
+}
+
+.log-entry.log-pool-very-low {
+  color: #ff6b47;
+  background-color: rgba(255, 107, 71, 0.1);
+  padding: 3px;
+  border-left: 2px solid #ff6b47;
+}
+
+.log-entry.log-pool-low {
+  color: #ff9500;
+  background-color: rgba(255, 149, 0, 0.08);
+  padding: 3px;
+  border-left: 2px solid #ff9500;
+}
+
+.log-entry.log-pool-medium {
+  color: #ffc107;
+  background-color: rgba(255, 193, 7, 0.08);
+  padding: 3px;
+  border-left: 2px solid #ffc107;
+}
+
+.log-entry.log-pool-good {
+  color: #a8d46f;
+  background-color: rgba(168, 212, 111, 0.08);
+  padding: 3px;
+  border-left: 2px solid #a8d46f;
+}
+
+.log-entry.log-pool-excellent {
+  color: #5cb85c;
+  background-color: rgba(92, 184, 92, 0.08);
+  padding: 3px;
+  border-left: 2px solid #5cb85c;
+}
+
 .log-num {
   color: var(--warning-color);
   font-weight: bold;

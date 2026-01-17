@@ -424,6 +424,37 @@ class UIManager {
       if (log.type === 'error') {
         logEntry.classList.add('log-error');
       }
+      
+      // Add rejected class for rejected draw entries
+      if (log.message && log.message.includes('REJECTED')) {
+        logEntry.classList.add('log-rejected');
+      }
+      
+      // Add fallback class for fallback triggered entries
+      if (log.message && (log.message.includes('Fallback') || log.message.includes('FALLBACK'))) {
+        logEntry.classList.add('log-fallback');
+      }
+      
+      // Add dynamic color for match pool based on percentage
+      if (log.message && log.message.includes('match pool:')) {
+        const percentMatch = log.message.match(/\((\d+\.\d+)%\)/);
+        if (percentMatch) {
+          const percent = parseFloat(percentMatch[1]);
+          if (percent === 0) {
+            logEntry.classList.add('log-pool-critical');
+          } else if (percent < 25) {
+            logEntry.classList.add('log-pool-very-low');
+          } else if (percent < 40) {
+            logEntry.classList.add('log-pool-low');
+          } else if (percent < 60) {
+            logEntry.classList.add('log-pool-medium');
+          } else if (percent < 80) {
+            logEntry.classList.add('log-pool-good');
+          } else {
+            logEntry.classList.add('log-pool-excellent');
+          }
+        }
+      }
 
       let content = `<span class="log-num">[${log.timestamp}]</span> ${log.message}`;
       if (log.data && Object.keys(log.data).length > 0) {
