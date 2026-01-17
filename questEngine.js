@@ -16,7 +16,8 @@ class QuestEngine {
     this.stats = {
       drawAttempts: 0,
       fallbacksTriggered: 0,
-      modifyEffectsApplied: 0
+      modifyEffectsApplied: 0,
+      poorMatchPools: 0
     };
   }
 
@@ -39,7 +40,8 @@ class QuestEngine {
     this.stats = {
       drawAttempts: 0,
       fallbacksTriggered: 0,
-      modifyEffectsApplied: 0
+      modifyEffectsApplied: 0,
+      poorMatchPools: 0
     };
     // Pending instructions from cards that target future decks
     this.pendingInstructions = [];
@@ -410,6 +412,11 @@ class QuestEngine {
       { requiredTags: requiredTags }
     );
     this.log(`Match pool: ${matchCount}/${totalCount} (${percentage}%)`);
+    
+    // Track poor match pools (below 40%)
+    if (parseFloat(percentage) < 40 && matchCount > 0) {
+      this.stats.poorMatchPools++;
+    }
 
     // Check for zero match pool
     if (requiredTags.length > 0 && matchCount === 0) {
@@ -460,8 +467,11 @@ class QuestEngine {
       `Looking for location matching tags: [${requiredTags.join(', ')}]`,
       { requiredTags: requiredTags }
     );
-    this.log(`Match pool: ${matchCount}/${totalCount} (${percentage}%)`);
-
+    this.log(`Match pool: ${matchCount}/${totalCount} (${percentage}%)`);    
+    // Track poor match pools (below 40%)
+    if (parseFloat(percentage) < 40 && matchCount > 0) {
+      this.stats.poorMatchPools++;
+    }
     // Check for zero match pool
     if (requiredTags.length > 0 && matchCount === 0) {
       this.log(
@@ -511,8 +521,11 @@ class QuestEngine {
       `Looking for twist matching tags: [${requiredTags.join(', ')}]`,
       { requiredTags: requiredTags }
     );
-    this.log(`Match pool: ${matchCount}/${totalCount} (${percentage}%)`);
-
+    this.log(`Match pool: ${matchCount}/${totalCount} (${percentage}%)`);    
+    // Track poor match pools (below 40%)
+    if (parseFloat(percentage) < 40 && matchCount > 0) {
+      this.stats.poorMatchPools++;
+    }
     // Check for zero match pool
     if (requiredTags.length > 0 && matchCount === 0) {
       this.log(
@@ -562,6 +575,11 @@ class QuestEngine {
       { requiredTags: rewardTags }
     );
     this.log(`Reward match pool: ${rewardMatchCount}/${rewardTotalCount} (${rewardPercentage}%)`);
+    
+    // Track poor match pools (below 40%)
+    if (parseFloat(rewardPercentage) < 40 && rewardMatchCount > 0) {
+      this.stats.poorMatchPools++;
+    }
 
     // Check for zero match pool
     if (rewardTags.length > 0 && rewardMatchCount === 0) {
@@ -596,6 +614,11 @@ class QuestEngine {
       { requiredTags: failureTags }
     );
     this.log(`Failure match pool: ${failureMatchCount}/${failureTotalCount} (${failurePercentage}%)`);
+    
+    // Track poor match pools (below 40%)
+    if (parseFloat(failurePercentage) < 40 && failureMatchCount > 0) {
+      this.stats.poorMatchPools++;
+    }
 
     // Check for zero match pool
     if (failureTags.length > 0 && failureMatchCount === 0) {
@@ -660,6 +683,7 @@ class QuestEngine {
     this.log('=== QUEST GENERATION COMPLETE ===');
     this.log(`Total draw attempts: ${this.stats.drawAttempts}`);
     this.log(`Fallbacks triggered: ${this.stats.fallbacksTriggered}`);
+    this.log(`Poor match pools (<40%): ${this.stats.poorMatchPools}`);
     this.log(`Modify effects applied: ${this.stats.modifyEffectsApplied}`);
 
     return this.quest;
