@@ -60,6 +60,29 @@ class UIManager {
 
     // Populate verb selector
     this.populateVerbSelector();
+    
+    // Setup collapsible sections
+    this.setupCollapsibleSections();
+  }
+
+  /**
+   * Setup collapsible sections with toggle buttons
+   */
+  setupCollapsibleSections() {
+    const toggleButtons = document.querySelectorAll('.toggle-btn');
+    
+    toggleButtons.forEach(button => {
+      button.addEventListener('click', (e) => {
+        e.preventDefault();
+        const sectionId = button.dataset.section;
+        const contentElement = document.getElementById(`${sectionId}-content`);
+        
+        if (contentElement) {
+          contentElement.classList.toggle('collapsed');
+          button.classList.toggle('collapsed');
+        }
+      });
+    });
   }
 
   /**

@@ -38,48 +38,54 @@
         </div>
 
         <div class="control-group">
-          <h3>Validation</h3>
-          <div class="input-group">
-            <label for="iterations-input">Iterations:</label>
-            <input type="number" id="iterations-input" value="100" min="1" max="10000">
-          </div>
-          <button id="btn-validate" class="btn btn-accent">Run Validation (N iterations)</button>
-        </div>
-
-        <div class="control-group">
-          <h3>Settings</h3>
-          <div class="input-group">
-            <label for="seed-input">Seed (optional):</label>
-            <input type="text" id="seed-input" placeholder="Enter seed value">
-          </div>
-          <div class="input-group">
-            <label for="redraw-limit">Max Redraws:</label>
-            <select id="redraw-limit">
-              <option value="0">0 (Accept first card)</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3" selected>3 (Default)</option>
-              <option value="5">5</option>
-              <option value="10">10</option>
-              <option value="20">20</option>
-              <option value="50">50</option>
-              <option value="-1">∞ (Draw until match)</option>
-            </select>
-          </div>
-          <div class="checkbox-group">
-            <label>
-              <input type="checkbox" id="debug-toggle"> Debug Mode
-            </label>
+          <h3><button class="toggle-btn" data-section="validation">▼</button> Validation</h3>
+          <div class="collapsible-content" id="validation-content">
+            <div class="input-group">
+              <label for="iterations-input">Iterations:</label>
+              <input type="number" id="iterations-input" value="100" min="1" max="10000">
+            </div>
+            <button id="btn-validate" class="btn btn-accent">Run Validation (N iterations)</button>
           </div>
         </div>
 
         <div class="control-group">
-          <h3>Data Management</h3>
-          <button id="btn-reload-data" class="btn btn-primary">🔄 Reload Card Data</button>
-          <button id="btn-csv-template" class="btn btn-secondary">Download CSV Template</button>
-          <button id="btn-import-csv" class="btn btn-primary">Import from CSV</button>
-          <button id="btn-export-csv" class="btn btn-secondary">Export as CSV</button>
-          <input type="file" id="csv-file-input" accept=".csv" style="display: none;">
+          <h3><button class="toggle-btn" data-section="settings">▼</button> Settings</h3>
+          <div class="collapsible-content" id="settings-content">
+            <div class="input-group">
+              <label for="seed-input">Seed (optional):</label>
+              <input type="text" id="seed-input" placeholder="Enter seed value">
+            </div>
+            <div class="input-group">
+              <label for="redraw-limit">Max Redraws:</label>
+              <select id="redraw-limit">
+                <option value="0">0 (Accept first card)</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3" selected>3 (Default)</option>
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="50">50</option>
+                <option value="-1">∞ (Draw until match)</option>
+              </select>
+            </div>
+            <div class="checkbox-group">
+              <label>
+                <input type="checkbox" id="debug-toggle"> Debug Mode
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <h3><button class="toggle-btn" data-section="data-management">▼</button> Data Management</h3>
+          <div class="collapsible-content" id="data-management-content">
+            <button id="btn-reload-data" class="btn btn-primary">🔄 Reload Card Data</button>
+            <button id="btn-csv-template" class="btn btn-secondary">Download CSV Template</button>
+            <button id="btn-import-csv" class="btn btn-primary">Import from CSV</button>
+            <button id="btn-export-csv" class="btn btn-secondary">Export as CSV</button>
+            <input type="file" id="csv-file-input" accept=".csv" style="display: none;">
+          </div>
         </div>
 
         <div class="control-group">
@@ -89,9 +95,11 @@
 
       <!-- Quest Output Section -->
       <section class="quest-output-section">
-        <h2>Quest Output</h2>
-        <div id="quest-output" class="quest-output">
-          <p>Click a button to generate a quest or run validation.</p>
+        <h2><button class="toggle-btn" data-section="quest-output">▼</button> Quest Output</h2>
+        <div class="collapsible-content" id="quest-output-content">
+          <div id="quest-output" class="quest-output">
+            <p>Click a button to generate a quest or run validation.</p>
+          </div>
         </div>
       </section>
 
