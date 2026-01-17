@@ -8,6 +8,8 @@ class CardManager {
     this.dataLoader = null;
     this.cards = {};
     this.currentEditingCardId = null;
+    this.originalDeckName = null; // Track original deck when editing
+    this.originalCardName = null; // Track original card name when editing
     this.instructionData = [];
     this.editingInstructionIndex = -1; // -1 means not editing
     this.allTags = {
@@ -448,15 +450,40 @@ class CardManager {
       Instructions: this.instructionData
     };
 
-    // Add or update the card
-    if (!Array.isArray(this.cards[deckSelect])) {
-      this.cards[deckSelect] = [];
-    }
-
-    const existingIndex = this.cards[deckSelect].findIndex(c => c.CardName === cardName);
-    if (existingIndex >= 0) {
-      this.cards[deckSelect][existingIndex] = cardData;
+    // If editing an existing card
+    if (this.originalDeckName && this.originalCardName) {
+      // Remove from original deck if deck was changed
+      if (this.originalDeckName !== deckSelect) {
+        const originalDeck = this.cards[this.originalDeckName];
+        if (Array.isArray(originalDeck)) {
+          const index = originalDeck.findIndex(c => c.CardName === this.originalCardName);
+          if (index >= 0) {
+            originalDeck.splice(index, 1);
+          }
+        }
+      } else {
+        // Same deck, just remove the old card (by old name in case name was changed)
+        const deck = this.cards[deckSelect];
+        const index = deck.findIndex(c => c.CardName === this.originalCardName);
+        if (index >= 0) {
+          deck.splice(index, 1);
+        }
+      }
+      
+      // Add to target deck
+      if (!Array.isArray(this.cards[deckSelect])) {
+        this.cards[deckSelect] = [];
+      }
+      this.cards[deckSelect].push(cardData);
+      
+      // Clear edit tracking
+      this.originalDeckName = null;
+      this.originalCardName = null;
     } else {
+      // Adding a new card
+      if (!Array.isArray(this.cards[deckSelect])) {
+        this.cards[deckSelect] = [];
+      }
       this.cards[deckSelect].push(cardData);
     }
 
@@ -695,16 +722,34 @@ class CardManager {
         </div>
       ` : '';
 
-      item.innerHTML = `
-        <h4>${card.CardName}</h4>
-        <span class="card-deck">${deckDisplayName}</span>
-        <div class="card-tags">
-          ${typeTagsHtml}
-          ${aspectTagsHtml}
+      // Create instructions section
+      const instructionsHtml = (card.Instructions && card.Instructions.length > 0) ? `
+        <div class="instructions-section">
+          <div class="section-title">Instructions:</div>
+          ${card.Instructions.map(inst => `
+            <div class="instruction-item">
+              <span class="instruction-target">${inst.TargetDeck}</span>
+              <span class="instruction-tags">[${inst.Tags.join(', ')}]</span>
+            </div>
+          `).join('')}
         </div>
-        <div class="card-item-actions">
-          <button class="btn btn-secondary btn-edit" data-deck="${deckName}" data-name="${card.CardName}">Edit</button>
-          <button class="btn btn-danger btn-delete" data-deck="${deckName}" data-name="${card.CardName}">Delete</button>
+      ` : '<div class="instructions-section"><div class="section-title">No Instructions</div></div>';
+
+      item.innerHTML = `
+        <div class="card-item-left">
+          <h4>${card.CardName}</h4>
+          <span class="card-deck">${deckDisplayName}</span>
+          <div class="card-tags">
+            ${typeTagsHtml}
+            ${aspectTagsHtml}
+          </div>
+          <div class="card-item-actions">
+            <button class="btn btn-secondary btn-edit" data-deck="${deckName}" data-name="${card.CardName}">Edit</button>
+            <button class="btn btn-danger btn-delete" data-deck="${deckName}" data-name="${card.CardName}">Delete</button>
+          </div>
+        </div>
+        <div class="card-item-right">
+          ${instructionsHtml}
         </div>
       `;
 
@@ -730,6 +775,10 @@ class CardManager {
     const deck = this.cards[deckName];
     const card = deck.find(c => c.CardName === cardName);
     if (!card) return;
+
+    // Track the original deck and card name for update operation
+    this.originalDeckName = deckName;
+    this.originalCardName = cardName;
 
     // Set deck select
     document.getElementById('deck-select').value = deckName;
@@ -793,6 +842,10 @@ class CardManager {
     this.clearTagList('mutable-tags-list');
     this.instructionData = [];
     this.renderInstructions();
+    
+    // Clear edit tracking
+    this.originalDeckName = null;
+    this.originalCardName = null;
 
     const cancelBtn = document.getElementById('btn-cancel-edit');
     if (cancelBtn) {

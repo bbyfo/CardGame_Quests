@@ -325,12 +325,26 @@
   cursor: pointer;
   transition: all 0.2s;
   border-left: 4px solid #667eea;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
 }
 
 .card-item:hover {
   background-color: #f9f9f9;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transform: translateX(2px);
+}
+
+.card-item-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.card-item-right {
+  display: flex;
+  flex-direction: column;
 }
 
 .card-item h4 {
@@ -404,6 +418,49 @@
 
 .card-item-actions .btn {
   flex: 1;
+  font-size: 0.85rem;
+  padding: 0.5rem;
+}
+
+/* Instructions Section */
+.instructions-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  background-color: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.instructions-section .section-title {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.25rem;
+}
+
+.instruction-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.5rem;
+  background-color: white;
+  border-left: 3px solid #667eea;
+  border-radius: 2px;
+}
+
+.instruction-target {
+  font-weight: 600;
+  color: #667eea;
+  font-size: 0.9rem;
+}
+
+.instruction-tags {
+  color: #666;
+  font-size: 0.85rem;
+  font-family: monospace;
+}
   padding: 0.5rem;
   font-size: 0.85rem;
 }
