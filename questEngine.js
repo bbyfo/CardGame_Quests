@@ -13,6 +13,7 @@ class QuestEngine {
     this.debugMode = false; // Default to non-verbose logging
     this.validator = null; // Reference to validator for tracking card draws
     this.maxRedraws = 3; // Number of invalid draws before fallback (0-99, or -1 for infinite)
+    this.rejectedCards = new Set(); // Cards rejected during this quest (temporary)
     this.stats = {
       drawAttempts: 0,
       fallbacksTriggered: 0,
@@ -26,6 +27,7 @@ class QuestEngine {
    */
   reset() {
     this.logs = [];
+    this.rejectedCards = new Set(); // Clear rejected cards for new quest
     this.quest = {
       questGiver: null,
       harmedParty: null,
@@ -177,13 +179,15 @@ class QuestEngine {
   }
 
   /**
-   * Helper: Draw a random card from array
+   * Helper: Draw a random card from array, skipping rejected cards
    */
   drawRandomCard(deck) {
     this.stats.drawAttempts++;
-    if (deck.length === 0) return null;
-    const index = Math.floor(Math.random() * deck.length);
-    const card = deck[index];
+    // Filter out rejected cards
+    const availableCards = deck.filter(card => !this.rejectedCards.has(card.id));
+    if (availableCards.length === 0) return null;
+    const index = Math.floor(Math.random() * availableCards.length);
+    const card = availableCards[index];
     
     // Track card draw for validation statistics
     if (this.validator && card) {
@@ -233,6 +237,8 @@ class QuestEngine {
           );
         }
       } else {
+        // Card was rejected - set it aside for this quest
+        this.rejectedCards.add(card.id);
         this.log(
           `${deckName} Draw #${attempts}: REJECTED "${card.CardName}" (no matching tags, needs: ${requiredTags.join(', ')})`,
           { card: card.CardName, requiredTags: requiredTags },
