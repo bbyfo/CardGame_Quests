@@ -269,6 +269,37 @@ class CardManager {
     if (resetBtn) {
       resetBtn.addEventListener('click', () => this.resetToDefaults());
     }
+
+    // Setup collapsible sections
+    this.setupCollapsibleSections();
+  }
+
+  /**
+   * Setup collapsible sections with toggle functionality
+   */
+  setupCollapsibleSections() {
+    const toggleButtons = document.querySelectorAll('.toggle-btn');
+    toggleButtons.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const sectionId = btn.dataset.section;
+        const section = document.getElementById(sectionId);
+        if (!section) return;
+
+        const isCollapsed = section.classList.contains('collapsed');
+        if (isCollapsed) {
+          // Expand
+          section.classList.remove('collapsed');
+          btn.setAttribute('aria-expanded', 'true');
+          section.style.maxHeight = section.scrollHeight + 'px';
+        } else {
+          // Collapse
+          section.classList.add('collapsed');
+          btn.setAttribute('aria-expanded', 'false');
+          section.style.maxHeight = '0px';
+        }
+      });
+    });
   }
 
   /**

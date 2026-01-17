@@ -115,7 +115,7 @@
       <section class="card-browser-section">
         <h2>Browse Cards</h2>
         
-        <div class="browser-controls">
+        <div class="browser-filters">
           <div class="form-group">
             <label for="filter-deck">Filter by Deck:</label>
             <select id="filter-deck">
@@ -135,7 +135,14 @@
             <label for="search-cards">Search:</label>
             <input type="text" id="search-cards" placeholder="Search card names...">
           </div>
+        </div>
 
+        <div class="browser-header">
+          <h3>Tools</h3>
+          <button class="toggle-btn" data-section="browser-controls" aria-expanded="false">▼</button>
+        </div>
+
+        <div id="browser-controls" class="browser-controls collapsible-content collapsed">
           <button id="btn-export-cards" class="btn btn-secondary">📥 Export Cards</button>
           <button id="btn-import-cards" class="btn btn-secondary">📤 Import Cards</button>
           <button id="btn-reset-defaults" class="btn btn-warning">🔄 Reset to Defaults</button>

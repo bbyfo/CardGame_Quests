@@ -288,6 +288,53 @@
   padding-bottom: 0.5rem;
 }
 
+/* Browser Filters - Always Visible */
+.browser-filters {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.browser-filters .form-group {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.browser-filters label {
+  min-width: 100px;
+  font-weight: 600;
+}
+
+.browser-filters input,
+.browser-filters select {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-family: inherit;
+}
+
+/* Browser Header with Toggle */
+.browser-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  border-left: 3px solid #ff6b6b;
+}
+
+.browser-header h3 {
+  margin: 0;
+  font-size: 1rem;
+  color: #333;
+}
+
 .browser-controls {
   display: flex;
   flex-direction: column;
@@ -314,6 +361,33 @@
   border-radius: 4px;
   font-size: 0.9rem;
   font-family: inherit;
+}
+
+/* Collapsible Content */
+.collapsible-content {
+  overflow: hidden;
+  max-height: 1000px;
+  transition: max-height 0.3s ease-in-out;
+}
+
+.collapsible-content.collapsed {
+  max-height: 0px;
+  overflow: hidden;
+}
+
+.toggle-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #333;
+  padding: 0.25rem 0.5rem;
+  transition: transform 0.3s ease-in-out;
+  font-weight: bold;
+}
+
+.toggle-btn[aria-expanded="false"] {
+  transform: rotate(-90deg);
 }
 
 /* Cards List */
@@ -670,15 +744,19 @@
     width: 100%;
   }
 
+  .browser-filters .form-group,
   .browser-controls .form-group {
     flex-direction: column;
     align-items: stretch;
   }
 
+  .browser-filters label,
   .browser-controls label {
     min-width: auto;
   }
 
+  .browser-filters input,
+  .browser-filters select,
   .browser-controls input,
   .browser-controls select {
     width: 100%;
