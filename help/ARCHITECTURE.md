@@ -63,20 +63,21 @@ JSON File → loadData() → populateDecks() → initializeCard()
 - Each card has `mutableTags` array (initialized empty)
 
 ### questEngine.js
-**Purpose**: Implement the 5-step quest generation algorithm
+**Purpose**: Implement the 8-step quest generation algorithm
 
 **Key Classes**:
 - `QuestEngine`
 
 **Key Methods**:
-- `generateQuest()` - Execute full 7-step algorithm
+- `generateQuest()` - Execute full 8-step algorithm
 - `stepDrawVerb()` - Step 1
 - `stepDrawQuestGiver()` - Step 2
 - `stepDrawHarmedParty()` - Step 3
 - `stepDrawTarget(verb)` - Step 4
 - `stepDrawLocation(target)` - Step 5
 - `stepDrawTwist(location)` - Step 6
-- `stepDrawRewardAndFailure(twist)` - Step 7
+- `stepDrawReward(twist)` - Step 7
+- `stepDrawFailure(reward)` - Step 8
 
 **Helper Methods**:
 - `log(message, data)` - Add entry to logs
@@ -115,9 +116,13 @@ JSON File → loadData() → populateDecks() → initializeCard()
    → Draw with fallback
    → Apply twist's Modify effects
 
-7. Draw Reward & Failure
+7. Draw Reward
    → No matching required
-   → Apply their Modify effects
+   → Apply Modify effects
+
+8. Draw Failure
+   → No matching required
+   → Apply Modify effects
 ```
 
 **Logging System**:

@@ -560,8 +560,8 @@ class QuestEngine {
   /**
    * STEP 7: Draw Reward and Failure
    */
-  stepDrawRewardAndFailure(twist) {
-    this.log('=== STEP 7: Draw Reward and Failure ===');
+  stepDrawReward(twist) {
+    this.log('=== STEP 7: Draw Reward ===');
 
     // Check for pending instructions targeting Reward
     // Use empty array as default - only explicit instructions apply, not inherited tags
@@ -594,13 +594,25 @@ class QuestEngine {
 
     const reward = this.drawWithFallback(this.decks.rewards, rewardTags, 'Reward', 'Reward');
     
-    if (reward) {
-      this.quest.reward = reward;
-      this.log(`Reward selected: "${reward.CardName}"`);
-      this.log(`Reward current tags: [${this.getCurrentTags(reward).join(', ')}]`);
-      this.applyModifyEffects(reward, null);
-      this.storePendingInstruction(reward);
+    if (!reward) {
+      this.log('ERROR: Failed to draw reward');
+      return null;
     }
+
+    this.quest.reward = reward;
+    this.log(`Reward selected: "${reward.CardName}"`);
+    this.log(`Reward current tags: [${this.getCurrentTags(reward).join(', ')}]`);
+    this.applyModifyEffects(reward, null);
+    this.storePendingInstruction(reward);
+
+    return reward;
+  }
+
+  /**
+   * STEP 8: Draw Failure
+   */
+  stepDrawFailure(reward) {
+    this.log('=== STEP 8: Draw Failure ===');
 
     // Check for pending instructions targeting Failure
     // Use empty array as default - only explicit instructions apply, not inherited tags
@@ -633,15 +645,18 @@ class QuestEngine {
 
     const failure = this.drawWithFallback(this.decks.failures, failureTags, 'Failure', 'Failure');
     
-    if (failure) {
-      this.quest.failure = failure;
-      this.log(`Failure selected: "${failure.CardName}"`);
-      this.log(`Failure current tags: [${this.getCurrentTags(failure).join(', ')}]`);
-      this.applyModifyEffects(failure, null);
-      this.storePendingInstruction(failure);
+    if (!failure) {
+      this.log('ERROR: Failed to draw failure');
+      return null;
     }
 
-    return { reward, failure };
+    this.quest.failure = failure;
+    this.log(`Failure selected: "${failure.CardName}"`);
+    this.log(`Failure current tags: [${this.getCurrentTags(failure).join(', ')}]`);
+    this.applyModifyEffects(failure, null);
+    this.storePendingInstruction(failure);
+
+    return failure;
   }
 
   /**
@@ -676,9 +691,13 @@ class QuestEngine {
     const twist = this.stepDrawTwist(location);
     if (!twist) return null;
 
-    // Step 7: Draw Reward and Failure
-    const rewardFailure = this.stepDrawRewardAndFailure(twist);
-    if (!rewardFailure) return null;
+    // Step 7: Draw Reward
+    const reward = this.stepDrawReward(twist);
+    if (!reward) return null;
+
+    // Step 8: Draw Failure
+    const failure = this.stepDrawFailure(reward);
+    if (!failure) return null;
 
     this.log('=== QUEST GENERATION COMPLETE ===');
     this.log(`Total draw attempts: ${this.stats.drawAttempts}`);

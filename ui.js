@@ -143,13 +143,15 @@ class UIManager {
     }
     
     this.stepState = {
-      step: 0, // 0: Verb, 1: Quest Giver, 2: Harmed Party, 3: Target, 4: Location, 5: Twist, 6: Reward/Failure
+      step: 0, // 0: Verb, 1: Quest Giver, 2: Harmed Party, 3: Target, 4: Location, 5: Twist, 6: Reward, 7: Failure
       questGiver: null,
       harmedParty: null,
       verb: null,
       target: null,
       location: null,
       twist: null,
+      reward: null,
+      failure: null,
       selectedVerb: this.getSelectedVerb()
     };
 
@@ -229,18 +231,25 @@ class UIManager {
       this.addLog(`Drawn Twist: ${this.stepState.twist.CardName}`);
       this.addLog(`Twist Tags: [${this.engine.getCurrentTags(this.stepState.twist).join(', ')}]`);
     } else if (step === 6) {
-      // Draw Reward and Failure
-      const result = this.engine.stepDrawRewardAndFailure(this.stepState.twist);
-      if (!result) {
+      // Draw Reward
+      this.stepState.reward = this.engine.stepDrawReward(this.stepState.twist);
+      if (!this.stepState.reward) {
         this.displayLogs(this.engine.getLogs());
         document.getElementById('btn-next-step').disabled = true;
         return;
       }
-      const { reward, failure } = result;
-      this.addLog(`Drawn Reward: ${reward.CardName}`);
-      this.addLog(`Drawn Failure: ${failure.CardName}`);
-      this.stepState.step++; // Allow one more click to end
+      this.addLog(`Drawn Reward: ${this.stepState.reward.CardName}`);
     } else if (step === 7) {
+      // Draw Failure
+      this.stepState.failure = this.engine.stepDrawFailure(this.stepState.reward);
+      if (!this.stepState.failure) {
+        this.displayLogs(this.engine.getLogs());
+        document.getElementById('btn-next-step').disabled = true;
+        return;
+      }
+      this.addLog(`Drawn Failure: ${this.stepState.failure.CardName}`);
+      this.stepState.step++; // Allow one more click to end
+    } else if (step === 8) {
       this.addLog('Quest complete! Click "Generate Quest" to start a new quest.');
       document.getElementById('btn-next-step').disabled = true;
       this.displayQuest(this.engine.getQuest());
