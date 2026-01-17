@@ -2,11 +2,17 @@
 
 .card-manager-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto;
   gap: 2rem;
   margin: 2rem 0;
   align-items: start;
+}
+
+@media (max-width: 1600px) {
+  .card-manager-grid {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 @media (max-width: 1200px) {
@@ -685,4 +691,67 @@
   .modal-content {
     width: 95%;
   }
+}
+
+/* Tag Statistics Section */
+.tag-stats-section {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.tag-stats-section h2 {
+  color: #333;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #667eea;
+  padding-bottom: 0.5rem;
+}
+
+.tag-stats-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.tag-category {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.tag-category-title {
+  font-weight: 600;
+  color: #333;
+  font-size: 0.95rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #bbb;
+}
+
+.tag-entry {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  background-color: white;
+  border-radius: 4px;
+  border-left: 3px solid #667eea;
+  font-size: 0.9rem;
+}
+
+.tag-name {
+  color: #333;
+  font-weight: 500;
+}
+
+.tag-count {
+  background-color: #667eea;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  min-width: 35px;
+  text-align: center;
 }

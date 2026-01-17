@@ -58,6 +58,7 @@ class CardManager {
       this.extractAllTags();
       this.setupEventListeners();
       this.renderCardsList();
+      this.renderTagStatistics();
       console.log('✓ Card Manager initialized');
     } catch (error) {
       console.error('Failed to initialize Card Manager:', error);
@@ -496,6 +497,7 @@ class CardManager {
     
     this.resetForm();
     this.renderCardsList();
+    this.renderTagStatistics();
   }
 
   /**
@@ -828,6 +830,7 @@ class CardManager {
       this.refreshAutocomplete();
       
       this.renderCardsList();
+      this.renderTagStatistics();
       alert(`✓ Card "${cardName}" deleted successfully!`);
     }
   }
@@ -947,6 +950,7 @@ class CardManager {
       this.extractAllTags();
       this.refreshAutocomplete();
       this.renderCardsList();
+      this.renderTagStatistics();
       this.resetForm();
       
       alert('✓ Reset to default cards successfully!');
@@ -955,6 +959,89 @@ class CardManager {
       alert('❌ Failed to reset to defaults: ' + error.message);
       console.error('Reset error:', error);
     }
+  }
+
+  /**
+   * Render tag statistics showing how many cards use each tag
+   */
+  renderTagStatistics() {
+    const statsContainer = document.getElementById('tag-stats-content');
+    if (!statsContainer) return;
+
+    // Count tag usage across all cards
+    const tagCounts = {
+      type: {},
+      aspect: {},
+      mutable: {}
+    };
+
+    for (const deckName in this.cards) {
+      const deck = this.cards[deckName];
+      if (!Array.isArray(deck)) continue;
+
+      deck.forEach(card => {
+        // Count TypeTags
+        if (Array.isArray(card.TypeTags)) {
+          card.TypeTags.forEach(tag => {
+            tagCounts.type[tag] = (tagCounts.type[tag] || 0) + 1;
+          });
+        }
+
+        // Count AspectTags
+        if (Array.isArray(card.AspectTags)) {
+          card.AspectTags.forEach(tag => {
+            tagCounts.aspect[tag] = (tagCounts.aspect[tag] || 0) + 1;
+          });
+        }
+
+        // Count mutableTags
+        if (Array.isArray(card.mutableTags)) {
+          card.mutableTags.forEach(tag => {
+            tagCounts.mutable[tag] = (tagCounts.mutable[tag] || 0) + 1;
+          });
+        }
+      });
+    }
+
+    // Sort tags alphabetically within each category and build HTML
+    const renderCategory = (title, tags) => {
+      const sortedTags = Object.entries(tags)
+        .sort(([tagA], [tagB]) => tagA.localeCompare(tagB));
+
+      if (sortedTags.length === 0) {
+        return `
+          <div class="tag-category">
+            <h4>${title}</h4>
+            <p style="color: #999; font-size: 0.9em;">No tags</p>
+          </div>
+        `;
+      }
+
+      const entriesHtml = sortedTags.map(([tag, count]) => `
+        <div class="tag-entry">
+          <span class="tag-name">${tag}</span>
+          <span class="tag-count">${count}</span>
+        </div>
+      `).join('');
+
+      return `
+        <div class="tag-category">
+          <h4>${title}</h4>
+          <div class="tag-list">
+            ${entriesHtml}
+          </div>
+        </div>
+      `;
+    };
+
+    // Build the complete HTML
+    const html = `
+      ${renderCategory('Type Tags', tagCounts.type)}
+      ${renderCategory('Aspect Tags', tagCounts.aspect)}
+      ${renderCategory('Mutable Tags', tagCounts.mutable)}
+    `;
+
+    statsContainer.innerHTML = html;
   }
 }
 
