@@ -17,24 +17,41 @@ class CardManager {
       instructionTags: new Set()
     };
     this.autocompleteSetupDone = false; // Track if event listeners are set up
+    this.apiUrl = 'http://localhost:3000/api/cards'; // Backend API
+    this.serverMode = false; // Detected if server is available
     this.init();
   }
 
   async init() {
     try {
-      // Try to load from localStorage first
-      const savedCards = localStorage.getItem('cardManagerCards');
+      // Check if server is available
+      await this.detectServer();
       
-      if (savedCards) {
-        // Use saved cards from localStorage
-        this.cards = JSON.parse(savedCards);
-        console.log('✓ Loaded cards from localStorage');
+      if (this.serverMode) {
+        // Load from server API
+        const response = await fetch(this.apiUrl);
+        if (response.ok) {
+          this.cards = await response.json();
+          console.log('✓ Loaded cards from server');
+          this.showNotification('Connected to server - auto-save enabled', 'success');
+        } else {
+          throw new Error('Server returned error');
+        }
       } else {
-        // Fall back to loading from cards.json
-        this.dataLoader = new DataLoader();
-        await this.dataLoader.loadData('cards.json');
-        this.cards = this.dataLoader.decks;
-        console.log('✓ Loaded cards from cards.json');
+        // Fall back to localStorage or cards.json
+        const savedCards = localStorage.getItem('cardManagerCards');
+        
+        if (savedCards) {
+          this.cards = JSON.parse(savedCards);
+          console.log('✓ Loaded cards from localStorage');
+          this.showNotification('Server offline - using localStorage', 'warning');
+        } else {
+          this.dataLoader = new DataLoader();
+          await this.dataLoader.loadData('cards.json');
+          this.cards = this.dataLoader.decks;
+          console.log('✓ Loaded cards from cards.json');
+          this.showNotification('Server offline - using localStorage', 'warning');
+        }
       }
       
       this.extractAllTags();
@@ -43,7 +60,95 @@ class CardManager {
       console.log('✓ Card Manager initialized');
     } catch (error) {
       console.error('Failed to initialize Card Manager:', error);
+      this.showNotification('Error loading cards: ' + error.message, 'error');
     }
+  }
+
+  /**
+   * Detect if server is available
+   */
+  async detectServer() {
+    try {
+      const response = await fetch('http://localhost:3000/api/health', {
+        method: 'GET',
+        signal: AbortSignal.timeout(2000) // 2 second timeout
+      });
+      this.serverMode = response.ok;
+      return this.serverMode;
+    } catch (error) {
+      this.serverMode = false;
+      return false;
+    }
+  }
+
+  /**
+   * Save cards with auto-persistence
+   */
+  async saveCardsToFile() {
+    if (this.serverMode) {
+      // Save to server
+      try {
+        const response = await fetch(this.apiUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(this.cards)
+        });
+        
+        if (response.ok) {
+          console.log('✓ Cards saved to server (cards.json)');
+          this.showNotification('✓ Cards saved to server', 'success');
+          
+          // Also save to localStorage as backup
+          localStorage.setItem('cardManagerCards', JSON.stringify(this.cards));
+        } else {
+          throw new Error('Server save failed');
+        }
+      } catch (error) {
+        console.error('Server save error:', error);
+        this.showNotification('⚠️ Server save failed - saved to localStorage only', 'warning');
+        localStorage.setItem('cardManagerCards', JSON.stringify(this.cards));
+      }
+    } else {
+      // Save to localStorage only
+      localStorage.setItem('cardManagerCards', JSON.stringify(this.cards));
+      console.log('✓ Cards saved to localStorage');
+      this.showSaveReminder();
+    }
+  }
+  
+  /**
+   * Show notification to user
+   */
+  showNotification(message, type = 'info') {
+    const colors = {
+      success: '#27ae60',
+      warning: '#f39c12',
+      error: '#e74c3c',
+      info: '#3498db'
+    };
+    
+    const notification = document.createElement('div');
+    notification.style.cssText = `
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: ${colors[type]};
+      color: white;
+      padding: 12px 20px;
+      border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      z-index: 10000;
+      max-width: 350px;
+      font-size: 14px;
+      animation: slideIn 0.3s ease;
+    `;
+    notification.textContent = message;
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+      notification.style.animation = 'slideOut 0.3s ease';
+      setTimeout(() => notification.remove(), 300);
+    }, 3000);
   }
 
   /**
