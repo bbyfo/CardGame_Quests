@@ -10,9 +10,11 @@ const { Pool } = require('pg');
 require('dotenv').config();
 
 // Optional pg pool (used for DDL or when DATABASE_URL is present)
+// Automatically enable SSL for known managed hosts (Supabase) or when NODE_ENV=production
+const _shouldUseSSL = process.env.NODE_ENV === 'production' || !!process.env.SUPABASE_URL || (process.env.DATABASE_URL && process.env.DATABASE_URL.includes('supabase.co'));
 const pool = process.env.DATABASE_URL ? new Pool({
   connectionString: process.env.DATABASE_URL,
-  ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false
+  ssl: _shouldUseSSL ? { rejectUnauthorized: false } : false
 }) : null;
 
 // Optional Supabase client (server-side, using service role key)
@@ -108,7 +110,6 @@ async function getCards() {
     try {
       const { data, error } = await supabase.from('cards').select('data').eq('id', 1).single();
       if (error) {
-        // If relation doesn't exist or no rows, return empty
         if (/does not exist|Undefined table|relation "cards" does not exist/i.test(error.message || '')) {
           return empty();
         }
@@ -117,7 +118,7 @@ async function getCards() {
       return data && data.data ? data.data : empty();
     } catch (err) {
       console.error('Supabase getCards error:', err.message || err);
-      throw err;
+      // Don't rethrow — fall back to pg instead of crashing
     }
   }
 
@@ -172,22 +173,28 @@ async function saveCards(cards) {
  * Check if database is available
  */
 async function isDatabaseAvailable() {
-  if (useSupabase) {
-    try {
-      const { error } = await supabase.from('cards').select('id').limit(1);
-      // If there's a low-level connectivity error, supabase sets error.status === 0
-      if (error && error.status === 0) return false;
-      return true;
-    } catch (err) {
-      return false;
-    }
-  }
-
+  // Try pg pool first (direct Postgres connection — more reliable locally)
   if (pool) {
     try {
       await pool.query('SELECT 1');
       return true;
     } catch (error) {
+      console.warn('pg ping failed:', error.message || error);
+      // Fall through to Supabase check
+    }
+  }
+
+  // Fallback: try Supabase client (if configured)
+  if (useSupabase) {
+    try {
+      const resp = await supabase.from('cards').select('id').limit(1);
+      if (resp && resp.error) {
+        console.warn('Supabase ping returned error:', resp.error.message || resp.error);
+        return false;
+      }
+      return true;
+    } catch (err) {
+      console.warn('Supabase ping threw an exception:', err.message || err);
       return false;
     }
   }

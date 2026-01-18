@@ -1,5 +1,58 @@
 # PostgreSQL Setup for Render.com
 
+## Quick Start: Local Development & Production
+
+### Local Development
+
+**To run locally, simply:**
+
+```bash
+npm install       # one-time
+node server.js    # start server
+```
+
+**Which database will be used?** Check your `.env` file:
+
+- **Option A — Use LOCAL PostgreSQL** (good for isolated testing):
+  - Uncomment `DATABASE_URL=postgresql://...` pointing to your local Postgres
+  - Comment out `SUPABASE_*` variables
+  - Result: `node server.js` uses your local database
+
+- **Option B — Use PROD Supabase** (test against real production data):
+  - Uncomment `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY`
+  - Comment out `DATABASE_URL`
+  - Result: `node server.js` uses your production Supabase database
+  - Status output: `"ℹ Data source: Supabase (service role) - available"`
+
+Check `GET http://localhost:3000/api/health` to see which data source is active:
+```json
+{
+  "status": "ok",
+  "storage": "postgresql",
+  "dataSource": "Supabase (service role) - available",
+  "timestamp": "2026-01-18T06:50:35.801Z"
+}
+```
+
+### Production Deployment (Render + Supabase)
+
+**Render will always use Supabase.** Set these environment variables in Render:
+
+1. Go to Render Dashboard → Your Web Service → **Environment**
+2. Add these variables:
+   - `SUPABASE_URL` = your Supabase project URL (e.g., `https://db.xxxxx.supabase.co`)
+   - `SUPABASE_SERVICE_ROLE_KEY` = your Supabase service role key (from Project Settings → API)
+3. Do **NOT** set `DATABASE_URL` in Render (the app will ignore it and use Supabase)
+4. Save and redeploy
+
+**On Render, the app will:**
+- Detect `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY`
+- Use Supabase for all storage
+- Create the `cards` table automatically if missing
+- Seed from `cards.json` on first deploy (if table is empty)
+
+---
+
 ## What Changed
 
 Your app now uses PostgreSQL for persistent storage when deployed, but still works with cards.json locally.

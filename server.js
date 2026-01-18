@@ -19,6 +19,8 @@ const CARDS_FILE = path.join(__dirname, 'cards.json');
 
 // Track if database is available
 let useDatabaseStorage = false;
+// Human-readable data source summary (updated during startup)
+let dataSourceSummary = 'filesystem (cards.json)';
 
 // Middleware
 app.use(cors());
@@ -55,6 +57,27 @@ app.use(express.static(__dirname)); // Serve static files
   } else {
     console.log('ℹ No DATABASE_URL found, using file storage (cards.json)');
   }
+
+  // Status summary for data source — helpful when running locally
+  try {
+    let source = 'filesystem (cards.json)';
+
+    if (process.env.SUPABASE_URL || process.env.SUPABASE_SERVICE_ROLE_KEY) {
+      const supConfigured = !!(process.env.SUPABASE_URL && process.env.SUPABASE_SERVICE_ROLE_KEY);
+      if (supConfigured && useDatabaseStorage) source = 'Supabase (service role) - available';
+      else if (supConfigured && !useDatabaseStorage) source = 'Supabase (service role) - unavailable, falling back to filesystem';
+      else source = 'Supabase configuration incomplete (missing URL or service role key)';
+    } else if (process.env.DATABASE_URL) {
+      if (useDatabaseStorage) source = 'Postgres (DATABASE_URL) - available';
+      else source = 'Postgres (DATABASE_URL) - unavailable, falling back to filesystem';
+    }
+
+    dataSourceSummary = source;
+    console.log(`ℹ Data source: ${dataSourceSummary}`);
+  } catch (e) {
+    console.warn('Could not determine data source status:', e.message || e);
+  }
+
 })();
 
 /**
@@ -129,6 +152,7 @@ app.get('/api/health', (req, res) => {
   res.json({ 
     status: 'ok', 
     storage: useDatabaseStorage ? 'postgresql' : 'filesystem',
+    dataSource: dataSourceSummary,
     timestamp: new Date().toISOString() 
   });
 });
