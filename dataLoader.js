@@ -6,14 +6,10 @@
 class DataLoader {
   constructor() {
     this.decks = {
-      questgivers: [],
-      harmedparties: [],
-      verbs: [],
-      targets: [],
+      npcs: [],
+      questtemplates: [],
       locations: [],
-      twists: [],
-      rewards: [],
-      failures: []
+      twists: []
     };
     this.allCards = [];
   }
@@ -62,7 +58,7 @@ class DataLoader {
    * Populate decks from loaded data
    */
   populateDecks(data) {
-    const deckNames = ['questgivers', 'harmedparties', 'verbs', 'targets', 'locations', 'twists', 'rewards', 'failures'];
+    const deckNames = ['npcs', 'questtemplates', 'locations', 'twists'];
     
     // Clear allCards when repopulating (for reload scenarios)
     this.allCards = [];
@@ -79,7 +75,20 @@ class DataLoader {
    * Initialize a card with runtime fields
    */
   initializeCard(cardData) {
-    // Normalize Instructions to always be an array of {TargetDeck, Tags} objects
+    // For QuestTemplate cards, normalize DrawInstructions
+    if (cardData.Deck === 'QuestTemplate') {
+      const drawInstructions = cardData.DrawInstructions || [];
+      return {
+        ...cardData,
+        DrawInstructions: Array.isArray(drawInstructions) ? drawInstructions : [],
+        RewardText: cardData.RewardText || '',
+        ConsequenceText: cardData.ConsequenceText || '',
+        mutableTags: cardData.mutableTags || [],
+        id: cardData.id || `${cardData.Deck}-${cardData.CardName}-${Math.random()}`
+      };
+    }
+    
+    // For other cards, normalize Instructions (for backward compatibility with card instructions)
     let instructions = cardData.Instructions || [];
     if (!Array.isArray(instructions)) {
       instructions = [];
@@ -89,7 +98,7 @@ class DataLoader {
       ...cardData,
       Instructions: instructions,
       mutableTags: cardData.mutableTags || [],
-      id: `${cardData.Deck}-${cardData.CardName}-${Math.random()}`
+      id: cardData.id || `${cardData.Deck}-${cardData.CardName}-${Math.random()}`
     };
   }
 

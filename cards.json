@@ -1,7 +1,7 @@
 {
-  "questgivers": [
+  "npcs": [
     {
-      "Deck": "QuestGiver",
+      "Deck": "NPC",
       "CardName": "King",
       "TypeTags": [
         "Order",
@@ -12,10 +12,10 @@
       ],
       "mutableTags": [],
       "Instructions": [],
-      "id": "QuestGiver-King-0.844562560488323"
+      "id": "NPC-King-0.844562560488323"
     },
     {
-      "Deck": "QuestGiver",
+      "Deck": "NPC",
       "CardName": "Arch Mage",
       "TypeTags": [
         "Arcane",
@@ -33,10 +33,10 @@
           ]
         }
       ],
-      "id": "QuestGiver-ArchMage-0.664995457557898"
+      "id": "NPC-ArchMage-0.664995457557898"
     },
     {
-      "Deck": "QuestGiver",
+      "Deck": "NPC",
       "CardName": "Merchant Guild",
       "TypeTags": [
         "Wealth",
@@ -46,20 +46,11 @@
         "Wealth"
       ],
       "mutableTags": [],
-      "Instructions": [
-        {
-          "TargetDeck": "Reward",
-          "Tags": [
-            "Wealth"
-          ]
-        }
-      ],
-      "id": "QuestGiver-Merchant Guild-0.14915172203941585"
-    }
-  ],
-  "harmedparties": [
+      "Instructions": [],
+      "id": "NPC-Merchant Guild-0.14915172203941585"
+    },
     {
-      "Deck": "HarmedParty",
+      "Deck": "NPC",
       "CardName": "Demon Lord",
       "TypeTags": [
         "Evil",
@@ -77,10 +68,10 @@
           ]
         }
       ],
-      "id": "HarmedParty-Demon Lord-0.17404599516507002"
+      "id": "NPC-Demon Lord-0.17404599516507002"
     },
     {
-      "Deck": "HarmedParty",
+      "Deck": "NPC",
       "CardName": "Shadow Master",
       "TypeTags": [
         "Arcane",
@@ -90,19 +81,11 @@
         "Arcane"
       ],
       "mutableTags": [],
-      "Instructions": [
-        {
-          "TargetDeck": "Failure",
-          "Tags": [
-            "Evil",
-            "Arcane"
-          ]
-        }
-      ],
-      "id": "HarmedParty-ShadowMaster-0.07182027062365037"
+      "Instructions": [],
+      "id": "NPC-ShadowMaster-0.07182027062365037"
     },
     {
-      "Deck": "HarmedParty",
+      "Deck": "NPC",
       "CardName": "Corporate Rival",
       "TypeTags": [
         "Wealth",
@@ -113,12 +96,12 @@
       ],
       "mutableTags": [],
       "Instructions": [],
-      "id": "HarmedParty-CorporateRival-0.949121808671731"
+      "id": "NPC-CorporateRival-0.949121808671731"
     }
   ],
-  "verbs": [
+  "questtemplates": [
     {
-      "Deck": "Verb",
+      "Deck": "QuestTemplate",
       "CardName": "Defend",
       "TypeTags": [
         "Martial",
@@ -127,25 +110,43 @@
       "AspectTags": [
         "Military"
       ],
-      "Instructions": [
+      "DrawInstructions": [
         {
-          "TargetDeck": "Target",
-          "Tags": [
-            "Evil"
-          ]
+          "action": "draw",
+          "deck": "NPC",
+          "count": 1,
+          "tags": ["Order", "Martial"],
+          "label": "QuestGiver"
         },
         {
-          "TargetDeck": "Location",
-          "Tags": [
-            "Good"
-          ]
+          "action": "draw",
+          "deck": "NPC",
+          "count": 1,
+          "tags": ["Evil"],
+          "label": "Target"
+        },
+        {
+          "action": "draw",
+          "deck": "Location",
+          "count": 1,
+          "tags": ["Good"],
+          "label": "Location"
+        },
+        {
+          "action": "draw",
+          "deck": "Twist",
+          "count": 1,
+          "tags": [],
+          "label": "Twist"
         }
       ],
+      "RewardText": "Honor and gratitude from the people",
+      "ConsequenceText": "The defended location falls to the enemy",
       "mutableTags": [],
-      "id": "Verb-Defend-0.7966836893037023"
+      "id": "QuestTemplate-Defend-0.7966836893037023"
     },
     {
-      "Deck": "Verb",
+      "Deck": "QuestTemplate",
       "CardName": "Retrieve",
       "TypeTags": [
         "Good",
@@ -154,19 +155,43 @@
       "AspectTags": [
         "Quest"
       ],
-      "Instructions": [
+      "DrawInstructions": [
         {
-          "TargetDeck": "Target",
-          "Tags": [
-            "Arcane"
-          ]
+          "action": "draw",
+          "deck": "NPC",
+          "count": 1,
+          "tags": ["Order"],
+          "label": "QuestGiver"
+        },
+        {
+          "action": "draw",
+          "deck": "NPC",
+          "count": 1,
+          "tags": ["Arcane"],
+          "label": "Target"
+        },
+        {
+          "action": "draw",
+          "deck": "Location",
+          "count": 1,
+          "tags": [],
+          "label": "Location"
+        },
+        {
+          "action": "draw",
+          "deck": "Twist",
+          "count": 1,
+          "tags": [],
+          "label": "Twist"
         }
       ],
+      "RewardText": "Magical knowledge or artifact",
+      "ConsequenceText": "The artifact is lost forever",
       "mutableTags": [],
-      "id": "Verb-Retrieve-0.7769948243584289"
+      "id": "QuestTemplate-Retrieve-0.7769948243584289"
     },
     {
-      "Deck": "Verb",
+      "Deck": "QuestTemplate",
       "CardName": "Destroy",
       "TypeTags": [
         "Chaos",
@@ -175,27 +200,43 @@
       "AspectTags": [
         "Combat"
       ],
-      "Instructions": [
+      "DrawInstructions": [
         {
-          "TargetDeck": "Target",
-          "Tags": [
-            "Good",
-            "Order"
-          ]
+          "action": "draw",
+          "deck": "NPC",
+          "count": 1,
+          "tags": ["Martial"],
+          "label": "QuestGiver"
         },
         {
-          "TargetDeck": "Location",
-          "Tags": [
-            "Nature",
-            "Good"
-          ]
+          "action": "draw",
+          "deck": "NPC",
+          "count": 1,
+          "tags": ["Good", "Order"],
+          "label": "Target"
+        },
+        {
+          "action": "draw",
+          "deck": "Location",
+          "count": 1,
+          "tags": ["Nature", "Good"],
+          "label": "Location"
+        },
+        {
+          "action": "draw",
+          "deck": "Twist",
+          "count": 1,
+          "tags": [],
+          "label": "Twist"
         }
       ],
+      "RewardText": "Spoils of war and territory control",
+      "ConsequenceText": "Your forces are routed and scattered",
       "mutableTags": [],
-      "id": "Verb-Destroy-0.6754406252657384"
+      "id": "QuestTemplate-Destroy-0.6754406252657384"
     },
     {
-      "Deck": "Verb",
+      "Deck": "QuestTemplate",
       "CardName": "Investigate",
       "TypeTags": [
         "Order",
@@ -204,20 +245,43 @@
       "AspectTags": [
         "Mystery"
       ],
-      "Instructions": [
+      "DrawInstructions": [
         {
-          "TargetDeck": "Target",
-          "Tags": [
-            "Arcane",
-            "Nature"
-          ]
+          "action": "draw",
+          "deck": "NPC",
+          "count": 1,
+          "tags": ["Arcane", "Order"],
+          "label": "QuestGiver"
+        },
+        {
+          "action": "draw",
+          "deck": "Location",
+          "count": 1,
+          "tags": ["Arcane", "Nature"],
+          "label": "Target"
+        },
+        {
+          "action": "draw",
+          "deck": "Location",
+          "count": 1,
+          "tags": [],
+          "label": "Location"
+        },
+        {
+          "action": "draw",
+          "deck": "Twist",
+          "count": 1,
+          "tags": [],
+          "label": "Twist"
         }
       ],
+      "RewardText": "Secret knowledge and understanding",
+      "ConsequenceText": "The mystery deepens and spreads chaos",
       "mutableTags": [],
-      "id": "Verb-Investigate-0.9577519442819"
+      "id": "QuestTemplate-Investigate-0.9577519442819"
     },
     {
-      "Deck": "Verb",
+      "Deck": "QuestTemplate",
       "CardName": "Recover",
       "TypeTags": [
         "Good",
@@ -226,27 +290,43 @@
       "AspectTags": [
         "Compassion"
       ],
-      "Instructions": [
+      "DrawInstructions": [
         {
-          "TargetDeck": "Target",
-          "Tags": [
-            "Good",
-            "Arcane"
-          ]
+          "action": "draw",
+          "deck": "NPC",
+          "count": 1,
+          "tags": ["Good", "Holy"],
+          "label": "QuestGiver"
         },
         {
-          "TargetDeck": "Location",
-          "Tags": [
-            "Martial",
-            "Evil"
-          ]
+          "action": "draw",
+          "deck": "NPC",
+          "count": 1,
+          "tags": ["Good", "Arcane"],
+          "label": "Target"
+        },
+        {
+          "action": "draw",
+          "deck": "Location",
+          "count": 1,
+          "tags": ["Martial", "Evil"],
+          "label": "Location"
+        },
+        {
+          "action": "draw",
+          "deck": "Twist",
+          "count": 1,
+          "tags": [],
+          "label": "Twist"
         }
       ],
+      "RewardText": "Blessing and divine favor",
+      "ConsequenceText": "The lost soul is corrupted beyond saving",
       "mutableTags": [],
-      "id": "Verb-Recover-0.6934478172396541"
+      "id": "QuestTemplate-Recover-0.6934478172396541"
     },
     {
-      "Deck": "Verb",
+      "Deck": "QuestTemplate",
       "CardName": "Heist",
       "TypeTags": [
         "Chaos",
@@ -255,32 +335,47 @@
       "AspectTags": [
         "Stealth"
       ],
-      "Instructions": [
+      "DrawInstructions": [
         {
-          "TargetDeck": "Location",
-          "Tags": [
-            "Evil",
-            "Chaos"
-          ]
+          "action": "draw",
+          "deck": "NPC",
+          "count": 1,
+          "tags": ["Chaos", "Wealth"],
+          "label": "QuestGiver"
         },
         {
-          "TargetDeck": "Target",
-          "Tags": [
-            "Wealth",
-            "Arcane"
-          ]
+          "action": "draw",
+          "deck": "Location",
+          "count": 1,
+          "tags": ["Evil", "Chaos"],
+          "label": "Location"
         },
         {
-          "TargetDeck": "HarmedParty",
-          "Tags": [
-            "Wealth",
-            "Chaos",
-            "Evil"
-          ]
+          "action": "draw",
+          "deck": "NPC",
+          "count": 1,
+          "tags": ["Wealth", "Arcane"],
+          "label": "Target"
+        },
+        {
+          "action": "draw",
+          "deck": "NPC",
+          "count": 1,
+          "tags": ["Wealth", "Chaos", "Evil"],
+          "label": "Victim"
+        },
+        {
+          "action": "draw",
+          "deck": "Twist",
+          "count": 1,
+          "tags": [],
+          "label": "Twist"
         }
       ],
+      "RewardText": "Vast wealth and treasures",
+      "ConsequenceText": "Captured and imprisoned, all gains lost",
       "mutableTags": [],
-      "id": "Verb-Heist-0.6461371042604421"
+      "id": "QuestTemplate-Heist-0.6461371042604421"
     }
   ],
   "targets": [
@@ -664,136 +759,5 @@
       "id": "Twist-Environmental Hazard-0.09167171234770899"
     }
   ],
-  "rewards": [
-    {
-      "Deck": "Reward",
-      "CardName": "Gold Coins",
-      "TypeTags": [
-        "Wealth",
-        "Order"
-      ],
-      "AspectTags": [
-        "Commerce"
-      ],
-      "mutableTags": [],
-      "Instructions": [],
-      "id": "Reward-Gold Coins-0.8169656837533134"
-    },
-    {
-      "Deck": "Reward",
-      "CardName": "Magical Sword",
-      "TypeTags": [
-        "Arcane",
-        "Martial"
-      ],
-      "AspectTags": [],
-      "mutableTags": [],
-      "Instructions": [],
-      "id": "Reward-Magical Sword-0.7941643060719105"
-    },
-    {
-      "Deck": "Reward",
-      "CardName": "Knight's Honor",
-      "TypeTags": [
-        "Good",
-        "Order"
-      ],
-      "AspectTags": [
-        "Military"
-      ],
-      "mutableTags": [],
-      "Instructions": [],
-      "id": "Reward-Knight's Honor-0.9875888706744819"
-    },
-    {
-      "Deck": "Reward",
-      "CardName": "Secret Knowledge",
-      "TypeTags": [
-        "Arcane",
-        "Order"
-      ],
-      "AspectTags": [
-        "Knowledge"
-      ],
-      "mutableTags": [],
-      "Instructions": [],
-      "id": "Reward-Secret Knowledge-0.9949031812960222"
-    },
-    {
-      "Deck": "Reward",
-      "CardName": "Elderbloom Petal",
-      "TypeTags": [
-        "Nature"
-      ],
-      "AspectTags": [],
-      "mutableTags": [],
-      "Instructions": []
-    }
-  ],
-  "failures": [
-    {
-      "Deck": "Failure",
-      "CardName": "Death",
-      "TypeTags": [
-        "Evil",
-        "Chaos"
-      ],
-      "AspectTags": [
-        "Doom"
-      ],
-      "mutableTags": [],
-      "Instructions": [],
-      "id": "Failure-Death-0.4764372685834647"
-    },
-    {
-      "Deck": "Failure",
-      "CardName": "Imprisonment",
-      "TypeTags": [
-        "Order",
-        "Evil"
-      ],
-      "AspectTags": [
-        "Doom"
-      ],
-      "mutableTags": [],
-      "Instructions": [],
-      "id": "Failure-Imprisonment-0.2962220667746269"
-    },
-    {
-      "Deck": "Failure",
-      "CardName": "Curse",
-      "TypeTags": [
-        "Arcane",
-        "Evil"
-      ],
-      "AspectTags": [
-        "Arcane"
-      ],
-      "mutableTags": [],
-      "Instructions": [
-        {
-          "TargetDeck": "",
-          "Tags": [
-            "Arcane",
-            "Chaos"
-          ]
-        }
-      ],
-      "id": "Failure-Curse-0.6241333102331424"
-    },
-    {
-      "Deck": "Failure",
-      "CardName": "Loss of Treasure",
-      "TypeTags": [
-        "Wealth",
-        "Chaos"
-      ],
-      "AspectTags": [
-        "Commerce"
-      ],
-      "mutableTags": [],
-      "Instructions": [],
-      "id": "Failure-Loss of Treasure-0.16116154069377642"
-    }
-  ]
+
 }

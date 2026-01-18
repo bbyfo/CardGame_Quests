@@ -180,23 +180,31 @@ class QuestValidator {
   analyzeQuestRun() {
     const quest = this.engine.getQuest();
     
-    // Track selected cards
-    if (quest.verb) this.trackCardSelected(quest.verb);
-    if (quest.target) this.trackCardSelected(quest.target);
-    if (quest.location) this.trackCardSelected(quest.location);
-    if (quest.twist) this.trackCardSelected(quest.twist);
-    if (quest.reward) this.trackCardSelected(quest.reward);
-    if (quest.failure) this.trackCardSelected(quest.failure);
+    // Track selected template
+    if (quest.template) this.trackCardSelected(quest.template);
+    
+    // Track all component cards (handle both single cards and arrays)
+    for (const component of Object.values(quest.components)) {
+      if (Array.isArray(component)) {
+        component.forEach(card => this.trackCardSelected(card));
+      } else if (component) {
+        this.trackCardSelected(component);
+      }
+    }
 
     // Track stats
     this.stats.fallbackFrequency += this.engine.stats.fallbacksTriggered;
     this.stats.drawAttempts += this.engine.stats.drawAttempts;
     this.stats.modifyEffectsApplied += this.engine.stats.modifyEffectsApplied;
 
-    // Track tag usage
-    if (quest.target) this.trackTagUsage(this.engine.getCurrentTags(quest.target));
-    if (quest.location) this.trackTagUsage(this.engine.getCurrentTags(quest.location));
-    if (quest.twist) this.trackTagUsage(this.engine.getCurrentTags(quest.twist));
+    // Track tag usage for all components
+    for (const component of Object.values(quest.components)) {
+      if (Array.isArray(component)) {
+        component.forEach(card => this.trackTagUsage(this.engine.getCurrentTags(card)));
+      } else if (component) {
+        this.trackTagUsage(this.engine.getCurrentTags(component));
+      }
+    }
   }
 
   /**

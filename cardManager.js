@@ -456,7 +456,19 @@ class CardManager {
    * Handle deck selection change
    */
   handleDeckChange(e) {
-    // All card types now use the same Instructions system (consolidated from TargetRequirement)
+    const selectedDeck = e.target.value;
+    const isQuestTemplate = selectedDeck === 'questtemplates';
+    
+    // Show/hide appropriate fields based on deck type
+    const instructionsSection = document.getElementById('instructions-section');
+    const questTemplateFields = document.getElementById('questtemplate-fields');
+    
+    if (instructionsSection) {
+      instructionsSection.style.display = isQuestTemplate ? 'none' : 'block';
+    }
+    if (questTemplateFields) {
+      questTemplateFields.style.display = isQuestTemplate ? 'block' : 'none';
+    }
   }
 
   /**
@@ -536,14 +548,10 @@ class CardManager {
    */
   getDeckDisplayName(deckKey) {
     const mapping = {
-      'questgivers': 'QuestGiver',
-      'harmedparties': 'HarmedParty',
-      'verbs': 'Verb',
-      'targets': 'Target',
+      'npcs': 'NPC',
+      'questtemplates': 'QuestTemplate',
       'locations': 'Location',
-      'twists': 'Twist',
-      'rewards': 'Reward',
-      'failures': 'Failure'
+      'twists': 'Twist'
     };
     return mapping[deckKey] || deckKey;
   }
@@ -553,14 +561,10 @@ class CardManager {
    */
   getDeckKey(displayName) {
     const mapping = {
-      'QuestGiver': 'questgivers',
-      'HarmedParty': 'harmedparties',
-      'Verb': 'verbs',
-      'Target': 'targets',
+      'NPC': 'npcs',
+      'QuestTemplate': 'questtemplates',
       'Location': 'locations',
-      'Twist': 'twists',
-      'Reward': 'rewards',
-      'Failure': 'failures'
+      'Twist': 'twists'
     };
     return mapping[displayName] || displayName.toLowerCase();
   }

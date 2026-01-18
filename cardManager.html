@@ -26,14 +26,10 @@
             <label for="deck-select">Deck Type *</label>
             <select id="deck-select" required>
               <option value="">-- Select Deck --</option>
-              <option value="questgivers">Quest Giver</option>
-              <option value="harmedparties">Harmed Party</option>
-              <option value="verbs">Verb</option>
-              <option value="targets">Target</option>
+              <option value="npcs">NPC</option>
+              <option value="questtemplates">Quest Template</option>
               <option value="locations">Location</option>
               <option value="twists">Twist</option>
-              <option value="rewards">Reward</option>
-              <option value="failures">Failure</option>
             </select>
           </div>
 
@@ -87,11 +83,30 @@
             </div>
           </div>
 
-          <!-- Instructions Section -->
-          <div class="form-group">
+          <!-- Instructions Section (for non-QuestTemplate cards) -->
+          <div class="form-group" id="instructions-section">
             <label>Instructions</label>
             <div id="instructions-list" class="instructions-list"></div>
             <button type="button" id="btn-add-instruction" class="btn btn-secondary btn-small">+ Add Instruction</button>
+          </div>
+
+          <!-- QuestTemplate-specific fields -->
+          <div id="questtemplate-fields" style="display: none;">
+            <div class="form-group">
+              <label for="reward-text">Reward Text</label>
+              <textarea id="reward-text" rows="3" placeholder="Describe the reward for completing this quest"></textarea>
+            </div>
+            
+            <div class="form-group">
+              <label for="consequence-text">Consequence Text</label>
+              <textarea id="consequence-text" rows="3" placeholder="Describe the consequence of failing this quest"></textarea>
+            </div>
+
+            <div class="form-group">
+              <label>Draw Instructions</label>
+              <div id="draw-instructions-list" class="instructions-list"></div>
+              <button type="button" id="btn-add-draw-instruction" class="btn btn-secondary btn-small">+ Add Draw Instruction</button>
+            </div>
           </div>
 
           <!-- Form Actions -->
@@ -120,14 +135,10 @@
             <label for="filter-deck">Filter by Deck:</label>
             <select id="filter-deck">
               <option value="">All Decks</option>
-              <option value="verbs">Verb</option>
-              <option value="questgivers">Quest Giver</option>
-              <option value="harmedparties">Harmed Party</option>
-              <option value="targets">Target</option>
+              <option value="npcs">NPC</option>
+              <option value="questtemplates">Quest Template</option>
               <option value="locations">Location</option>
               <option value="twists">Twist</option>
-              <option value="rewards">Reward</option>
-              <option value="failures">Failure</option>
             </select>
           </div>
 

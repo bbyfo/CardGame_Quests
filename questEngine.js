@@ -1,6 +1,6 @@
 /**
  * questEngine.js
- * Core quest generation algorithm with detailed logging
+ * Core quest generation algorithm with instruction-driven architecture
  */
 
 class QuestEngine {
@@ -29,14 +29,10 @@ class QuestEngine {
     this.logs = [];
     this.rejectedCards = new Set(); // Clear rejected cards for new quest
     this.quest = {
-      questGiver: null,
-      harmedParty: null,
-      verb: null,
-      target: null,
-      location: null,
-      twist: null,
-      reward: null,
-      failure: null,
+      template: null,
+      components: {}, // Flexible storage by label (QuestGiver, Target, etc.)
+      rewardText: null,
+      consequenceText: null,
       modifications: []
     };
     this.stats = {
@@ -103,25 +99,28 @@ class QuestEngine {
   }
 
   /**
-   * Helper: Count cards matching criteria
+   * Helper: Get deck by name
    */
-  countMatchingCards(deck, requiredTags) {
-    if (!requiredTags || requiredTags.length === 0) {
-      return deck.length;
-    }
-    return deck.filter(card => {
-      const cardTags = this.getDrawTags(card);
-      return requiredTags.some(req => cardTags.includes(req));
-    }).length;
+  getDeckByName(deckName) {
+    const normalizedName = deckName.toLowerCase();
+    const deckMap = {
+      'npc': this.decks.npcs,
+      'npcs': this.decks.npcs,
+      'location': this.decks.locations,
+      'locations': this.decks.locations,
+      'twist': this.decks.twists,
+      'twists': this.decks.twists,
+      'questtemplate': this.decks.questtemplates,
+      'questtemplates': this.decks.questtemplates
+    };
+    return deckMap[normalizedName] || null;
   }
 
   /**
    * Helper: Get matching requirement tags for a given deck
-   * Checks pending instructions and normal matching rules
-   * Prioritizes the most recent (last added) instruction for a deck
+   * Checks pending instructions (most recent instruction wins)
    */
-  getMatchingRequirement(deckName, defaultTags) {
-    // Check if any pending instruction targets this deck
+  getMatchingRequirement(deckName) {
     // Search in reverse to get the most recent instruction (last added)
     for (let i = this.pendingInstructions.length - 1; i >= 0; i--) {
       const instruction = this.pendingInstructions[i];
@@ -129,8 +128,7 @@ class QuestEngine {
         return instruction.tags;
       }
     }
-    // Otherwise use default requirement
-    return defaultTags;
+    return [];
   }
 
   /**
@@ -296,411 +294,180 @@ class QuestEngine {
   }
 
   /**
-   * STEP 2: Draw Quest Giver
+   * Helper: Count cards matching criteria
    */
-  stepDrawQuestGiver() {
-    this.log('=== STEP 2: Draw Quest Giver ===');
-    
-    const questGiver = this.drawRandomCard(this.decks.questgivers);
-    
-    if (!questGiver) {
-      this.log('ERROR: No quest givers available');
+  countMatchingCards(deck, requiredTags) {
+    if (!deck || !Array.isArray(deck)) {
+      return 0;
+    }
+    if (!requiredTags || requiredTags.length === 0) {
+      return deck.length;
+    }
+    return deck.filter(card => {
+      const cardTags = this.getDrawTags(card);
+      return requiredTags.some(req => cardTags.includes(req));
+    }).length;
+  }
+
+  /**
+   * Process a single draw instruction
+   * Supports drawing multiple cards if count > 1
+   */
+  processDrawInstruction(instruction) {
+    const { action, deck: deckName, count, tags, label } = instruction;
+
+    if (action === 'addToken') {
+      // Add pending instruction for future deck
+      this.pendingInstructions.push({
+        source: 'DrawInstruction',
+        targetDeck: deckName,
+        tags: tags || []
+      });
+      this.log(
+        `→ AddToken Instruction: Add [${(tags || []).join(', ')}] to ${deckName}`,
+        { targetDeck: deckName, tags: tags },
+        true
+      );
       return null;
     }
 
-    this.quest.questGiver = questGiver;
-    this.log(`Quest Giver drawn: "${questGiver.CardName}"`);
-
-    // Store quest giver's instructions if it targets future decks
-    if (questGiver.Instructions && Array.isArray(questGiver.Instructions) && questGiver.Instructions.length > 0) {
-      for (const instruction of questGiver.Instructions) {
-        this.pendingInstructions.push({
-          source: questGiver.CardName,
-          targetDeck: instruction.TargetDeck,
-          tags: instruction.Tags || []
-        });
+    if (action === 'draw') {
+      const deck = this.getDeckByName(deckName);
+      if (!deck || !Array.isArray(deck)) {
+        this.log(`ERROR: Deck "${deckName}" not found or invalid`, null, false, 'error');
+        return null;
       }
-      const deckTargets = questGiver.Instructions.map(i => `[${i.Tags.join(', ')}] to ${i.TargetDeck}`).join(' | ');
-      this.log(`→ Instruction: Add ${deckTargets}`);
-    }
 
-    return questGiver;
-  }
+      // Merge instruction tags with any pending tags for this deck
+      const pendingTags = this.getMatchingRequirement(deckName);
+      const allTags = [...new Set([...(tags || []), ...pendingTags])];
 
-  /**
-   * STEP 3: Draw Harmed Party
-   */
-  stepDrawHarmedParty() {
-    this.log('=== STEP 3: Draw Harmed Party ===');
-    
-    const harmedParty = this.drawRandomCard(this.decks.harmedparties);
-    
-    if (!harmedParty) {
-      this.log('ERROR: No harmed parties available');
-      return null;
-    }
+      this.log(`=== Drawing from ${deckName} (label: ${label || 'unlabeled'}) ===`);
+      
+      const matchCount = this.countMatchingCards(deck, allTags);
+      const totalCount = deck.length;
+      const percentage = totalCount > 0 ? ((matchCount / totalCount) * 100).toFixed(1) : '0.0';
 
-    this.quest.harmedParty = harmedParty;
-    this.log(`Harmed Party drawn: "${harmedParty.CardName}"`);
-
-    // Store harmed party's instructions if it targets future decks
-    if (harmedParty.Instructions && Array.isArray(harmedParty.Instructions) && harmedParty.Instructions.length > 0) {
-      for (const instruction of harmedParty.Instructions) {
-        this.pendingInstructions.push({
-          source: harmedParty.CardName,
-          targetDeck: instruction.TargetDeck,
-          tags: instruction.Tags || []
-        });
+      if (allTags.length > 0) {
+        this.log(
+          `Looking for ${deckName} with tags: [${allTags.join(', ')}]`,
+          { requiredTags: allTags }
+        );
+      } else {
+        this.log(`Drawing from ${deckName} (no tag constraints)`);
       }
-      const deckTargets = harmedParty.Instructions.map(i => `[${i.Tags.join(', ')}] to ${i.TargetDeck}`).join(' | ');
-      this.log(`→ Instruction: Add ${deckTargets}`);
-    }
-
-    return harmedParty;
-  }
-
-  /**
-   * STEP 1: Draw Verb
-   */
-  stepDrawVerb(specificVerb) {
-    this.log('=== STEP 1: Draw Verb ===');
-    
-    // Use specific verb if provided, otherwise draw random
-    let verb = specificVerb;
-    if (!verb) {
-      verb = this.drawRandomCard(this.decks.verbs);
-    }
-    
-    if (!verb) {
-      this.log('ERROR: No verbs available');
-      return null;
-    }
-
-    this.quest.verb = verb;
-    this.log(`Verb drawn: "${verb.CardName}"`);
-
-    // Store verb's instructions if it targets future decks
-    if (verb.Instructions && Array.isArray(verb.Instructions) && verb.Instructions.length > 0) {
-      for (const instruction of verb.Instructions) {
-        this.pendingInstructions.push({
-          source: verb.CardName,
-          targetDeck: instruction.TargetDeck,
-          tags: instruction.Tags || []
-        });
+      
+      this.log(`Match pool: ${matchCount}/${totalCount} (${percentage}%)`);
+      
+      // Track poor match pools
+      if (parseFloat(percentage) < 40 && matchCount > 0) {
+        this.stats.poorMatchPools++;
       }
-      const deckTargets = verb.Instructions.map(i => `[${i.Tags.join(', ')}] to ${i.TargetDeck}`).join(' | ');
-      this.log(`→ Instruction: Add ${deckTargets}`);
+
+      // Check for zero match pool
+      if (allTags.length > 0 && matchCount === 0) {
+        this.log(
+          `❌ FATAL ERROR: Zero match pool for ${deckName}! No cards have the required tags [${allTags.join(', ')}].`,
+          { step: deckName, requiredTags: allTags, deckSize: totalCount },
+          false,
+          'error'
+        );
+        return null;
+      }
+
+      // Draw the specified number of cards
+      const drawnCards = [];
+      const drawCount = count || 1;
+      
+      for (let i = 0; i < drawCount; i++) {
+        const card = this.drawWithFallback(deck, allTags, deckName, label || deckName);
+        
+        if (!card) {
+          this.log(`ERROR: Failed to draw card ${i + 1}/${drawCount} from ${deckName}`);
+          return null;
+        }
+
+        drawnCards.push(card);
+        this.log(`Card ${i + 1}/${drawCount} selected: "${card.CardName}"`);
+        this.log(`Current tags: [${this.getCurrentTags(card).join(', ')}]`);
+
+        // Apply card's modify effects
+        this.applyModifyEffects(card);
+        
+        // Store card's instructions
+        this.storePendingInstruction(card);
+      }
+
+      return drawnCards.length === 1 ? drawnCards[0] : drawnCards;
     }
 
-    return verb;
+    this.log(`ERROR: Unknown instruction action "${action}"`, null, false, 'error');
+    return null;
   }
 
   /**
-   * STEP 4: Draw Target
+   * Generate a complete quest using instruction-driven approach
    */
-  stepDrawTarget(verb) {
-    this.log('=== STEP 4: Draw Target ===');
-    
-    // Check if verb has instruction targeting Target deck
-    const requiredTags = this.getMatchingRequirement('Target', []);
-    
-    const matchCount = this.countMatchingCards(this.decks.targets, requiredTags);
-    const totalCount = this.decks.targets.length;
-    const percentage = ((matchCount / totalCount) * 100).toFixed(1);
-
-    this.log(
-      `Looking for TARGET with tags: [${requiredTags.join(', ')}]`,
-      { requiredTags: requiredTags }
-    );
-    this.log(`Match pool: ${matchCount}/${totalCount} (${percentage}%)`);
-    
-    // Track poor match pools (below 40%)
-    if (parseFloat(percentage) < 40 && matchCount > 0) {
-      this.stats.poorMatchPools++;
-    }
-
-    // Check for zero match pool
-    if (requiredTags.length > 0 && matchCount === 0) {
-      this.log(
-        `❌ FATAL ERROR: Zero match pool for Target! No cards in the Target deck have the required tags [${requiredTags.join(', ')}]. Quest generation cannot continue.`,
-        { step: 'Target', requiredTags: requiredTags, deckSize: totalCount },
-        false,
-        'error'
-      );
-      return null;
-    }
-
-    const target = this.drawWithFallback(this.decks.targets, requiredTags, 'Target', 'Target');
-    
-    if (!target) {
-      this.log('ERROR: Failed to draw target');
-      return null;
-    }
-
-    this.quest.target = target;
-    this.log(`Target selected: "${target.CardName}"`);
-    this.log(`Target current tags: [${this.getCurrentTags(target).join(', ')}]`);
-
-    // Apply target's Modify effects
-    this.applyModifyEffects(target, null);
-    
-    // Store target's instruction if it targets a future deck
-    this.storePendingInstruction(target);
-
-    return target;
-  }
-
-  /**
-   * STEP 5: Draw Location
-   */
-  stepDrawLocation(target) {
-    this.log('=== STEP 5: Draw Location ===');
-    
-    // Check if any pending instruction targets Location
-    // Use empty array as default - only explicit instructions apply, not inherited tags
-    const requiredTags = this.getMatchingRequirement('Location', []);
-    
-    const matchCount = this.countMatchingCards(this.decks.locations, requiredTags);
-    const totalCount = this.decks.locations.length;
-    const percentage = ((matchCount / totalCount) * 100).toFixed(1);
-
-    this.log(
-      `Looking for location matching tags: [${requiredTags.join(', ')}]`,
-      { requiredTags: requiredTags }
-    );
-    this.log(`Match pool: ${matchCount}/${totalCount} (${percentage}%)`);    
-    // Track poor match pools (below 40%)
-    if (parseFloat(percentage) < 40 && matchCount > 0) {
-      this.stats.poorMatchPools++;
-    }
-    // Check for zero match pool
-    if (requiredTags.length > 0 && matchCount === 0) {
-      this.log(
-        `❌ FATAL ERROR: Zero match pool for Location! No cards in the Location deck have the required tags [${requiredTags.join(', ')}]. Quest generation cannot continue.`,
-        { step: 'Location', requiredTags: requiredTags, deckSize: totalCount },
-        false,
-        'error'
-      );
-      return null;
-    }
-
-    const location = this.drawWithFallback(this.decks.locations, requiredTags, 'Location', 'Location');
-    
-    if (!location) {
-      this.log('ERROR: Failed to draw location');
-      return null;
-    }
-
-    this.quest.location = location;
-    this.log(`Location selected: "${location.CardName}"`);
-    this.log(`Location current tags: [${this.getCurrentTags(location).join(', ')}]`);
-
-    // Apply location's Modify effects
-    this.applyModifyEffects(location, null);
-    
-    // Store location's instruction if it targets a future deck
-    this.storePendingInstruction(location);
-
-    return location;
-  }
-
-  /**
-   * STEP 4: Draw Twist
-   */
-  stepDrawTwist(location) {
-    this.log('=== STEP 6: Draw Twist ===');
-    
-    // Check if any pending instruction targets Twist
-    // Use empty array as default - only explicit instructions apply, not inherited tags
-    const requiredTags = this.getMatchingRequirement('Twist', []);
-    
-    const matchCount = this.countMatchingCards(this.decks.twists, requiredTags);
-    const totalCount = this.decks.twists.length;
-    const percentage = ((matchCount / totalCount) * 100).toFixed(1);
-
-    this.log(
-      `Looking for twist matching tags: [${requiredTags.join(', ')}]`,
-      { requiredTags: requiredTags }
-    );
-    this.log(`Match pool: ${matchCount}/${totalCount} (${percentage}%)`);    
-    // Track poor match pools (below 40%)
-    if (parseFloat(percentage) < 40 && matchCount > 0) {
-      this.stats.poorMatchPools++;
-    }
-    // Check for zero match pool
-    if (requiredTags.length > 0 && matchCount === 0) {
-      this.log(
-        `❌ FATAL ERROR: Zero match pool for Twist! No cards in the Twist deck have the required tags [${requiredTags.join(', ')}]. Quest generation cannot continue.`,
-        { step: 'Twist', requiredTags: requiredTags, deckSize: totalCount },
-        false,
-        'error'
-      );
-      return null;
-    }
-
-    const twist = this.drawWithFallback(this.decks.twists, requiredTags, 'Twist', 'Twist');
-    
-    if (!twist) {
-      this.log('ERROR: Failed to draw twist');
-      return null;
-    }
-
-    this.quest.twist = twist;
-    this.log(`Twist selected: "${twist.CardName}"`);
-    this.log(`Twist current tags: [${this.getCurrentTags(twist).join(', ')}]`);
-
-    // Apply twist's Modify effects
-    this.applyModifyEffects(twist, null);
-    
-    // Store twist's instruction if it targets a future deck
-    this.storePendingInstruction(twist);
-
-    return twist;
-  }
-
-  /**
-   * STEP 7: Draw Reward and Failure
-   */
-  stepDrawReward(twist) {
-    this.log('=== STEP 7: Draw Reward ===');
-
-    // Check for pending instructions targeting Reward
-    // Use empty array as default - only explicit instructions apply, not inherited tags
-    const rewardTags = this.getMatchingRequirement('Reward', []);
-    const rewardMatchCount = this.countMatchingCards(this.decks.rewards, rewardTags);
-    const rewardTotalCount = this.decks.rewards.length;
-    const rewardPercentage = ((rewardMatchCount / rewardTotalCount) * 100).toFixed(1);
-
-    this.log(
-      `Looking for reward matching tags: [${rewardTags.join(', ')}]`,
-      { requiredTags: rewardTags }
-    );
-    this.log(`Reward match pool: ${rewardMatchCount}/${rewardTotalCount} (${rewardPercentage}%)`);
-    
-    // Track poor match pools (below 40%)
-    if (parseFloat(rewardPercentage) < 40 && rewardMatchCount > 0) {
-      this.stats.poorMatchPools++;
-    }
-
-    // Check for zero match pool
-    if (rewardTags.length > 0 && rewardMatchCount === 0) {
-      this.log(
-        `❌ FATAL ERROR: Zero match pool for Reward! No cards in the Reward deck have the required tags [${rewardTags.join(', ')}]. Quest generation cannot continue.`,
-        { step: 'Reward', requiredTags: rewardTags, deckSize: rewardTotalCount },
-        false,
-        'error'
-      );
-      return null;
-    }
-
-    const reward = this.drawWithFallback(this.decks.rewards, rewardTags, 'Reward', 'Reward');
-    
-    if (!reward) {
-      this.log('ERROR: Failed to draw reward');
-      return null;
-    }
-
-    this.quest.reward = reward;
-    this.log(`Reward selected: "${reward.CardName}"`);
-    this.log(`Reward current tags: [${this.getCurrentTags(reward).join(', ')}]`);
-    this.applyModifyEffects(reward, null);
-    this.storePendingInstruction(reward);
-
-    return reward;
-  }
-
-  /**
-   * STEP 8: Draw Failure
-   */
-  stepDrawFailure(reward) {
-    this.log('=== STEP 8: Draw Failure ===');
-
-    // Check for pending instructions targeting Failure
-    // Use empty array as default - only explicit instructions apply, not inherited tags
-    const failureTags = this.getMatchingRequirement('Failure', []);
-    const failureMatchCount = this.countMatchingCards(this.decks.failures, failureTags);
-    const failureTotalCount = this.decks.failures.length;
-    const failurePercentage = ((failureMatchCount / failureTotalCount) * 100).toFixed(1);
-
-    this.log(
-      `Looking for failure matching tags: [${failureTags.join(', ')}]`,
-      { requiredTags: failureTags }
-    );
-    this.log(`Failure match pool: ${failureMatchCount}/${failureTotalCount} (${failurePercentage}%)`);
-    
-    // Track poor match pools (below 40%)
-    if (parseFloat(failurePercentage) < 40 && failureMatchCount > 0) {
-      this.stats.poorMatchPools++;
-    }
-
-    // Check for zero match pool
-    if (failureTags.length > 0 && failureMatchCount === 0) {
-      this.log(
-        `❌ FATAL ERROR: Zero match pool for Failure! No cards in the Failure deck have the required tags [${failureTags.join(', ')}]. Quest generation cannot continue.`,
-        { step: 'Failure', requiredTags: failureTags, deckSize: failureTotalCount },
-        false,
-        'error'
-      );
-      return null;
-    }
-
-    const failure = this.drawWithFallback(this.decks.failures, failureTags, 'Failure', 'Failure');
-    
-    if (!failure) {
-      this.log('ERROR: Failed to draw failure');
-      return null;
-    }
-
-    this.quest.failure = failure;
-    this.log(`Failure selected: "${failure.CardName}"`);
-    this.log(`Failure current tags: [${this.getCurrentTags(failure).join(', ')}]`);
-    this.applyModifyEffects(failure, null);
-    this.storePendingInstruction(failure);
-
-    return failure;
-  }
-
-  /**
-   * Generate a complete quest
-   */
-  generateQuest(specificVerb) {
+  generateQuest(specificTemplate) {
     this.reset();
     
     this.log('=== QUEST GENERATION STARTED ===');
 
-    // Step 1: Draw Verb
-    const verb = this.stepDrawVerb(specificVerb);
-    if (!verb) return null;
+    // Step 1: Draw or select QuestTemplate
+    let template = specificTemplate;
+    if (!template) {
+      const templateDeck = this.getDeckByName('QuestTemplate');
+      if (!templateDeck || templateDeck.length === 0) {
+        this.log('ERROR: No quest templates available');
+        return null;
+      }
+      template = this.drawRandomCard(templateDeck);
+    }
+    
+    if (!template) {
+      this.log('ERROR: Failed to select quest template');
+      return null;
+    }
 
-    // Step 2: Draw Quest Giver
-    const questGiver = this.stepDrawQuestGiver();
-    if (!questGiver) return null;
+    this.quest.template = template;
+    this.quest.rewardText = template.RewardText || 'No reward specified';
+    this.quest.consequenceText = template.ConsequenceText || 'No consequence specified';
+    
+    this.log(`=== Quest Template: "${template.CardName}" ===`);
+    this.log(`Reward: ${this.quest.rewardText}`);
+    this.log(`Consequence: ${this.quest.consequenceText}`);
 
-    // Step 3: Draw Harmed Party
-    const harmedParty = this.stepDrawHarmedParty();
-    if (!harmedParty) return null;
+    // Step 2: Process DrawInstructions in order
+    if (!template.DrawInstructions || !Array.isArray(template.DrawInstructions)) {
+      this.log('ERROR: Template has no DrawInstructions array');
+      return null;
+    }
 
-    // Step 4: Draw Target
-    const target = this.stepDrawTarget(verb);
-    if (!target) return null;
+    for (let i = 0; i < template.DrawInstructions.length; i++) {
+      const instruction = template.DrawInstructions[i];
+      this.log(`\n--- Processing Instruction ${i + 1}/${template.DrawInstructions.length} ---`);
+      
+      const result = this.processDrawInstruction(instruction);
+      
+      // Only store if it's a draw action (addToken actions return null)
+      if (instruction.action === 'draw') {
+        if (!result) {
+          this.log('ERROR: Instruction processing failed, aborting quest generation');
+          return null;
+        }
+        
+        const label = instruction.label || `component_${i}`;
+        
+        // If multiple cards drawn, store as array
+        if (Array.isArray(result)) {
+          this.quest.components[label] = result;
+        } else {
+          this.quest.components[label] = result;
+        }
+      }
+    }
 
-    // Step 5: Draw Location
-    const location = this.stepDrawLocation(target);
-    if (!location) return null;
-
-    // Step 6: Draw Twist
-    const twist = this.stepDrawTwist(location);
-    if (!twist) return null;
-
-    // Step 7: Draw Reward
-    const reward = this.stepDrawReward(twist);
-    if (!reward) return null;
-
-    // Step 8: Draw Failure
-    const failure = this.stepDrawFailure(reward);
-    if (!failure) return null;
-
-    this.log('=== QUEST GENERATION COMPLETE ===');
+    this.log('\n=== QUEST GENERATION COMPLETE ===');
     this.log(`Total draw attempts: ${this.stats.drawAttempts}`);
     this.log(`Fallbacks triggered: ${this.stats.fallbacksTriggered}`);
     this.log(`Poor match pools (<40%): ${this.stats.poorMatchPools}`);
@@ -727,20 +494,34 @@ class QuestEngine {
    * Get formatted quest summary
    */
   getQuestSummary() {
-    if (!this.quest.verb) return null;
+    if (!this.quest.template) return null;
 
-    return {
-      verb: this.quest.verb.CardName,
-      target: this.quest.target ? this.quest.target.CardName : 'N/A',
-      targetTags: this.quest.target ? this.getCurrentTags(this.quest.target) : [],
-      location: this.quest.location ? this.quest.location.CardName : 'N/A',
-      locationTags: this.quest.location ? this.getCurrentTags(this.quest.location) : [],
-      twist: this.quest.twist ? this.quest.twist.CardName : 'N/A',
-      twistTags: this.quest.twist ? this.getCurrentTags(this.quest.twist) : [],
-      reward: this.quest.reward ? this.quest.reward.CardName : 'N/A',
-      failure: this.quest.failure ? this.quest.failure.CardName : 'N/A',
+    const summary = {
+      template: this.quest.template.CardName,
+      components: {},
+      rewardText: this.quest.rewardText,
+      consequenceText: this.quest.consequenceText,
       stats: this.stats
     };
+
+    // Add all components with their tags
+    for (const [label, card] of Object.entries(this.quest.components)) {
+      if (Array.isArray(card)) {
+        // Multiple cards for this label
+        summary.components[label] = card.map(c => ({
+          name: c.CardName,
+          tags: this.getCurrentTags(c)
+        }));
+      } else {
+        // Single card
+        summary.components[label] = {
+          name: card.CardName,
+          tags: this.getCurrentTags(card)
+        };
+      }
+    }
+
+    return summary;
   }
 }
 

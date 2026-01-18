@@ -106,6 +106,19 @@ async function getCards() {
     failures: []
   });
 
+  // Try pg pool first (direct Postgres connection — more reliable)
+  if (pool) {
+    try {
+      const result = await pool.query('SELECT data FROM cards WHERE id = 1');
+      if (result.rows.length === 0) return empty();
+      return result.rows[0].data;
+    } catch (error) {
+      console.error('Error getting cards (pg):', error.message || error);
+      // Fall through to Supabase if pg fails
+    }
+  }
+
+  // Fallback: try Supabase client (if configured)
   if (useSupabase) {
     try {
       const { data, error } = await supabase.from('cards').select('data').eq('id', 1).single();
@@ -118,25 +131,36 @@ async function getCards() {
       return data && data.data ? data.data : empty();
     } catch (err) {
       console.error('Supabase getCards error:', err.message || err);
-      // Don't rethrow — fall back to pg instead of crashing
+      // Don't rethrow — fall back to empty if both fail
     }
   }
 
-  // pg fallback
-  try {
-    const result = await pool.query('SELECT data FROM cards WHERE id = 1');
-    if (result.rows.length === 0) return empty();
-    return result.rows[0].data;
-  } catch (error) {
-    console.error('Error getting cards (pg):', error.message || error);
-    throw error;
-  }
+  // If both fail, return empty
+  return empty();
 }
 
 /**
  * Save cards to database
  */
 async function saveCards(cards) {
+  // Try pg pool first (direct Postgres connection — more reliable)
+  if (pool) {
+    try {
+      await pool.query(`
+        INSERT INTO cards (id, data, updated_at)
+        VALUES (1, $1, CURRENT_TIMESTAMP)
+        ON CONFLICT (id)
+        DO UPDATE SET data = $1, updated_at = CURRENT_TIMESTAMP
+      `, [cards]);
+      console.log('✓ Cards saved to database (pg)');
+      return true;
+    } catch (error) {
+      console.error('Error saving cards (pg):', error.message || error);
+      // Fall through to Supabase if pg fails
+    }
+  }
+
+  // Fallback: try Supabase client (if configured)
   if (useSupabase) {
     try {
       // Upsert using Supabase client
@@ -153,20 +177,8 @@ async function saveCards(cards) {
     }
   }
 
-  // pg fallback
-  try {
-    await pool.query(`
-      INSERT INTO cards (id, data, updated_at)
-      VALUES (1, $1, CURRENT_TIMESTAMP)
-      ON CONFLICT (id)
-      DO UPDATE SET data = $1, updated_at = CURRENT_TIMESTAMP
-    `, [cards]);
-    console.log('✓ Cards saved to database (pg)');
-    return true;
-  } catch (error) {
-    console.error('Error saving cards (pg):', error.message || error);
-    throw error;
-  }
+  // If both fail, throw error
+  throw new Error('No database connection available for saving cards');
 }
 
 /**

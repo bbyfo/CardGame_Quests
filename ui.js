@@ -97,15 +97,15 @@ class UIManager {
       selector.remove(1);
     }
 
-    // Get distinct verbs from the engine's deck
-    const verbs = this.engine.decks.verbs;
-    const verbNames = [...new Set(verbs.map(v => v.CardName))].sort();
+    // Get distinct quest templates from the engine's deck
+    const templates = this.engine.decks.questtemplates || [];
+    const templateNames = [...new Set(templates.map(t => t.CardName))].sort();
 
-    // Add verb options
-    for (const verbName of verbNames) {
+    // Add template options
+    for (const templateName of templateNames) {
       const option = document.createElement('option');
-      option.value = verbName;
-      option.textContent = verbName;
+      option.value = templateName;
+      option.textContent = templateName;
       selector.appendChild(option);
     }
   }
@@ -117,9 +117,10 @@ class UIManager {
     const selector = document.getElementById('verb-selector');
     if (!selector || !selector.value) return null;
 
-    const verbName = selector.value;
-    const verb = this.engine.decks.verbs.find(v => v.CardName === verbName);
-    return verb || null;
+    const templateName = selector.value;
+    const templates = this.engine.decks.questtemplates || [];
+    const template = templates.find(t => t.CardName === templateName);
+    return template || null;
   }
 
   /**
@@ -394,63 +395,63 @@ class UIManager {
       </div>`;
     };
 
-    const questHTML = `
+    // Helper function to format a component (single card or array of cards)
+    const formatComponent = (label, componentData) => {
+      if (!componentData) return '';
+      
+      // Handle array of cards (multiple draws for same label)
+      if (Array.isArray(componentData)) {
+        return `<div class="quest-role">
+          <strong>${label}:</strong>
+          ${componentData.map((card, index) => `
+            <div class="multi-card-item">
+              <span class="card-number">#${index + 1}</span> ${card.CardName}
+              <div class="tags">
+                <span class="tag-label">Type Tags:</span> ${card.TypeTags.join(', ')}
+                <span class="tag-label">Aspect Tags:</span> ${card.AspectTags.join(', ')}
+                ${card.mutableTags && card.mutableTags.length > 0 ? `<span class="tag-label">Mutable Tags:</span> ${card.mutableTags.join(', ')}` : ''}
+              </div>
+              ${formatInstructions(card.Instructions)}
+            </div>
+          `).join('')}
+        </div>`;
+      }
+      
+      // Handle single card
+      return `<div class="quest-role">
+        <strong>${label}:</strong> ${componentData.CardName}
+        <div class="tags">
+          <span class="tag-label">Type Tags:</span> ${componentData.TypeTags.join(', ')}
+          <span class="tag-label">Aspect Tags:</span> ${componentData.AspectTags.join(', ')}
+          ${componentData.mutableTags && componentData.mutableTags.length > 0 ? `<span class="tag-label">Mutable Tags:</span> ${componentData.mutableTags.join(', ')}` : ''}
+        </div>
+        ${formatInstructions(componentData.Instructions)}
+      </div>`;
+    };
+
+    // Build quest display HTML
+    let questHTML = `
       <div class="quest-display">
         <h3>Generated Quest</h3>
         <div class="quest-role">
-          <strong>Verb:</strong> ${quest.verb.CardName}
-          ${formatInstructions(quest.verb.Instructions)}
+          <strong>Template:</strong> ${quest.template.CardName}
         </div>
-        <div class="quest-role">
-          <strong>Quest Giver:</strong> ${quest.questGiver.CardName}
-          <div class="tags">
-            <span class="tag-label">Type Tags:</span> ${quest.questGiver.TypeTags.join(', ')}
-            <span class="tag-label">Aspect Tags:</span> ${quest.questGiver.AspectTags.join(', ')}
-          </div>
-          ${formatInstructions(quest.questGiver.Instructions)}
+    `;
+
+    // Add all components dynamically by label
+    for (const [label, component] of Object.entries(quest.components)) {
+      questHTML += formatComponent(label, component);
+    }
+
+    // Add reward and consequence text
+    questHTML += `
+        <div class="quest-role quest-outcome">
+          <strong>Reward:</strong> 
+          <div class="outcome-text">${quest.rewardText || 'No reward specified'}</div>
         </div>
-        <div class="quest-role">
-          <strong>Harmed Party:</strong> ${quest.harmedParty.CardName}
-          <div class="tags">
-            <span class="tag-label">Type Tags:</span> ${quest.harmedParty.TypeTags.join(', ')}
-            <span class="tag-label">Aspect Tags:</span> ${quest.harmedParty.AspectTags.join(', ')}
-          </div>
-          ${formatInstructions(quest.harmedParty.Instructions)}
-        </div>
-        <div class="quest-role">
-          <strong>Target:</strong> ${quest.target.CardName}
-          <div class="tags">
-            <span class="tag-label">Type Tags:</span> ${quest.target.TypeTags.join(', ')}
-            <span class="tag-label">Aspect Tags:</span> ${quest.target.AspectTags.join(', ')}
-            ${quest.target.mutableTags.length > 0 ? `<span class="tag-label">Mutable Tags:</span> ${quest.target.mutableTags.join(', ')}` : ''}
-          </div>
-          ${formatInstructions(quest.target.Instructions)}
-        </div>
-        <div class="quest-role">
-          <strong>Location:</strong> ${quest.location.CardName}
-          <div class="tags">
-            <span class="tag-label">Type Tags:</span> ${quest.location.TypeTags.join(', ')}
-            <span class="tag-label">Aspect Tags:</span> ${quest.location.AspectTags.join(', ')}
-            ${quest.location.mutableTags.length > 0 ? `<span class="tag-label">Mutable Tags:</span> ${quest.location.mutableTags.join(', ')}` : ''}
-          </div>
-          ${formatInstructions(quest.location.Instructions)}
-        </div>
-        <div class="quest-role">
-          <strong>Twist:</strong> ${quest.twist.CardName}
-          <div class="tags">
-            <span class="tag-label">Type Tags:</span> ${quest.twist.TypeTags.join(', ')}
-            <span class="tag-label">Aspect Tags:</span> ${quest.twist.AspectTags.join(', ')}
-            ${quest.twist.mutableTags.length > 0 ? `<span class="tag-label">Mutable Tags:</span> ${quest.twist.mutableTags.join(', ')}` : ''}
-          </div>
-          ${formatInstructions(quest.twist.Instructions)}
-        </div>
-        <div class="quest-role">
-          <strong>Reward:</strong> ${quest.reward.CardName}
-          ${formatInstructions(quest.reward.Instructions)}
-        </div>
-        <div class="quest-role">
-          <strong>Failure:</strong> ${quest.failure.CardName}
-          ${formatInstructions(quest.failure.Instructions)}
+        <div class="quest-role quest-outcome">
+          <strong>Consequence:</strong> 
+          <div class="outcome-text">${quest.consequenceText || 'No consequence specified'}</div>
         </div>
       </div>
     `;
