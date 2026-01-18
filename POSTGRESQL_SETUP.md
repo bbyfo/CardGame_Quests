@@ -40,9 +40,14 @@ npm install
    - OR manually add:
    - Key: `DATABASE_URL`
    - Value: Copy from your PostgreSQL database's **"Internal Database URL"**
-4. Click **"Save Changes"**
+4. If you are using Supabase instead of Render Postgres, add these server-only variables instead:
+   - Key: `SUPABASE_URL`
+   - Value: Your Supabase project URL (e.g. `https://db.ncqldbzabcxfdeqmvyit.supabase.co`)
+   - Key: `SUPABASE_SERVICE_ROLE_KEY`
+   - Value: Your Supabase **service role** key (get from Project Settings → API)
+5. Click **"Save Changes"**
 
-The app will automatically redeploy and connect to PostgreSQL!
+The app will automatically redeploy and connect to your configured database!
 
 ### 4. Verify It's Working
 
@@ -57,6 +62,71 @@ After deployment completes:
 
 3. Visit your Card Manager and add a card
 4. Refresh the page - card should persist!
+
+### Run Migrations (optional but recommended)
+
+If you prefer to create the table and seed manually, run locally or from CI:
+
+- Create table only:
+
+```bash
+npm run migrate
+```
+
+- Create table and seed from local `cards.json`:
+
+```bash
+npm run migrate:seed
+```
+
+#### Running migrations on Render (one-off)
+
+There are two easy ways to run migrations on Render:
+
+**Option A — Use the Service Shell**
+1. Go to Render Dashboard → **Services** → select your web service (e.g., `cardgame-quests`).
+2. Click **Shell** (opens a one-off shell into your running service).
+3. Run the migration command:
+
+- If your service already has `DATABASE_URL` configured (Render Postgres):
+
+```bash
+npm run migrate
+# or to seed:
+npm run migrate:seed
+```
+
+- If you are using **Supabase** but do **not** have `DATABASE_URL` set in Render (you only have `SUPABASE_*` keys), run the migration command by passing the Supabase Postgres connection string as `DATABASE_URL` for the one-off command:
+
+```bash
+DATABASE_URL='postgresql://postgres:YOUR_PASSWORD@db.YOUR_PROJECT.supabase.co:5432/postgres' npm run migrate
+```
+
+> Tip: Alternatively, you can run the CREATE TABLE SQL directly in the Supabase SQL editor (see below) if you prefer not to set the connection string in the shell.
+
+**Option B — Run a One-off Job / Background Job**
+- Use Render's one-off job or create a temporary background job that runs `npm run migrate` (and includes the `DATABASE_URL` if needed). This can be useful for CI or scheduled maintenance.
+
+#### Supabase-specific guidance
+
+- `migrate.js` uses `DATABASE_URL` to connect. If you prefer not to supply the Postgres URL to Render for a one-off run, open your Supabase project → **SQL Editor** and run this SQL:
+
+```sql
+CREATE TABLE IF NOT EXISTS cards (
+  id INTEGER PRIMARY KEY DEFAULT 1,
+  data JSONB NOT NULL,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+```
+
+- To seed using the Supabase UI, you can run an `INSERT ... ON CONFLICT` SQL query in the SQL Editor, or run `npm run migrate:seed` from the Shell / one-off job with `DATABASE_URL` pointing at Supabase.
+
+#### Security notes
+
+- Keep the Supabase **service role** key and DB connection strings **server-only** and never expose them to client-side code or commit them to source control.
+- The one-off shell command shown above only uses the connection string for the single command and does not persist it as a service environment variable (unless you explicitly set it in Render's Environment tab).
+
+If you want, I can add a short CI job example that runs `npm run migrate` as part of deploy steps; otherwise, leave migration runs manual and as-needed.
 
 ## How It Works
 

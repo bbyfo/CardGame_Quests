@@ -16,7 +16,7 @@
     },
     {
       "Deck": "QuestGiver",
-      "CardName": "Archmagus",
+      "CardName": "Arch Mage",
       "TypeTags": [
         "Arcane",
         "Order"
@@ -33,7 +33,7 @@
           ]
         }
       ],
-      "id": "QuestGiver-Archmagus-0.664995457557898"
+      "id": "QuestGiver-ArchMage-0.664995457557898"
     },
     {
       "Deck": "QuestGiver",
@@ -81,7 +81,7 @@
     },
     {
       "Deck": "HarmedParty",
-      "CardName": "Ancient Curse",
+      "CardName": "Shadow Master",
       "TypeTags": [
         "Arcane",
         "Chaos"
@@ -99,7 +99,7 @@
           ]
         }
       ],
-      "id": "HarmedParty-Ancient Curse-0.07182027062365037"
+      "id": "HarmedParty-ShadowMaster-0.07182027062365037"
     },
     {
       "Deck": "HarmedParty",
@@ -113,7 +113,7 @@
       ],
       "mutableTags": [],
       "Instructions": [],
-      "id": "HarmedParty-Corporate Rival-0.949121808671731"
+      "id": "HarmedParty-CorporateRival-0.949121808671731"
     }
   ],
   "verbs": [
@@ -351,7 +351,7 @@
     },
     {
       "Deck": "Target",
-      "CardName": "Lost Library",
+      "CardName": "Lost Grimoire",
       "TypeTags": [
         "Arcane",
         "Order"
@@ -361,7 +361,7 @@
       ],
       "mutableTags": [],
       "Instructions": [],
-      "id": "Target-Lost Library-0.05274728327167655"
+      "id": "Target-LostGrimoire-0.05274728327167655"
     },
     {
       "Deck": "Target",
