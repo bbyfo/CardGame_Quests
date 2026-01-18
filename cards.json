@@ -464,7 +464,7 @@
     },
     {
       "Deck": "Location",
-      "CardName": "Ancient Ruins",
+      "CardName": "Ancient Ruins (From cards.json)",
       "TypeTags": [
         "Arcane",
         "Chaos"
