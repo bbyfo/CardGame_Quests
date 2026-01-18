@@ -126,7 +126,6 @@ class QuestEngine {
     for (let i = this.pendingInstructions.length - 1; i >= 0; i--) {
       const instruction = this.pendingInstructions[i];
       if (instruction.targetDeck && instruction.targetDeck.toLowerCase() === deckName.toLowerCase()) {
-        this.log(`→ Applying instruction from "${instruction.source}" to ${deckName}: [${instruction.tags.join(', ')}]`);
         return instruction.tags;
       }
     }
@@ -155,7 +154,7 @@ class QuestEngine {
             tags: tags
           });
           
-          this.log(`Instruction stored: "${card.CardName}" will add [${tags.join(', ')}] to [${targetDeck}]`, {
+          this.log(`→ Instruction: Add [${tags.join(', ')}] to ${targetDeck}`, {
             source: card.CardName,
             targetDeck: targetDeck,
             tags: tags
@@ -284,18 +283,14 @@ class QuestEngine {
       if (targetDeck.toLowerCase() === 'thiscard') {
         card.mutableTags.push(...tags);
         this.log(
-          `Modify Effect: "${card.CardName}" gained tags [${tags.join(', ')}]`,
+          `→ Instruction: Add [${tags.join(', ')}] to THISCARD`,
           { appliedTo: 'ThisCard', tags: tags },
           true // Verbose only
         );
         this.stats.modifyEffectsApplied++;
       } else {
         // Will be applied to future deck via pending instructions
-        this.log(
-          `Modify Effect: Tags [${tags.join(', ')}] marked for [${targetDeck}]`,
-          { source: card.CardName, targetDeck: targetDeck, tags: tags },
-          true // Verbose only
-        );
+        // (logging handled in storePendingInstruction)
       }
     }
   }
@@ -325,8 +320,8 @@ class QuestEngine {
           tags: instruction.Tags || []
         });
       }
-      const deckTargets = questGiver.Instructions.map(i => `${i.TargetDeck} [${i.Tags.join(', ')}]`).join(', ');
-      this.log(`→ Instruction stored: "${questGiver.CardName}" will require ${deckTargets}`);
+      const deckTargets = questGiver.Instructions.map(i => `[${i.Tags.join(', ')}] to ${i.TargetDeck}`).join(' | ');
+      this.log(`→ Instruction: Add ${deckTargets}`);
     }
 
     return questGiver;
@@ -357,8 +352,8 @@ class QuestEngine {
           tags: instruction.Tags || []
         });
       }
-      const deckTargets = harmedParty.Instructions.map(i => `${i.TargetDeck} [${i.Tags.join(', ')}]`).join(', ');
-      this.log(`→ Instruction stored: "${harmedParty.CardName}" will require ${deckTargets}`);
+      const deckTargets = harmedParty.Instructions.map(i => `[${i.Tags.join(', ')}] to ${i.TargetDeck}`).join(' | ');
+      this.log(`→ Instruction: Add ${deckTargets}`);
     }
 
     return harmedParty;
@@ -393,8 +388,8 @@ class QuestEngine {
           tags: instruction.Tags || []
         });
       }
-      const deckTargets = verb.Instructions.map(i => `${i.TargetDeck} [${i.Tags.join(', ')}]`).join(', ');
-      this.log(`→ Instruction stored: "${verb.CardName}" will require ${deckTargets}`);
+      const deckTargets = verb.Instructions.map(i => `[${i.Tags.join(', ')}] to ${i.TargetDeck}`).join(' | ');
+      this.log(`→ Instruction: Add ${deckTargets}`);
     }
 
     return verb;
@@ -414,7 +409,7 @@ class QuestEngine {
     const percentage = ((matchCount / totalCount) * 100).toFixed(1);
 
     this.log(
-      `Looking for target with tags: [${requiredTags.join(', ')}]`,
+      `Looking for TARGET with tags: [${requiredTags.join(', ')}]`,
       { requiredTags: requiredTags }
     );
     this.log(`Match pool: ${matchCount}/${totalCount} (${percentage}%)`);
