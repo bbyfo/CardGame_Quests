@@ -501,7 +501,8 @@ class QuestEngine {
 
     for (let i = 0; i < template.DrawInstructions.length; i++) {
       const instruction = template.DrawInstructions[i];
-      this.log(`\n--- Processing Instruction ${i + 1}/${template.DrawInstructions.length} ---`);
+      this.log(''); // Empty line for readability
+      this.log(`--- Processing Instruction ${i + 1}/${template.DrawInstructions.length} ---`);
       
       const result = this.processDrawInstruction(instruction);
       
