@@ -170,6 +170,7 @@
   </div>
 
   <!-- Modal for Instructions -->
+  <!-- Instruction Modal (for regular cards) -->
   <div id="instruction-modal" class="modal" style="display: none;">
     <div class="modal-content">
       <div class="modal-header">
@@ -181,14 +182,9 @@
           <label for="instruction-target-deck">Target Deck *</label>
           <select id="instruction-target-deck" required>
             <option value="">-- Select Target Deck --</option>
-            <option value="Verb">Verb</option>
-            <option value="QuestGiver">Quest Giver</option>
-            <option value="HarmedParty">Harmed Party</option>
-            <option value="Target">Target</option>
+            <option value="NPC">NPC</option>
             <option value="Location">Location</option>
             <option value="Twist">Twist</option>
-            <option value="Reward">Reward</option>
-            <option value="Failure">Failure</option>
             <option value="ThisCard">This Card</option>
           </select>
         </div>
@@ -210,6 +206,64 @@
       <div class="modal-footer">
         <button type="button" id="btn-save-instruction" class="btn btn-primary">Save Instruction</button>
         <button type="button" id="btn-cancel-instruction" class="btn btn-secondary">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Draw Instruction Modal (for QuestTemplate cards) -->
+  <div id="draw-instruction-modal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Manage Draw Instruction</h3>
+        <button type="button" class="modal-close" id="draw-modal-close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="draw-action">Action *</label>
+          <select id="draw-action" required>
+            <option value="">-- Select Action --</option>
+            <option value="draw">Draw Cards</option>
+            <option value="addToken">Add Token</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="draw-deck">Deck *</label>
+          <select id="draw-deck" required>
+            <option value="">-- Select Deck --</option>
+            <option value="NPC">NPC</option>
+            <option value="Location">Location</option>
+            <option value="Twist">Twist</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="draw-count">Count *</label>
+          <input type="number" id="draw-count" min="1" value="1" required>
+        </div>
+
+        <div class="form-group">
+          <label for="draw-label">Label *</label>
+          <input type="text" id="draw-label" placeholder="e.g., QuestGiver, Target, Location" required>
+        </div>
+
+        <div class="form-group">
+          <label for="draw-tags-input">Tags</label>
+          <div class="tag-input-container">
+            <input 
+              type="text" 
+              id="draw-tags-input" 
+              placeholder="Add tags and press Enter"
+              class="autocomplete-input"
+            >
+            <div id="draw-tags-suggestions" class="autocomplete-dropdown"></div>
+            <div id="draw-tags-list" class="tags-list"></div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="btn-save-draw-instruction" class="btn btn-primary">Save Instruction</button>
+        <button type="button" id="btn-cancel-draw-instruction" class="btn btn-secondary">Cancel</button>
       </div>
     </div>
   </div>

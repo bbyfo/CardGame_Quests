@@ -11,7 +11,9 @@ class CardManager {
     this.originalDeckName = null; // Track original deck when editing
     this.originalCardName = null; // Track original card name when editing
     this.instructionData = [];
+    this.drawInstructionData = []; // For QuestTemplate DrawInstructions
     this.editingInstructionIndex = -1; // -1 means not editing
+    this.editingDrawInstructionIndex = -1; // -1 means not editing
     this.allTags = {
       type: new Set(),
       aspect: new Set(),
@@ -217,6 +219,12 @@ class CardManager {
       addInstrBtn.addEventListener('click', () => this.openInstructionModal());
     }
 
+    // Add draw instruction button
+    const addDrawInstrBtn = document.getElementById('btn-add-draw-instruction');
+    if (addDrawInstrBtn) {
+      addDrawInstrBtn.addEventListener('click', () => this.openDrawInstructionModal());
+    }
+
     // Modal controls
     const modalClose = document.getElementById('modal-close');
     if (modalClose) {
@@ -233,7 +241,24 @@ class CardManager {
       cancelInstrBtn.addEventListener('click', () => this.closeInstructionModal());
     }
 
+    // Draw instruction modal controls
+    const drawModalClose = document.getElementById('draw-modal-close');
+    if (drawModalClose) {
+      drawModalClose.addEventListener('click', () => this.closeDrawInstructionModal());
+    }
+
+    const saveDrawInstrBtn = document.getElementById('btn-save-draw-instruction');
+    if (saveDrawInstrBtn) {
+      saveDrawInstrBtn.addEventListener('click', () => this.saveDrawInstruction());
+    }
+
+    const cancelDrawInstrBtn = document.getElementById('btn-cancel-draw-instruction');
+    if (cancelDrawInstrBtn) {
+      cancelDrawInstrBtn.addEventListener('click', () => this.closeDrawInstructionModal());
+    }
+
     this.setupTagAutocomplete('instruction-tags', 'instruction-tags-suggestions', Array.from(this.allTags.instructionTags));
+    this.setupTagAutocomplete('draw-tags-input', 'draw-tags-suggestions', Array.from(this.allTags.instructionTags));
 
     // Filter and search
     const filterDeck = document.getElementById('filter-deck');
@@ -485,14 +510,24 @@ class CardManager {
       return;
     }
 
+    const isQuestTemplate = deckSelect === 'questtemplates';
+
     const cardData = {
       Deck: this.getDeckDisplayName(deckSelect),
       CardName: cardName,
       TypeTags: this.getTagsFromList('type-tags-list'),
       AspectTags: this.getTagsFromList('aspect-tags-list'),
-      mutableTags: this.getTagsFromList('mutable-tags-list'),
-      Instructions: this.instructionData
+      mutableTags: this.getTagsFromList('mutable-tags-list')
     };
+
+    // Add appropriate instruction/draw instruction data based on deck type
+    if (isQuestTemplate) {
+      cardData.DrawInstructions = this.drawInstructionData;
+      cardData.RewardText = document.getElementById('reward-text')?.value || '';
+      cardData.ConsequenceText = document.getElementById('consequence-text')?.value || '';
+    } else {
+      cardData.Instructions = this.instructionData;
+    }
 
     // If editing an existing card
     if (this.originalDeckName && this.originalCardName) {
@@ -705,6 +740,151 @@ class CardManager {
   }
 
   /**
+   * Open draw instruction modal
+   */
+  openDrawInstructionModal() {
+    const modal = document.getElementById('draw-instruction-modal');
+    if (modal) {
+      modal.style.display = 'flex';
+      this.editingDrawInstructionIndex = -1; // -1 means adding new
+      
+      // Reset form
+      document.getElementById('draw-action').value = '';
+      document.getElementById('draw-deck').value = '';
+      document.getElementById('draw-count').value = '1';
+      document.getElementById('draw-label').value = '';
+      this.clearTagList('draw-tags-list');
+    }
+  }
+
+  /**
+   * Close draw instruction modal
+   */
+  closeDrawInstructionModal() {
+    const modal = document.getElementById('draw-instruction-modal');
+    if (modal) {
+      modal.style.display = 'none';
+    }
+    this.clearTagList('draw-tags-list');
+  }
+
+  /**
+   * Save draw instruction from modal
+   */
+  saveDrawInstruction() {
+    const action = document.getElementById('draw-action').value;
+    const deck = document.getElementById('draw-deck').value;
+    const count = parseInt(document.getElementById('draw-count').value);
+    const label = document.getElementById('draw-label').value.trim();
+    const tags = this.getTagsFromList('draw-tags-list');
+
+    if (!action) {
+      alert('Please select an action');
+      return;
+    }
+
+    if (!deck) {
+      alert('Please select a deck');
+      return;
+    }
+
+    if (!label) {
+      alert('Please enter a label');
+      return;
+    }
+
+    const drawInstruction = {
+      action: action,
+      deck: deck,
+      count: count,
+      tags: tags,
+      label: label
+    };
+
+    if (this.editingDrawInstructionIndex >= 0) {
+      // Editing existing instruction
+      this.drawInstructionData[this.editingDrawInstructionIndex] = drawInstruction;
+    } else {
+      // Adding new instruction
+      this.drawInstructionData.push(drawInstruction);
+    }
+
+    this.renderDrawInstructions();
+    this.closeDrawInstructionModal();
+  }
+
+  /**
+   * Render draw instructions list
+   */
+  renderDrawInstructions() {
+    const list = document.getElementById('draw-instructions-list');
+    if (!list) return;
+
+    list.innerHTML = '';
+
+    this.drawInstructionData.forEach((instr, index) => {
+      const item = document.createElement('div');
+      item.className = 'instruction-item';
+      item.style.cursor = 'pointer';
+      item.title = 'Click to edit';
+      item.innerHTML = `
+        <h4>${instr.label} (${instr.action})</h4>
+        <div class="instruction-details">
+          <span><strong>Deck:</strong> ${instr.deck}</span>
+          <span><strong>Count:</strong> ${instr.count}</span>
+        </div>
+        ${instr.tags.length > 0 ? `<div class="instruction-tags">
+          ${instr.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+        </div>` : ''}
+        <span class="instruction-remove" data-index="${index}">✕</span>
+      `;
+
+      // Click to edit instruction
+      item.addEventListener('click', (e) => {
+        if (e.target.classList.contains('instruction-remove')) return;
+        this.editDrawInstruction(index);
+      });
+
+      const removeBtn = item.querySelector('.instruction-remove');
+      removeBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        this.drawInstructionData.splice(index, 1);
+        this.renderDrawInstructions();
+      });
+
+      list.appendChild(item);
+    });
+  }
+
+  /**
+   * Edit an existing draw instruction
+   */
+  editDrawInstruction(index) {
+    const instruction = this.drawInstructionData[index];
+    if (!instruction) return;
+
+    this.editingDrawInstructionIndex = index;
+
+    // Populate modal
+    document.getElementById('draw-action').value = instruction.action;
+    document.getElementById('draw-deck').value = instruction.deck;
+    document.getElementById('draw-count').value = instruction.count;
+    document.getElementById('draw-label').value = instruction.label;
+
+    // Clear and populate tags
+    this.clearTagList('draw-tags-list');
+    instruction.tags.forEach(tag => {
+      this.addTag('draw-tags-input', tag);
+    });
+
+    // Open modal
+    const modal = document.getElementById('draw-instruction-modal');
+    if (modal) {
+      modal.style.display = 'flex';
+    }
+  }
+
+  /**
    * Render cards list (with filtering and search)
    */
   renderCardsList() {
@@ -759,18 +939,48 @@ class CardManager {
         </div>
       ` : '';
 
-      // Create instructions section
-      const instructionsHtml = (card.Instructions && card.Instructions.length > 0) ? `
-        <div class="instructions-section">
-          <div class="section-title">Instructions:</div>
-          ${card.Instructions.map(inst => `
-            <div class="instruction-item">
-              <span class="instruction-target">${inst.TargetDeck}</span>
-              <span class="instruction-tags">[${inst.Tags.join(', ')}]</span>
+      // Create instructions section - check for both DrawInstructions (QuestTemplate) and Instructions (other cards)
+      let instructionsHtml = '';
+      
+      if (card.DrawInstructions && card.DrawInstructions.length > 0) {
+        // QuestTemplate card - show DrawInstructions
+        instructionsHtml = `
+          <div class="instructions-section">
+            <div class="section-title">Draw Instructions:</div>
+            ${card.DrawInstructions.map(inst => `
+              <div class="instruction-item">
+                <span class="instruction-target"><strong>${inst.label}</strong> (${inst.action})</span>
+                <span class="instruction-tags">Deck: ${inst.deck}, Count: ${inst.count}${inst.tags.length > 0 ? `, Tags: [${inst.tags.join(', ')}]` : ''}</span>
+              </div>
+            `).join('')}
+          </div>
+        `;
+        
+        // Also show RewardText and ConsequenceText if present
+        if (card.RewardText || card.ConsequenceText) {
+          instructionsHtml += `
+            <div class="instructions-section">
+              ${card.RewardText ? `<div class="section-title">Reward:</div><div class="outcome-text">${card.RewardText}</div>` : ''}
+              ${card.ConsequenceText ? `<div class="section-title">Consequence:</div><div class="outcome-text">${card.ConsequenceText}</div>` : ''}
             </div>
-          `).join('')}
-        </div>
-      ` : '<div class="instructions-section"><div class="section-title">No Instructions</div></div>';
+          `;
+        }
+      } else if (card.Instructions && card.Instructions.length > 0) {
+        // Regular card - show Instructions
+        instructionsHtml = `
+          <div class="instructions-section">
+            <div class="section-title">Instructions:</div>
+            ${card.Instructions.map(inst => `
+              <div class="instruction-item">
+                <span class="instruction-target">${inst.TargetDeck}</span>
+                <span class="instruction-tags">[${inst.Tags.join(', ')}]</span>
+              </div>
+            `).join('')}
+          </div>
+        `;
+      } else {
+        instructionsHtml = '<div class="instructions-section"><div class="section-title">No Instructions</div></div>';
+      }
 
       item.innerHTML = `
         <div class="card-item-left">
@@ -834,9 +1044,24 @@ class CardManager {
     this.clearTagList('mutable-tags-list');
     card.mutableTags.forEach(tag => this.addTag('mutable-tags-input', tag));
 
-    // Set instructions
-    this.instructionData = JSON.parse(JSON.stringify(card.Instructions || []));
-    this.renderInstructions();
+    // Set instructions based on card type
+    const isQuestTemplate = deckName === 'questtemplates';
+    
+    if (isQuestTemplate) {
+      // Load DrawInstructions for QuestTemplate cards
+      this.drawInstructionData = JSON.parse(JSON.stringify(card.DrawInstructions || []));
+      this.renderDrawInstructions();
+      
+      // Load RewardText and ConsequenceText
+      const rewardTextEl = document.getElementById('reward-text');
+      const consequenceTextEl = document.getElementById('consequence-text');
+      if (rewardTextEl) rewardTextEl.value = card.RewardText || '';
+      if (consequenceTextEl) consequenceTextEl.value = card.ConsequenceText || '';
+    } else {
+      // Load regular Instructions for other card types
+      this.instructionData = JSON.parse(JSON.stringify(card.Instructions || []));
+      this.renderInstructions();
+    }
 
     // Show cancel button
     const cancelBtn = document.getElementById('btn-cancel-edit');
@@ -879,7 +1104,9 @@ class CardManager {
     this.clearTagList('aspect-tags-list');
     this.clearTagList('mutable-tags-list');
     this.instructionData = [];
+    this.drawInstructionData = [];
     this.renderInstructions();
+    this.renderDrawInstructions();
     
     // Clear edit tracking
     this.originalDeckName = null;
@@ -889,6 +1116,12 @@ class CardManager {
     if (cancelBtn) {
       cancelBtn.style.display = 'none';
     }
+
+    // Hide QuestTemplate fields by default
+    const questTemplateFields = document.getElementById('questtemplate-fields');
+    const instructionsSection = document.getElementById('instructions-section');
+    if (questTemplateFields) questTemplateFields.style.display = 'none';
+    if (instructionsSection) instructionsSection.style.display = 'block';
   }
 
   /**
