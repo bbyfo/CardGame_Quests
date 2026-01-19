@@ -292,6 +292,23 @@ class CardManager {
       searchCards.addEventListener('input', () => this.renderCardsList());
     }
 
+    // TypeTag filter with autocomplete
+    this.setupTagAutocomplete('filter-type-tags-input', 'filter-type-tags-suggestions', Array.from(this.allTags.type));
+
+    // TypeTag filter match mode
+    const filterTagMatchMode = document.getElementById('filter-tag-match-mode');
+    if (filterTagMatchMode) {
+      filterTagMatchMode.addEventListener('change', () => this.renderCardsList());
+    }
+
+    // Watch for tag changes in the filter tag list
+    const filterTagList = document.getElementById('filter-type-tags-list');
+    if (filterTagList) {
+      // Use MutationObserver to detect when tags are added or removed
+      const observer = new MutationObserver(() => this.renderCardsList());
+      observer.observe(filterTagList, { childList: true });
+    }
+
     // Export button
     const exportBtn = document.getElementById('btn-export-cards');
     if (exportBtn) {
@@ -373,7 +390,8 @@ class CardManager {
         'aspect-tags-input': 'aspect',
         'mutable-tags-input': 'mutable',
         'instruction-tags': 'instructionTags',
-        'draw-tags-input': 'instructionTags'
+        'draw-tags-input': 'instructionTags',
+        'filter-type-tags-input': 'type'
       };
       const tagType = tagTypeMap[inputId];
       return tagType ? Array.from(this.allTags[tagType]) : [];
@@ -416,9 +434,22 @@ class CardManager {
   /**
    * Show autocomplete suggestions
    */
-  showSuggestions(container, suggestions, query, inputId) {
+  showSuggestions(container, suggestions, query, inputId, justAddedTag = null) {
     container.innerHTML = '';
-    const unique = [...new Set(suggestions)];
+    
+    // Get existing tags from the corresponding tag list
+    const listId = this.getTagListId(inputId);
+    const existingTags = listId ? this.getTagsFromList(listId) : [];
+    
+    // Also exclude the tag that was just added (if any)
+    if (justAddedTag) {
+      existingTags.push(justAddedTag);
+    }
+    
+    // Filter out tags that are already added
+    const availableSuggestions = suggestions.filter(s => !existingTags.includes(s));
+    
+    const unique = [...new Set(availableSuggestions)];
     const limited = unique.slice(0, 8);
 
     if (limited.length === 0) {
@@ -432,7 +463,10 @@ class CardManager {
       option.textContent = suggestion;
       option.addEventListener('click', () => {
         this.addTag(inputId, suggestion);
-        document.getElementById(inputId).value = '';
+        const input = document.getElementById(inputId);
+        input.value = '';
+        // Clear suggestions immediately
+        container.innerHTML = '';
         container.classList.remove('active');
       });
       container.appendChild(option);
@@ -460,6 +494,11 @@ class CardManager {
     // Click anywhere on tag to remove it
     tag.addEventListener('click', () => {
       tag.remove();
+      // Trigger input event to refresh suggestions after removing a tag
+      const input = document.getElementById(inputId);
+      if (input && input.value.trim().length > 0) {
+        input.dispatchEvent(new Event('input'));
+      }
     });
 
     list.appendChild(tag);
@@ -474,7 +513,8 @@ class CardManager {
       'aspect-tags-input': 'aspect-tags-list',
       'mutable-tags-input': 'mutable-tags-list',
       'instruction-tags': 'instruction-tags-list',
-      'draw-tags-input': 'draw-tags-list'
+      'draw-tags-input': 'draw-tags-list',
+      'filter-type-tags-input': 'filter-type-tags-list'
     };
     return mapping[inputId] || null;
   }
@@ -485,6 +525,7 @@ class CardManager {
   getTagsFromList(listId) {
     const list = document.getElementById(listId);
     if (!list) return [];
+    
     return Array.from(list.querySelectorAll('.tag'))
       .map(tag => tag.textContent.trim())
       .filter(text => text.length > 0);
@@ -983,7 +1024,20 @@ class CardManager {
     const list = document.getElementById('cards-list');
     if (!list) return;
 
+    // Get TypeTag filter values
+    const filterTagMatchMode = document.getElementById('filter-tag-match-mode').value; // "any" or "all"
+    const filterTagList = document.getElementById('filter-type-tags-list');
+    const filterTags = [];
+    if (filterTagList) {
+      const tagElements = filterTagList.querySelectorAll('.tag');
+      tagElements.forEach(tagEl => {
+        const tagText = tagEl.textContent.replace('×', '').trim();
+        if (tagText) filterTags.push(tagText);
+      });
+    }
+
     console.log('[renderCardsList] filterDeck:', filterDeck, 'searchQuery:', searchQuery);
+    console.log('[renderCardsList] TypeTag filter:', filterTags, 'match mode:', filterTagMatchMode);
     console.log('[renderCardsList] Available decks:', Object.keys(this.cards));
 
     list.innerHTML = '';
@@ -1002,11 +1056,32 @@ class CardManager {
 
       deck.forEach(card => {
         if (searchQuery && !card.CardName.toLowerCase().includes(searchQuery)) return;
+
+        // Apply TypeTag filter
+        if (filterTags.length > 0) {
+          const cardTypeTags = card.TypeTags || [];
+          if (filterTagMatchMode === 'all') {
+            // Card must have ALL filter tags
+            const hasAllTags = filterTags.every(tag => cardTypeTags.includes(tag));
+            if (!hasAllTags) return;
+          } else {
+            // Card must have ANY filter tag (OR logic)
+            const hasAnyTag = filterTags.some(tag => cardTypeTags.includes(tag));
+            if (!hasAnyTag) return;
+          }
+        }
+
         allCards.push({ card, deckName });
       });
     }
 
     console.log(`[renderCardsList] Found ${allCards.length} matching cards`);
+
+    // Update count display
+    const countDisplay = document.getElementById('cards-count');
+    if (countDisplay) {
+      countDisplay.textContent = `Showing ${allCards.length} card${allCards.length === 1 ? '' : 's'}`;
+    }
 
     // Sort cards alphabetically by CardName
     allCards.sort((a, b) => a.card.CardName.localeCompare(b.card.CardName));

@@ -145,6 +145,26 @@
             <label for="search-cards">Search:</label>
             <input type="text" id="search-cards" placeholder="Search card names...">
           </div>
+
+          <div class="form-group">
+            <label for="filter-type-tags">Filter by Type Tags:</label>
+            <div class="filter-tag-controls">
+              <select id="filter-tag-match-mode">
+                <option value="any">Any tags (OR)</option>
+                <option value="all">All tags (AND)</option>
+              </select>
+            </div>
+            <div class="tag-input-container">
+              <input 
+                type="text" 
+                id="filter-type-tags-input" 
+                placeholder="Add type tags to filter and press Enter"
+                class="autocomplete-input"
+              />
+              <div id="filter-type-tags-suggestions" class="autocomplete-suggestions"></div>
+            </div>
+            <div id="filter-type-tags-list" class="tag-list"></div>
+          </div>
         </div>
 
         <div class="browser-header">
@@ -159,6 +179,7 @@
           <input type="file" id="file-import" accept=".json" style="display: none;">
         </div>
 
+        <div id="cards-count" class="cards-count">Showing 0 cards</div>
         <div id="cards-list" class="cards-list"></div>
       </section>
     </main>
