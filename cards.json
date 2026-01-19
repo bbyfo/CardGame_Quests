@@ -1,246 +1,847 @@
 {
+  "loot": [
+    {
+      "id": "Loot-Battle Scripture-0.059338629623886585",
+      "Deck": "Loot",
+      "CardName": "Battle Scripture",
+      "TypeTags": [
+        "Consumable",
+        "Magic Item"
+      ],
+      "AspectTags": [],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Loot-Bear Fang Necklace-0.08686460494703396",
+      "Deck": "Loot",
+      "CardName": "Bear Fang Necklace",
+      "TypeTags": [
+        "Magic Item"
+      ],
+      "AspectTags": [
+        "Jewelry"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Loot-Beastcleaner-0.5693196885822445",
+      "Deck": "Loot",
+      "CardName": "Beastcleaner",
+      "TypeTags": [
+        "Magic Item"
+      ],
+      "AspectTags": [
+        "Tool"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Loot-Belt of Veracity-0.32115946281755436",
+      "Deck": "Loot",
+      "CardName": "Belt of Veracity",
+      "TypeTags": [
+        "Magic Item"
+      ],
+      "AspectTags": [
+        "Clothing"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Loot-Blazing Morningstar-0.9709108734629167",
+      "Deck": "Loot",
+      "CardName": "Blazing Morningstar",
+      "TypeTags": [
+        "Magic Item"
+      ],
+      "AspectTags": [
+        "Weapon"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Loot-Bolt of Light-0.36692621912689416",
+      "Deck": "Loot",
+      "CardName": "Bolt of Light",
+      "TypeTags": [
+        "Consumable",
+        "Magic Item"
+      ],
+      "AspectTags": [],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Loot-Brass Suns-0.3795149307792517",
+      "Deck": "Loot",
+      "CardName": "Brass Suns",
+      "TypeTags": [
+        "Magic Item"
+      ],
+      "AspectTags": [
+        "Jewelry"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Loot-Cloak of the Wilds-0.6549369825202925",
+      "Deck": "Loot",
+      "CardName": "Cloak of the Wilds",
+      "TypeTags": [
+        "Magic Item"
+      ],
+      "AspectTags": [
+        "Clothing"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Loot-Cloudwatcher's Telescope-0.6287512581109473",
+      "Deck": "Loot",
+      "CardName": "Cloudwatcher's Telescope",
+      "TypeTags": [
+        "Magic Item"
+      ],
+      "AspectTags": [
+        "Tool"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Loot-Collector's Scabbard-0.458378907712246",
+      "Deck": "Loot",
+      "CardName": "Collector's Scabbard",
+      "TypeTags": [
+        "Magic Item"
+      ],
+      "AspectTags": [
+        "Tool"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Loot-Elven Recurve-0.0512826234530841",
+      "Deck": "Loot",
+      "CardName": "Elven Recurve",
+      "TypeTags": [
+        "Magic Item"
+      ],
+      "AspectTags": [
+        "Weapon"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Loot-Enchanted Rucksack-0.45638154268719844",
+      "Deck": "Loot",
+      "CardName": "Enchanted Rucksack",
+      "TypeTags": [
+        "Magic Item"
+      ],
+      "AspectTags": [
+        "Worn"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Loot-Helm of the Survivor-0.25306500543236066",
+      "Deck": "Loot",
+      "CardName": "Helm of the Survivor",
+      "TypeTags": [
+        "Magic Item"
+      ],
+      "AspectTags": [
+        "Armor"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Loot-Meditation Beads-0.18419350837216397",
+      "Deck": "Loot",
+      "CardName": "Meditation Beads",
+      "TypeTags": [
+        "Magic Item"
+      ],
+      "AspectTags": [
+        "Jewelry"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Loot-Nightfleece Gambeson-0.3160185206068493",
+      "Deck": "Loot",
+      "CardName": "Nightfleece Gambeson",
+      "TypeTags": [
+        "Magic Item"
+      ],
+      "AspectTags": [
+        "Armor"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Loot-Plate of Protection-0.7212445032273687",
+      "Deck": "Loot",
+      "CardName": "Plate of Protection",
+      "TypeTags": [
+        "Magic Item"
+      ],
+      "AspectTags": [
+        "Armor"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Loot-Platinum Cuirass-0.9603244672278843",
+      "Deck": "Loot",
+      "CardName": "Platinum Cuirass",
+      "TypeTags": [
+        "Magic Item"
+      ],
+      "AspectTags": [
+        "Armor"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Loot-Prince's Coat of Plates-0.2863198574494904",
+      "Deck": "Loot",
+      "CardName": "Prince's Coat of Plates",
+      "TypeTags": [
+        "Magic Item"
+      ],
+      "AspectTags": [
+        "Armor"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Loot-Saphire Signet-0.4166841326651026",
+      "Deck": "Loot",
+      "CardName": "Saphire Signet",
+      "TypeTags": [
+        "Magic Item"
+      ],
+      "AspectTags": [
+        "Jewelry"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Loot-Steel Amulet-0.238800888760069",
+      "Deck": "Loot",
+      "CardName": "Steel Amulet",
+      "TypeTags": [
+        "Magic Item"
+      ],
+      "AspectTags": [
+        "Jewelry"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Loot-Stormgather Staff-0.020691727590761544",
+      "Deck": "Loot",
+      "CardName": "Stormgather Staff",
+      "TypeTags": [
+        "Magic Item"
+      ],
+      "AspectTags": [
+        "Weapon"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Loot-Sword and Dagger of the Hero-0.3435301108562816",
+      "Deck": "Loot",
+      "CardName": "Sword and Dagger of the Hero",
+      "TypeTags": [
+        "Magic Item"
+      ],
+      "AspectTags": [
+        "Weapon"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Loot-Thunder's Roar Earrings-0.17790461559986304",
+      "Deck": "Loot",
+      "CardName": "Thunder's Roar Earrings",
+      "TypeTags": [
+        "Magic Item"
+      ],
+      "AspectTags": [
+        "Jewelry"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Loot-Treasure 1/4-0.5842052401072773",
+      "Deck": "Loot",
+      "CardName": "Treasure 1/4",
+      "TypeTags": [
+        "Wealth"
+      ],
+      "AspectTags": [
+        "Treasure"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Loot-Treasure 1/2-0.2066194690440133",
+      "Deck": "Loot",
+      "CardName": "Treasure 1/2",
+      "TypeTags": [
+        "Wealth"
+      ],
+      "AspectTags": [
+        "Treasure"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Loot-Treasure 1-0.24196551724666893",
+      "Deck": "Loot",
+      "CardName": "Treasure 1",
+      "TypeTags": [
+        "Wealth"
+      ],
+      "AspectTags": [
+        "Treasure"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Loot-Treasure 2-0.06945770573202581",
+      "Deck": "Loot",
+      "CardName": "Treasure 2",
+      "TypeTags": [
+        "Wealth"
+      ],
+      "AspectTags": [
+        "Treasure"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Loot-Treasure 3-0.6763211445708567",
+      "Deck": "Loot",
+      "CardName": "Treasure 3",
+      "TypeTags": [
+        "Wealth"
+      ],
+      "AspectTags": [
+        "Treasure"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Loot-Unbreakable Spear-0.8381699599688917",
+      "Deck": "Loot",
+      "CardName": "Unbreakable Spear",
+      "TypeTags": [
+        "Magic Item"
+      ],
+      "AspectTags": [
+        "Weapon"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Loot-Veteran's Cowl-0.935890171090921",
+      "Deck": "Loot",
+      "CardName": "Veteran's Cowl",
+      "TypeTags": [
+        "Magic Item"
+      ],
+      "AspectTags": [
+        "Clothing"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Loot-Wavetreader Boots-0.546914152274753",
+      "Deck": "Loot",
+      "CardName": "Wavetreader Boots",
+      "TypeTags": [
+        "Magic Item"
+      ],
+      "AspectTags": [
+        "Worn"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Loot-Wizard's Cap and Gown-0.6010550235268705",
+      "Deck": "Loot",
+      "CardName": "Wizard's Cap and Gown",
+      "TypeTags": [
+        "Magic Item"
+      ],
+      "AspectTags": [
+        "Clothing"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Loot-Dwarven Meal-0.5423750276587543",
+      "Deck": "Loot",
+      "CardName": "Dwarven Meal",
+      "TypeTags": [
+        "Consumable",
+        "Magic Item"
+      ],
+      "AspectTags": [],
+      "mutableTags": [],
+      "Instructions": []
+    }
+  ],
   "npcs": [
-   {
-    "Deck": "NPC",
-    "CardName": "Guildmaster Thorne Highledger",
-    "TypeTags": ["Wealth", "Order"],
-    "AspectTags": ["Commerce"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "NPC",
-    "CardName": "Lady Miravelle Coinwright",
-    "TypeTags": ["Wealth", "Arcane"],
-    "AspectTags": ["Enchantment"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "NPC",
-    "CardName": "Duke Ralston of the Golden Exchange",
-    "TypeTags": ["Wealth", "Light"],
-    "AspectTags": ["Nobility"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "NPC",
-    "CardName": "Broker Vaskel the Silver Tongue",
-    "TypeTags": ["Wealth", "Shadow"],
-    "AspectTags": ["Deception"],
-    "mutableTags": [],
-    "Instructions": []
-  }
-, {
-    "Deck": "NPC",
-    "CardName": "The Veiled Matriarch",
-    "TypeTags": ["Shadow"],
-    "AspectTags": ["Darkness"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "NPC",
-    "CardName": "Lord Malrec the Withering",
-    "TypeTags": ["Shadow", "Arcane"],
-    "AspectTags": ["Necromancy"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "NPC",
-    "CardName": "Silktongue Varos",
-    "TypeTags": ["Shadow"],
-    "AspectTags": ["Deception"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "NPC",
-    "CardName": "High Inquisitor Draevin",
-    "TypeTags": ["Shadow", "Order"],
-    "AspectTags": ["Tyranny"],
-    "mutableTags": [],
-    "Instructions": []
-  }
-, {
-    "Deck": "NPC",
-    "CardName": "Ravager Queen Khyzara",
-    "TypeTags": ["Chaos"],
-    "AspectTags": ["Warlord"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "NPC",
-    "CardName": "Stormcaller Vesh Tal",
-    "TypeTags": ["Chaos", "Arcane"],
-    "AspectTags": ["Tempest"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "NPC",
-    "CardName": "The Laughing Prophet",
-    "TypeTags": ["Chaos"],
-    "AspectTags": ["Madness"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "NPC",
-    "CardName": "Ironfang the Unbound",
-    "TypeTags": ["Chaos", "Martial"],
-    "AspectTags": ["Berserker"],
-    "mutableTags": [],
-    "Instructions": []
-  }
-,
     {
-    "Deck": "NPC",
-    "CardName": "High Chancellor Veridan",
-    "TypeTags": ["Order"],
-    "AspectTags": ["Leadership"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "NPC",
-    "CardName": "Justicar Aurelia Stoneward",
-    "TypeTags": ["Order", "Martial"],
-    "AspectTags": ["Law"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "NPC",
-    "CardName": "Archivist-General Thalen Quill",
-    "TypeTags": ["Order", "Arcane"],
-    "AspectTags": ["Bureaucracy"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-   {
-    "Deck": "NPC",
-    "CardName": "High Priestess Seraphine Dawnstar",
-    "TypeTags": ["Light", "Light"],
-    "AspectTags": ["Compassion"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "NPC",
-    "CardName": "Cardinal Rovan Emberlight",
-    "TypeTags": ["Light", "Order"],
-    "AspectTags": ["Faith"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "NPC",
-    "CardName": "Warden of the Flame Lysander Hale",
-    "TypeTags": ["Light", "Martial"],
-    "AspectTags": ["Purity"],
-    "mutableTags": [],
-    "Instructions": []
-  },
+      "id": "NPC-Guildmaster Thorne Highledger-0.03253845561178814",
+      "Deck": "NPC",
+      "CardName": "Guildmaster Thorne Highledger",
+      "TypeTags": [
+        "Wealth",
+        "Order"
+      ],
+      "AspectTags": [
+        "Commerce"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
     {
-    "Deck": "NPC",
-    "CardName": "Elder Oakheart of the Verdant Circle",
-    "TypeTags": ["Nature", "Light"],
-    "AspectTags": ["Druidic"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "NPC",
-    "CardName": "Huntmaster Sylra Windstalker",
-    "TypeTags": ["Nature", "Martial"],
-    "AspectTags": ["Beast"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "NPC",
-    "CardName": "Grovekeeper Mosswhisper",
-    "TypeTags": ["Nature", "Arcane"],
-    "AspectTags": ["Mystic"],
-    "mutableTags": [],
-    "Instructions": []
-  },
+      "id": "NPC-Lady Miravelle Coinwright-0.08172562328723154",
+      "Deck": "NPC",
+      "CardName": "Lady Miravelle Coinwright",
+      "TypeTags": [
+        "Wealth",
+        "Arcane"
+      ],
+      "AspectTags": [
+        "Enchantment"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
     {
-    "Deck": "NPC",
-    "CardName": "Archmage Solinar the Radiant",
-    "TypeTags": ["Arcane", "Light"],
-    "AspectTags": ["Wizard"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "NPC",
-    "CardName": "Chronomancer Lyssia Vale",
-    "TypeTags": ["Arcane", "Order"],
-    "AspectTags": ["Time"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "NPC",
-    "CardName": "Runesmith Eldric Ironglyph",
-    "TypeTags": ["Arcane", "Martial"],
-    "AspectTags": ["Crafting"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "NPC",
-    "CardName": "General Cassian Steelmarch",
-    "TypeTags": ["Martial", "Order"],
-    "AspectTags": ["Military"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "NPC",
-    "CardName": "Champion Aria Stormblade",
-    "TypeTags": ["Martial", "Light"],
-    "AspectTags": ["Hero"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "NPC",
-    "CardName": "Commander Thorne Ironsoul",
-    "TypeTags": ["Martial"],
-    "AspectTags": ["Tactics"],
-    "mutableTags": [],
-    "Instructions": []
-  },
+      "id": "NPC-Duke Ralston of the Golden Exchange-0.04510891013167295",
+      "Deck": "NPC",
+      "CardName": "Duke Ralston of the Golden Exchange",
+      "TypeTags": [
+        "Wealth",
+        "Light"
+      ],
+      "AspectTags": [
+        "Nobility"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
     {
-    "Deck": "NPC",
-    "CardName": "Shadow Regent Malvorn",
-    "TypeTags": ["Shadow", "Shadow"],
-    "AspectTags": ["Darkness"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "NPC",
-    "CardName": "Mistress of Whispers Selkira",
-    "TypeTags": ["Shadow", "Arcane"],
-    "AspectTags": ["Secrets"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "NPC",
-    "CardName": "Dread Captain Vorak Blacktide",
-    "TypeTags": ["Shadow", "Martial"],
-    "AspectTags": ["Terror"],
-    "mutableTags": [],
-    "Instructions": []
-  }
+      "id": "NPC-Broker Vaskel the Silver Tongue-0.7686754251333549",
+      "Deck": "NPC",
+      "CardName": "Broker Vaskel the Silver Tongue",
+      "TypeTags": [
+        "Wealth",
+        "Shadow"
+      ],
+      "AspectTags": [
+        "Deception"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "NPC-The Veiled Matriarch-0.4191918179201053",
+      "Deck": "NPC",
+      "CardName": "The Veiled Matriarch",
+      "TypeTags": [
+        "Shadow"
+      ],
+      "AspectTags": [
+        "Darkness"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "NPC-Lord Malrec the Withering-0.15509074982387172",
+      "Deck": "NPC",
+      "CardName": "Lord Malrec the Withering",
+      "TypeTags": [
+        "Shadow",
+        "Arcane"
+      ],
+      "AspectTags": [
+        "Necromancy"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "NPC-Silktongue Varos-0.9989051498473481",
+      "Deck": "NPC",
+      "CardName": "Silktongue Varos",
+      "TypeTags": [
+        "Shadow"
+      ],
+      "AspectTags": [
+        "Deception"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "NPC-High Inquisitor Draevin-0.842543482697278",
+      "Deck": "NPC",
+      "CardName": "High Inquisitor Draevin",
+      "TypeTags": [
+        "Shadow",
+        "Order"
+      ],
+      "AspectTags": [
+        "Tyranny"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "NPC-Ravager Queen Khyzara-0.6593961943446088",
+      "Deck": "NPC",
+      "CardName": "Ravager Queen Khyzara",
+      "TypeTags": [
+        "Chaos"
+      ],
+      "AspectTags": [
+        "Warlord"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "NPC-Stormcaller Vesh Tal-0.8899555275080197",
+      "Deck": "NPC",
+      "CardName": "Stormcaller Vesh Tal",
+      "TypeTags": [
+        "Chaos",
+        "Arcane"
+      ],
+      "AspectTags": [
+        "Tempest"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "NPC-The Laughing Prophet-0.4918623822221392",
+      "Deck": "NPC",
+      "CardName": "The Laughing Prophet",
+      "TypeTags": [
+        "Chaos"
+      ],
+      "AspectTags": [
+        "Madness"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "NPC-Ironfang the Unbound-0.13958686332116",
+      "Deck": "NPC",
+      "CardName": "Ironfang the Unbound",
+      "TypeTags": [
+        "Chaos",
+        "Martial"
+      ],
+      "AspectTags": [
+        "Berserker"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "NPC-High Chancellor Veridan-0.8513968830587341",
+      "Deck": "NPC",
+      "CardName": "High Chancellor Veridan",
+      "TypeTags": [
+        "Order"
+      ],
+      "AspectTags": [
+        "Leadership"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "NPC-Justicar Aurelia Stoneward-0.8347287329808051",
+      "Deck": "NPC",
+      "CardName": "Justicar Aurelia Stoneward",
+      "TypeTags": [
+        "Order",
+        "Martial"
+      ],
+      "AspectTags": [
+        "Law"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "NPC-Archivist-General Thalen Quill-0.5353586149038169",
+      "Deck": "NPC",
+      "CardName": "Archivist-General Thalen Quill",
+      "TypeTags": [
+        "Order",
+        "Arcane"
+      ],
+      "AspectTags": [
+        "Bureaucracy"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "NPC-High Priestess Seraphine Dawnstar-0.6207498332646653",
+      "Deck": "NPC",
+      "CardName": "High Priestess Seraphine Dawnstar",
+      "TypeTags": [
+        "Light",
+        "Light"
+      ],
+      "AspectTags": [
+        "Compassion"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "NPC-Cardinal Rovan Emberlight-0.8894303675868444",
+      "Deck": "NPC",
+      "CardName": "Cardinal Rovan Emberlight",
+      "TypeTags": [
+        "Light",
+        "Order"
+      ],
+      "AspectTags": [
+        "Faith"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "NPC-Warden of the Flame Lysander Hale-0.11349966015702762",
+      "Deck": "NPC",
+      "CardName": "Warden of the Flame Lysander Hale",
+      "TypeTags": [
+        "Light",
+        "Martial"
+      ],
+      "AspectTags": [
+        "Purity"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "NPC-Elder Oakheart of the Verdant Circle-0.7446518283230295",
+      "Deck": "NPC",
+      "CardName": "Elder Oakheart of the Verdant Circle",
+      "TypeTags": [
+        "Nature",
+        "Light"
+      ],
+      "AspectTags": [
+        "Druidic"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "NPC-Huntmaster Sylra Windstalker-0.6691987483169907",
+      "Deck": "NPC",
+      "CardName": "Huntmaster Sylra Windstalker",
+      "TypeTags": [
+        "Nature",
+        "Martial"
+      ],
+      "AspectTags": [
+        "Beast"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "NPC-Grovekeeper Mosswhisper-0.6164300967343829",
+      "Deck": "NPC",
+      "CardName": "Grovekeeper Mosswhisper",
+      "TypeTags": [
+        "Nature",
+        "Arcane"
+      ],
+      "AspectTags": [
+        "Mystic"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "NPC-Archmage Solinar the Radiant-0.029248553793436383",
+      "Deck": "NPC",
+      "CardName": "Archmage Solinar the Radiant",
+      "TypeTags": [
+        "Arcane",
+        "Light"
+      ],
+      "AspectTags": [
+        "Wizard"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "NPC-Chronomancer Lyssia Vale-0.29602469406750387",
+      "Deck": "NPC",
+      "CardName": "Chronomancer Lyssia Vale",
+      "TypeTags": [
+        "Arcane",
+        "Order"
+      ],
+      "AspectTags": [
+        "Time"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "NPC-Runesmith Eldric Ironglyph-0.0364356949403738",
+      "Deck": "NPC",
+      "CardName": "Runesmith Eldric Ironglyph",
+      "TypeTags": [
+        "Arcane",
+        "Martial"
+      ],
+      "AspectTags": [
+        "Crafting"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "NPC-General Cassian Steelmarch-0.3137642792005859",
+      "Deck": "NPC",
+      "CardName": "General Cassian Steelmarch",
+      "TypeTags": [
+        "Martial",
+        "Order"
+      ],
+      "AspectTags": [
+        "Military"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "NPC-Champion Aria Stormblade-0.17106492580942367",
+      "Deck": "NPC",
+      "CardName": "Champion Aria Stormblade",
+      "TypeTags": [
+        "Martial",
+        "Light"
+      ],
+      "AspectTags": [
+        "Hero"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "NPC-Commander Thorne Ironsoul-0.03627593158747844",
+      "Deck": "NPC",
+      "CardName": "Commander Thorne Ironsoul",
+      "TypeTags": [
+        "Martial"
+      ],
+      "AspectTags": [
+        "Tactics"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "NPC-Shadow Regent Malvorn-0.9432668629991056",
+      "Deck": "NPC",
+      "CardName": "Shadow Regent Malvorn",
+      "TypeTags": [
+        "Shadow",
+        "Shadow"
+      ],
+      "AspectTags": [
+        "Darkness"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "NPC-Mistress of Whispers Selkira-0.993213298216585",
+      "Deck": "NPC",
+      "CardName": "Mistress of Whispers Selkira",
+      "TypeTags": [
+        "Shadow",
+        "Arcane"
+      ],
+      "AspectTags": [
+        "Secrets"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "NPC-Dread Captain Vorak Blacktide-0.8855986772436756",
+      "Deck": "NPC",
+      "CardName": "Dread Captain Vorak Blacktide",
+      "TypeTags": [
+        "Shadow",
+        "Martial"
+      ],
+      "AspectTags": [
+        "Terror"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    }
   ],
   "twists": [
     {
@@ -344,749 +945,835 @@
     }
   ],
   "monsters": [
-  {
-    "Deck": "Monster",
-    "CardName": "Armor-Cap Centipede",
-    "TypeTags": ["Nature", "Chaos"],
-    "AspectTags": ["Insect"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Monster",
-    "CardName": "Blinding Eye",
-    "TypeTags": ["Shadow", "Chaos"],
-    "AspectTags": ["Aberration"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Monster",
-    "CardName": "Blistered Bull",
-    "TypeTags": ["Nature", "Chaos"],
-    "AspectTags": ["Beast"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Monster",
-    "CardName": "Bugbear Bandit",
-    "TypeTags": ["Order", "Martial"],
-    "AspectTags": ["Humanoid"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Monster",
-    "CardName": "Dark Imp",
-    "TypeTags": ["Shadow", "Chaos"],
-    "AspectTags": ["Demon"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Monster",
-    "CardName": "Deathrattle Hyena",
-    "TypeTags": ["Nature", "Chaos"],
-    "AspectTags": ["Beast"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Monster",
-    "CardName": "Eclipse Herald",
-    "TypeTags": ["Shadow", "Chaos"],
-    "AspectTags": ["Spirit"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Monster",
-    "CardName": "Gnoll Spear Hunter",
-    "TypeTags": ["Order", "Martial"],
-    "AspectTags": ["Humanoid"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Monster",
-    "CardName": "Goblin Ballista Crew",
-    "TypeTags": ["Order", "Martial"],
-    "AspectTags": ["Humanoid"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Monster",
-    "CardName": "Goblin Wolfrider",
-    "TypeTags": ["Order", "Martial"],
-    "AspectTags": ["Humanoid"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Monster",
-    "CardName": "Hobgoblin Bandit",
-    "TypeTags": ["Order", "Martial"],
-    "AspectTags": ["Humanoid"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Monster",
-    "CardName": "Hobgoblin Bolter",
-    "TypeTags": ["Order", "Martial"],
-    "AspectTags": ["Humanoid"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Monster",
-    "CardName": "Hobgoblin Scout",
-    "TypeTags": ["Order", "Martial"],
-    "AspectTags": ["Humanoid"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Monster",
-    "CardName": "Ice Wisp",
-    "TypeTags": ["Arcane", "Order"],
-    "AspectTags": ["Spirit"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Monster",
-    "CardName": "Kobold Trapper",
-    "TypeTags": ["Order", "Martial"],
-    "AspectTags": ["Humanoid"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Monster",
-    "CardName": "Lesser Rothog",
-    "TypeTags": ["Nature", "Chaos"],
-    "AspectTags": ["Beast"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Monster",
-    "CardName": "Magmolt",
-    "TypeTags": ["Arcane", "Chaos"],
-    "AspectTags": ["Elemental"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Monster",
-    "CardName": "Moonwraith",
-    "TypeTags": ["Shadow", "Chaos"],
-    "AspectTags": ["Spirit"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Monster",
-    "CardName": "Mud Elemental",
-    "TypeTags": ["Arcane", "Nature"],
-    "AspectTags": ["Elemental"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Monster",
-    "CardName": "Nighthound",
-    "TypeTags": ["Shadow", "Chaos"],
-    "AspectTags": ["Beast"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Monster",
-    "CardName": "Orc Mercenary",
-    "TypeTags": ["Order", "Martial"],
-    "AspectTags": ["Humanoid"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Monster",
-    "CardName": "Pitchwing",
-    "TypeTags": ["Shadow", "Chaos"],
-    "AspectTags": ["Beast"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Monster",
-    "CardName": "Plaguehornet Swarm",
-    "TypeTags": ["Nature", "Chaos"],
-    "AspectTags": ["Insect"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Monster",
-    "CardName": "Pyre Acolyte",
-    "TypeTags": ["Arcane", "Shadow"],
-    "AspectTags": ["Humanoid"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Monster",
-    "CardName": "Rabid Wolverine",
-    "TypeTags": ["Nature", "Chaos"],
-    "AspectTags": ["Beast"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Monster",
-    "CardName": "Sandkin",
-    "TypeTags": ["Arcane", "Nature"],
-    "AspectTags": ["Elemental"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Monster",
-    "CardName": "Shadow Sorcerer",
-    "TypeTags": ["Shadow", "Arcane"],
-    "AspectTags": ["Humanoid"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Monster",
-    "CardName": "Skeletal Warrior",
-    "TypeTags": ["Shadow", "Chaos"],
-    "AspectTags": ["Undead"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Monster",
-    "CardName": "Slavering Howler",
-    "TypeTags": ["Nature", "Chaos"],
-    "AspectTags": ["Beast"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Monster",
-    "CardName": "Stone Acolyte",
-    "TypeTags": ["Arcane", "Order"],
-    "AspectTags": ["Humanoid"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Monster",
-    "CardName": "Storm Acolyte",
-    "TypeTags": ["Arcane", "Chaos"],
-    "AspectTags": ["Humanoid"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Monster",
-    "CardName": "Thunderbolt",
-    "TypeTags": ["Arcane", "Chaos"],
-    "AspectTags": ["Elemental"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Monster",
-    "CardName": "Voidcry",
-    "TypeTags": ["Shadow", "Chaos"],
-    "AspectTags": ["Aberration"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Monster",
-    "CardName": "Wastefang Spider",
-    "TypeTags": ["Nature", "Chaos"],
-    "AspectTags": ["Insect"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Monster",
-    "CardName": "Wave Acolyte",
-    "TypeTags": ["Arcane", "Order"],
-    "AspectTags": ["Humanoid"],
-    "mutableTags": [],
-    "Instructions": []
-  }
-],
-  "locations": [
- {
-    "Deck": "Location",
-    "CardName": "Gilded Harbor Exchange",
-    "TypeTags": ["Wealth", "Light"],
-    "AspectTags": ["Commerce"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Location",
-    "CardName": "Sunpetal Orchard",
-    "TypeTags": ["Nature", "Light"],
-    "AspectTags": ["Rural"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Location",
-    "CardName": "The Argent Parade Grounds",
-    "TypeTags": ["Martial", "Wealth"],
-    "AspectTags": ["Military"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Location",
-    "CardName": "Moonveil Market District",
-    "TypeTags": ["Wealth", "Shadow"],
-    "AspectTags": ["Trade"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Location",
-    "CardName": "Starwell Conservatory",
-    "TypeTags": ["Arcane", "Light"],
-    "AspectTags": ["Mystic"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Location",
-    "CardName": "Greenwater Terraces",
-    "TypeTags": ["Nature", "Wealth"],
-    "AspectTags": ["Garden"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Location",
-    "CardName": "The Silver Bastion",
-    "TypeTags": ["Martial", "Order"],
-    "AspectTags": ["Fortress"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Location",
-    "CardName": "Lanternspire Heights",
-    "TypeTags": ["Light", "Wealth"],
-    "AspectTags": ["Urban"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Location",
-    "CardName": "Whisperroot Hollow",
-    "TypeTags": ["Nature", "Shadow"],
-    "AspectTags": ["Forest"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Location",
-    "CardName": "The Arcstone Repository",
-    "TypeTags": ["Arcane", "Wealth"],
-    "AspectTags": ["Archive"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Location",
-    "CardName": "Cragforge Caravan Post",
-    "TypeTags": ["Wealth", "Martial"],
-    "AspectTags": ["Outpost"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Location",
-    "CardName": "The Shattered Meridian",
-    "TypeTags": ["Chaos", "Arcane"],
-    "AspectTags": ["Hazard"],
-    "mutableTags": [],
-    "Instructions": []
-  }
-,
     {
-    "Deck": "Location",
-    "CardName": "Glimmerfall Sanctuary",
-    "TypeTags": ["Light", "Order"],
-    "AspectTags": ["Holy"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Location",
-    "CardName": "Ashspire Warrens",
-    "TypeTags": ["Chaos", "Shadow"],
-    "AspectTags": ["Underground"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Location",
-    "CardName": "Verdant Crown Grove",
-    "TypeTags": ["Nature", "Light"],
-    "AspectTags": ["Forest"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Location",
-    "CardName": "Runescar Plateau",
-    "TypeTags": ["Arcane", "Martial"],
-    "AspectTags": ["Ancient"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Location",
-    "CardName": "The Golden Exchange",
-    "TypeTags": ["Wealth", "Order"],
-    "AspectTags": ["Commerce"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Location",
-    "CardName": "Moonshroud Fen",
-    "TypeTags": ["Shadow", "Nature"],
-    "AspectTags": ["Swamp"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Location",
-    "CardName": "Stormbreaker Keep",
-    "TypeTags": ["Martial", "Order"],
-    "AspectTags": ["Fortress"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Location",
-    "CardName": "The Arcane Observatory",
-    "TypeTags": ["Arcane", "Light"],
-    "AspectTags": ["Mystic"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Location",
-    "CardName": "Crimson Rift Chasm",
-    "TypeTags": ["Chaos", "Arcane"],
-    "AspectTags": ["Hazard"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Location",
-    "CardName": "Silkmarket Promenade",
-    "TypeTags": ["Wealth", "Light"],
-    "AspectTags": ["Trade"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Location",
-    "CardName": "Hollowshade Necropolis",
-    "TypeTags": ["Shadow", "Order"],
-    "AspectTags": ["Ruins"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Location",
-    "CardName": "Ironroot Barricade",
-    "TypeTags": ["Nature", "Martial"],
-    "AspectTags": ["Defensive"],
-    "mutableTags": [],
-    "Instructions": []
-  }
-
+      "id": "Monster-Armor-Cap Centipede-0.41767496158324147",
+      "Deck": "Monster",
+      "CardName": "Armor-Cap Centipede",
+      "TypeTags": [
+        "Nature",
+        "Chaos"
+      ],
+      "AspectTags": [
+        "Insect"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Monster-Blinding Eye-0.4066984169053094",
+      "Deck": "Monster",
+      "CardName": "Blinding Eye",
+      "TypeTags": [
+        "Shadow",
+        "Chaos"
+      ],
+      "AspectTags": [
+        "Aberration"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Monster-Blistered Bull-0.8493463863890378",
+      "Deck": "Monster",
+      "CardName": "Blistered Bull",
+      "TypeTags": [
+        "Nature",
+        "Chaos"
+      ],
+      "AspectTags": [
+        "Beast"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Monster-Bugbear Bandit-0.9229424610033357",
+      "Deck": "Monster",
+      "CardName": "Bugbear Bandit",
+      "TypeTags": [
+        "Order",
+        "Martial"
+      ],
+      "AspectTags": [
+        "Humanoid"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Monster-Dark Imp-0.10997058000117321",
+      "Deck": "Monster",
+      "CardName": "Dark Imp",
+      "TypeTags": [
+        "Shadow",
+        "Chaos"
+      ],
+      "AspectTags": [
+        "Demon"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Monster-Deathrattle Hyena-0.4970795405660037",
+      "Deck": "Monster",
+      "CardName": "Deathrattle Hyena",
+      "TypeTags": [
+        "Nature",
+        "Chaos"
+      ],
+      "AspectTags": [
+        "Beast"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Monster-Eclipse Herald-0.24915684657568005",
+      "Deck": "Monster",
+      "CardName": "Eclipse Herald",
+      "TypeTags": [
+        "Shadow",
+        "Chaos"
+      ],
+      "AspectTags": [
+        "Spirit"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Monster-Gnoll Spear Hunter-0.9460536613064744",
+      "Deck": "Monster",
+      "CardName": "Gnoll Spear Hunter",
+      "TypeTags": [
+        "Order",
+        "Martial"
+      ],
+      "AspectTags": [
+        "Humanoid"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Monster-Goblin Ballista Crew-0.43942466287721016",
+      "Deck": "Monster",
+      "CardName": "Goblin Ballista Crew",
+      "TypeTags": [
+        "Order",
+        "Martial"
+      ],
+      "AspectTags": [
+        "Humanoid"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Monster-Goblin Wolfrider-0.018383693227463804",
+      "Deck": "Monster",
+      "CardName": "Goblin Wolfrider",
+      "TypeTags": [
+        "Order",
+        "Martial"
+      ],
+      "AspectTags": [
+        "Humanoid"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Monster-Hobgoblin Bandit-0.7458927527700012",
+      "Deck": "Monster",
+      "CardName": "Hobgoblin Bandit",
+      "TypeTags": [
+        "Order",
+        "Martial"
+      ],
+      "AspectTags": [
+        "Humanoid"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Monster-Hobgoblin Bolter-0.2322543248140636",
+      "Deck": "Monster",
+      "CardName": "Hobgoblin Bolter",
+      "TypeTags": [
+        "Order",
+        "Martial"
+      ],
+      "AspectTags": [
+        "Humanoid"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Monster-Hobgoblin Scout-0.7438067486067503",
+      "Deck": "Monster",
+      "CardName": "Hobgoblin Scout",
+      "TypeTags": [
+        "Order",
+        "Martial"
+      ],
+      "AspectTags": [
+        "Humanoid"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Monster-Ice Wisp-0.22878107108968082",
+      "Deck": "Monster",
+      "CardName": "Ice Wisp",
+      "TypeTags": [
+        "Arcane",
+        "Order"
+      ],
+      "AspectTags": [
+        "Spirit"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Monster-Kobold Trapper-0.6268323493730971",
+      "Deck": "Monster",
+      "CardName": "Kobold Trapper",
+      "TypeTags": [
+        "Order",
+        "Martial"
+      ],
+      "AspectTags": [
+        "Humanoid"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Monster-Lesser Rothog-0.3142928883948065",
+      "Deck": "Monster",
+      "CardName": "Lesser Rothog",
+      "TypeTags": [
+        "Nature",
+        "Chaos"
+      ],
+      "AspectTags": [
+        "Beast"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Monster-Magmolt-0.37534829235950196",
+      "Deck": "Monster",
+      "CardName": "Magmolt",
+      "TypeTags": [
+        "Arcane",
+        "Chaos"
+      ],
+      "AspectTags": [
+        "Elemental"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Monster-Moonwraith-0.4339554163282756",
+      "Deck": "Monster",
+      "CardName": "Moonwraith",
+      "TypeTags": [
+        "Shadow",
+        "Chaos"
+      ],
+      "AspectTags": [
+        "Spirit"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Monster-Mud Elemental-0.011462947299685888",
+      "Deck": "Monster",
+      "CardName": "Mud Elemental",
+      "TypeTags": [
+        "Arcane",
+        "Nature"
+      ],
+      "AspectTags": [
+        "Elemental"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Monster-Nighthound-0.49825549703813354",
+      "Deck": "Monster",
+      "CardName": "Nighthound",
+      "TypeTags": [
+        "Shadow",
+        "Chaos"
+      ],
+      "AspectTags": [
+        "Beast"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Monster-Orc Mercenary-0.5450264145782023",
+      "Deck": "Monster",
+      "CardName": "Orc Mercenary",
+      "TypeTags": [
+        "Order",
+        "Martial"
+      ],
+      "AspectTags": [
+        "Humanoid"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Monster-Pitchwing-0.780220417428259",
+      "Deck": "Monster",
+      "CardName": "Pitchwing",
+      "TypeTags": [
+        "Shadow",
+        "Chaos"
+      ],
+      "AspectTags": [
+        "Beast"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Monster-Plaguehornet Swarm-0.06965527444776332",
+      "Deck": "Monster",
+      "CardName": "Plaguehornet Swarm",
+      "TypeTags": [
+        "Nature",
+        "Chaos"
+      ],
+      "AspectTags": [
+        "Insect"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Monster-Pyre Acolyte-0.8446759647257167",
+      "Deck": "Monster",
+      "CardName": "Pyre Acolyte",
+      "TypeTags": [
+        "Arcane",
+        "Shadow"
+      ],
+      "AspectTags": [
+        "Humanoid"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Monster-Rabid Wolverine-0.6295145623148992",
+      "Deck": "Monster",
+      "CardName": "Rabid Wolverine",
+      "TypeTags": [
+        "Nature",
+        "Chaos"
+      ],
+      "AspectTags": [
+        "Beast"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Monster-Sandkin-0.6494550101204201",
+      "Deck": "Monster",
+      "CardName": "Sandkin",
+      "TypeTags": [
+        "Arcane",
+        "Nature"
+      ],
+      "AspectTags": [
+        "Elemental"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Monster-Shadow Sorcerer-0.6472634824035519",
+      "Deck": "Monster",
+      "CardName": "Shadow Sorcerer",
+      "TypeTags": [
+        "Shadow",
+        "Arcane"
+      ],
+      "AspectTags": [
+        "Humanoid"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Monster-Skeletal Warrior-0.6653203428178066",
+      "Deck": "Monster",
+      "CardName": "Skeletal Warrior",
+      "TypeTags": [
+        "Shadow",
+        "Chaos"
+      ],
+      "AspectTags": [
+        "Undead"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Monster-Slavering Howler-0.7928377728241573",
+      "Deck": "Monster",
+      "CardName": "Slavering Howler",
+      "TypeTags": [
+        "Nature",
+        "Chaos"
+      ],
+      "AspectTags": [
+        "Beast"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Monster-Stone Acolyte-0.44189373384730346",
+      "Deck": "Monster",
+      "CardName": "Stone Acolyte",
+      "TypeTags": [
+        "Arcane",
+        "Order"
+      ],
+      "AspectTags": [
+        "Humanoid"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Monster-Storm Acolyte-0.6270306079597886",
+      "Deck": "Monster",
+      "CardName": "Storm Acolyte",
+      "TypeTags": [
+        "Arcane",
+        "Chaos"
+      ],
+      "AspectTags": [
+        "Humanoid"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Monster-Thunderbolt-0.22742199391836782",
+      "Deck": "Monster",
+      "CardName": "Thunderbolt",
+      "TypeTags": [
+        "Arcane",
+        "Chaos"
+      ],
+      "AspectTags": [
+        "Elemental"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Monster-Voidcry-0.242091408101887",
+      "Deck": "Monster",
+      "CardName": "Voidcry",
+      "TypeTags": [
+        "Shadow",
+        "Chaos"
+      ],
+      "AspectTags": [
+        "Aberration"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Monster-Wastefang Spider-0.07565206118225998",
+      "Deck": "Monster",
+      "CardName": "Wastefang Spider",
+      "TypeTags": [
+        "Nature",
+        "Chaos"
+      ],
+      "AspectTags": [
+        "Insect"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Monster-Wave Acolyte-0.6201060825789364",
+      "Deck": "Monster",
+      "CardName": "Wave Acolyte",
+      "TypeTags": [
+        "Arcane",
+        "Order"
+      ],
+      "AspectTags": [
+        "Humanoid"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    }
   ],
-  "loot": [
-  {
-    "Deck": "Loot",
-    "CardName": "Battle Scripture",
-    "TypeTags": ["Consumable", "Magic Item"],
-    "AspectTags": [],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Loot",
-    "CardName": "Bear Fang Necklace",
-    "TypeTags": ["Magic Item"],
-    "AspectTags": ["Jewelry"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Loot",
-    "CardName": "Beastcleaner",
-    "TypeTags": ["Magic Item"],
-    "AspectTags": ["Tool"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Loot",
-    "CardName": "Belt of Veracity",
-    "TypeTags": ["Magic Item"],
-    "AspectTags": ["Clothing"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Loot",
-    "CardName": "Blazing Morningstar",
-    "TypeTags": ["Magic Item"],
-    "AspectTags": ["Weapon"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Loot",
-    "CardName": "Bolt of Light",
-    "TypeTags": ["Consumable", "Magic Item"],
-    "AspectTags": [],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Loot",
-    "CardName": "Brass Suns",
-    "TypeTags": ["Magic Item"],
-    "AspectTags": ["Jewelry"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Loot",
-    "CardName": "Cloak of the Wilds",
-    "TypeTags": ["Magic Item"],
-    "AspectTags": ["Clothing"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Loot",
-    "CardName": "Cloudwatcher's Telescope",
-    "TypeTags": ["Magic Item"],
-    "AspectTags": ["Tool"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Loot",
-    "CardName": "Collector's Scabbard",
-    "TypeTags": ["Magic Item"],
-    "AspectTags": ["Tool"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Loot",
-    "CardName": "Elven Recurve",
-    "TypeTags": ["Magic Item"],
-    "AspectTags": ["Weapon"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Loot",
-    "CardName": "Enchanted Rucksack",
-    "TypeTags": ["Magic Item"],
-    "AspectTags": ["Worn"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Loot",
-    "CardName": "Helm of the Survivor",
-    "TypeTags": ["Magic Item"],
-    "AspectTags": ["Armor"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Loot",
-    "CardName": "Meditation Beads",
-    "TypeTags": ["Magic Item"],
-    "AspectTags": ["Jewelry"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Loot",
-    "CardName": "Nightfleece Gambeson",
-    "TypeTags": ["Magic Item"],
-    "AspectTags": ["Armor"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Loot",
-    "CardName": "Plate of Protection",
-    "TypeTags": ["Magic Item"],
-    "AspectTags": ["Armor"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Loot",
-    "CardName": "Platinum Cuirass",
-    "TypeTags": ["Magic Item"],
-    "AspectTags": ["Armor"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Loot",
-    "CardName": "Prince's Coat of Plates",
-    "TypeTags": ["Magic Item"],
-    "AspectTags": ["Armor"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Loot",
-    "CardName": "Saphire Signet",
-    "TypeTags": ["Magic Item"],
-    "AspectTags": ["Jewelry"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Loot",
-    "CardName": "Steel Amulet",
-    "TypeTags": ["Magic Item"],
-    "AspectTags": ["Jewelry"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Loot",
-    "CardName": "Stormgather Staff",
-    "TypeTags": ["Magic Item"],
-    "AspectTags": ["Weapon"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Loot",
-    "CardName": "Sword and Dagger of the Hero",
-    "TypeTags": ["Magic Item"],
-    "AspectTags": ["Weapon"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Loot",
-    "CardName": "Thunder's Roar Earrings",
-    "TypeTags": ["Magic Item"],
-    "AspectTags": ["Jewelry"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Loot",
-    "CardName": "Treasure 1/4",
-    "TypeTags": ["Wealth"],
-    "AspectTags": ["Treasure"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Loot",
-    "CardName": "Treasure 1/2",
-    "TypeTags": ["Wealth"],
-    "AspectTags": ["Treasure"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Loot",
-    "CardName": "Treasure 1",
-    "TypeTags": ["Wealth"],
-    "AspectTags": ["Treasure"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Loot",
-    "CardName": "Treasure 2",
-    "TypeTags": ["Wealth"],
-    "AspectTags": ["Treasure"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Loot",
-    "CardName": "Treasure 3",
-    "TypeTags": ["Wealth"],
-    "AspectTags": ["Treasure"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Loot",
-    "CardName": "Unbreakable Spear",
-    "TypeTags": ["Magic Item"],
-    "AspectTags": ["Weapon"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Loot",
-    "CardName": "Veteran's Cowl",
-    "TypeTags": ["Magic Item"],
-    "AspectTags": ["Clothing"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Loot",
-    "CardName": "Wavetreader Boots",
-    "TypeTags": ["Magic Item"],
-    "AspectTags": ["Worn"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Loot",
-    "CardName": "Wizard's Cap and Gown",
-    "TypeTags": ["Magic Item"],
-    "AspectTags": ["Clothing"],
-    "mutableTags": [],
-    "Instructions": []
-  },
-  {
-    "Deck": "Loot",
-    "CardName": "Dwarven Meal",
-    "TypeTags": ["Consumable", "Magic Item"],
-    "AspectTags": [],
-    "mutableTags": [],
-    "Instructions": []
-  }
-],
+  "locations": [
+    {
+      "id": "Location-Gilded Harbor Exchange-0.6387756002644887",
+      "Deck": "Location",
+      "CardName": "Gilded Harbor Exchange",
+      "TypeTags": [
+        "Wealth",
+        "Light"
+      ],
+      "AspectTags": [
+        "Commerce"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Location-Sunpetal Orchard-0.9787394113153588",
+      "Deck": "Location",
+      "CardName": "Sunpetal Orchard",
+      "TypeTags": [
+        "Nature",
+        "Light"
+      ],
+      "AspectTags": [
+        "Rural"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Location-The Argent Parade Grounds-0.4335354380091957",
+      "Deck": "Location",
+      "CardName": "The Argent Parade Grounds",
+      "TypeTags": [
+        "Martial",
+        "Wealth"
+      ],
+      "AspectTags": [
+        "Military"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Location-Moonveil Market District-0.1620513447152767",
+      "Deck": "Location",
+      "CardName": "Moonveil Market District",
+      "TypeTags": [
+        "Wealth",
+        "Shadow"
+      ],
+      "AspectTags": [
+        "Trade"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Location-Starwell Conservatory-0.4096072491303422",
+      "Deck": "Location",
+      "CardName": "Starwell Conservatory",
+      "TypeTags": [
+        "Arcane",
+        "Light"
+      ],
+      "AspectTags": [
+        "Mystic"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Location-Greenwater Terraces-0.20393895211347235",
+      "Deck": "Location",
+      "CardName": "Greenwater Terraces",
+      "TypeTags": [
+        "Nature",
+        "Wealth"
+      ],
+      "AspectTags": [
+        "Garden"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Location-The Silver Bastion-0.43178531029845435",
+      "Deck": "Location",
+      "CardName": "The Silver Bastion",
+      "TypeTags": [
+        "Martial",
+        "Order"
+      ],
+      "AspectTags": [
+        "Fortress"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Location-Lanternspire Heights-0.4568905553974415",
+      "Deck": "Location",
+      "CardName": "Lanternspire Heights",
+      "TypeTags": [
+        "Light",
+        "Wealth"
+      ],
+      "AspectTags": [
+        "Urban"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Location-Whisperroot Hollow-0.9392442860643614",
+      "Deck": "Location",
+      "CardName": "Whisperroot Hollow",
+      "TypeTags": [
+        "Nature",
+        "Shadow"
+      ],
+      "AspectTags": [
+        "Forest"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Location-The Arcstone Repository-0.5094432937640843",
+      "Deck": "Location",
+      "CardName": "The Arcstone Repository",
+      "TypeTags": [
+        "Arcane",
+        "Wealth"
+      ],
+      "AspectTags": [
+        "Archive"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Location-Cragforge Caravan Post-0.003261632793796765",
+      "Deck": "Location",
+      "CardName": "Cragforge Caravan Post",
+      "TypeTags": [
+        "Wealth",
+        "Martial"
+      ],
+      "AspectTags": [
+        "Outpost"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Location-The Shattered Meridian-0.3328068437253353",
+      "Deck": "Location",
+      "CardName": "The Shattered Meridian",
+      "TypeTags": [
+        "Chaos",
+        "Arcane"
+      ],
+      "AspectTags": [
+        "Hazard"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Location-Glimmerfall Sanctuary-0.775155358856178",
+      "Deck": "Location",
+      "CardName": "Glimmerfall Sanctuary",
+      "TypeTags": [
+        "Light",
+        "Order"
+      ],
+      "AspectTags": [
+        "Holy"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Location-Ashspire Warrens-0.4896170998827363",
+      "Deck": "Location",
+      "CardName": "Ashspire Warrens",
+      "TypeTags": [
+        "Chaos",
+        "Shadow"
+      ],
+      "AspectTags": [
+        "Underground"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Location-Verdant Crown Grove-0.4361684642519532",
+      "Deck": "Location",
+      "CardName": "Verdant Crown Grove",
+      "TypeTags": [
+        "Nature",
+        "Light"
+      ],
+      "AspectTags": [
+        "Forest"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Location-Runescar Plateau-0.1601882177909527",
+      "Deck": "Location",
+      "CardName": "Runescar Plateau",
+      "TypeTags": [
+        "Arcane",
+        "Martial"
+      ],
+      "AspectTags": [
+        "Ancient"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Location-The Golden Exchange-0.11790976540639297",
+      "Deck": "Location",
+      "CardName": "The Golden Exchange",
+      "TypeTags": [
+        "Wealth",
+        "Order"
+      ],
+      "AspectTags": [
+        "Commerce"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Location-Moonshroud Fen-0.16019416777138895",
+      "Deck": "Location",
+      "CardName": "Moonshroud Fen",
+      "TypeTags": [
+        "Shadow",
+        "Nature"
+      ],
+      "AspectTags": [
+        "Swamp"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Location-Stormbreaker Keep-0.9944293472212976",
+      "Deck": "Location",
+      "CardName": "Stormbreaker Keep",
+      "TypeTags": [
+        "Martial",
+        "Order"
+      ],
+      "AspectTags": [
+        "Fortress"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Location-The Arcane Observatory-0.11449762771316263",
+      "Deck": "Location",
+      "CardName": "The Arcane Observatory",
+      "TypeTags": [
+        "Arcane",
+        "Light"
+      ],
+      "AspectTags": [
+        "Mystic"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Location-Crimson Rift Chasm-0.8429813129159546",
+      "Deck": "Location",
+      "CardName": "Crimson Rift Chasm",
+      "TypeTags": [
+        "Chaos",
+        "Arcane"
+      ],
+      "AspectTags": [
+        "Hazard"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Location-Silkmarket Promenade-0.7430678670128485",
+      "Deck": "Location",
+      "CardName": "Silkmarket Promenade",
+      "TypeTags": [
+        "Wealth",
+        "Light"
+      ],
+      "AspectTags": [
+        "Trade"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Location-Hollowshade Necropolis-0.5321917397410942",
+      "Deck": "Location",
+      "CardName": "Hollowshade Necropolis",
+      "TypeTags": [
+        "Shadow",
+        "Order"
+      ],
+      "AspectTags": [
+        "Ruins"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Location-Ironroot Barricade-0.08884915139210836",
+      "Deck": "Location",
+      "CardName": "Ironroot Barricade",
+      "TypeTags": [
+        "Nature",
+        "Martial"
+      ],
+      "AspectTags": [
+        "Defensive"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    }
+  ],
   "questtemplates": [
     {
       "id": "QuestTemplate-Retrieve-0.7769948243584289",
@@ -1361,7 +2048,7 @@
       ]
     },
     {
-      "Deck": "QuestTemplate",
+      "Deck": "Quest Template",
       "CardName": "Defend",
       "TypeTags": [
         "Martial",
@@ -1375,56 +2062,38 @@
       "ConsequenceText": "The defended location falls to the enemy",
       "DrawInstructions": [
         {
-          "deck": "NPC",
+          "deck": "locations",
           "tags": [
             "Order",
             "Martial"
           ],
           "count": 1,
-          "label": "Asks heroes to defend",
-          "action": "draw"
+          "label": "Attacked Location",
+          "action": "draw",
+          "prefix": "",
+          "suffix": "is under attack"
         },
         {
-          "deck": "Location",
-          "tags": [
-            "Light"
-          ],
-          "count": 1,
-          "label": "Location which is being attacked by",
-          "action": "draw"
-        },
-        {
-          "deck": "NPC",
+          "deck": "npcs",
           "tags": [
             "Shadow"
           ],
           "count": 1,
-          "label": "Being attacked by",
-          "action": "draw"
+          "label": "the villan",
+          "action": "draw",
+          "prefix": "by the villian",
+          "suffix": ""
         },
         {
-          "deck": "Monster",
+          "deck": "loot",
           "tags": [
-            "Shadow",
-            "Chaos"
+            "Magic Item"
           ],
-          "count": 2,
-          "label": "and also being attacked by",
-          "action": "draw"
-        },
-        {
-          "deck": "Twist",
-          "tags": [],
           "count": 1,
-          "label": "Twist",
-          "action": "draw"
-        },
-        {
-          "deck": "MagicItem",
-          "tags": [],
-          "count": 1,
-          "label": "Get rewarded with",
-          "action": "draw"
+          "label": "the reward",
+          "action": "draw",
+          "prefix": "Successfully defending will result in a reward of",
+          "suffix": ""
         }
       ]
     }
