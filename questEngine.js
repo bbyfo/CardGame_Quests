@@ -515,10 +515,14 @@ class QuestEngine {
         
         const label = instruction.label || `component_${i}`;
         
-        // Store instruction metadata (prefix, suffix)
+        // Store instruction metadata (prefix, suffix, deck, count, tags)
         this.quest.instructions[label] = {
           prefix: instruction.prefix || '',
-          suffix: instruction.suffix || ''
+          suffix: instruction.suffix || '',
+          deck: instruction.deck || '',
+          count: instruction.count || 1,
+          tags: instruction.tags || [],
+          label: label
         };
         
         // If multiple cards drawn, store as array

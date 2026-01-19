@@ -314,6 +314,25 @@ class UIManager {
   }
 
   /**
+   * Generate player-facing instruction text
+   * This function can be reused for CSV export
+   */
+  generatePlayerInstruction(instructionData) {
+    if (!instructionData || !instructionData.deck) return '';
+    
+    const { deck, count, tags, label } = instructionData;
+    const countText = count > 1 ? `${count} cards` : '1 card';
+    const deckText = deck;
+    
+    let tagsText = '';
+    if (tags && tags.length > 0) {
+      tagsText = ` which have ${tags.join(', ')}`;
+    }
+    
+    return `Draw ${countText} from ${deckText}${tagsText}.`;
+  }
+
+  /**
    * Display a quest in the Quest Output section
    */
   displayQuest(quest) {
@@ -333,10 +352,15 @@ class UIManager {
     const formatComponent = (label, componentData) => {
       if (!componentData) return '';
       
-      // Get instruction metadata (prefix/suffix) for this label
+      // Get instruction metadata (prefix/suffix/deck/count/tags) for this label
       const instructionMeta = quest.instructions && quest.instructions[label] ? quest.instructions[label] : {};
       const prefix = instructionMeta.prefix || '';
       const suffix = instructionMeta.suffix || '';
+      
+      // Generate player-facing instruction
+      const playerInstruction = this.generatePlayerInstruction(instructionMeta);
+      const playerInstructionHTML = playerInstruction ? 
+        `<div class="player-instruction">📋 <em>${playerInstruction}</em></div>` : '';
       
       // Helper to wrap card name with prefix/suffix
       const wrapCardName = (cardName) => {
@@ -353,6 +377,7 @@ class UIManager {
           ${componentData.map((card, index) => `
             <div class="multi-card-item">
               <span class="card-number">#${index + 1}</span> ${wrapCardName(card.CardName)}
+              ${playerInstructionHTML}
               <div class="tags">
                 <span class="tag-label">Type Tags:</span> ${card.TypeTags.join(', ')}
                 <span class="tag-label">Aspect Tags:</span> ${card.AspectTags.join(', ')}
@@ -367,6 +392,7 @@ class UIManager {
       // Handle single card
       return `<div class="quest-role">
         ${wrapCardName(componentData.CardName)}
+        ${playerInstructionHTML}
         <div class="tags">
           <span class="tag-label">Type Tags:</span> ${componentData.TypeTags.join(', ')}
           <span class="tag-label">Aspect Tags:</span> ${componentData.AspectTags.join(', ')}
