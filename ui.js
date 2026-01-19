@@ -51,6 +51,9 @@ class UIManager {
 
     const redrawLimit = document.getElementById('redraw-limit');
     if (redrawLimit) {
+      // Initialize engine with current dropdown value
+      this.engine.maxRedraws = parseInt(redrawLimit.value);
+      
       redrawLimit.addEventListener('change', (e) => {
         this.engine.maxRedraws = parseInt(e.target.value);
         const displayValue = this.engine.maxRedraws === -1 ? '∞ (infinite)' : this.engine.maxRedraws;
