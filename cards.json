@@ -247,49 +247,287 @@
     }
   ],
   "monsters": [
-    {
-      "id": "Monster-ArmorcapCentipede-0.1",
-      "Deck": "Monster",
-      "CardName": "Armorcap Centipede",
-      "TypeTags": [
-        "Nature",
-        "Chaos"
-      ],
-      "AspectTags": [
-        "Beast"
-      ],
-      "mutableTags": [],
-      "Instructions": []
-    },
-    {
-      "id": "Monster-HobgoblinBolter-0.2",
-      "Deck": "Monster",
-      "CardName": "Hobgoblin Bolter",
-      "TypeTags": [
-        "Martial",
-        "Shadow"
-      ],
-      "AspectTags": [
-        "Humanoid"
-      ],
-      "mutableTags": [],
-      "Instructions": []
-    },
-    {
-      "id": "Monster-Goblin-0.3",
-      "Deck": "Monster",
-      "CardName": "Goblin",
-      "TypeTags": [
-        "Chaos",
-        "Shadow"
-      ],
-      "AspectTags": [
-        "Humanoid"
-      ],
-      "mutableTags": [],
-      "Instructions": []
-    }
-  ],
+  {
+    "Deck": "Monster",
+    "CardName": "Armor-Cap Centipede",
+    "TypeTags": ["Nature", "Chaos"],
+    "AspectTags": ["Insect"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Monster",
+    "CardName": "Blinding Eye",
+    "TypeTags": ["Shadow", "Chaos"],
+    "AspectTags": ["Aberration"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Monster",
+    "CardName": "Blistered Bull",
+    "TypeTags": ["Nature", "Chaos"],
+    "AspectTags": ["Beast"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Monster",
+    "CardName": "Bugbear Bandit",
+    "TypeTags": ["Order", "Martial"],
+    "AspectTags": ["Humanoid"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Monster",
+    "CardName": "Dark Imp",
+    "TypeTags": ["Shadow", "Chaos"],
+    "AspectTags": ["Demon"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Monster",
+    "CardName": "Deathrattle Hyena",
+    "TypeTags": ["Nature", "Chaos"],
+    "AspectTags": ["Beast"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Monster",
+    "CardName": "Eclipse Herald",
+    "TypeTags": ["Shadow", "Chaos"],
+    "AspectTags": ["Spirit"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Monster",
+    "CardName": "Gnoll Spear Hunter",
+    "TypeTags": ["Order", "Martial"],
+    "AspectTags": ["Humanoid"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Monster",
+    "CardName": "Goblin Ballista Crew",
+    "TypeTags": ["Order", "Martial"],
+    "AspectTags": ["Humanoid"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Monster",
+    "CardName": "Goblin Wolfrider",
+    "TypeTags": ["Order", "Martial"],
+    "AspectTags": ["Humanoid"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Monster",
+    "CardName": "Hobgoblin Bandit",
+    "TypeTags": ["Order", "Martial"],
+    "AspectTags": ["Humanoid"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Monster",
+    "CardName": "Hobgoblin Bolter",
+    "TypeTags": ["Order", "Martial"],
+    "AspectTags": ["Humanoid"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Monster",
+    "CardName": "Hobgoblin Scout",
+    "TypeTags": ["Order", "Martial"],
+    "AspectTags": ["Humanoid"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Monster",
+    "CardName": "Ice Wisp",
+    "TypeTags": ["Arcane", "Order"],
+    "AspectTags": ["Spirit"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Monster",
+    "CardName": "Kobold Trapper",
+    "TypeTags": ["Order", "Martial"],
+    "AspectTags": ["Humanoid"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Monster",
+    "CardName": "Lesser Rothog",
+    "TypeTags": ["Nature", "Chaos"],
+    "AspectTags": ["Beast"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Monster",
+    "CardName": "Magmolt",
+    "TypeTags": ["Arcane", "Chaos"],
+    "AspectTags": ["Elemental"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Monster",
+    "CardName": "Moonwraith",
+    "TypeTags": ["Shadow", "Chaos"],
+    "AspectTags": ["Spirit"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Monster",
+    "CardName": "Mud Elemental",
+    "TypeTags": ["Arcane", "Nature"],
+    "AspectTags": ["Elemental"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Monster",
+    "CardName": "Nighthound",
+    "TypeTags": ["Shadow", "Chaos"],
+    "AspectTags": ["Beast"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Monster",
+    "CardName": "Orc Mercenary",
+    "TypeTags": ["Order", "Martial"],
+    "AspectTags": ["Humanoid"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Monster",
+    "CardName": "Pitchwing",
+    "TypeTags": ["Shadow", "Chaos"],
+    "AspectTags": ["Beast"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Monster",
+    "CardName": "Plaguehornet Swarm",
+    "TypeTags": ["Nature", "Chaos"],
+    "AspectTags": ["Insect"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Monster",
+    "CardName": "Pyre Acolyte",
+    "TypeTags": ["Arcane", "Shadow"],
+    "AspectTags": ["Humanoid"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Monster",
+    "CardName": "Rabid Wolverine",
+    "TypeTags": ["Nature", "Chaos"],
+    "AspectTags": ["Beast"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Monster",
+    "CardName": "Sandkin",
+    "TypeTags": ["Arcane", "Nature"],
+    "AspectTags": ["Elemental"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Monster",
+    "CardName": "Shadow Sorcerer",
+    "TypeTags": ["Shadow", "Arcane"],
+    "AspectTags": ["Humanoid"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Monster",
+    "CardName": "Skeletal Warrior",
+    "TypeTags": ["Shadow", "Chaos"],
+    "AspectTags": ["Undead"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Monster",
+    "CardName": "Slavering Howler",
+    "TypeTags": ["Nature", "Chaos"],
+    "AspectTags": ["Beast"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Monster",
+    "CardName": "Stone Acolyte",
+    "TypeTags": ["Arcane", "Order"],
+    "AspectTags": ["Humanoid"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Monster",
+    "CardName": "Storm Acolyte",
+    "TypeTags": ["Arcane", "Chaos"],
+    "AspectTags": ["Humanoid"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Monster",
+    "CardName": "Thunderbolt",
+    "TypeTags": ["Arcane", "Chaos"],
+    "AspectTags": ["Elemental"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Monster",
+    "CardName": "Voidcry",
+    "TypeTags": ["Shadow", "Chaos"],
+    "AspectTags": ["Aberration"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Monster",
+    "CardName": "Wastefang Spider",
+    "TypeTags": ["Nature", "Chaos"],
+    "AspectTags": ["Insect"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Monster",
+    "CardName": "Wave Acolyte",
+    "TypeTags": ["Arcane", "Order"],
+    "AspectTags": ["Humanoid"],
+    "mutableTags": [],
+    "Instructions": []
+  }
+],
   "locations": [
     {
       "id": "Location-Dark Forest-0.443523449797007",
