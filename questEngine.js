@@ -47,6 +47,7 @@ class QuestEngine {
     this.quest = {
       template: null,
       components: {}, // Flexible storage by label (QuestGiver, Target, etc.)
+      instructions: {}, // Store instruction metadata (prefix, suffix) by label
       rewardText: null,
       consequenceText: null,
       modifications: []
@@ -500,6 +501,12 @@ class QuestEngine {
         }
         
         const label = instruction.label || `component_${i}`;
+        
+        // Store instruction metadata (prefix, suffix)
+        this.quest.instructions[label] = {
+          prefix: instruction.prefix || '',
+          suffix: instruction.suffix || ''
+        };
         
         // If multiple cards drawn, store as array
         if (Array.isArray(result)) {

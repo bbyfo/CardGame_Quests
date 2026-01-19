@@ -413,13 +413,27 @@ class UIManager {
     const formatComponent = (label, componentData) => {
       if (!componentData) return '';
       
+      // Get instruction metadata (prefix/suffix) for this label
+      const instructionMeta = quest.instructions && quest.instructions[label] ? quest.instructions[label] : {};
+      const prefix = instructionMeta.prefix || '';
+      const suffix = instructionMeta.suffix || '';
+      
+      // Helper to wrap card name with prefix/suffix
+      const wrapCardName = (cardName) => {
+        let wrapped = '';
+        if (prefix) wrapped += `<span class="prefix">${prefix} </span>`;
+        wrapped += `<strong class="card-name">${cardName}</strong>`;
+        if (suffix) wrapped += `<span class="suffix"> ${suffix}</span>`;
+        return wrapped;
+      };
+      
       // Handle array of cards (multiple draws for same label)
       if (Array.isArray(componentData)) {
         return `<div class="quest-role">
-          <strong>${label}:</strong>
+          <strong class="role-label">${label}:</strong>
           ${componentData.map((card, index) => `
             <div class="multi-card-item">
-              <span class="card-number">#${index + 1}</span> ${card.CardName}
+              <span class="card-number">#${index + 1}</span> ${wrapCardName(card.CardName)}
               <div class="tags">
                 <span class="tag-label">Type Tags:</span> ${card.TypeTags.join(', ')}
                 <span class="tag-label">Aspect Tags:</span> ${card.AspectTags.join(', ')}
@@ -433,7 +447,7 @@ class UIManager {
       
       // Handle single card
       return `<div class="quest-role">
-        <strong>${label}:</strong> ${componentData.CardName}
+        <strong class="role-label">${label}:</strong> ${wrapCardName(componentData.CardName)}
         <div class="tags">
           <span class="tag-label">Type Tags:</span> ${componentData.TypeTags.join(', ')}
           <span class="tag-label">Aspect Tags:</span> ${componentData.AspectTags.join(', ')}

@@ -878,6 +878,8 @@ class CardManager {
       document.getElementById('draw-deck').value = '';
       document.getElementById('draw-count').value = '1';
       document.getElementById('draw-label').value = '';
+      document.getElementById('draw-prefix').value = '';
+      document.getElementById('draw-suffix').value = '';
       this.clearTagList('draw-tags-list');
     }
   }
@@ -901,6 +903,8 @@ class CardManager {
     const deck = document.getElementById('draw-deck').value;
     const count = parseInt(document.getElementById('draw-count').value);
     const label = document.getElementById('draw-label').value.trim();
+    const prefix = document.getElementById('draw-prefix').value.trim();
+    const suffix = document.getElementById('draw-suffix').value.trim();
     const tags = this.getTagsFromList('draw-tags-list');
 
     if (!action) {
@@ -923,7 +927,9 @@ class CardManager {
       deck: deck,
       count: count,
       tags: tags,
-      label: label
+      label: label,
+      prefix: prefix || '',
+      suffix: suffix || ''
     };
 
     if (this.editingDrawInstructionIndex >= 0) {
@@ -956,6 +962,12 @@ class CardManager {
       const canMoveUp = index > 0;
       const canMoveDown = index < this.drawInstructionData.length - 1;
       
+      // Build preview text with prefix/suffix
+      let previewText = '';
+      if (instr.prefix) previewText += `<em>"${instr.prefix}"</em> `;
+      previewText += `<strong>[${instr.label}]</strong>`;
+      if (instr.suffix) previewText += ` <em>"${instr.suffix}"</em>`;
+      
       item.innerHTML = `
         <div class="instruction-header">
           <h4>${instr.label} (${instr.action})</h4>
@@ -965,6 +977,7 @@ class CardManager {
             <span class="instruction-remove" data-index="${index}">✕</span>
           </div>
         </div>
+        <div class="instruction-preview">${previewText}</div>
         <div class="instruction-details">
           <span><strong>Deck:</strong> ${instr.deck}</span>
           <span><strong>Count:</strong> ${instr.count}</span>
@@ -1035,6 +1048,8 @@ class CardManager {
     document.getElementById('draw-deck').value = instruction.deck;
     document.getElementById('draw-count').value = instruction.count;
     document.getElementById('draw-label').value = instruction.label;
+    document.getElementById('draw-prefix').value = instruction.prefix || '';
+    document.getElementById('draw-suffix').value = instruction.suffix || '';
 
     // Clear and populate tags
     this.clearTagList('draw-tags-list');

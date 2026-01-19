@@ -236,6 +236,25 @@ section h4 {
   min-width: 80px;
 }
 
+/* Prefix and suffix styling */
+.quest-role .prefix,
+.quest-role .suffix {
+  color: #666;
+  font-style: italic;
+  font-weight: normal;
+}
+
+.quest-role .card-name {
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.quest-role .role-label {
+  color: var(--primary-color);
+  display: inline-block;
+  min-width: 80px;
+}
+
 .multi-card-item {
   padding-bottom: 12px;
   margin-bottom: 12px;

@@ -281,6 +281,26 @@
   font-size: 0.95rem;
 }
 
+.instruction-item .instruction-preview {
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  background-color: #f8f9fa;
+  border-left: 3px solid #667eea;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.instruction-item .instruction-preview em {
+  color: #666;
+  font-style: italic;
+}
+
+.instruction-item .instruction-preview strong {
+  color: #667eea;
+  font-weight: bold;
+}
+
 .instruction-item .instruction-tags {
   display: flex;
   flex-wrap: wrap;
