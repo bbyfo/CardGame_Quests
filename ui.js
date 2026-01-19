@@ -137,6 +137,11 @@ class UIManager {
       this.engine.debugMode = debugToggle.checked;
     }
     
+    // Refresh decks with fresh copies for new quest
+    if (window.dataLoader) {
+      this.engine.decks = window.dataLoader.getDecks();
+    }
+    
     const selectedVerb = this.getSelectedVerb();
     const quest = this.engine.generateQuest(selectedVerb);
     
@@ -159,6 +164,11 @@ class UIManager {
     this.clearLogs();
     this.mode = 'step-through';
     this.engine.reset();
+    
+    // Refresh decks with fresh copies for new quest
+    if (window.dataLoader) {
+      this.engine.decks = window.dataLoader.getDecks();
+    }
     
     // Update engine debug mode from checkbox
     const debugToggle = document.getElementById('debug-toggle');

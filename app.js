@@ -17,6 +17,9 @@ async function initializeApp() {
     dataLoader = new DataLoader();
     await dataLoader.loadFromAPI('/api/cards');
 
+    // Make dataLoader globally accessible for deck refreshing
+    window.dataLoader = dataLoader;
+
     // Create QuestEngine with loaded decks
     questEngine = new QuestEngine(dataLoader.getDecks());
 

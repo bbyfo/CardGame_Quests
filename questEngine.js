@@ -177,21 +177,23 @@ class QuestEngine {
 
   /**
    * Helper: Draw a random card from array, skipping rejected cards
+   * Returns {card, deckIndex} where deckIndex is the position in the original deck
    */
   drawRandomCard(deck) {
     this.stats.drawAttempts++;
-    // Filter out rejected cards
-    const availableCards = deck.filter(card => !this.rejectedCards.has(card.id));
-    if (availableCards.length === 0) return null;
-    const index = Math.floor(Math.random() * availableCards.length);
-    const card = availableCards[index];
+    
+    if (deck.length === 0) return { card: null, deckIndex: -1 };
+    
+    // Draw from the first card in the deck (top of deck)
+    const card = deck[0];
+    const deckIndex = 0;
     
     // Track card draw for validation statistics
     if (this.validator && card) {
       this.validator.trackCardDraw(card);
     }
     
-    return card;
+    return { card, deckIndex };
   }
 
   /**
@@ -200,12 +202,13 @@ class QuestEngine {
   drawWithFallback(deck, requiredTags, deckName, targetName) {
     let attempts = 0;
     let selectedCard = null;
+    let selectedIndex = -1;
     const maxAttempts = this.maxRedraws + 1; // maxRedraws is number of redraws, add 1 for first draw
     const isInfinite = this.maxRedraws === -1;
 
     while ((isInfinite || attempts < maxAttempts) && !selectedCard) {
       attempts++;
-      const card = this.drawRandomCard(deck);
+      const { card, deckIndex } = this.drawRandomCard(deck);
       
       if (!card) {
         this.log(`${deckName}: No cards available in deck`);
@@ -220,6 +223,7 @@ class QuestEngine {
 
       if (isMatch) {
         selectedCard = card;
+        selectedIndex = deckIndex;
         if (requiredTags.length === 0) {
           this.log(
             `${deckName} Draw #${attempts}: ACCEPTED "${card.CardName}" (no tag constraints)`,
@@ -234,10 +238,11 @@ class QuestEngine {
           );
         }
       } else {
-        // Card was rejected - set it aside for this quest
-        this.rejectedCards.add(card.id);
+        // Card was rejected - move it to bottom of deck
+        deck.splice(deckIndex, 1);
+        deck.push(card);
         this.log(
-          `${deckName} Draw #${attempts}: REJECTED "${card.CardName}" (no matching tags, needs: ${requiredTags.join(', ')})`,
+          `${deckName} Draw #${attempts}: REJECTED "${card.CardName}" (no matching tags, needs: ${requiredTags.join(', ')}) - moved to bottom`,
           { card: card.CardName, requiredTags: requiredTags },
           true // Verbose only
         );
@@ -246,8 +251,10 @@ class QuestEngine {
         if (!isInfinite && attempts === this.maxRedraws) {
           this.log(`${deckName}: Fallback triggered - auto-accepting next card`);
           this.stats.fallbacksTriggered++;
-          selectedCard = this.drawRandomCard(deck);
-          if (selectedCard) {
+          const fallbackResult = this.drawRandomCard(deck);
+          if (fallbackResult.card) {
+            selectedCard = fallbackResult.card;
+            selectedIndex = fallbackResult.deckIndex;
             this.log(
               `${deckName} Draw #${attempts + 1} (FALLBACK): Auto-accepted "${selectedCard.CardName}"`,
               { card: selectedCard.CardName, isFallback: true },
@@ -256,6 +263,16 @@ class QuestEngine {
           }
         }
       }
+    }
+
+    // Remove the card from the deck if one was successfully drawn
+    if (selectedCard && selectedIndex >= 0) {
+      deck.splice(selectedIndex, 1);
+      this.log(
+        `Card removed from ${deckName} deck (${deck.length} cards remaining)`,
+        { cardsRemaining: deck.length },
+        true // Verbose only
+      );
     }
 
     return selectedCard;
@@ -421,7 +438,12 @@ class QuestEngine {
         this.log('ERROR: No quest templates available');
         return null;
       }
-      template = this.drawRandomCard(templateDeck);
+      const { card, deckIndex } = this.drawRandomCard(templateDeck);
+      template = card;
+      // Remove template from deck
+      if (template && deckIndex >= 0) {
+        templateDeck.splice(deckIndex, 1);
+      }
     }
     
     if (!template) {
