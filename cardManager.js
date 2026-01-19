@@ -120,11 +120,14 @@ class CardManager {
           // Also save to localStorage as backup
           localStorage.setItem('cardManagerCards', JSON.stringify(this.cards));
         } else {
-          throw new Error('Server save failed');
+          // Get error details from response
+          const errorData = await response.json().catch(() => ({ error: 'Unknown error' }));
+          console.error('Server save failed:', errorData);
+          throw new Error(errorData.error || 'Server save failed');
         }
       } catch (error) {
         console.error('Server save error:', error);
-        this.showNotification('⚠️ Server save failed - saved to localStorage only', 'warning');
+        this.showNotification(`⚠️ Server save failed: ${error.message} - saved to localStorage only`, 'warning');
         localStorage.setItem('cardManagerCards', JSON.stringify(this.cards));
       }
     } else {

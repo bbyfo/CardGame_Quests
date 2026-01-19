@@ -114,11 +114,16 @@ app.post('/api/cards', async (req, res) => {
   try {
     const cards = req.body;
     
+    console.log('[API] POST /api/cards - Received card data');
+    console.log('[API] Deck keys in request:', Object.keys(cards));
+    
     // Validate the data structure
     const requiredDecks = ['npcs', 'questtemplates', 'locations', 'twists', 'magicitems', 'monsters'];
     for (const deck of requiredDecks) {
       if (!Array.isArray(cards[deck])) {
-        return res.status(400).json({ error: `Missing or invalid deck: ${deck}` });
+        const errorMsg = `Missing or invalid deck: ${deck}. Received decks: ${Object.keys(cards).join(', ')}`;
+        console.error('[API] Validation failed:', errorMsg);
+        return res.status(400).json({ error: errorMsg });
       }
     }
     
