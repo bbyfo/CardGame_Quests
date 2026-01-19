@@ -1347,6 +1347,7 @@ class CardManager {
       this.saveCardsToFile();
       this.extractAllTags();
       this.refreshAutocomplete();
+      this.populateDeckFilter();
       this.renderCardsList();
       
       alert('✓ Cards imported successfully!');
@@ -1397,6 +1398,7 @@ class CardManager {
       
       this.extractAllTags();
       this.refreshAutocomplete();
+      this.populateDeckFilter();
       this.renderCardsList();
       this.renderTagStatistics();
       this.resetForm();

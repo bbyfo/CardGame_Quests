@@ -654,49 +654,272 @@
       "Instructions": []
     }
   ],
-  "magicitems": [
-    {
-      "id": "MagicItem-MagicSword-0.1",
-      "Deck": "MagicItem",
-      "CardName": "Magic Sword",
-      "TypeTags": [
-        "Martial",
-        "Order"
-      ],
-      "AspectTags": [
-        "Weapon"
-      ],
-      "mutableTags": [],
-      "Instructions": []
-    },
-    {
-      "id": "MagicItem-HealingPotion-0.2",
-      "Deck": "MagicItem",
-      "CardName": "Healing Potion",
-      "TypeTags": [
-        "Light"
-      ],
-      "AspectTags": [
-        "Consumable"
-      ],
-      "mutableTags": [],
-      "Instructions": []
-    },
-    {
-      "id": "MagicItem-BootsOfHaste-0.3",
-      "Deck": "MagicItem",
-      "CardName": "Boots of Haste",
-      "TypeTags": [
-        "Arcane",
-        "Order"
-      ],
-      "AspectTags": [
-        "Worn"
-      ],
-      "mutableTags": [],
-      "Instructions": []
-    }
-  ],
+  "loot": [
+  {
+    "Deck": "Loot",
+    "CardName": "Battle Scripture",
+    "TypeTags": ["Consumable", "Magic Item"],
+    "AspectTags": [],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Loot",
+    "CardName": "Bear Fang Necklace",
+    "TypeTags": ["Magic Item"],
+    "AspectTags": ["Jewelry"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Loot",
+    "CardName": "Beastcleaner",
+    "TypeTags": ["Magic Item"],
+    "AspectTags": ["Tool"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Loot",
+    "CardName": "Belt of Veracity",
+    "TypeTags": ["Magic Item"],
+    "AspectTags": ["Clothing"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Loot",
+    "CardName": "Blazing Morningstar",
+    "TypeTags": ["Magic Item"],
+    "AspectTags": ["Weapon"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Loot",
+    "CardName": "Bolt of Light",
+    "TypeTags": ["Consumable", "Magic Item"],
+    "AspectTags": [],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Loot",
+    "CardName": "Brass Suns",
+    "TypeTags": ["Magic Item"],
+    "AspectTags": ["Jewelry"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Loot",
+    "CardName": "Cloak of the Wilds",
+    "TypeTags": ["Magic Item"],
+    "AspectTags": ["Clothing"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Loot",
+    "CardName": "Cloudwatcher's Telescope",
+    "TypeTags": ["Magic Item"],
+    "AspectTags": ["Tool"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Loot",
+    "CardName": "Collector's Scabbard",
+    "TypeTags": ["Magic Item"],
+    "AspectTags": ["Tool"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Loot",
+    "CardName": "Elven Recurve",
+    "TypeTags": ["Magic Item"],
+    "AspectTags": ["Weapon"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Loot",
+    "CardName": "Enchanted Rucksack",
+    "TypeTags": ["Magic Item"],
+    "AspectTags": ["Worn"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Loot",
+    "CardName": "Helm of the Survivor",
+    "TypeTags": ["Magic Item"],
+    "AspectTags": ["Armor"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Loot",
+    "CardName": "Meditation Beads",
+    "TypeTags": ["Magic Item"],
+    "AspectTags": ["Jewelry"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Loot",
+    "CardName": "Nightfleece Gambeson",
+    "TypeTags": ["Magic Item"],
+    "AspectTags": ["Armor"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Loot",
+    "CardName": "Plate of Protection",
+    "TypeTags": ["Magic Item"],
+    "AspectTags": ["Armor"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Loot",
+    "CardName": "Platinum Cuirass",
+    "TypeTags": ["Magic Item"],
+    "AspectTags": ["Armor"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Loot",
+    "CardName": "Prince's Coat of Plates",
+    "TypeTags": ["Magic Item"],
+    "AspectTags": ["Armor"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Loot",
+    "CardName": "Saphire Signet",
+    "TypeTags": ["Magic Item"],
+    "AspectTags": ["Jewelry"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Loot",
+    "CardName": "Steel Amulet",
+    "TypeTags": ["Magic Item"],
+    "AspectTags": ["Jewelry"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Loot",
+    "CardName": "Stormgather Staff",
+    "TypeTags": ["Magic Item"],
+    "AspectTags": ["Weapon"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Loot",
+    "CardName": "Sword and Dagger of the Hero",
+    "TypeTags": ["Magic Item"],
+    "AspectTags": ["Weapon"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Loot",
+    "CardName": "Thunder's Roar Earrings",
+    "TypeTags": ["Magic Item"],
+    "AspectTags": ["Jewelry"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Loot",
+    "CardName": "Treasure 1/4",
+    "TypeTags": ["Wealth"],
+    "AspectTags": ["Treasure"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Loot",
+    "CardName": "Treasure 1/2",
+    "TypeTags": ["Wealth"],
+    "AspectTags": ["Treasure"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Loot",
+    "CardName": "Treasure 1",
+    "TypeTags": ["Wealth"],
+    "AspectTags": ["Treasure"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Loot",
+    "CardName": "Treasure 2",
+    "TypeTags": ["Wealth"],
+    "AspectTags": ["Treasure"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Loot",
+    "CardName": "Treasure 3",
+    "TypeTags": ["Wealth"],
+    "AspectTags": ["Treasure"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Loot",
+    "CardName": "Unbreakable Spear",
+    "TypeTags": ["Magic Item"],
+    "AspectTags": ["Weapon"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Loot",
+    "CardName": "Veteran's Cowl",
+    "TypeTags": ["Magic Item"],
+    "AspectTags": ["Clothing"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Loot",
+    "CardName": "Wavetreader Boots",
+    "TypeTags": ["Magic Item"],
+    "AspectTags": ["Worn"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Loot",
+    "CardName": "Wizard's Cap and Gown",
+    "TypeTags": ["Magic Item"],
+    "AspectTags": ["Clothing"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Loot",
+    "CardName": "Dwarven Meal",
+    "TypeTags": ["Consumable", "Magic Item"],
+    "AspectTags": [],
+    "mutableTags": [],
+    "Instructions": []
+  }
+],
   "questtemplates": [
     {
       "id": "QuestTemplate-Retrieve-0.7769948243584289",

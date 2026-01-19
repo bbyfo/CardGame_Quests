@@ -26,7 +26,7 @@ class QuestEngine {
    * Shuffle all decks using Fisher-Yates algorithm
    */
   shuffleDecks() {
-    const deckNames = ['npcs', 'questtemplates', 'locations', 'twists', 'magicitems', 'monsters'];
+    const deckNames = ['npcs', 'questtemplates', 'locations', 'twists', 'loot', 'monsters'];
     deckNames.forEach(deckName => {
       if (this.decks[deckName] && Array.isArray(this.decks[deckName])) {
         const deck = this.decks[deckName];
@@ -128,8 +128,9 @@ class QuestEngine {
       'twists': this.decks.twists,
       'questtemplate': this.decks.questtemplates,
       'questtemplates': this.decks.questtemplates,
-      'magicitem': this.decks.magicitems,
-      'magicitems': this.decks.magicitems,
+      'magicitem': this.decks.loot,
+      'magicitems': this.decks.loot,
+      'loot': this.decks.loot,
       'monster': this.decks.monsters,
       'monsters': this.decks.monsters
     };
