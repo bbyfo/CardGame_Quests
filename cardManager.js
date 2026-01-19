@@ -278,6 +278,9 @@ class CardManager {
     this.setupTagAutocomplete('instruction-tags', 'instruction-tags-suggestions', Array.from(this.allTags.instructionTags));
     this.setupTagAutocomplete('draw-tags-input', 'draw-tags-suggestions', Array.from(this.allTags.instructionTags));
 
+    // Populate deck filter dropdown
+    this.populateDeckFilter();
+
     // Filter and search
     const filterDeck = document.getElementById('filter-deck');
     if (filterDeck) {
@@ -604,9 +607,11 @@ class CardManager {
   getDeckDisplayName(deckKey) {
     const mapping = {
       'npcs': 'NPC',
-      'questtemplates': 'QuestTemplate',
+      'questtemplates': 'Quest Template',
       'locations': 'Location',
-      'twists': 'Twist'
+      'twists': 'Twist',
+      'magicitems': 'Magic Item',
+      'monsters': 'Monster'
     };
     return mapping[deckKey] || deckKey;
   }
@@ -617,11 +622,37 @@ class CardManager {
   getDeckKey(displayName) {
     const mapping = {
       'NPC': 'npcs',
-      'QuestTemplate': 'questtemplates',
+      'Quest Template': 'questtemplates',
       'Location': 'locations',
-      'Twist': 'twists'
+      'Twist': 'twists',
+      'Magic Item': 'magicitems',
+      'Monster': 'monsters'
     };
     return mapping[displayName] || displayName.toLowerCase();
+  }
+
+  /**
+   * Populate the deck filter dropdown dynamically from loaded decks
+   */
+  populateDeckFilter() {
+    const filterDeck = document.getElementById('filter-deck');
+    if (!filterDeck) return;
+
+    // Keep the "All Decks" option, remove others
+    filterDeck.innerHTML = '<option value="">All Decks</option>';
+
+    // Get deck names from loaded data and sort them
+    const deckNames = Object.keys(this.cards).sort();
+
+    // Add an option for each deck
+    deckNames.forEach(deckKey => {
+      if (Array.isArray(this.cards[deckKey])) {
+        const option = document.createElement('option');
+        option.value = deckKey;
+        option.textContent = this.getDeckDisplayName(deckKey);
+        filterDeck.appendChild(option);
+      }
+    });
   }
 
   /**

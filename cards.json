@@ -1,110 +1,149 @@
 {
   "npcs": [
+   {
+    "Deck": "NPC",
+    "CardName": "High Chancellor Veridan",
+    "TypeTags": ["Order"],
+    "AspectTags": ["Leadership"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "NPC",
+    "CardName": "Justicar Aurelia Stoneward",
+    "TypeTags": ["Order", "Martial"],
+    "AspectTags": ["Law"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "NPC",
+    "CardName": "Archivist-General Thalen Quill",
+    "TypeTags": ["Order", "Arcane"],
+    "AspectTags": ["Bureaucracy"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+   {
+    "Deck": "NPC",
+    "CardName": "High Priestess Seraphine Dawnstar",
+    "TypeTags": ["Light", "Light"],
+    "AspectTags": ["Compassion"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "NPC",
+    "CardName": "Cardinal Rovan Emberlight",
+    "TypeTags": ["Light", "Order"],
+    "AspectTags": ["Faith"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "NPC",
+    "CardName": "Warden of the Flame Lysander Hale",
+    "TypeTags": ["Light", "Martial"],
+    "AspectTags": ["Purity"],
+    "mutableTags": [],
+    "Instructions": []
+  },
     {
-      "id": "NPC-ArchMage-0.664995457557898",
-      "Deck": "NPC",
-      "CardName": "Arch Mage",
-      "TypeTags": [
-        "Arcane",
-        "Order"
-      ],
-      "AspectTags": [
-        "Arcane"
-      ],
-      "mutableTags": [],
-      "Instructions": [
-        {
-          "Tags": [
-            "Arcane"
-          ],
-          "TargetDeck": "Target"
-        }
-      ]
-    },
+    "Deck": "NPC",
+    "CardName": "Elder Oakheart of the Verdant Circle",
+    "TypeTags": ["Nature", "Light"],
+    "AspectTags": ["Druidic"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "NPC",
+    "CardName": "Huntmaster Sylra Windstalker",
+    "TypeTags": ["Nature", "Martial"],
+    "AspectTags": ["Beast"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "NPC",
+    "CardName": "Grovekeeper Mosswhisper",
+    "TypeTags": ["Nature", "Arcane"],
+    "AspectTags": ["Mystic"],
+    "mutableTags": [],
+    "Instructions": []
+  },
     {
-      "id": "NPC-Merchant Guild-0.14915172203941585",
-      "Deck": "NPC",
-      "CardName": "Merchant Guild",
-      "TypeTags": [
-        "Wealth",
-        "Order"
-      ],
-      "AspectTags": [
-        "Wealth"
-      ],
-      "mutableTags": [],
-      "Instructions": []
-    },
+    "Deck": "NPC",
+    "CardName": "Archmage Solinar the Radiant",
+    "TypeTags": ["Arcane", "Light"],
+    "AspectTags": ["Wizard"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "NPC",
+    "CardName": "Chronomancer Lyssia Vale",
+    "TypeTags": ["Arcane", "Order"],
+    "AspectTags": ["Time"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "NPC",
+    "CardName": "Runesmith Eldric Ironglyph",
+    "TypeTags": ["Arcane", "Martial"],
+    "AspectTags": ["Crafting"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "NPC",
+    "CardName": "General Cassian Steelmarch",
+    "TypeTags": ["Martial", "Order"],
+    "AspectTags": ["Military"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "NPC",
+    "CardName": "Champion Aria Stormblade",
+    "TypeTags": ["Martial", "Light"],
+    "AspectTags": ["Hero"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "NPC",
+    "CardName": "Commander Thorne Ironsoul",
+    "TypeTags": ["Martial"],
+    "AspectTags": ["Tactics"],
+    "mutableTags": [],
+    "Instructions": []
+  },
     {
-      "id": "NPC-Demon Lord-0.17404599516507002",
-      "Deck": "NPC",
-      "CardName": "Demon Lord",
-      "TypeTags": [
-        "Evil",
-        "Chaos"
-      ],
-      "AspectTags": [
-        "Darkness"
-      ],
-      "mutableTags": [],
-      "Instructions": [
-        {
-          "Tags": [
-            "Evil"
-          ],
-          "TargetDeck": "Target"
-        }
-      ]
-    },
-    {
-      "id": "NPC-ShadowMaster-0.07182027062365037",
-      "Deck": "NPC",
-      "CardName": "Shadow Master",
-      "TypeTags": [
-        "Arcane",
-        "Chaos"
-      ],
-      "AspectTags": [
-        "Arcane"
-      ],
-      "mutableTags": [],
-      "Instructions": []
-    },
-    {
-      "id": "NPC-CorporateRival-0.949121808671731",
-      "Deck": "NPC",
-      "CardName": "Corporate Rival",
-      "TypeTags": [
-        "Wealth",
-        "Chaos"
-      ],
-      "AspectTags": [
-        "Commerce"
-      ],
-      "mutableTags": [],
-      "Instructions": []
-    },
-    {
-      "Deck": "NPC",
-      "CardName": "aaa TEST King from cards.json",
-      "TypeTags": [
-        "Order",
-        "Good",
-        "TestType"
-      ],
-      "AspectTags": [
-        "Leadership"
-      ],
-      "mutableTags": [],
-      "Instructions": [
-        {
-          "TargetDeck": "Location",
-          "Tags": [
-            "Good"
-          ]
-        }
-      ]
-    }
+    "Deck": "NPC",
+    "CardName": "Shadow Regent Malvorn",
+    "TypeTags": ["Shadow", "Shadow"],
+    "AspectTags": ["Darkness"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "NPC",
+    "CardName": "Mistress of Whispers Selkira",
+    "TypeTags": ["Shadow", "Arcane"],
+    "AspectTags": ["Secrets"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "NPC",
+    "CardName": "Dread Captain Vorak Blacktide",
+    "TypeTags": ["Shadow", "Martial"],
+    "AspectTags": ["Terror"],
+    "mutableTags": [],
+    "Instructions": []
+  }
   ],
   "twists": [
     {
@@ -112,7 +151,7 @@
       "Deck": "Twist",
       "CardName": "Betrayal",
       "TypeTags": [
-        "Evil",
+        "Shadow",
         "Chaos"
       ],
       "AspectTags": [
@@ -122,14 +161,14 @@
       "Instructions": [
         {
           "Tags": [
-            "Evil",
+            "Shadow",
             "Chaos"
           ],
           "TargetDeck": "Failure"
         },
         {
           "Tags": [
-            "Good",
+            "Light",
             "Order"
           ],
           "TargetDeck": "Reward"
@@ -162,7 +201,7 @@
       "Deck": "Twist",
       "CardName": "Hidden Ally",
       "TypeTags": [
-        "Good",
+        "Light",
         "Order"
       ],
       "AspectTags": [
@@ -172,7 +211,7 @@
       "Instructions": [
         {
           "Tags": [
-            "Good",
+            "Light",
             "Order"
           ],
           "TargetDeck": "Reward"
@@ -228,7 +267,7 @@
       "CardName": "Hobgoblin Bolter",
       "TypeTags": [
         "Martial",
-        "Evil"
+        "Shadow"
       ],
       "AspectTags": [
         "Humanoid"
@@ -242,7 +281,7 @@
       "CardName": "Goblin",
       "TypeTags": [
         "Chaos",
-        "Evil"
+        "Shadow"
       ],
       "AspectTags": [
         "Humanoid"
@@ -258,7 +297,7 @@
       "CardName": "Dark Forest",
       "TypeTags": [
         "Nature",
-        "Evil"
+        "Shadow"
       ],
       "AspectTags": [],
       "mutableTags": [],
@@ -315,7 +354,7 @@
       "Instructions": [
         {
           "Tags": [
-            "Evil",
+            "Shadow",
             "Chaos"
           ],
           "TargetDeck": "Failure"
@@ -323,7 +362,7 @@
         {
           "Tags": [
             "Arcane",
-            "Evil"
+            "Shadow"
           ],
           "TargetDeck": "Twist"
         }
@@ -355,7 +394,7 @@
       "CardName": "Royal Palace",
       "TypeTags": [
         "Wealth",
-        "Good"
+        "Light"
       ],
       "AspectTags": [
         "Military"
@@ -397,8 +436,7 @@
       "Deck": "MagicItem",
       "CardName": "Healing Potion",
       "TypeTags": [
-        "Divine",
-        "Good"
+        "Light"
       ],
       "AspectTags": [
         "Consumable"
@@ -427,7 +465,7 @@
       "Deck": "QuestTemplate",
       "CardName": "Retrieve",
       "TypeTags": [
-        "Good",
+        "Light",
         "Order"
       ],
       "AspectTags": [
@@ -498,7 +536,7 @@
         {
           "deck": "NPC",
           "tags": [
-            "Good",
+            "Light",
             "Order"
           ],
           "count": 1,
@@ -509,7 +547,7 @@
           "deck": "Location",
           "tags": [
             "Nature",
-            "Good"
+            "Light"
           ],
           "count": 1,
           "label": "Location",
@@ -580,8 +618,8 @@
       "Deck": "QuestTemplate",
       "CardName": "Recover",
       "TypeTags": [
-        "Good",
-        "Holy"
+        "Light",
+        "Light"
       ],
       "AspectTags": [
         "Compassion"
@@ -593,8 +631,8 @@
         {
           "deck": "NPC",
           "tags": [
-            "Good",
-            "Holy"
+            "Light",
+            "Light"
           ],
           "count": 1,
           "label": "QuestGiver",
@@ -603,7 +641,7 @@
         {
           "deck": "NPC",
           "tags": [
-            "Good",
+            "Light",
             "Arcane"
           ],
           "count": 1,
@@ -614,7 +652,7 @@
           "deck": "Location",
           "tags": [
             "Martial",
-            "Evil"
+            "Shadow"
           ],
           "count": 1,
           "label": "Location",
@@ -657,7 +695,7 @@
         {
           "deck": "Location",
           "tags": [
-            "Evil",
+            "Shadow",
             "Chaos"
           ],
           "count": 1,
@@ -679,7 +717,7 @@
           "tags": [
             "Wealth",
             "Chaos",
-            "Evil"
+            "Shadow"
           ],
           "count": 1,
           "label": "Victim",
@@ -721,7 +759,7 @@
         {
           "deck": "Location",
           "tags": [
-            "Good"
+            "Light"
           ],
           "count": 1,
           "label": "Location which is being attacked by",
@@ -730,7 +768,7 @@
         {
           "deck": "NPC",
           "tags": [
-            "Evil"
+            "Shadow"
           ],
           "count": 1,
           "label": "Being attacked by",
@@ -739,7 +777,7 @@
         {
           "deck": "Monster",
           "tags": [
-            "Evil",
+            "Shadow",
             "Chaos"
           ],
           "count": 2,
