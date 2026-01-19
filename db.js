@@ -96,14 +96,10 @@ async function initDatabase() {
  */
 async function getCards() {
   const empty = () => ({
-    questgivers: [],
-    harmedparties: [],
-    verbs: [],
-    targets: [],
+    npcs: [],
+    questtemplates: [],
     locations: [],
-    twists: [],
-    rewards: [],
-    failures: []
+    twists: []
   });
 
   // Try pg pool first (direct Postgres connection — more reliable)
