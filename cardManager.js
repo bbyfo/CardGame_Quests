@@ -351,7 +351,8 @@ class CardManager {
         'type-tags-input': 'type',
         'aspect-tags-input': 'aspect',
         'mutable-tags-input': 'mutable',
-        'instruction-tags': 'instructionTags'
+        'instruction-tags': 'instructionTags',
+        'draw-tags-input': 'instructionTags'
       };
       const tagType = tagTypeMap[inputId];
       return tagType ? Array.from(this.allTags[tagType]) : [];
@@ -451,7 +452,8 @@ class CardManager {
       'type-tags-input': 'type-tags-list',
       'aspect-tags-input': 'aspect-tags-list',
       'mutable-tags-input': 'mutable-tags-list',
-      'instruction-tags': 'instruction-tags-list'
+      'instruction-tags': 'instruction-tags-list',
+      'draw-tags-input': 'draw-tags-list'
     };
     return mapping[inputId] || null;
   }
@@ -873,9 +875,11 @@ class CardManager {
 
     // Clear and populate tags
     this.clearTagList('draw-tags-list');
-    instruction.tags.forEach(tag => {
-      this.addTag('draw-tags-input', tag);
-    });
+    if (instruction.tags && Array.isArray(instruction.tags)) {
+      instruction.tags.forEach(tag => {
+        this.addTag('draw-tags-input', tag);
+      });
+    }
 
     // Open modal
     const modal = document.getElementById('draw-instruction-modal');
@@ -947,12 +951,16 @@ class CardManager {
         instructionsHtml = `
           <div class="instructions-section">
             <div class="section-title">Draw Instructions:</div>
-            ${card.DrawInstructions.map(inst => `
-              <div class="instruction-item">
-                <span class="instruction-target"><strong>${inst.label}</strong> (${inst.action})</span>
-                <span class="instruction-tags">Deck: ${inst.deck}, Count: ${inst.count}${inst.tags.length > 0 ? `, Tags: [${inst.tags.join(', ')}]` : ''}</span>
-              </div>
-            `).join('')}
+            ${card.DrawInstructions.map(inst => {
+              const tags = inst.tags || [];
+              const tagsText = tags.length > 0 ? ` with tag(s) ${tags.join(', ')}` : '';
+              return `
+                <div class="instruction-item">
+                  <strong>${inst.label}:</strong><br>
+                  ${inst.action} ${inst.count} from ${inst.deck}${tagsText}
+                </div>
+              `;
+            }).join('')}
           </div>
         `;
         
