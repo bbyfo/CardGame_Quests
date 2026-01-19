@@ -450,6 +450,15 @@
   gap: 0.5rem;
 }
 
+.browser-header h2 {
+  margin: 0;
+  font-size: 1.3rem;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 /* Gear Icon */
 .icon-gear {
   width: 20px;
