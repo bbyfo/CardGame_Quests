@@ -278,8 +278,8 @@ class CardManager {
     this.setupTagAutocomplete('instruction-tags', 'instruction-tags-suggestions', Array.from(this.allTags.instructionTags));
     this.setupTagAutocomplete('draw-tags-input', 'draw-tags-suggestions', Array.from(this.allTags.instructionTags));
 
-    // Populate deck filter dropdown
-    this.populateDeckFilter();
+    // Populate all deck select dropdowns
+    this.populateAllDeckSelects();
 
     // Filter and search
     const filterDeck = document.getElementById('filter-deck');
@@ -652,7 +652,8 @@ class CardManager {
       'locations': 'Location',
       'twists': 'Twist',
       'magicitems': 'Magic Item',
-      'monsters': 'Monster'
+      'monsters': 'Monster',
+      'loot': 'Loot'
     };
     return mapping[deckKey] || deckKey;
   }
@@ -667,63 +668,79 @@ class CardManager {
       'Location': 'locations',
       'Twist': 'twists',
       'Magic Item': 'magicitems',
-      'Monster': 'monsters'
+      'Monster': 'monsters',
+      'Loot': 'loot'
     };
     return mapping[displayName] || displayName.toLowerCase();
   }
 
   /**
-   * Populate the deck filter dropdown dynamically from loaded decks
+   * Populate all deck select elements with available decks
+   * This ensures consistency across the application
    */
-  populateDeckFilter() {
-    const filterDeck = document.getElementById('filter-deck');
-    if (!filterDeck) return;
-
-    // Keep the "All Decks" option, remove others
-    filterDeck.innerHTML = '<option value="">All Decks</option>';
-
+  populateAllDeckSelects() {
     // Get deck names from loaded data and sort them
-    const deckNames = Object.keys(this.cards).sort();
+    const deckNames = Object.keys(this.cards).sort().filter(deckKey => Array.isArray(this.cards[deckKey]));
 
-    // Add an option for each deck
-    deckNames.forEach(deckKey => {
-      if (Array.isArray(this.cards[deckKey])) {
+    // Populate the main card form deck selector
+    const deckSelect = document.getElementById('deck-select');
+    if (deckSelect) {
+      const currentValue = deckSelect.value;
+      deckSelect.innerHTML = '<option value="">-- Select Deck --</option>';
+      deckNames.forEach(deckKey => {
+        const option = document.createElement('option');
+        option.value = deckKey;
+        option.textContent = this.getDeckDisplayName(deckKey);
+        deckSelect.appendChild(option);
+      });
+      if (currentValue && deckNames.includes(currentValue)) {
+        deckSelect.value = currentValue;
+      }
+    }
+
+    // Populate the filter deck dropdown
+    const filterDeck = document.getElementById('filter-deck');
+    if (filterDeck) {
+      filterDeck.innerHTML = '<option value="">All Decks</option>';
+      deckNames.forEach(deckKey => {
         const option = document.createElement('option');
         option.value = deckKey;
         option.textContent = this.getDeckDisplayName(deckKey);
         filterDeck.appendChild(option);
-      }
-    });
-  }
+      });
+    }
 
-  /**
-   * Populate the draw-deck dropdown with available decks
-   */
-  populateDrawDeckDropdown() {
+    // Populate the draw instruction deck dropdown
     const drawDeck = document.getElementById('draw-deck');
-    if (!drawDeck) return;
-
-    // Keep the placeholder, remove other options
-    const currentValue = drawDeck.value;
-    drawDeck.innerHTML = '<option value="">-- Select Deck --</option>';
-
-    // Get deck names from loaded data and sort them
-    const deckNames = Object.keys(this.cards).sort();
-
-    // Add an option for each deck
-    deckNames.forEach(deckKey => {
-      if (Array.isArray(this.cards[deckKey])) {
+    if (drawDeck) {
+      const currentValue = drawDeck.value;
+      drawDeck.innerHTML = '<option value="">-- Select Deck --</option>';
+      deckNames.forEach(deckKey => {
         const option = document.createElement('option');
         option.value = deckKey;
         option.textContent = this.getDeckDisplayName(deckKey);
         drawDeck.appendChild(option);
+      });
+      if (currentValue && deckNames.includes(currentValue)) {
+        drawDeck.value = currentValue;
       }
-    });
-
-    // Restore previous value if it still exists
-    if (currentValue && deckNames.includes(currentValue)) {
-      drawDeck.value = currentValue;
     }
+  }
+
+  /**
+   * Populate the deck filter dropdown dynamically from loaded decks
+   * @deprecated Use populateAllDeckSelects() instead for consistency
+   */
+  populateDeckFilter() {
+    this.populateAllDeckSelects();
+  }
+
+  /**
+   * Populate the draw-deck dropdown with available decks
+   * @deprecated Use populateAllDeckSelects() instead for consistency
+   */
+  populateDrawDeckDropdown() {
+    this.populateAllDeckSelects();
   }
 
   /**
