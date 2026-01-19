@@ -180,14 +180,14 @@ section h4 {
 
 /* === Collapsible Content === */
 .collapsible-content {
-  overflow: hidden;
-  max-height: 5000px;
-  transition: max-height 0.3s ease-in-out;
+  overflow: visible;
+  transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
 .collapsible-content.collapsed {
   max-height: 0;
   overflow: hidden;
+  opacity: 0;
 }
 
 /* === Button Styles === */
