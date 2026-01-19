@@ -19,7 +19,7 @@
   {
     "Deck": "NPC",
     "CardName": "Duke Ralston of the Golden Exchange",
-    "TypeTags": ["Wealth", "Good"],
+    "TypeTags": ["Wealth", "Light"],
     "AspectTags": ["Nobility"],
     "mutableTags": [],
     "Instructions": []
@@ -626,7 +626,104 @@
   }
 ],
   "locations": [
-{
+ {
+    "Deck": "Location",
+    "CardName": "Gilded Harbor Exchange",
+    "TypeTags": ["Wealth", "Light"],
+    "AspectTags": ["Commerce"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Location",
+    "CardName": "Sunpetal Orchard",
+    "TypeTags": ["Nature", "Light"],
+    "AspectTags": ["Rural"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Location",
+    "CardName": "The Argent Parade Grounds",
+    "TypeTags": ["Martial", "Wealth"],
+    "AspectTags": ["Military"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Location",
+    "CardName": "Moonveil Market District",
+    "TypeTags": ["Wealth", "Shadow"],
+    "AspectTags": ["Trade"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Location",
+    "CardName": "Starwell Conservatory",
+    "TypeTags": ["Arcane", "Light"],
+    "AspectTags": ["Mystic"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Location",
+    "CardName": "Greenwater Terraces",
+    "TypeTags": ["Nature", "Wealth"],
+    "AspectTags": ["Garden"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Location",
+    "CardName": "The Silver Bastion",
+    "TypeTags": ["Martial", "Order"],
+    "AspectTags": ["Fortress"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Location",
+    "CardName": "Lanternspire Heights",
+    "TypeTags": ["Light", "Wealth"],
+    "AspectTags": ["Urban"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Location",
+    "CardName": "Whisperroot Hollow",
+    "TypeTags": ["Nature", "Shadow"],
+    "AspectTags": ["Forest"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Location",
+    "CardName": "The Arcstone Repository",
+    "TypeTags": ["Arcane", "Wealth"],
+    "AspectTags": ["Archive"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Location",
+    "CardName": "Cragforge Caravan Post",
+    "TypeTags": ["Wealth", "Martial"],
+    "AspectTags": ["Outpost"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Location",
+    "CardName": "The Shattered Meridian",
+    "TypeTags": ["Chaos", "Arcane"],
+    "AspectTags": ["Hazard"],
+    "mutableTags": [],
+    "Instructions": []
+  }
+,
+    {
     "Deck": "Location",
     "CardName": "Glimmerfall Sanctuary",
     "TypeTags": ["Light", "Order"],
