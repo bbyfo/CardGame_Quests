@@ -5,14 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quest System Generator</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="nav.css">
+  <script src="navLoader.js"></script>
 </head>
-<body>
+<body class="loading">
+  <!-- Loading spinner -->
+  <div class="loading-spinner">
+    <div class="spinner-icon"></div>
+  </div>
+
+  <!-- Navigation (loaded dynamically) -->
+  <div id="nav-container"></div>
+
   <div class="container">
     <header>
       <h1>⚔️ Quest System Generator</h1>
       <p>Generate, debug, and analyze procedural quests</p>
-      <a href="cardManager.html" class="btn btn-secondary btn-small">🎴 Card Manager</a>
-      <a href="help/index.html" class="btn btn-secondary btn-small">📚 Help</a>
     </header>
 
     <main class="app-grid">

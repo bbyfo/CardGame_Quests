@@ -6,13 +6,22 @@
   <title>Card Manager - Quest System</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="cardManager.css">
+  <link rel="stylesheet" href="nav.css">
+  <script src="navLoader.js"></script>
 </head>
-<body>
+<body class="loading">
+  <!-- Loading spinner -->
+  <div class="loading-spinner">
+    <div class="spinner-icon"></div>
+  </div>
+
+  <!-- Navigation (loaded dynamically) -->
+  <div id="nav-container"></div>
+
   <div class="container">
     <header>
       <h1>🎴 Card Manager</h1>
       <p>Create, edit, and manage quest cards</p>
-      <a href="index.html" class="btn btn-secondary btn-small">← Back to Quest System</a>
     </header>
 
     <main class="card-manager-grid">
@@ -113,14 +122,6 @@
             <button type="button" id="btn-cancel-edit" class="btn btn-secondary" style="display: none;">Cancel Edit</button>
           </div>
         </form>
-
-        <!-- Tag Statistics Section -->
-        <section class="tag-stats-section">
-          <h2>Tag Statistics</h2>
-          <div id="tag-stats-content" class="tag-stats-content">
-            <p>Loading tag statistics...</p>
-          </div>
-        </section>
       </section>
 
       <!-- Card Browser Section -->

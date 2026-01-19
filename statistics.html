@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Statistics - Quest System</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="nav.css">
+  <style>
+    .stats-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .stats-section {
+      background: white;
+      border-radius: 8px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .stats-section h2 {
+      margin-top: 0;
+      color: #667eea;
+      border-bottom: 2px solid #667eea;
+      padding-bottom: 0.5rem;
+    }
+
+    .chart-container {
+      position: relative;
+      height: 400px;
+      margin-top: 1.5rem;
+    }
+
+    .chart-container.tall {
+      height: 600px;
+    }
+
+    /* Tag Statistics Styles (from cardManager.css) */
+    .tag-stats-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .tag-category {
+      background: white;
+      border-radius: 4px;
+      padding: 1rem;
+      border-left: 4px solid #667eea;
+    }
+
+    .tag-category h4 {
+      margin: 0 0 0.75rem 0;
+      color: #667eea;
+      font-size: 1rem;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .tag-entry {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #f5f7fa;
+      padding: 0.5rem 0.75rem;
+      border-radius: 4px;
+      font-size: 0.9rem;
+    }
+
+    .tag-name {
+      color: #333;
+    }
+
+    .tag-count {
+      background: #667eea;
+      color: white;
+      padding: 0.125rem 0.5rem;
+      border-radius: 12px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    /* Loading state */
+    .loading-message {
+      text-align: center;
+      padding: 3rem;
+      color: #999;
+      font-style: italic;
+    }
+
+    /* Mobile optimizations */
+    @media (max-width: 768px) {
+      .stats-container {
+        padding: 1rem;
+      }
+
+      .stats-section {
+        padding: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .chart-container {
+        height: 300px;
+      }
+
+      .chart-container.tall {
+        height: 400px;
+      }
+
+      .stats-section h2 {
+        font-size: 1.25rem;
+      }
+    }
+  </style>
+</head>
+<body class="loading">
+  <!-- Loading spinner -->
+  <div class="loading-spinner">
+    <div class="spinner-icon"></div>
+  </div>
+
+  <!-- Navigation (loaded dynamically) -->
+  <div id="nav-container"></div>
+
+  <div class="container">
+    <header>
+      <h1>📊 Statistics</h1>
+      <p>Analytics and insights for your quest card collection</p>
+    </header>
+
+    <main class="stats-container">
+      <!-- Deck Statistics -->
+      <section class="stats-section">
+        <h2>Deck Statistics</h2>
+        <p>Card distribution across all decks</p>
+        <div class="chart-container">
+          <canvas id="deck-chart"></canvas>
+        </div>
+      </section>
+
+      <!-- Type Tag Statistics -->
+      <section class="stats-section">
+        <h2>Type Tag Distribution</h2>
+        <p>Most commonly used type tags across all cards</p>
+        <div class="chart-container tall">
+          <canvas id="type-tag-chart"></canvas>
+        </div>
+      </section>
+
+      <!-- Tag Statistics (existing) -->
+      <section class="stats-section">
+        <h2>Tag Statistics</h2>
+        <p>Complete breakdown of all tags by category</p>
+        <div id="tag-stats-content" class="tag-stats-content">
+          <div class="loading-message">Loading tag statistics...</div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Scripts -->
+  <script src="navLoader.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="dataLoader.js"></script>
+  <script src="statistics.js"></script>
+</body>
+</html>

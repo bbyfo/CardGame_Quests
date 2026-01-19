@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quest System Documentation</title>
+    <link rel="stylesheet" href="../nav.css">
+    <script src="../navLoader.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
         * {
@@ -18,10 +20,17 @@
             color: #333;
             background: #f5f5f5;
         }
+
+        /* Navigation container above sidebar */
+        #nav-container {
+            position: sticky;
+            top: 0;
+            z-index: 200;
+        }
         
         .container {
             display: flex;
-            height: 100vh;
+            min-height: calc(100vh - 60px); /* Adjust for nav height */
         }
         
         .sidebar {
@@ -205,14 +214,21 @@
         }
     </style>
 </head>
-<body>
+<body class="loading">
+    <!-- Loading spinner -->
+    <div class="loading-spinner">
+        <div class="spinner-icon"></div>
+    </div>
+
+    <!-- Navigation (loaded dynamically) -->
+    <div id="nav-container"></div>
+
     <div class="container">
         <div class="sidebar">
             <h1>📚 Documentation</h1>
             <nav id="nav-links"></nav>
         </div>
         <div class="content" id="content">
-            <a href="../index.html" class="back-link">← Back to App</a>
             <div class="home-content">
                 <h1>Quest System Documentation</h1>
                 <p>Welcome to the Quest System documentation. Select a topic from the sidebar to view detailed information.</p>
