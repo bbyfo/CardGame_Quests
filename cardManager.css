@@ -226,6 +226,55 @@
   position: relative;
 }
 
+.instruction-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.instruction-header h4 {
+  margin: 0;
+  color: #667eea;
+  font-size: 0.95rem;
+  flex: 1;
+}
+
+.instruction-controls {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.instruction-move-up,
+.instruction-move-down {
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  width: 24px;
+  height: 24px;
+  font-size: 0.7rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+.instruction-move-up:hover:not(:disabled),
+.instruction-move-down:hover:not(:disabled) {
+  background: #5568d3;
+}
+
+.instruction-move-up:disabled,
+.instruction-move-down:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
 .instruction-item h4 {
   margin: 0 0 0.5rem 0;
   color: #667eea;
@@ -245,18 +294,31 @@
 }
 
 .instruction-remove {
-  position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
+  background: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  width: 24px;
+  height: 24px;
+  font-size: 1rem;
+  line-height: 1;
   cursor: pointer;
-  color: #ff6b6b;
-  font-weight: bold;
-  font-size: 1.2rem;
-  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
 }
 
 .instruction-remove:hover {
-  color: #ff5252;
+  background: #c82333;
+}
+
+.instruction-details {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 0.5rem;
 }
 
 /* Form Actions */

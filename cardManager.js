@@ -829,8 +829,19 @@ class CardManager {
       item.className = 'instruction-item';
       item.style.cursor = 'pointer';
       item.title = 'Click to edit';
+      
+      const canMoveUp = index > 0;
+      const canMoveDown = index < this.drawInstructionData.length - 1;
+      
       item.innerHTML = `
-        <h4>${instr.label} (${instr.action})</h4>
+        <div class="instruction-header">
+          <h4>${instr.label} (${instr.action})</h4>
+          <div class="instruction-controls">
+            <button class="instruction-move-up" data-index="${index}" ${!canMoveUp ? 'disabled' : ''} title="Move up">▲</button>
+            <button class="instruction-move-down" data-index="${index}" ${!canMoveDown ? 'disabled' : ''} title="Move down">▼</button>
+            <span class="instruction-remove" data-index="${index}">✕</span>
+          </div>
+        </div>
         <div class="instruction-details">
           <span><strong>Deck:</strong> ${instr.deck}</span>
           <span><strong>Count:</strong> ${instr.count}</span>
@@ -838,15 +849,41 @@ class CardManager {
         ${instr.tags.length > 0 ? `<div class="instruction-tags">
           ${instr.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
         </div>` : ''}
-        <span class="instruction-remove" data-index="${index}">✕</span>
       `;
 
       // Click to edit instruction
       item.addEventListener('click', (e) => {
-        if (e.target.classList.contains('instruction-remove')) return;
+        if (e.target.classList.contains('instruction-remove') ||
+            e.target.classList.contains('instruction-move-up') ||
+            e.target.classList.contains('instruction-move-down')) {
+          return;
+        }
         this.editDrawInstruction(index);
       });
 
+      // Move up button
+      const moveUpBtn = item.querySelector('.instruction-move-up');
+      moveUpBtn?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (index > 0) {
+          [this.drawInstructionData[index - 1], this.drawInstructionData[index]] = 
+            [this.drawInstructionData[index], this.drawInstructionData[index - 1]];
+          this.renderDrawInstructions();
+        }
+      });
+
+      // Move down button
+      const moveDownBtn = item.querySelector('.instruction-move-down');
+      moveDownBtn?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (index < this.drawInstructionData.length - 1) {
+          [this.drawInstructionData[index], this.drawInstructionData[index + 1]] = 
+            [this.drawInstructionData[index + 1], this.drawInstructionData[index]];
+          this.renderDrawInstructions();
+        }
+      });
+
+      // Remove button
       const removeBtn = item.querySelector('.instruction-remove');
       removeBtn.addEventListener('click', (e) => {
         e.stopPropagation();
