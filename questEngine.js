@@ -23,6 +23,22 @@ class QuestEngine {
   }
 
   /**
+   * Shuffle all decks using Fisher-Yates algorithm
+   */
+  shuffleDecks() {
+    const deckNames = ['npcs', 'questtemplates', 'locations', 'twists'];
+    deckNames.forEach(deckName => {
+      if (this.decks[deckName] && Array.isArray(this.decks[deckName])) {
+        const deck = this.decks[deckName];
+        for (let i = deck.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [deck[i], deck[j]] = [deck[j], deck[i]];
+        }
+      }
+    });
+  }
+
+  /**
    * Reset engine state for new quest
    */
   reset() {

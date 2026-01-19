@@ -140,6 +140,8 @@ class UIManager {
     // Refresh decks with fresh copies for new quest
     if (window.dataLoader) {
       this.engine.decks = window.dataLoader.getDecks();
+      // Shuffle all decks before quest generation
+      this.engine.shuffleDecks();
     }
     
     const selectedVerb = this.getSelectedVerb();
@@ -168,6 +170,8 @@ class UIManager {
     // Refresh decks with fresh copies for new quest
     if (window.dataLoader) {
       this.engine.decks = window.dataLoader.getDecks();
+      // Shuffle all decks before quest generation
+      this.engine.shuffleDecks();
     }
     
     // Update engine debug mode from checkbox
