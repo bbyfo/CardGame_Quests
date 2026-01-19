@@ -115,7 +115,7 @@ app.post('/api/cards', async (req, res) => {
     const cards = req.body;
     
     // Validate the data structure
-    const requiredDecks = ['npcs', 'questtemplates', 'locations', 'twists'];
+    const requiredDecks = ['npcs', 'questtemplates', 'locations', 'twists', 'magicitems', 'monsters'];
     for (const deck of requiredDecks) {
       if (!Array.isArray(cards[deck])) {
         return res.status(400).json({ error: `Missing or invalid deck: ${deck}` });

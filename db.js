@@ -99,7 +99,9 @@ async function getCards() {
     npcs: [],
     questtemplates: [],
     locations: [],
-    twists: []
+    twists: [],
+    magicitems: [],
+    monsters: []
   });
 
   // Try pg pool first (direct Postgres connection — more reliable)

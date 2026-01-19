@@ -9,7 +9,9 @@ class DataLoader {
       npcs: [],
       questtemplates: [],
       locations: [],
-      twists: []
+      twists: [],
+      magicitems: [],
+      monsters: []
     };
     this.allCards = [];
   }
@@ -58,7 +60,7 @@ class DataLoader {
    * Populate decks from loaded data
    */
   populateDecks(data) {
-    const deckNames = ['npcs', 'questtemplates', 'locations', 'twists'];
+    const deckNames = ['npcs', 'questtemplates', 'locations', 'twists', 'magicitems', 'monsters'];
     
     // Clear allCards when repopulating (for reload scenarios)
     this.allCards = [];

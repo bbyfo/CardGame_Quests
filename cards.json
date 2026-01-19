@@ -758,5 +758,93 @@
       ],
       "id": "Twist-Environmental Hazard-0.09167171234770899"
     }
+  ],
+  "magicitems": [
+    {
+      "Deck": "MagicItem",
+      "CardName": "Magic Sword",
+      "TypeTags": [
+        "Martial",
+        "Order"
+      ],
+      "AspectTags": [
+        "Weapon"
+      ],
+      "mutableTags": [],
+      "Instructions": [],
+      "id": "MagicItem-MagicSword-0.1"
+    },
+    {
+      "Deck": "MagicItem",
+      "CardName": "Healing Potion",
+      "TypeTags": [
+        "Divine",
+        "Good"
+      ],
+      "AspectTags": [
+        "Consumable"
+      ],
+      "mutableTags": [],
+      "Instructions": [],
+      "id": "MagicItem-HealingPotion-0.2"
+    },
+    {
+      "Deck": "MagicItem",
+      "CardName": "Boots of Haste",
+      "TypeTags": [
+        "Arcane",
+        "Order"
+      ],
+      "AspectTags": [
+        "Worn"
+      ],
+      "mutableTags": [],
+      "Instructions": [],
+      "id": "MagicItem-BootsOfHaste-0.3"
+    }
+  ],
+  "monsters": [
+    {
+      "Deck": "Monster",
+      "CardName": "Armorcap Centipede",
+      "TypeTags": [
+        "Nature",
+        "Chaos"
+      ],
+      "AspectTags": [
+        "Beast"
+      ],
+      "mutableTags": [],
+      "Instructions": [],
+      "id": "Monster-ArmorcapCentipede-0.1"
+    },
+    {
+      "Deck": "Monster",
+      "CardName": "Hobgoblin Bolter",
+      "TypeTags": [
+        "Martial",
+        "Evil"
+      ],
+      "AspectTags": [
+        "Humanoid"
+      ],
+      "mutableTags": [],
+      "Instructions": [],
+      "id": "Monster-HobgoblinBolter-0.2"
+    },
+    {
+      "Deck": "Monster",
+      "CardName": "Goblin",
+      "TypeTags": [
+        "Chaos",
+        "Evil"
+      ],
+      "AspectTags": [
+        "Humanoid"
+      ],
+      "mutableTags": [],
+      "Instructions": [],
+      "id": "Monster-Goblin-0.3"
+    }
   ]
 }

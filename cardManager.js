@@ -62,6 +62,8 @@ class CardManager {
       this.renderCardsList();
       this.renderTagStatistics();
       console.log('✓ Card Manager initialized');
+      console.log('Loaded decks:', Object.keys(this.cards));
+      console.log('Card counts:', Object.entries(this.cards).map(([deck, cards]) => `${deck}: ${cards.length}`).join(', '));
     } catch (error) {
       console.error('Failed to initialize Card Manager:', error);
       this.showNotification('Error loading cards: ' + error.message, 'error');
@@ -934,6 +936,9 @@ class CardManager {
     const list = document.getElementById('cards-list');
     if (!list) return;
 
+    console.log('[renderCardsList] filterDeck:', filterDeck, 'searchQuery:', searchQuery);
+    console.log('[renderCardsList] Available decks:', Object.keys(this.cards));
+
     list.innerHTML = '';
     let cardCount = 0;
 
@@ -946,11 +951,15 @@ class CardManager {
       const deck = this.cards[deckName];
       if (!Array.isArray(deck)) continue;
 
+      console.log(`[renderCardsList] Deck ${deckName} has ${deck.length} cards`);
+
       deck.forEach(card => {
         if (searchQuery && !card.CardName.toLowerCase().includes(searchQuery)) return;
         allCards.push({ card, deckName });
       });
     }
+
+    console.log(`[renderCardsList] Found ${allCards.length} matching cards`);
 
     // Sort cards alphabetically by CardName
     allCards.sort((a, b) => a.card.CardName.localeCompare(b.card.CardName));
@@ -1241,23 +1250,27 @@ class CardManager {
       // Clear localStorage
       localStorage.removeItem('cardManagerCards');
       
-      // Reload from server/database
+      // FORCE reload from cards.json (bypass server/database cache)
+      console.log('Force reloading from cards.json...');
+      if (!this.dataLoader) {
+        this.dataLoader = new DataLoader();
+      }
+      await this.dataLoader.loadData('cards.json');
+      this.cards = this.dataLoader.decks;
+      console.log('✓ Cards reloaded from cards.json');
+      console.log('Loaded decks:', Object.keys(this.cards));
+      
+      // If server mode, save the fresh data to server/database
       if (this.serverMode) {
-        const response = await fetch(CONFIG.API_CARDS);
+        console.log('Updating server with fresh data...');
+        const response = await fetch(CONFIG.API_CARDS, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(this.cards)
+        });
         if (response.ok) {
-          this.cards = await response.json();
-          console.log('✓ Cards reloaded from database');
-        } else {
-          throw new Error('Failed to reload from server');
+          console.log('✓ Server database updated with fresh data');
         }
-      } else {
-        // Fall back to cards.json if server offline
-        if (!this.dataLoader) {
-          this.dataLoader = new DataLoader();
-        }
-        await this.dataLoader.loadData('cards.json');
-        this.cards = this.dataLoader.decks;
-        console.log('✓ Cards reloaded from cards.json');
       }
       
       this.extractAllTags();
