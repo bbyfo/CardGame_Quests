@@ -1,4 +1,5 @@
 /* Card Manager Styles */
+/* Base styles loaded from base.css */
 
 .card-manager-grid {
   display: grid;
@@ -44,36 +45,7 @@
   gap: 1.5rem;
 }
 
-.form-group {
-  display: flex;
-  flex-direction: column;
-}
-
-.form-group label {
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  color: #333;
-}
-
-.form-group input[type="text"],
-.form-group select {
-  padding: 0.75rem;
-  border: 1px solid #bbb;
-  border-radius: 4px;
-  font-size: 0.95rem;
-  font-family: inherit;
-  background: white;
-  color: #333;
-  transition: border-color 0.2s, box-shadow 0.2s;
-}
-
-.form-group input[type="text"]:focus,
-.form-group select:focus {
-  outline: none;
-  border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-}
-
+/* Card Manager specific form overrides */
 .form-group input[type="text"]:invalid {
   border-color: #ff6b6b;
 }
@@ -441,58 +413,7 @@
   border-left: 3px solid #ff6b6b;
 }
 
-.browser-header h3 {
-  margin: 0;
-  font-size: 1rem;
-  color: #333;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.browser-header h2 {
-  margin: 0;
-  font-size: 1.3rem;
-  color: #333;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-/* Gear Icon */
-.icon-gear {
-  width: 20px;
-  height: 20px;
-  stroke: #667eea;
-  vertical-align: middle;
-}
-
-.browser-controls {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-  padding: 1rem;
-  background: white;
-  border-radius: 4px;
-}
-
-.browser-controls h4 {
-  margin: 1rem 0 0.5rem 0;
-  padding-top: 1rem;
-  border-top: 1px solid #ddd;
-  color: #667eea;
-  font-size: 0.9rem;
-  font-weight: 600;
-  text-transform: uppercase;
-}
-
-.browser-controls h4:first-child {
-  margin-top: 0;
-  padding-top: 0;
-  border-top: none;
-}
-
+/* Card Manager specific button overrides */
 .browser-controls button {
   width: 100%;
   margin-bottom: 0.5rem;
@@ -767,63 +688,6 @@
 
 .modal-footer .btn {
   min-width: 120px;
-}
-
-/* Button Styles */
-.btn {
-  padding: 0.75rem 1.5rem;
-  border: none;
-  border-radius: 4px;
-  font-size: 0.95rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s;
-  font-family: inherit;
-}
-
-.btn-primary {
-  background-color: #667eea;
-  color: white;
-}
-
-.btn-primary:hover {
-  background-color: #5568d3;
-  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
-}
-
-.btn-secondary {
-  background-color: #f0f0f0;
-  color: #333;
-  border: 1px solid #ddd;
-}
-
-.btn-secondary:hover {
-  background-color: #e0e0e0;
-}
-
-.btn-small {
-  padding: 0.5rem 1rem;
-  font-size: 0.85rem;
-}
-
-.btn-danger {
-  background-color: #ff6b6b;
-  color: white;
-}
-
-.btn-danger:hover {
-  background-color: #ff5252;
-  box-shadow: 0 2px 8px rgba(255, 107, 107, 0.3);
-}
-
-.btn-warning {
-  background-color: #ffa726;
-  color: white;
-}
-
-.btn-warning:hover {
-  background-color: #fb8c00;
-  box-shadow: 0 2px 8px rgba(255, 167, 38, 0.3);
 }
 
 /* Scrollbar styling */
