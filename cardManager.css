@@ -4,15 +4,51 @@
 .card-manager-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto;
+  grid-template-rows: auto auto;
   gap: 2rem;
   margin: 2rem 0;
   align-items: start;
 }
 
+/* Tools Section - Row 1, Column 1 */
+.tools-section {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+/* Form Section - Row 1, Column 2 */
+.card-form-section {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+/* Browser Section - Row 2, Full Width */
+.card-browser-section {
+  grid-column: 1 / 3;
+  grid-row: 2;
+}
+
 @media (max-width: 1200px) {
   .card-manager-grid {
     grid-template-columns: 1fr;
+  }
+
+  .tools-section,
+  .card-form-section,
+  .card-browser-section {
+    grid-column: 1;
+  }
+
+  .tools-section {
+    grid-row: 1;
+  }
+
+  .card-form-section {
+    grid-row: 2;
+  }
+
+  .card-browser-section {
+    grid-row: 3;
   }
 }
 
