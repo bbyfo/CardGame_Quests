@@ -61,6 +61,8 @@
 
 /* Form Section */
 .card-form-section {
+  position: relative;
+  z-index: 10;
   background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
   border: 2px solid #ddd;
   border-radius: 8px;

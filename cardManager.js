@@ -386,12 +386,10 @@ class CardManager {
           // Expand
           section.classList.remove('collapsed');
           btn.setAttribute('aria-expanded', 'true');
-          section.style.maxHeight = section.scrollHeight + 'px';
         } else {
           // Collapse
           section.classList.add('collapsed');
           btn.setAttribute('aria-expanded', 'false');
-          section.style.maxHeight = '0px';
         }
       });
     });
