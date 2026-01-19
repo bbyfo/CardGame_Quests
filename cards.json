@@ -2096,6 +2096,66 @@
           "suffix": ""
         }
       ]
+    },
+    {
+  "Deck": "Quest Template",
+  "CardName": "Heist aaa",
+  "TypeTags": [
+    "Wealth",
+    "Arcane"
+  ],
+  "AspectTags": [
+    "Stealth"
+  ],
+  "RewardText": "A share of the stolen riches",
+  "mutableTags": [],
+  "ConsequenceText": "The operation collapses and the crew is exposed",
+  "DrawInstructions": [
+    {
+      "deck": "locations",
+      "tags": [
+        "Wealth"
+      ],
+      "count": 1,
+      "label": "Target Location",
+      "action": "draw",
+      "prefix": "Your mark is",
+      "suffix": "—a vault ripe for the taking"
+    },
+    {
+      "deck": "npcs",
+      "tags": [
+        "Arcane"
+      ],
+      "count": 1,
+      "label": "Arcane Obstacle",
+      "action": "draw",
+      "prefix": "but the place is guarded by",
+      "suffix": "whose wards complicate the job"
+    },
+    {
+      "deck": "npcs",
+      "tags": [
+        "Wealth"
+      ],
+      "count": 1,
+      "label": "Quest Giver",
+      "action": "draw",
+      "prefix": "The job comes from",
+      "suffix": "who promises a generous payout"
+    },
+    {
+      "deck": "loot",
+      "tags": [
+        "Wealth"
+      ],
+      "count": 1,
+      "label": "Primary Reward",
+      "action": "draw",
+      "prefix": "If the heist succeeds, you walk away with",
+      "suffix": ""
     }
+  ]
+}
   ]
 }
