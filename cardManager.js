@@ -332,6 +332,36 @@ class CardManager {
       resetBtn.addEventListener('click', () => this.resetToDefaults());
     }
 
+    // CSV Template download button
+    const csvTemplateBtn = document.getElementById('btn-csv-template');
+    if (csvTemplateBtn) {
+      csvTemplateBtn.addEventListener('click', () => this.downloadCSVTemplate());
+    }
+
+    // Import CSV button
+    const importCSVBtn = document.getElementById('btn-import-csv');
+    if (importCSVBtn) {
+      importCSVBtn.addEventListener('click', () => this.triggerCSVImport());
+    }
+
+    // CSV file input
+    const csvFileInput = document.getElementById('csv-file-input');
+    if (csvFileInput) {
+      csvFileInput.addEventListener('change', (e) => this.handleCSVImport(e));
+    }
+
+    // Export CSV button
+    const exportCSVBtn = document.getElementById('btn-export-csv');
+    if (exportCSVBtn) {
+      exportCSVBtn.addEventListener('click', () => this.exportCSV());
+    }
+
+    // Reload data button
+    const reloadDataBtn = document.getElementById('btn-reload-data');
+    if (reloadDataBtn) {
+      reloadDataBtn.addEventListener('click', () => this.reloadCardData());
+    }
+
     // Setup collapsible sections
     this.setupCollapsibleSections();
   }
@@ -1472,6 +1502,219 @@ class CardManager {
     } catch (error) {
       alert('❌ Failed to reset to defaults: ' + error.message);
       console.error('Reset error:', error);
+    }
+  }
+
+  /**
+   * Download CSV template
+   */
+  downloadCSVTemplate() {
+    const template = CSVImporter.generateTemplate();
+    const blob = new Blob([template], { type: 'text/csv' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'card_template.csv';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    console.log('✓ CSV template downloaded');
+  }
+
+  /**
+   * Trigger CSV import file dialog
+   */
+  triggerCSVImport() {
+    const input = document.getElementById('csv-file-input');
+    if (input) {
+      input.click();
+    }
+  }
+
+  /**
+   * Handle CSV file import
+   */
+  async handleCSVImport(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    console.log(`Loading CSV file: ${file.name}...`);
+
+    try {
+      const decks = await CSVImporter.parseCSV(file);
+      console.log('✓ CSV parsed successfully');
+
+      // Validate decks
+      const errors = CSVImporter.validateDecks(decks);
+      if (errors.length > 0) {
+        console.warn('⚠️ Validation warnings:', errors);
+      }
+
+      // Convert CSV deck structure to card manager format
+      const convertedCards = this.convertCSVToCards(decks);
+      
+      // Merge with existing cards
+      Object.keys(convertedCards).forEach(deckName => {
+        if (!this.cards[deckName]) {
+          this.cards[deckName] = [];
+        }
+        this.cards[deckName].push(...convertedCards[deckName]);
+      });
+
+      // Save and update
+      this.saveCardsToFile();
+      this.extractAllTags();
+      this.refreshAutocomplete();
+      this.populateDeckFilter();
+      this.renderCardsList();
+
+      const totalCards = Object.values(convertedCards).reduce((sum, arr) => sum + arr.length, 0);
+      alert(`✓ CSV imported successfully! Added ${totalCards} cards.`);
+      console.log('✓ CSV import complete');
+
+      // Reset file input
+      event.target.value = '';
+    } catch (error) {
+      alert(`❌ CSV Import Error: ${error.message}`);
+      console.error('CSV import error:', error);
+      event.target.value = '';
+    }
+  }
+
+  /**
+   * Convert CSV deck format to card manager format
+   */
+  convertCSVToCards(csvDecks) {
+    const cards = {};
+    
+    // Map CSV deck names to card manager deck names
+    const deckMapping = {
+      'questgivers': 'npcs',
+      'harmedparties': 'npcs',
+      'verbs': 'questtemplates',
+      'targets': 'npcs',
+      'locations': 'locations',
+      'twists': 'twists',
+      'rewards': 'loot',
+      'failures': 'twists'
+    };
+
+    Object.entries(csvDecks).forEach(([csvDeckName, csvCards]) => {
+      const targetDeck = deckMapping[csvDeckName] || csvDeckName;
+      
+      if (!cards[targetDeck]) {
+        cards[targetDeck] = [];
+      }
+
+      csvCards.forEach(csvCard => {
+        const card = {
+          id: `${targetDeck}-${csvCard.name}-${Math.random()}`,
+          Deck: targetDeck.charAt(0).toUpperCase() + targetDeck.slice(1),
+          CardName: csvCard.name,
+          TypeTags: csvCard.tags || [],
+          AspectTags: [],
+          mutableTags: [],
+          Instructions: []
+        };
+
+        cards[targetDeck].push(card);
+      });
+    });
+
+    return cards;
+  }
+
+  /**
+   * Export cards as CSV
+   */
+  exportCSV() {
+    try {
+      // Convert cards to CSV format
+      const csvContent = this.generateCSVFromCards();
+      
+      const blob = new Blob([csvContent], { type: 'text/csv' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `cards_export_${new Date().toISOString().split('T')[0]}.csv`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      
+      console.log('✓ CSV exported successfully');
+    } catch (error) {
+      alert(`❌ Failed to export CSV: ${error.message}`);
+      console.error('CSV export error:', error);
+    }
+  }
+
+  /**
+   * Generate CSV content from cards
+   */
+  generateCSVFromCards() {
+    let csv = 'Deck,Name,Tags\n';
+    
+    for (const deckName in this.cards) {
+      const deck = this.cards[deckName];
+      if (Array.isArray(deck)) {
+        deck.forEach(card => {
+          const name = (card.CardName || '').replace(/"/g, '""');
+          const tags = (card.TypeTags || []).join('|');
+          csv += `${deckName},"${name}","${tags}"\n`;
+        });
+      }
+    }
+    
+    return csv;
+  }
+
+  /**
+   * Reload card data from database/API
+   */
+  async reloadCardData() {
+    try {
+      console.log('🔄 Reloading card data from database...');
+
+      // Check if server mode is available
+      let dataSource = 'Unknown';
+      try {
+        const healthResponse = await fetch('/api/health');
+        if (healthResponse.ok) {
+          const health = await healthResponse.json();
+          dataSource = health.dataSource || `${health.storage} storage`;
+        }
+      } catch (e) {
+        console.warn('Server unavailable, loading from local file');
+      }
+
+      // Reload data
+      if (!this.dataLoader) {
+        this.dataLoader = new DataLoader();
+      }
+      
+      try {
+        await this.dataLoader.loadFromAPI('/api/cards');
+      } catch (apiError) {
+        console.warn('API unavailable, falling back to cards.json');
+        await this.dataLoader.loadData('cards.json');
+      }
+
+      this.cards = this.dataLoader.decks;
+      
+      // Update UI
+      this.extractAllTags();
+      this.refreshAutocomplete();
+      this.populateDeckFilter();
+      this.renderCardsList();
+
+      const totalCards = Object.values(this.cards).reduce((sum, deck) => sum + (Array.isArray(deck) ? deck.length : 0), 0);
+      alert(`✓ Card data reloaded successfully!\n📊 Data source: ${dataSource}\nLoaded ${totalCards} cards`);
+      console.log('✓ Card data reloaded');
+    } catch (error) {
+      alert(`❌ Failed to reload card data: ${error.message}`);
+      console.error('Reload error:', error);
     }
   }
 
