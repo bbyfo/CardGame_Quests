@@ -104,7 +104,28 @@ async function getCards() {
     monsters: []
   });
 
-  // Try pg pool first (direct Postgres connection — more reliable)
+  // Try Supabase client first (preferred for production)
+  if (useSupabase) {
+    try {
+      console.log('[DB] Querying database with Supabase client...');
+      const { data, error } = await supabase.from('cards').select('data').eq('id', 1).single();
+      if (error) {
+        if (/does not exist|Undefined table|relation "cards" does not exist/i.test(error.message || '')) {
+          console.log('[DB] Cards table does not exist in Supabase, returning empty structure');
+          return empty();
+        }
+        throw error;
+      }
+      console.log('[DB] Cards loaded from Supabase:', data && data.data ? Object.keys(data.data) : 'empty');
+      return data && data.data ? data.data : empty();
+    } catch (err) {
+      console.error('[DB] Supabase getCards error:', err.message || err);
+      console.error('[DB] Falling back to pg pool or empty...');
+      // Fall through to pg pool if Supabase fails
+    }
+  }
+
+  // Fallback: try pg pool (direct Postgres connection)
   if (pool) {
     try {
       console.log('[DB] Querying database with pg pool...');
@@ -118,28 +139,12 @@ async function getCards() {
     } catch (error) {
       console.error('[DB] Error getting cards (pg):', error.message);
       console.error('[DB] Error details:', error);
-      // Fall through to Supabase if pg fails
-    }
-  }
-
-  // Fallback: try Supabase client (if configured)
-  if (useSupabase) {
-    try {
-      const { data, error } = await supabase.from('cards').select('data').eq('id', 1).single();
-      if (error) {
-        if (/does not exist|Undefined table|relation "cards" does not exist/i.test(error.message || '')) {
-          return empty();
-        }
-        throw error;
-      }
-      return data && data.data ? data.data : empty();
-    } catch (err) {
-      console.error('Supabase getCards error:', err.message || err);
-      // Don't rethrow — fall back to empty if both fail
+      // Fall through to empty
     }
   }
 
   // If both fail, return empty
+  console.log('[DB] No database connection available, returning empty structure');
   return empty();
 }
 
@@ -147,9 +152,29 @@ async function getCards() {
  * Save cards to database
  */
 async function saveCards(cards) {
-  // Try pg pool first (direct Postgres connection — more reliable)
+  // Try Supabase client first (preferred for production)
+  if (useSupabase) {
+    try {
+      console.log('[DB] Saving cards to Supabase...');
+      // Upsert using Supabase client
+      const { data, error } = await supabase.from('cards').upsert({ id: 1, data: cards }, { onConflict: 'id' });
+      if (error) {
+        console.error('[DB] Supabase save error:', error.message || error);
+        throw error;
+      }
+      console.log('✓ Cards saved to Supabase');
+      return true;
+    } catch (err) {
+      console.error('[DB] Supabase saveCards exception:', err.message || err);
+      console.error('[DB] Falling back to pg pool...');
+      // Fall through to pg pool if Supabase fails
+    }
+  }
+
+  // Fallback: try pg pool (direct Postgres connection)
   if (pool) {
     try {
+      console.log('[DB] Saving cards to database via pg pool...');
       await pool.query(`
         INSERT INTO cards (id, data, updated_at)
         VALUES (1, $1, CURRENT_TIMESTAMP)
@@ -159,25 +184,8 @@ async function saveCards(cards) {
       console.log('✓ Cards saved to database (pg)');
       return true;
     } catch (error) {
-      console.error('Error saving cards (pg):', error.message || error);
-      // Fall through to Supabase if pg fails
-    }
-  }
-
-  // Fallback: try Supabase client (if configured)
-  if (useSupabase) {
-    try {
-      // Upsert using Supabase client
-      const { data, error } = await supabase.from('cards').upsert({ id: 1, data: cards }, { onConflict: 'id' });
-      if (error) {
-        console.error('Supabase save error:', error.message || error);
-        throw error;
-      }
-      console.log('✓ Cards saved to Supabase');
-      return true;
-    } catch (err) {
-      console.error('Supabase saveCards exception:', err.message || err);
-      throw err;
+      console.error('[DB] Error saving cards (pg):', error.message || error);
+      throw error;
     }
   }
 

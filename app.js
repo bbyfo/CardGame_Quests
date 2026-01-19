@@ -13,6 +13,18 @@ let uiManager;
  */
 async function initializeApp() {
   try {
+    // Check data source from server health endpoint
+    let dataSourceInfo = 'Unknown';
+    try {
+      const healthResponse = await fetch('/api/health');
+      if (healthResponse.ok) {
+        const health = await healthResponse.json();
+        dataSourceInfo = health.dataSource || `${health.storage} storage`;
+      }
+    } catch (e) {
+      dataSourceInfo = 'Server unavailable';
+    }
+
     // Create DataLoader and load card data
     dataLoader = new DataLoader();
     await dataLoader.loadFromAPI('/api/cards');
@@ -32,10 +44,12 @@ async function initializeApp() {
 
     console.log('✓ Application initialized successfully');
     console.log('Loaded decks:', Object.keys(dataLoader.decks));
+    console.log('Data source:', dataSourceInfo);
     
     // Log initial state
     uiManager.addLog('✓ Quest System initialized');
-    uiManager.addLog(`Loaded ${dataLoader.getAllCards().length} cards across 6 decks`);
+    uiManager.addLog(`📊 Data source: ${dataSourceInfo}`);
+    uiManager.addLog(`Loaded ${dataLoader.getAllCards().length} cards across ${Object.keys(dataLoader.decks).length} decks`);
     uiManager.addLog('Ready to generate quests!');
   } catch (error) {
     console.error('Failed to initialize app:', error);

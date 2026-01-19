@@ -36,7 +36,20 @@ class CardManager {
         if (response.ok) {
           this.cards = await response.json();
           console.log('✓ Loaded cards from server');
-          this.showNotification('Connected to server - auto-save enabled', 'success');
+          
+          // Get data source info from health endpoint
+          let dataSourceInfo = 'server';
+          try {
+            const healthResponse = await fetch(CONFIG.API_HEALTH);
+            if (healthResponse.ok) {
+              const health = await healthResponse.json();
+              dataSourceInfo = health.dataSource || health.storage || 'server';
+            }
+          } catch (e) {
+            // Use default if health check fails
+          }
+          
+          this.showNotification(`Connected to ${dataSourceInfo} - auto-save enabled`, 'success');
         } else {
           throw new Error('Server returned error');
         }

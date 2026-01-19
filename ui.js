@@ -567,22 +567,36 @@ class UIManager {
     this.addLog('🔄 Reloading card data from database...');
 
     try {
+      // Check data source from server health endpoint
+      let dataSourceInfo = 'Unknown';
+      try {
+        const healthResponse = await fetch('/api/health');
+        if (healthResponse.ok) {
+          const health = await healthResponse.json();
+          dataSourceInfo = health.dataSource || `${health.storage} storage`;
+        }
+      } catch (e) {
+        dataSourceInfo = 'Server unavailable';
+      }
+
       // Reload data from database via API
       await dataLoader.loadFromAPI('/api/cards');
       
       // Update engine with fresh decks
       this.engine.decks = dataLoader.getDecks();
       
-      // Debug: Verify the update worked
-      console.log('Engine rewards after reload:', this.engine.decks.rewards);
-      console.log('Reward count in engine:', this.engine.decks.rewards.length);
-      
-      // Repopulate verb selector
+      // Repopulate quest template selector
       this.populateVerbSelector();
       
-      this.addLog(`✓ Card data reloaded successfully from database`);
-      this.addLog(`Loaded ${dataLoader.getAllCards().length} cards across 6 decks`);
-      this.addLog(`Engine now has ${this.engine.decks.rewards.length} reward cards`);
+      this.addLog(`✓ Card data reloaded successfully`);
+      this.addLog(`📊 Data source: ${dataSourceInfo}`);
+      this.addLog(`Loaded ${dataLoader.getAllCards().length} cards across ${Object.keys(this.engine.decks).length} decks`);
+      
+      // Log deck counts
+      const deckCounts = Object.entries(this.engine.decks)
+        .map(([name, cards]) => `${name}: ${cards.length}`)
+        .join(', ');
+      this.addLog(`Deck counts: ${deckCounts}`);
     } catch (error) {
       this.addLog(`❌ ERROR: Failed to reload card data: ${error.message}`);
       console.error('Reload error:', error);
