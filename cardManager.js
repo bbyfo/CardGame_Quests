@@ -370,10 +370,13 @@ class CardManager {
    * Setup collapsible sections with toggle functionality
    */
   setupCollapsibleSections() {
-    const toggleButtons = document.querySelectorAll('.toggle-btn');
-    toggleButtons.forEach(btn => {
-      btn.addEventListener('click', (e) => {
+    const browserHeaders = document.querySelectorAll('.browser-header');
+    browserHeaders.forEach(header => {
+      header.addEventListener('click', (e) => {
         e.preventDefault();
+        const btn = header.querySelector('.toggle-btn');
+        if (!btn) return;
+        
         const sectionId = btn.dataset.section;
         const section = document.getElementById(sectionId);
         if (!section) return;

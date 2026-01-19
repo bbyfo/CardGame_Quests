@@ -69,17 +69,21 @@ class UIManager {
    * Setup collapsible sections with toggle buttons
    */
   setupCollapsibleSections() {
-    const toggleButtons = document.querySelectorAll('.toggle-btn');
+    const browserHeaders = document.querySelectorAll('.browser-header');
     
-    toggleButtons.forEach(button => {
-      button.addEventListener('click', (e) => {
+    browserHeaders.forEach(header => {
+      header.addEventListener('click', (e) => {
         e.preventDefault();
+        const button = header.querySelector('.toggle-btn');
+        if (!button) return;
+        
         const sectionId = button.dataset.section;
         const contentElement = document.getElementById(`${sectionId}-content`);
         
         if (contentElement) {
           contentElement.classList.toggle('collapsed');
-          button.classList.toggle('collapsed');
+          const isExpanded = button.getAttribute('aria-expanded') === 'true';
+          button.setAttribute('aria-expanded', isExpanded ? 'false' : 'true');
         }
       });
     });
