@@ -2,6 +2,103 @@
   "npcs": [
    {
     "Deck": "NPC",
+    "CardName": "Guildmaster Thorne Highledger",
+    "TypeTags": ["Wealth", "Order"],
+    "AspectTags": ["Commerce"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "NPC",
+    "CardName": "Lady Miravelle Coinwright",
+    "TypeTags": ["Wealth", "Arcane"],
+    "AspectTags": ["Enchantment"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "NPC",
+    "CardName": "Duke Ralston of the Golden Exchange",
+    "TypeTags": ["Wealth", "Good"],
+    "AspectTags": ["Nobility"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "NPC",
+    "CardName": "Broker Vaskel the Silver Tongue",
+    "TypeTags": ["Wealth", "Shadow"],
+    "AspectTags": ["Deception"],
+    "mutableTags": [],
+    "Instructions": []
+  }
+, {
+    "Deck": "NPC",
+    "CardName": "The Veiled Matriarch",
+    "TypeTags": ["Shadow"],
+    "AspectTags": ["Darkness"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "NPC",
+    "CardName": "Lord Malrec the Withering",
+    "TypeTags": ["Shadow", "Arcane"],
+    "AspectTags": ["Necromancy"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "NPC",
+    "CardName": "Silktongue Varos",
+    "TypeTags": ["Shadow"],
+    "AspectTags": ["Deception"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "NPC",
+    "CardName": "High Inquisitor Draevin",
+    "TypeTags": ["Shadow", "Order"],
+    "AspectTags": ["Tyranny"],
+    "mutableTags": [],
+    "Instructions": []
+  }
+, {
+    "Deck": "NPC",
+    "CardName": "Ravager Queen Khyzara",
+    "TypeTags": ["Chaos"],
+    "AspectTags": ["Warlord"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "NPC",
+    "CardName": "Stormcaller Vesh Tal",
+    "TypeTags": ["Chaos", "Arcane"],
+    "AspectTags": ["Tempest"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "NPC",
+    "CardName": "The Laughing Prophet",
+    "TypeTags": ["Chaos"],
+    "AspectTags": ["Madness"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "NPC",
+    "CardName": "Ironfang the Unbound",
+    "TypeTags": ["Chaos", "Martial"],
+    "AspectTags": ["Berserker"],
+    "mutableTags": [],
+    "Instructions": []
+  }
+,
+    {
+    "Deck": "NPC",
     "CardName": "High Chancellor Veridan",
     "TypeTags": ["Order"],
     "AspectTags": ["Leadership"],
@@ -529,130 +626,103 @@
   }
 ],
   "locations": [
-    {
-      "id": "Location-Dark Forest-0.443523449797007",
-      "Deck": "Location",
-      "CardName": "Dark Forest",
-      "TypeTags": [
-        "Nature",
-        "Shadow"
-      ],
-      "AspectTags": [],
-      "mutableTags": [],
-      "Instructions": [
-        {
-          "Tags": [
-            "Nature",
-            "Chaos"
-          ],
-          "TargetDeck": "Twist"
-        },
-        {
-          "Tags": [
-            "Nature"
-          ],
-          "TargetDeck": "Reward"
-        }
-      ]
-    },
-    {
-      "id": "Location-Underground Cavern-0.7656821063485766",
-      "Deck": "Location",
-      "CardName": "Underground Cavern",
-      "TypeTags": [
-        "Nature",
-        "Chaos"
-      ],
-      "AspectTags": [
-        "Nature"
-      ],
-      "mutableTags": [],
-      "Instructions": [
-        {
-          "Tags": [
-            "Chaos",
-            "Nature"
-          ],
-          "TargetDeck": "Twist"
-        }
-      ]
-    },
-    {
-      "id": "Location-Haunted Tower-0.8606925929543499",
-      "Deck": "Location",
-      "CardName": "Haunted Tower",
-      "TypeTags": [
-        "Arcane",
-        "Chaos"
-      ],
-      "AspectTags": [
-        "Arcane"
-      ],
-      "mutableTags": [],
-      "Instructions": [
-        {
-          "Tags": [
-            "Shadow",
-            "Chaos"
-          ],
-          "TargetDeck": "Failure"
-        },
-        {
-          "Tags": [
-            "Arcane",
-            "Shadow"
-          ],
-          "TargetDeck": "Twist"
-        }
-      ]
-    },
-    {
-      "id": "Location-Bank Vault-0.30657438150029215",
-      "Deck": "Location",
-      "CardName": "Bank Vault",
-      "TypeTags": [
-        "Wealth",
-        "Order"
-      ],
-      "AspectTags": [
-        "Commerce"
-      ],
-      "mutableTags": [],
-      "Instructions": [
-        {
-          "Tags": [
-            "Wealth"
-          ],
-          "TargetDeck": "Reward"
-        }
-      ]
-    },
-    {
-      "Deck": "Location",
-      "CardName": "Royal Palace",
-      "TypeTags": [
-        "Wealth",
-        "Light"
-      ],
-      "AspectTags": [
-        "Military"
-      ],
-      "mutableTags": [],
-      "Instructions": []
-    },
-    {
-      "Deck": "Location",
-      "CardName": "Ancient Ruins Modified in GUI",
-      "TypeTags": [
-        "Arcane",
-        "Chaos"
-      ],
-      "AspectTags": [
-        "Mystery"
-      ],
-      "mutableTags": [],
-      "Instructions": []
-    }
+{
+    "Deck": "Location",
+    "CardName": "Glimmerfall Sanctuary",
+    "TypeTags": ["Light", "Order"],
+    "AspectTags": ["Holy"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Location",
+    "CardName": "Ashspire Warrens",
+    "TypeTags": ["Chaos", "Shadow"],
+    "AspectTags": ["Underground"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Location",
+    "CardName": "Verdant Crown Grove",
+    "TypeTags": ["Nature", "Light"],
+    "AspectTags": ["Forest"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Location",
+    "CardName": "Runescar Plateau",
+    "TypeTags": ["Arcane", "Martial"],
+    "AspectTags": ["Ancient"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Location",
+    "CardName": "The Golden Exchange",
+    "TypeTags": ["Wealth", "Order"],
+    "AspectTags": ["Commerce"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Location",
+    "CardName": "Moonshroud Fen",
+    "TypeTags": ["Shadow", "Nature"],
+    "AspectTags": ["Swamp"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Location",
+    "CardName": "Stormbreaker Keep",
+    "TypeTags": ["Martial", "Order"],
+    "AspectTags": ["Fortress"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Location",
+    "CardName": "The Arcane Observatory",
+    "TypeTags": ["Arcane", "Light"],
+    "AspectTags": ["Mystic"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Location",
+    "CardName": "Crimson Rift Chasm",
+    "TypeTags": ["Chaos", "Arcane"],
+    "AspectTags": ["Hazard"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Location",
+    "CardName": "Silkmarket Promenade",
+    "TypeTags": ["Wealth", "Light"],
+    "AspectTags": ["Trade"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Location",
+    "CardName": "Hollowshade Necropolis",
+    "TypeTags": ["Shadow", "Order"],
+    "AspectTags": ["Ruins"],
+    "mutableTags": [],
+    "Instructions": []
+  },
+  {
+    "Deck": "Location",
+    "CardName": "Ironroot Barricade",
+    "TypeTags": ["Nature", "Martial"],
+    "AspectTags": ["Defensive"],
+    "mutableTags": [],
+    "Instructions": []
+  }
+
   ],
   "loot": [
   {
