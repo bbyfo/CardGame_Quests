@@ -141,6 +141,16 @@ class UIManager {
       this.engine.debugMode = debugToggle.checked;
     }
     
+    // Auto-collapse Generation Settings section if it's open
+    const settingsContent = document.getElementById('generation-settings-content');
+    const settingsToggleBtn = document.querySelector('[data-section="generation-settings"]');
+    if (settingsContent && !settingsContent.classList.contains('collapsed')) {
+      settingsContent.classList.add('collapsed');
+      if (settingsToggleBtn) {
+        settingsToggleBtn.setAttribute('aria-expanded', 'false');
+      }
+    }
+    
     // Refresh decks with fresh copies for new quest
     if (window.dataLoader) {
       this.engine.decks = window.dataLoader.getDecks();

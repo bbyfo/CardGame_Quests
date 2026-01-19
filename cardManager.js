@@ -1298,6 +1298,16 @@ class CardManager {
     const card = deck.find(c => c.CardName === cardName);
     if (!card) return;
 
+    // Auto-expand Create/Edit Card section if it's collapsed
+    const formContent = document.getElementById('card-form');
+    const formToggleBtn = document.querySelector('[data-section="card-form"]');
+    if (formContent && formContent.classList.contains('collapsed')) {
+      formContent.classList.remove('collapsed');
+      if (formToggleBtn) {
+        formToggleBtn.setAttribute('aria-expanded', 'true');
+      }
+    }
+
     // Track the original deck and card name for update operation
     this.originalDeckName = deckName;
     this.originalCardName = cardName;
