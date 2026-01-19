@@ -163,9 +163,8 @@ class UIManager {
    * Handle Step Through Mode button
    */
   handleStepThrough() {
-    this.clearLogs();
-    this.mode = 'step-through';
-    this.engine.reset();
+    alert('Step-through mode is currently disabled. This feature needs to be updated to work with the new instruction-driven quest generation system.\n\nPlease use the "Generate Quest" button instead.');
+    return;
     
     // Refresh decks with fresh copies for new quest
     if (window.dataLoader) {
@@ -205,96 +204,13 @@ class UIManager {
       return;
     }
 
-    const step = this.stepState.step;
-
-    if (step === 0) {
-      // Draw Verb
-      this.stepState.verb = this.engine.stepDrawVerb(this.stepState.selectedVerb);
-      if (!this.stepState.verb) {
-        this.displayLogs(this.engine.getLogs());
-        document.getElementById('btn-next-step').disabled = true;
-        return;
-      }
-      this.addLog(`Drawn Verb: ${this.stepState.verb.CardName}`);
-    } else if (step === 1) {
-      // Draw Quest Giver
-      this.stepState.questGiver = this.engine.stepDrawQuestGiver();
-      if (!this.stepState.questGiver) {
-        this.displayLogs(this.engine.getLogs());
-        document.getElementById('btn-next-step').disabled = true;
-        return;
-      }
-      this.addLog(`Drawn Quest Giver: ${this.stepState.questGiver.CardName}`);
-      this.addLog(`Type Tags: [${this.stepState.questGiver.TypeTags.join(', ')}]`);
-      this.addLog(`Aspect Tags: [${this.stepState.questGiver.AspectTags.join(', ')}]`);
-    } else if (step === 2) {
-      // Draw Harmed Party
-      this.stepState.harmedParty = this.engine.stepDrawHarmedParty();
-      if (!this.stepState.harmedParty) {
-        this.displayLogs(this.engine.getLogs());
-        document.getElementById('btn-next-step').disabled = true;
-        return;
-      }
-      this.addLog(`Drawn Harmed Party: ${this.stepState.harmedParty.CardName}`);
-      this.addLog(`Type Tags: [${this.stepState.harmedParty.TypeTags.join(', ')}]`);
-      this.addLog(`Aspect Tags: [${this.stepState.harmedParty.AspectTags.join(', ')}]`);
-    } else if (step === 3) {
-      // Draw Target
-      this.stepState.target = this.engine.stepDrawTarget(this.stepState.verb);
-      if (!this.stepState.target) {
-        this.displayLogs(this.engine.getLogs());
-        document.getElementById('btn-next-step').disabled = true;
-        return;
-      }
-      this.addLog(`Drawn Target: ${this.stepState.target.CardName}`);
-      this.addLog(`Target Tags: [${this.engine.getCurrentTags(this.stepState.target).join(', ')}]`);
-    } else if (step === 4) {
-      // Draw Location
-      this.stepState.location = this.engine.stepDrawLocation(this.stepState.target);
-      if (!this.stepState.location) {
-        this.displayLogs(this.engine.getLogs());
-        document.getElementById('btn-next-step').disabled = true;
-        return;
-      }
-      this.addLog(`Drawn Location: ${this.stepState.location.CardName}`);
-      this.addLog(`Location Tags: [${this.engine.getCurrentTags(this.stepState.location).join(', ')}]`);
-    } else if (step === 5) {
-      // Draw Twist
-      this.stepState.twist = this.engine.stepDrawTwist(this.stepState.location);
-      if (!this.stepState.twist) {
-        this.displayLogs(this.engine.getLogs());
-        document.getElementById('btn-next-step').disabled = true;
-        return;
-      }
-      this.addLog(`Drawn Twist: ${this.stepState.twist.CardName}`);
-      this.addLog(`Twist Tags: [${this.engine.getCurrentTags(this.stepState.twist).join(', ')}]`);
-    } else if (step === 6) {
-      // Draw Reward
-      this.stepState.reward = this.engine.stepDrawReward(this.stepState.twist);
-      if (!this.stepState.reward) {
-        this.displayLogs(this.engine.getLogs());
-        document.getElementById('btn-next-step').disabled = true;
-        return;
-      }
-      this.addLog(`Drawn Reward: ${this.stepState.reward.CardName}`);
-    } else if (step === 7) {
-      // Draw Failure
-      this.stepState.failure = this.engine.stepDrawFailure(this.stepState.reward);
-      if (!this.stepState.failure) {
-        this.displayLogs(this.engine.getLogs());
-        document.getElementById('btn-next-step').disabled = true;
-        return;
-      }
-      this.addLog(`Drawn Failure: ${this.stepState.failure.CardName}`);
-      this.stepState.step++; // Allow one more click to end
-    } else if (step === 8) {
-      this.addLog('Quest complete! Click "Generate Quest" to start a new quest.');
-      document.getElementById('btn-next-step').disabled = true;
-      this.displayQuest(this.engine.getQuest());
-      return;
-    }
-
-    this.stepState.step++;
+    alert('Step-through mode is currently disabled. This feature needs to be updated to work with the new instruction-driven quest generation system.\n\nPlease use the "Generate Quest" button instead.');
+    
+    // Reset to normal mode
+    this.mode = 'normal';
+    document.getElementById('btn-next-step').style.display = 'none';
+    document.getElementById('btn-generate').style.display = 'inline-block';
+    document.getElementById('btn-step-through').style.display = 'inline-block';
   }
 
   /**
