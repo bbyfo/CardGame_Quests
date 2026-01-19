@@ -1258,7 +1258,7 @@ class CardManager {
    * Reset to default cards from database
    */
   async resetToDefaults() {
-    if (!confirm('This will clear all your changes and reload the default cards from the database. Are you sure?')) {
+    if (!confirm('This will clear all your changes and reload the default cards from cards.json file. If connected to a server, it will also update the database. Are you sure?')) {
       return;
     }
 
