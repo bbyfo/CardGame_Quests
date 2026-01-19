@@ -451,6 +451,18 @@ class QuestEngine {
     this.reset();
     
     this.log('=== QUEST GENERATION STARTED ===');
+    
+    // Log generation settings
+    this.log('Generation Settings:');
+    this.log(`  • Debug Mode: ${this.debugMode ? 'ON' : 'OFF'}`);
+    this.log(`  • Max Redraws: ${this.maxRedraws === -1 ? '∞ (Draw until match)' : this.maxRedraws}`);
+    this.log(`  • Step-Through Mode: ${this.stepThroughMode ? 'ON' : 'OFF'}`);
+    if (specificTemplate) {
+      this.log(`  • Template: "${specificTemplate.CardName}" (User-selected)`);
+    } else {
+      this.log(`  • Template: Random`);
+    }
+    this.log('');
 
     // Step 1: Draw or select QuestTemplate
     let template = specificTemplate;
