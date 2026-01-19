@@ -697,6 +697,36 @@ class CardManager {
   }
 
   /**
+   * Populate the draw-deck dropdown with available decks
+   */
+  populateDrawDeckDropdown() {
+    const drawDeck = document.getElementById('draw-deck');
+    if (!drawDeck) return;
+
+    // Keep the placeholder, remove other options
+    const currentValue = drawDeck.value;
+    drawDeck.innerHTML = '<option value="">-- Select Deck --</option>';
+
+    // Get deck names from loaded data and sort them
+    const deckNames = Object.keys(this.cards).sort();
+
+    // Add an option for each deck
+    deckNames.forEach(deckKey => {
+      if (Array.isArray(this.cards[deckKey])) {
+        const option = document.createElement('option');
+        option.value = deckKey;
+        option.textContent = this.getDeckDisplayName(deckKey);
+        drawDeck.appendChild(option);
+      }
+    });
+
+    // Restore previous value if it still exists
+    if (currentValue && deckNames.includes(currentValue)) {
+      drawDeck.value = currentValue;
+    }
+  }
+
+  /**
    * Open instruction modal
    */
   openInstructionModal() {
@@ -839,6 +869,9 @@ class CardManager {
     if (modal) {
       modal.style.display = 'flex';
       this.editingDrawInstructionIndex = -1; // -1 means adding new
+      
+      // Populate deck dropdown
+      this.populateDrawDeckDropdown();
       
       // Reset form
       document.getElementById('draw-action').value = '';
@@ -993,6 +1026,9 @@ class CardManager {
     if (!instruction) return;
 
     this.editingDrawInstructionIndex = index;
+
+    // Populate deck dropdown first
+    this.populateDrawDeckDropdown();
 
     // Populate modal
     document.getElementById('draw-action').value = instruction.action;
