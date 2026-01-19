@@ -572,6 +572,50 @@ section h4 {
   }
 }
 
+/* Updated Index.html Layout */
+.app-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.generate-section {
+  background: none;
+  box-shadow: none;
+  padding: 0;
+  margin-bottom: 10px;
+}
+
+.generate-primary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.btn-large {
+  font-size: 1.5em;
+  padding: 20px 60px;
+  font-weight: 600;
+  min-width: 300px;
+  box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+  transition: all 0.3s ease;
+}
+
+.btn-large:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(52, 152, 219, 0.4);
+}
+
+.quest-output-section {
+  min-height: 300px;
+}
+
+.settings-section,
+.log-section {
+  margin-top: 10px;
+}
+
 @media (max-width: 768px) {
   main {
     grid-template-columns: 1fr;
@@ -599,5 +643,11 @@ section h4 {
 
   header p {
     font-size: 0.85em;
+  }
+
+  .btn-large {
+    font-size: 1.3em;
+    padding: 15px 40px;
+    min-width: 250px;
   }
 }

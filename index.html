@@ -24,41 +24,58 @@
     </header>
 
     <main class="app-grid">
-      <!-- Controls Panel -->
-      <section class="controls-panel">
-        <h2>Controls</h2>
-
-        <div class="control-group">
-          <h3>Quest Template Selection</h3>
-          <div class="input-group">
-            <label for="verb-selector">Starting Quest Template:</label>
-            <select id="verb-selector">
-              <option value="">-- Random Quest Template --</option>
-            </select>
-          </div>
+      <!-- Primary: Generate Quest -->
+      <section class="generate-section">
+        <div class="generate-primary">
+          <button id="btn-generate" class="btn btn-primary btn-large">⚔️ Generate Quest</button>
         </div>
+      </section>
 
-        <div class="control-group">
-          <h3>Generation Modes</h3>
-          <button id="btn-generate" class="btn btn-primary">Generate Quest</button>
-          <button id="btn-step-through" class="btn btn-secondary">Step-Through Mode</button>
-          <button id="btn-next-step" class="btn btn-secondary" disabled>Next Step</button>
+      <!-- Primary: Quest Output -->
+      <section class="quest-output-section">
+        <h2>Quest Output</h2>
+        <div id="quest-output" class="quest-output">
+          <p>Click the button above to generate a quest.</p>
         </div>
+      </section>
 
-        <div class="control-group">
-          <h3><button class="toggle-btn" data-section="validation">▼</button> Validation</h3>
-          <div class="collapsible-content" id="validation-content">
+      <!-- Secondary A: Logs -->
+      <section class="log-section">
+        <div class="browser-header">
+          <h2>Generation Logs</h2>
+          <button class="toggle-btn" data-section="generation-logs" aria-expanded="false">▼</button>
+        </div>
+        <div id="generation-logs-content" class="collapsible-content collapsed">
+          <div id="log-window" class="log-window"></div>
+        </div>
+      </section>
+
+      <!-- Secondary B: Generation Settings -->
+      <section class="settings-section">
+        <div class="browser-header">
+          <h2>Generation Settings</h2>
+          <button class="toggle-btn" data-section="generation-settings" aria-expanded="false">▼</button>
+        </div>
+        
+        <div id="generation-settings-content" class="collapsible-content collapsed">
+          <div class="control-group">
+            <h3>Quest Template</h3>
             <div class="input-group">
-              <label for="iterations-input">Iterations:</label>
-              <input type="number" id="iterations-input" value="100" min="1" max="10000">
+              <label for="verb-selector">Starting Quest Template:</label>
+              <select id="verb-selector">
+                <option value="">-- Random Quest Template --</option>
+              </select>
             </div>
-            <button id="btn-validate" class="btn btn-accent">Run Validation (N iterations)</button>
           </div>
-        </div>
 
-        <div class="control-group">
-          <h3><button class="toggle-btn" data-section="settings">▼</button> Settings</h3>
-          <div class="collapsible-content" id="settings-content">
+          <div class="control-group">
+            <h3>Advanced Generation</h3>
+            <button id="btn-step-through" class="btn btn-secondary">Step-Through Mode</button>
+            <button id="btn-next-step" class="btn btn-secondary" disabled>Next Step</button>
+          </div>
+
+          <div class="control-group">
+            <h3>Generation Options</h3>
             <div class="input-group">
               <label for="seed-input">Seed (optional):</label>
               <input type="text" id="seed-input" placeholder="Enter seed value">
@@ -83,27 +100,21 @@
               </label>
             </div>
           </div>
-        </div>
 
-        <div class="control-group">
-          <button id="btn-clear-logs" class="btn btn-danger">Clear Logs</button>
-        </div>
-      </section>
+          <div class="control-group">
+            <h3>Validation Tools</h3>
+            <div class="input-group">
+              <label for="iterations-input">Iterations:</label>
+              <input type="number" id="iterations-input" value="100" min="1" max="10000">
+            </div>
+            <button id="btn-validate" class="btn btn-accent">Run Validation (N iterations)</button>
+          </div>
 
-      <!-- Quest Output Section -->
-      <section class="quest-output-section">
-        <h2><button class="toggle-btn" data-section="quest-output">▼</button> Quest Output</h2>
-        <div class="collapsible-content" id="quest-output-content">
-          <div id="quest-output" class="quest-output">
-            <p>Click a button to generate a quest or run validation.</p>
+          <div class="control-group">
+            <h3>Utilities</h3>
+            <button id="btn-clear-logs" class="btn btn-danger">Clear Logs</button>
           </div>
         </div>
-      </section>
-
-      <!-- Log Window -->
-      <section class="log-section">
-        <h2>Log Window</h2>
-        <div id="log-window" class="log-window"></div>
       </section>
     </main>
 
