@@ -105,11 +105,17 @@ async function getCards() {
   // Try pg pool first (direct Postgres connection — more reliable)
   if (pool) {
     try {
+      console.log('[DB] Querying database with pg pool...');
       const result = await pool.query('SELECT data FROM cards WHERE id = 1');
-      if (result.rows.length === 0) return empty();
+      if (result.rows.length === 0) {
+        console.log('[DB] No cards found in database, returning empty structure');
+        return empty();
+      }
+      console.log('[DB] Cards loaded from pg pool:', Object.keys(result.rows[0].data));
       return result.rows[0].data;
     } catch (error) {
-      console.error('Error getting cards (pg):', error.message || error);
+      console.error('[DB] Error getting cards (pg):', error.message);
+      console.error('[DB] Error details:', error);
       // Fall through to Supabase if pg fails
     }
   }

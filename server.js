@@ -85,19 +85,25 @@ app.use(express.static(__dirname)); // Serve static files
  */
 app.get('/api/cards', async (req, res) => {
   try {
+    console.log(`[API] GET /api/cards - Storage mode: ${useDatabaseStorage ? 'database' : 'filesystem'}`);
     let cards;
     
     if (useDatabaseStorage) {
+      console.log('[API] Loading cards from database...');
       cards = await db.getCards();
+      console.log('[API] Cards loaded from database:', Object.keys(cards));
     } else {
+      console.log('[API] Loading cards from filesystem...');
       const data = await fs.readFile(CARDS_FILE, 'utf8');
       cards = JSON.parse(data);
+      console.log('[API] Cards loaded from filesystem:', Object.keys(cards));
     }
     
     res.json(cards);
   } catch (error) {
-    console.error('Error reading cards:', error);
-    res.status(500).json({ error: 'Failed to load cards' });
+    console.error('[API] Error reading cards:', error.message);
+    console.error('[API] Error stack:', error.stack);
+    res.status(500).json({ error: 'Failed to load cards', details: error.message });
   }
 });
 
@@ -109,7 +115,7 @@ app.post('/api/cards', async (req, res) => {
     const cards = req.body;
     
     // Validate the data structure
-    const requiredDecks = ['questgivers', 'harmedparties', 'verbs', 'targets', 'locations', 'twists', 'rewards', 'failures'];
+    const requiredDecks = ['npcs', 'questtemplates', 'locations', 'twists'];
     for (const deck of requiredDecks) {
       if (!Array.isArray(cards[deck])) {
         return res.status(400).json({ error: `Missing or invalid deck: ${deck}` });
