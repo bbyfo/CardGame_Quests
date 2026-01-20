@@ -87,9 +87,20 @@
               <input 
                 type="text" 
                 id="type-tags-input" 
-                placeholder="Add type tags (e.g., Arcane, Order, Shadow, Light, etc...) and press Enter"
+                list="type-tags-datalist"
+                placeholder="Add type tags (Holy, Nature, Order, Arcane, Martial, Light, Shadow, Wealth) and press Enter"
                 class="autocomplete-input"
               >
+              <datalist id="type-tags-datalist">
+                <option value="Holy">Holy (Red)</option>
+                <option value="Nature">Nature (Green)</option>
+                <option value="Order">Order (Blue)</option>
+                <option value="Arcane">Arcane (Yellow)</option>
+                <option value="Martial">Martial (Silver)</option>
+                <option value="Light">Light (White)</option>
+                <option value="Shadow">Shadow (Black)</option>
+                <option value="Wealth">Wealth (Gold)</option>
+              </datalist>
               <div id="type-tags-suggestions" class="autocomplete-dropdown"></div>
               <div id="type-tags-list" class="tags-list"></div>
             </div>
@@ -239,7 +250,8 @@
             <input 
               type="text" 
               id="instruction-tags" 
-              placeholder="Add tags and press Enter"
+              list="type-tags-datalist"
+              placeholder="Add tags (Holy, Nature, Order, Arcane, Martial, Light, Shadow, Wealth) and press Enter"
               class="autocomplete-input"
             >
             <div id="instruction-tags-suggestions" class="autocomplete-dropdown"></div>
@@ -305,7 +317,8 @@
             <input 
               type="text" 
               id="draw-tags-input" 
-              placeholder="Add tags and press Enter"
+              list="type-tags-datalist"
+              placeholder="Add tags (Holy, Nature, Order, Arcane, Martial, Light, Shadow, Wealth) and press Enter"
               class="autocomplete-input"
             >
             <div id="draw-tags-suggestions" class="autocomplete-dropdown"></div>
