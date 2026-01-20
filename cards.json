@@ -5,10 +5,12 @@
       "Deck": "Loot",
       "CardName": "Battle Scripture",
       "TypeTags": [
+        "Arcane"
+      ],
+      "AspectTags": [
         "Consumable",
         "Magic Item"
       ],
-      "AspectTags": [],
       "mutableTags": [],
       "Instructions": []
     },
@@ -17,10 +19,11 @@
       "Deck": "Loot",
       "CardName": "Bear Fang Necklace",
       "TypeTags": [
-        "Magic Item"
+        "Arcane"
       ],
       "AspectTags": [
-        "Jewelry"
+        "Jewelry",
+        "Magic Item"
       ],
       "mutableTags": [],
       "Instructions": []
@@ -30,10 +33,11 @@
       "Deck": "Loot",
       "CardName": "Beastcleaner",
       "TypeTags": [
-        "Magic Item"
+        "Arcane"
       ],
       "AspectTags": [
-        "Tool"
+        "Tool",
+        "Magic Item"
       ],
       "mutableTags": [],
       "Instructions": []
@@ -43,10 +47,11 @@
       "Deck": "Loot",
       "CardName": "Belt of Veracity",
       "TypeTags": [
-        "Magic Item"
+        "Arcane"
       ],
       "AspectTags": [
-        "Clothing"
+        "Clothing",
+        "Magic Item"
       ],
       "mutableTags": [],
       "Instructions": []
@@ -56,10 +61,11 @@
       "Deck": "Loot",
       "CardName": "Blazing Morningstar",
       "TypeTags": [
-        "Magic Item"
+        "Arcane"
       ],
       "AspectTags": [
-        "Weapon"
+        "Weapon",
+        "Magic Item"
       ],
       "mutableTags": [],
       "Instructions": []
@@ -69,10 +75,13 @@
       "Deck": "Loot",
       "CardName": "Bolt of Light",
       "TypeTags": [
+        "Light",
+        "Arcane"
+      ],
+      "AspectTags": [
         "Consumable",
         "Magic Item"
       ],
-      "AspectTags": [],
       "mutableTags": [],
       "Instructions": []
     },
@@ -81,10 +90,11 @@
       "Deck": "Loot",
       "CardName": "Brass Suns",
       "TypeTags": [
-        "Magic Item"
+        "Arcane"
       ],
       "AspectTags": [
-        "Jewelry"
+        "Jewelry",
+        "Magic Item"
       ],
       "mutableTags": [],
       "Instructions": []
@@ -94,10 +104,11 @@
       "Deck": "Loot",
       "CardName": "Cloak of the Wilds",
       "TypeTags": [
-        "Magic Item"
+        "Arcane"
       ],
       "AspectTags": [
-        "Clothing"
+        "Clothing",
+        "Magic Item"
       ],
       "mutableTags": [],
       "Instructions": []
@@ -107,10 +118,11 @@
       "Deck": "Loot",
       "CardName": "Cloudwatcher's Telescope",
       "TypeTags": [
-        "Magic Item"
+        "Arcane"
       ],
       "AspectTags": [
-        "Tool"
+        "Tool",
+        "Magic Item"
       ],
       "mutableTags": [],
       "Instructions": []
@@ -120,10 +132,11 @@
       "Deck": "Loot",
       "CardName": "Collector's Scabbard",
       "TypeTags": [
-        "Magic Item"
+        "Arcane"
       ],
       "AspectTags": [
-        "Tool"
+        "Tool",
+        "Magic Item"
       ],
       "mutableTags": [],
       "Instructions": []
@@ -133,10 +146,11 @@
       "Deck": "Loot",
       "CardName": "Elven Recurve",
       "TypeTags": [
-        "Magic Item"
+        "Arcane"
       ],
       "AspectTags": [
-        "Weapon"
+        "Weapon",
+        "Magic Item"
       ],
       "mutableTags": [],
       "Instructions": []
@@ -146,10 +160,11 @@
       "Deck": "Loot",
       "CardName": "Enchanted Rucksack",
       "TypeTags": [
-        "Magic Item"
+        "Arcane"
       ],
       "AspectTags": [
-        "Worn"
+        "Worn",
+        "Magic Item"
       ],
       "mutableTags": [],
       "Instructions": []
@@ -159,10 +174,11 @@
       "Deck": "Loot",
       "CardName": "Helm of the Survivor",
       "TypeTags": [
-        "Magic Item"
+        "Arcane"
       ],
       "AspectTags": [
-        "Armor"
+        "Armor",
+        "Magic Item"
       ],
       "mutableTags": [],
       "Instructions": []
@@ -172,10 +188,11 @@
       "Deck": "Loot",
       "CardName": "Meditation Beads",
       "TypeTags": [
-        "Magic Item"
+        "Arcane"
       ],
       "AspectTags": [
-        "Jewelry"
+        "Jewelry",
+        "Magic Item"
       ],
       "mutableTags": [],
       "Instructions": []
@@ -185,10 +202,11 @@
       "Deck": "Loot",
       "CardName": "Nightfleece Gambeson",
       "TypeTags": [
-        "Magic Item"
+        "Arcane"
       ],
       "AspectTags": [
-        "Armor"
+        "Armor",
+        "Magic Item"
       ],
       "mutableTags": [],
       "Instructions": []
@@ -198,10 +216,11 @@
       "Deck": "Loot",
       "CardName": "Plate of Protection",
       "TypeTags": [
-        "Magic Item"
+        "Arcane"
       ],
       "AspectTags": [
-        "Armor"
+        "Armor",
+        "Magic Item"
       ],
       "mutableTags": [],
       "Instructions": []
@@ -211,10 +230,11 @@
       "Deck": "Loot",
       "CardName": "Platinum Cuirass",
       "TypeTags": [
-        "Magic Item"
+        "Arcane"
       ],
       "AspectTags": [
-        "Armor"
+        "Armor",
+        "Magic Item"
       ],
       "mutableTags": [],
       "Instructions": []
@@ -224,10 +244,11 @@
       "Deck": "Loot",
       "CardName": "Prince's Coat of Plates",
       "TypeTags": [
-        "Magic Item"
+        "Arcane"
       ],
       "AspectTags": [
-        "Armor"
+        "Armor",
+        "Magic Item"
       ],
       "mutableTags": [],
       "Instructions": []
@@ -237,10 +258,11 @@
       "Deck": "Loot",
       "CardName": "Saphire Signet",
       "TypeTags": [
-        "Magic Item"
+        "Arcane"
       ],
       "AspectTags": [
-        "Jewelry"
+        "Jewelry",
+        "Magic Item"
       ],
       "mutableTags": [],
       "Instructions": []
@@ -250,10 +272,11 @@
       "Deck": "Loot",
       "CardName": "Steel Amulet",
       "TypeTags": [
-        "Magic Item"
+        "Arcane"
       ],
       "AspectTags": [
-        "Jewelry"
+        "Jewelry",
+        "Magic Item"
       ],
       "mutableTags": [],
       "Instructions": []
@@ -263,10 +286,11 @@
       "Deck": "Loot",
       "CardName": "Stormgather Staff",
       "TypeTags": [
-        "Magic Item"
+        "Arcane"
       ],
       "AspectTags": [
-        "Weapon"
+        "Weapon",
+        "Magic Item"
       ],
       "mutableTags": [],
       "Instructions": []
@@ -276,10 +300,11 @@
       "Deck": "Loot",
       "CardName": "Sword and Dagger of the Hero",
       "TypeTags": [
-        "Magic Item"
+        "Arcane"
       ],
       "AspectTags": [
-        "Weapon"
+        "Weapon",
+        "Magic Item"
       ],
       "mutableTags": [],
       "Instructions": []
@@ -289,10 +314,11 @@
       "Deck": "Loot",
       "CardName": "Thunder's Roar Earrings",
       "TypeTags": [
-        "Magic Item"
+        "Arcane"
       ],
       "AspectTags": [
-        "Jewelry"
+        "Jewelry",
+        "Magic Item"
       ],
       "mutableTags": [],
       "Instructions": []
@@ -367,10 +393,11 @@
       "Deck": "Loot",
       "CardName": "Unbreakable Spear",
       "TypeTags": [
-        "Magic Item"
+        "Arcane"
       ],
       "AspectTags": [
-        "Weapon"
+        "Weapon",
+        "Magic Item"
       ],
       "mutableTags": [],
       "Instructions": []
@@ -380,10 +407,11 @@
       "Deck": "Loot",
       "CardName": "Veteran's Cowl",
       "TypeTags": [
-        "Magic Item"
+        "Arcane"
       ],
       "AspectTags": [
-        "Clothing"
+        "Clothing",
+        "Magic Item"
       ],
       "mutableTags": [],
       "Instructions": []
@@ -393,10 +421,11 @@
       "Deck": "Loot",
       "CardName": "Wavetreader Boots",
       "TypeTags": [
-        "Magic Item"
+        "Arcane"
       ],
       "AspectTags": [
-        "Worn"
+        "Worn",
+        "Magic Item"
       ],
       "mutableTags": [],
       "Instructions": []
@@ -406,10 +435,11 @@
       "Deck": "Loot",
       "CardName": "Wizard's Cap and Gown",
       "TypeTags": [
-        "Magic Item"
+        "Arcane"
       ],
       "AspectTags": [
-        "Clothing"
+        "Clothing",
+        "Magic Item"
       ],
       "mutableTags": [],
       "Instructions": []
@@ -419,10 +449,12 @@
       "Deck": "Loot",
       "CardName": "Dwarven Meal",
       "TypeTags": [
+        "Arcane"
+      ],
+      "AspectTags": [
         "Consumable",
         "Magic Item"
       ],
-      "AspectTags": [],
       "mutableTags": [],
       "Instructions": []
     }
