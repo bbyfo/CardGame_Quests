@@ -65,10 +65,40 @@ main {
   border: 1px solid var(--border-color);
 }
 
+.quest-role-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
 .quest-role strong {
   color: var(--primary-color);
   display: inline-block;
   min-width: 80px;
+}
+
+.btn-go-to-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  font-size: 0.85em;
+  background-color: #667eea;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  white-space: nowrap;
+}
+
+.btn-go-to-card:hover {
+  background-color: #5568d3;
+}
+
+.multi-card-item .btn-go-to-card {
+  margin-left: 8px;
 }
 
 /* Prefix and suffix styling */

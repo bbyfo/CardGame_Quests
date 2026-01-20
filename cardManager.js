@@ -73,6 +73,7 @@ class CardManager {
       this.extractAllTags();
       this.setupEventListeners();
       this.renderCardsList();
+      this.handleDeepLink();
       console.log('✓ Card Manager initialized');
       console.log('Loaded decks:', Object.keys(this.cards));
       console.log('Card counts:', Object.entries(this.cards).map(([deck, cards]) => `${deck}: ${cards.length}`).join(', '));
@@ -1126,6 +1127,66 @@ class CardManager {
   /**
    * Render cards list (with filtering and search)
    */
+  /**
+   * Handle deep linking from quest output
+   * Opens the Browse Cards section and scrolls to the specified card
+   */
+  handleDeepLink() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const cardId = urlParams.get('cardId');
+    const cardName = urlParams.get('cardName');
+    
+    if (cardId || cardName) {
+      // Expand Browse Cards section
+      const browseSection = document.querySelector('[data-section="browse-cards"]');
+      const browseContent = document.getElementById('browse-cards');
+      if (browseContent && browseContent.classList.contains('collapsed')) {
+        browseContent.classList.remove('collapsed');
+        if (browseSection) {
+          browseSection.setAttribute('aria-expanded', 'true');
+        }
+      }
+      
+      // Wait for render to complete, then scroll to card
+      setTimeout(() => {
+        this.scrollToCard(cardId, cardName);
+      }, 300);
+    }
+  }
+
+  /**
+   * Scroll to and highlight a specific card in the Browse Cards list
+   */
+  scrollToCard(cardId, cardName) {
+    const list = document.getElementById('cards-list');
+    if (!list) return;
+    
+    // Find the card item
+    const cardItems = list.querySelectorAll('.card-item');
+    let targetCard = null;
+    
+    for (const item of cardItems) {
+      const nameElement = item.querySelector('h4');
+      if (nameElement && nameElement.textContent === cardName) {
+        targetCard = item;
+        break;
+      }
+    }
+    
+    if (targetCard) {
+      // Add highlight class
+      targetCard.classList.add('card-highlight');
+      
+      // Scroll to the card with smooth behavior
+      targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      
+      // Remove highlight after 3 seconds
+      setTimeout(() => {
+        targetCard.classList.remove('card-highlight');
+      }, 3000);
+    }
+  }
+
   renderCardsList() {
     const filterDeck = document.getElementById('filter-deck').value;
     const searchQuery = document.getElementById('search-cards').value.toLowerCase();

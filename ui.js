@@ -390,6 +390,7 @@ class UIManager {
           ${componentData.map((card, index) => `
             <div class="multi-card-item">
               <span class="card-number">#${index + 1}</span> ${wrapCardName(card.CardName)}
+              <button class="btn-go-to-card" onclick="window.open('cardManager.html?cardId=${encodeURIComponent(card.id || '')}&cardName=${encodeURIComponent(card.CardName)}', '_blank')" title="Open in Card Manager">🔍 Go to Card</button>
               ${playerInstructionHTML}
               <div class="tags">
                 <span class="tag-label">Type Tags:</span> ${card.TypeTags.join(', ')}
@@ -404,7 +405,10 @@ class UIManager {
       
       // Handle single card
       return `<div class="quest-role">
-        ${wrapCardName(componentData.CardName)}
+        <div class="quest-role-header">
+          ${wrapCardName(componentData.CardName)}
+          <button class="btn-go-to-card" onclick="window.open('cardManager.html?cardId=${encodeURIComponent(componentData.id || '')}&cardName=${encodeURIComponent(componentData.CardName)}', '_blank')" title="Open in Card Manager">🔍 Go to Card</button>
+        </div>
         ${playerInstructionHTML}
         <div class="tags">
           <span class="tag-label">Type Tags:</span> ${componentData.TypeTags.join(', ')}
@@ -420,7 +424,10 @@ class UIManager {
       <div class="quest-display">
         <h3>Generated Quest</h3>
         <div class="quest-role">
-          <strong>Template:</strong> ${quest.template.CardName}
+          <div class="quest-role-header">
+            <strong>Template:</strong> <span class="card-name">${quest.template.CardName}</span>
+            <button class="btn-go-to-card" onclick="window.open('cardManager.html?cardId=${encodeURIComponent(quest.template.id || '')}&cardName=${encodeURIComponent(quest.template.CardName)}', '_blank')" title="Open in Card Manager">🔍 Go to Template</button>
+          </div>
         </div>
     `;
 

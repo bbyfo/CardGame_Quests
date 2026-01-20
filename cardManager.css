@@ -510,6 +510,18 @@
   transform: translateX(2px);
 }
 
+.card-item.card-highlight {
+  background-color: #fff9e6;
+  border-left: 4px solid #f59e0b;
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+  animation: highlight-pulse 0.6s ease-in-out;
+}
+
+@keyframes highlight-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+}
+
 .card-item-left {
   display: flex;
   flex-direction: column;
@@ -651,9 +663,6 @@
   color: #666;
   font-size: 0.85rem;
   font-family: monospace;
-}
-  padding: 0.5rem;
-  font-size: 0.85rem;
 }
 
 .card-item.no-results {
