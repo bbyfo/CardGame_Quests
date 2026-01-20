@@ -859,7 +859,6 @@
       "Instructions": []
     },
     {
-      "id": "NPC-Archivist-General Thalen Quill-0.3130127527064751",
       "Deck": "NPC",
       "CardName": "Archivist-General Thalen Quill",
       "TypeTags": [
@@ -870,8 +869,8 @@
         "Bureaucracy"
       ],
       "mutableTags": [],
-      "Instructions": [],
-      "DesignerNotes": "Here are some notes."
+      "DesignerNotes": "Here are some notes.",
+      "Instructions": []
     }
   ],
   "twists": [
@@ -1473,8 +1472,12 @@
       "id": "Location-Gloomfen Crossing-0.184392",
       "Deck": "Location",
       "CardName": "Gloomfen Crossing",
-      "TypeTags": ["Shadow"],
-      "AspectTags": ["Swamp"],
+      "TypeTags": [
+        "Shadow"
+      ],
+      "AspectTags": [
+        "Swamp"
+      ],
       "mutableTags": [],
       "Instructions": []
     },
@@ -1482,8 +1485,13 @@
       "id": "Location-Whispergrave Market-0.552918",
       "Deck": "Location",
       "CardName": "Whispergrave Market",
-      "TypeTags": ["Shadow", "Wealth"],
-      "AspectTags": ["Trade"],
+      "TypeTags": [
+        "Shadow",
+        "Wealth"
+      ],
+      "AspectTags": [
+        "Trade"
+      ],
       "mutableTags": [],
       "Instructions": []
     },
@@ -1491,8 +1499,12 @@
       "id": "Location-Nightfall Promenade-0.903112",
       "Deck": "Location",
       "CardName": "Nightfall Promenade",
-      "TypeTags": ["Shadow"],
-      "AspectTags": ["Urban"],
+      "TypeTags": [
+        "Shadow"
+      ],
+      "AspectTags": [
+        "Urban"
+      ],
       "mutableTags": [],
       "Instructions": []
     },
@@ -1500,8 +1512,12 @@
       "id": "Location-Blackthorn Warrens-0.332781",
       "Deck": "Location",
       "CardName": "Blackthorn Warrens",
-      "TypeTags": ["Shadow"],
-      "AspectTags": ["Underground"],
+      "TypeTags": [
+        "Shadow"
+      ],
+      "AspectTags": [
+        "Underground"
+      ],
       "mutableTags": [],
       "Instructions": []
     },
@@ -1509,8 +1525,13 @@
       "id": "Location-Murkspire Docks-0.119004",
       "Deck": "Location",
       "CardName": "Murkspire Docks",
-      "TypeTags": ["Shadow", "Wealth"],
-      "AspectTags": ["Harbor"],
+      "TypeTags": [
+        "Shadow",
+        "Wealth"
+      ],
+      "AspectTags": [
+        "Harbor"
+      ],
       "mutableTags": [],
       "Instructions": []
     },
@@ -1518,8 +1539,12 @@
       "id": "Location-Shadeglass Plaza-0.774221",
       "Deck": "Location",
       "CardName": "Shadeglass Plaza",
-      "TypeTags": ["Shadow"],
-      "AspectTags": ["Market"],
+      "TypeTags": [
+        "Shadow"
+      ],
+      "AspectTags": [
+        "Market"
+      ],
       "mutableTags": [],
       "Instructions": []
     },
@@ -1527,8 +1552,12 @@
       "id": "Location-Dreadmire Basin-0.661204",
       "Deck": "Location",
       "CardName": "Dreadmire Basin",
-      "TypeTags": ["Shadow"],
-      "AspectTags": ["Marsh"],
+      "TypeTags": [
+        "Shadow"
+      ],
+      "AspectTags": [
+        "Marsh"
+      ],
       "mutableTags": [],
       "Instructions": []
     },
@@ -1536,8 +1565,12 @@
       "id": "Location-Silkbane Alley-0.447821",
       "Deck": "Location",
       "CardName": "Silkbane Alley",
-      "TypeTags": ["Shadow"],
-      "AspectTags": ["Slum"],
+      "TypeTags": [
+        "Shadow"
+      ],
+      "AspectTags": [
+        "Slum"
+      ],
       "mutableTags": [],
       "Instructions": []
     },
@@ -1545,8 +1578,13 @@
       "id": "Location-Ebonvault Exchange-0.228771",
       "Deck": "Location",
       "CardName": "Ebonvault Exchange",
-      "TypeTags": ["Shadow", "Wealth"],
-      "AspectTags": ["Commerce"],
+      "TypeTags": [
+        "Shadow",
+        "Wealth"
+      ],
+      "AspectTags": [
+        "Commerce"
+      ],
       "mutableTags": [],
       "Instructions": []
     },
@@ -1554,8 +1592,12 @@
       "id": "Location-Gravewind Terrace-0.503882",
       "Deck": "Location",
       "CardName": "Gravewind Terrace",
-      "TypeTags": ["Shadow"],
-      "AspectTags": ["Ruins"],
+      "TypeTags": [
+        "Shadow"
+      ],
+      "AspectTags": [
+        "Ruins"
+      ],
       "mutableTags": [],
       "Instructions": []
     },
@@ -1563,8 +1605,12 @@
       "id": "Location-Nightroot Grove-0.883512",
       "Deck": "Location",
       "CardName": "Nightroot Grove",
-      "TypeTags": ["Shadow"],
-      "AspectTags": ["Forest"],
+      "TypeTags": [
+        "Shadow"
+      ],
+      "AspectTags": [
+        "Forest"
+      ],
       "mutableTags": [],
       "Instructions": []
     },
@@ -1572,8 +1618,13 @@
       "id": "Location-Umbral Caravan Post-0.339912",
       "Deck": "Location",
       "CardName": "Umbral Caravan Post",
-      "TypeTags": ["Shadow", "Wealth"],
-      "AspectTags": ["Outpost"],
+      "TypeTags": [
+        "Shadow",
+        "Wealth"
+      ],
+      "AspectTags": [
+        "Outpost"
+      ],
       "mutableTags": [],
       "Instructions": []
     },
@@ -1581,8 +1632,12 @@
       "id": "Location-Shattermist Ridge-0.771004",
       "Deck": "Location",
       "CardName": "Shattermist Ridge",
-      "TypeTags": ["Shadow"],
-      "AspectTags": ["Hazard"],
+      "TypeTags": [
+        "Shadow"
+      ],
+      "AspectTags": [
+        "Hazard"
+      ],
       "mutableTags": [],
       "Instructions": []
     },
@@ -1590,8 +1645,12 @@
       "id": "Location-Fogreach Hamlet-0.912771",
       "Deck": "Location",
       "CardName": "Fogreach Hamlet",
-      "TypeTags": ["Shadow"],
-      "AspectTags": ["Village"],
+      "TypeTags": [
+        "Shadow"
+      ],
+      "AspectTags": [
+        "Village"
+      ],
       "mutableTags": [],
       "Instructions": []
     },
@@ -1599,8 +1658,12 @@
       "id": "Location-Blackveil Archives-0.552781",
       "Deck": "Location",
       "CardName": "Blackveil Archives",
-      "TypeTags": ["Shadow"],
-      "AspectTags": ["Library"],
+      "TypeTags": [
+        "Shadow"
+      ],
+      "AspectTags": [
+        "Library"
+      ],
       "mutableTags": [],
       "Instructions": []
     },
@@ -1608,8 +1671,12 @@
       "id": "Location-Mirewatch Bastion-0.661992",
       "Deck": "Location",
       "CardName": "Mirewatch Bastion",
-      "TypeTags": ["Shadow"],
-      "AspectTags": ["Fortress"],
+      "TypeTags": [
+        "Shadow"
+      ],
+      "AspectTags": [
+        "Fortress"
+      ],
       "mutableTags": [],
       "Instructions": []
     },
@@ -1617,8 +1684,12 @@
       "id": "Location-Sootfen Outskirts-0.447001",
       "Deck": "Location",
       "CardName": "Sootfen Outskirts",
-      "TypeTags": ["Shadow"],
-      "AspectTags": ["Rural"],
+      "TypeTags": [
+        "Shadow"
+      ],
+      "AspectTags": [
+        "Rural"
+      ],
       "mutableTags": [],
       "Instructions": []
     },
@@ -1626,8 +1697,12 @@
       "id": "Location-Gloomspire Observatory-0.119882",
       "Deck": "Location",
       "CardName": "Gloomspire Observatory",
-      "TypeTags": ["Shadow"],
-      "AspectTags": ["Mystic"],
+      "TypeTags": [
+        "Shadow"
+      ],
+      "AspectTags": [
+        "Mystic"
+      ],
       "mutableTags": [],
       "Instructions": []
     },
@@ -1635,8 +1710,12 @@
       "id": "Location-Umbrastone Crypts-0.774002",
       "Deck": "Location",
       "CardName": "Umbrastone Crypts",
-      "TypeTags": ["Shadow"],
-      "AspectTags": ["Crypt"],
+      "TypeTags": [
+        "Shadow"
+      ],
+      "AspectTags": [
+        "Crypt"
+      ],
       "mutableTags": [],
       "Instructions": []
     },
@@ -1644,8 +1723,13 @@
       "id": "Location-Nightmarket Warrens-0.661441",
       "Deck": "Location",
       "CardName": "Nightmarket Warrens",
-      "TypeTags": ["Shadow", "Wealth"],
-      "AspectTags": ["Trade"],
+      "TypeTags": [
+        "Shadow",
+        "Wealth"
+      ],
+      "AspectTags": [
+        "Trade"
+      ],
       "mutableTags": [],
       "Instructions": []
     },
@@ -1653,8 +1737,12 @@
       "id": "Location-Blackmarsh Causeway-0.447112",
       "Deck": "Location",
       "CardName": "Blackmarsh Causeway",
-      "TypeTags": ["Shadow"],
-      "AspectTags": ["Road"],
+      "TypeTags": [
+        "Shadow"
+      ],
+      "AspectTags": [
+        "Road"
+      ],
       "mutableTags": [],
       "Instructions": []
     },
@@ -1662,8 +1750,12 @@
       "id": "Location-Shadefall Caverns-0.119441",
       "Deck": "Location",
       "CardName": "Shadefall Caverns",
-      "TypeTags": ["Shadow"],
-      "AspectTags": ["Cavern"],
+      "TypeTags": [
+        "Shadow"
+      ],
+      "AspectTags": [
+        "Cavern"
+      ],
       "mutableTags": [],
       "Instructions": []
     },
@@ -1671,8 +1763,13 @@
       "id": "Location-Moonshroud Bazaar-0.774551",
       "Deck": "Location",
       "CardName": "Moonshroud Bazaar",
-      "TypeTags": ["Shadow", "Wealth"],
-      "AspectTags": ["Market"],
+      "TypeTags": [
+        "Shadow",
+        "Wealth"
+      ],
+      "AspectTags": [
+        "Market"
+      ],
       "mutableTags": [],
       "Instructions": []
     },
@@ -1680,8 +1777,12 @@
       "id": "Location-Duskwater Crossing-0.661221",
       "Deck": "Location",
       "CardName": "Duskwater Crossing",
-      "TypeTags": ["Shadow"],
-      "AspectTags": ["Bridge"],
+      "TypeTags": [
+        "Shadow"
+      ],
+      "AspectTags": [
+        "Bridge"
+      ],
       "mutableTags": [],
       "Instructions": []
     },
@@ -1689,8 +1790,12 @@
       "id": "Location-Umbral Shrine-0.447551",
       "Deck": "Location",
       "CardName": "Umbral Shrine",
-      "TypeTags": ["Shadow"],
-      "AspectTags": ["Sacred"],
+      "TypeTags": [
+        "Shadow"
+      ],
+      "AspectTags": [
+        "Sacred"
+      ],
       "mutableTags": [],
       "Instructions": []
     },
@@ -1698,8 +1803,12 @@
       "id": "Location-Nightglass Foundry-0.119771",
       "Deck": "Location",
       "CardName": "Nightglass Foundry",
-      "TypeTags": ["Shadow"],
-      "AspectTags": ["Industrial"],
+      "TypeTags": [
+        "Shadow"
+      ],
+      "AspectTags": [
+        "Industrial"
+      ],
       "mutableTags": [],
       "Instructions": []
     },
@@ -1707,8 +1816,13 @@
       "id": "Location-Gloomtide Harbor-0.774991",
       "Deck": "Location",
       "CardName": "Gloomtide Harbor",
-      "TypeTags": ["Shadow", "Wealth"],
-      "AspectTags": ["Harbor"],
+      "TypeTags": [
+        "Shadow",
+        "Wealth"
+      ],
+      "AspectTags": [
+        "Harbor"
+      ],
       "mutableTags": [],
       "Instructions": []
     },
@@ -1716,8 +1830,12 @@
       "id": "Location-Blackspire Monastery-0.661882",
       "Deck": "Location",
       "CardName": "Blackspire Monastery",
-      "TypeTags": ["Shadow"],
-      "AspectTags": ["Sacred"],
+      "TypeTags": [
+        "Shadow"
+      ],
+      "AspectTags": [
+        "Sacred"
+      ],
       "mutableTags": [],
       "Instructions": []
     },
@@ -1725,8 +1843,12 @@
       "id": "Location-Dreadshore Cliffs-0.447771",
       "Deck": "Location",
       "CardName": "Dreadshore Cliffs",
-      "TypeTags": ["Shadow"],
-      "AspectTags": ["Hazard"],
+      "TypeTags": [
+        "Shadow"
+      ],
+      "AspectTags": [
+        "Hazard"
+      ],
       "mutableTags": [],
       "Instructions": []
     },
@@ -1734,8 +1856,12 @@
       "id": "Location-Mireveil Outpost-0.119661",
       "Deck": "Location",
       "CardName": "Mireveil Outpost",
-      "TypeTags": ["Shadow"],
-      "AspectTags": ["Outpost"],
+      "TypeTags": [
+        "Shadow"
+      ],
+      "AspectTags": [
+        "Outpost"
+      ],
       "mutableTags": [],
       "Instructions": []
     },
@@ -1743,8 +1869,12 @@
       "id": "Location-Nightbarrow Fields-0.774112",
       "Deck": "Location",
       "CardName": "Nightbarrow Fields",
-      "TypeTags": ["Shadow"],
-      "AspectTags": ["Rural"],
+      "TypeTags": [
+        "Shadow"
+      ],
+      "AspectTags": [
+        "Rural"
+      ],
       "mutableTags": [],
       "Instructions": []
     },
@@ -1752,8 +1882,13 @@
       "id": "Location-Umbralwine Cellars-0.661771",
       "Deck": "Location",
       "CardName": "Umbralwine Cellars",
-      "TypeTags": ["Shadow", "Wealth"],
-      "AspectTags": ["Storage"],
+      "TypeTags": [
+        "Shadow",
+        "Wealth"
+      ],
+      "AspectTags": [
+        "Storage"
+      ],
       "mutableTags": [],
       "Instructions": []
     },
@@ -1761,8 +1896,12 @@
       "id": "Location-Shadefen Orchard-0.447992",
       "Deck": "Location",
       "CardName": "Shadefen Orchard",
-      "TypeTags": ["Shadow"],
-      "AspectTags": ["Farm"],
+      "TypeTags": [
+        "Shadow"
+      ],
+      "AspectTags": [
+        "Farm"
+      ],
       "mutableTags": [],
       "Instructions": []
     },
@@ -1770,8 +1909,12 @@
       "id": "Location-Gloomhollow Ruins-0.119882",
       "Deck": "Location",
       "CardName": "Gloomhollow Ruins",
-      "TypeTags": ["Shadow"],
-      "AspectTags": ["Ruins"],
+      "TypeTags": [
+        "Shadow"
+      ],
+      "AspectTags": [
+        "Ruins"
+      ],
       "mutableTags": [],
       "Instructions": []
     },
@@ -1779,8 +1922,13 @@
       "id": "Location-Sunpetal Terrace-0.552441",
       "Deck": "Location",
       "CardName": "Sunpetal Terrace",
-      "TypeTags": ["Light", "Nature"],
-      "AspectTags": ["Garden"],
+      "TypeTags": [
+        "Light",
+        "Nature"
+      ],
+      "AspectTags": [
+        "Garden"
+      ],
       "mutableTags": [],
       "Instructions": []
     },
@@ -1788,8 +1936,13 @@
       "id": "Location-Azurewind Academy-0.661551",
       "Deck": "Location",
       "CardName": "Azurewind Academy",
-      "TypeTags": ["Arcane", "Light"],
-      "AspectTags": ["Mystic"],
+      "TypeTags": [
+        "Arcane",
+        "Light"
+      ],
+      "AspectTags": [
+        "Mystic"
+      ],
       "mutableTags": [],
       "Instructions": []
     },
@@ -1797,8 +1950,13 @@
       "id": "Location-Ironmarch Garrison-0.447331",
       "Deck": "Location",
       "CardName": "Ironmarch Garrison",
-      "TypeTags": ["Martial", "Order"],
-      "AspectTags": ["Fortress"],
+      "TypeTags": [
+        "Martial",
+        "Order"
+      ],
+      "AspectTags": [
+        "Fortress"
+      ],
       "mutableTags": [],
       "Instructions": []
     },
@@ -1806,8 +1964,13 @@
       "id": "Location-Goldleaf Exchange-0.119221",
       "Deck": "Location",
       "CardName": "Goldleaf Exchange",
-      "TypeTags": ["Wealth", "Light"],
-      "AspectTags": ["Trade"],
+      "TypeTags": [
+        "Wealth",
+        "Light"
+      ],
+      "AspectTags": [
+        "Trade"
+      ],
       "mutableTags": [],
       "Instructions": []
     },
@@ -1815,8 +1978,13 @@
       "id": "Location-Runebloom Conservatory-0.774661",
       "Deck": "Location",
       "CardName": "Runebloom Conservatory",
-      "TypeTags": ["Arcane", "Nature"],
-      "AspectTags": ["Botanical"],
+      "TypeTags": [
+        "Arcane",
+        "Nature"
+      ],
+      "AspectTags": [
+        "Botanical"
+      ],
       "mutableTags": [],
       "Instructions": []
     },
@@ -1824,8 +1992,13 @@
       "id": "Location-Silvercrest Citadel-0.661112",
       "Deck": "Location",
       "CardName": "Silvercrest Citadel",
-      "TypeTags": ["Order", "Light"],
-      "AspectTags": ["Sacred"],
+      "TypeTags": [
+        "Order",
+        "Light"
+      ],
+      "AspectTags": [
+        "Sacred"
+      ],
       "mutableTags": [],
       "Instructions": []
     },
@@ -1833,8 +2006,13 @@
       "id": "Location-Hammerfall Arena-0.447661",
       "Deck": "Location",
       "CardName": "Hammerfall Arena",
-      "TypeTags": ["Martial", "Wealth"],
-      "AspectTags": ["Sport"],
+      "TypeTags": [
+        "Martial",
+        "Wealth"
+      ],
+      "AspectTags": [
+        "Sport"
+      ],
       "mutableTags": [],
       "Instructions": []
     },
@@ -1842,8 +2020,13 @@
       "id": "Location-Starweave Observatory-0.119771",
       "Deck": "Location",
       "CardName": "Starweave Observatory",
-      "TypeTags": ["Arcane", "Order"],
-      "AspectTags": ["Mystic"],
+      "TypeTags": [
+        "Arcane",
+        "Order"
+      ],
+      "AspectTags": [
+        "Mystic"
+      ],
       "mutableTags": [],
       "Instructions": []
     },
@@ -1851,8 +2034,13 @@
       "id": "Location-Riverbloom Crossing-0.774221",
       "Deck": "Location",
       "CardName": "Riverbloom Crossing",
-      "TypeTags": ["Nature", "Wealth"],
-      "AspectTags": ["Bridge"],
+      "TypeTags": [
+        "Nature",
+        "Wealth"
+      ],
+      "AspectTags": [
+        "Bridge"
+      ],
       "mutableTags": [],
       "Instructions": []
     },
@@ -1860,8 +2048,13 @@
       "id": "Location-Dawnspire Monastery-0.661771",
       "Deck": "Location",
       "CardName": "Dawnspire Monastery",
-      "TypeTags": ["Light", "Order"],
-      "AspectTags": ["Sacred"],
+      "TypeTags": [
+        "Light",
+        "Order"
+      ],
+      "AspectTags": [
+        "Sacred"
+      ],
       "mutableTags": [],
       "Instructions": []
     },
@@ -1869,8 +2062,13 @@
       "id": "Location-Emberforge Outpost-0.447221",
       "Deck": "Location",
       "CardName": "Emberforge Outpost",
-      "TypeTags": ["Martial", "Arcane"],
-      "AspectTags": ["Industrial"],
+      "TypeTags": [
+        "Martial",
+        "Arcane"
+      ],
+      "AspectTags": [
+        "Industrial"
+      ],
       "mutableTags": [],
       "Instructions": []
     },
@@ -1878,8 +2076,13 @@
       "id": "Location-Goldtide Harbor-0.119551",
       "Deck": "Location",
       "CardName": "Goldtide Harbor",
-      "TypeTags": ["Wealth", "Order"],
-      "AspectTags": ["Harbor"],
+      "TypeTags": [
+        "Wealth",
+        "Order"
+      ],
+      "AspectTags": [
+        "Harbor"
+      ],
       "mutableTags": [],
       "Instructions": []
     },
@@ -1887,8 +2090,13 @@
       "id": "Location-Brightwind Fields-0.774991",
       "Deck": "Location",
       "CardName": "Brightwind Fields",
-      "TypeTags": ["Nature", "Light"],
-      "AspectTags": ["Rural"],
+      "TypeTags": [
+        "Nature",
+        "Light"
+      ],
+      "AspectTags": [
+        "Rural"
+      ],
       "mutableTags": [],
       "Instructions": []
     },
@@ -1896,8 +2104,13 @@
       "id": "Location-Runeguard Bastion-0.661441",
       "Deck": "Location",
       "CardName": "Runeguard Bastion",
-      "TypeTags": ["Arcane", "Martial"],
-      "AspectTags": ["Fortress"],
+      "TypeTags": [
+        "Arcane",
+        "Martial"
+      ],
+      "AspectTags": [
+        "Fortress"
+      ],
       "mutableTags": [],
       "Instructions": []
     },
@@ -1905,8 +2118,13 @@
       "id": "Location-Sunforge Plaza-0.447992",
       "Deck": "Location",
       "CardName": "Sunforge Plaza",
-      "TypeTags": ["Light", "Wealth"],
-      "AspectTags": ["Market"],
+      "TypeTags": [
+        "Light",
+        "Wealth"
+      ],
+      "AspectTags": [
+        "Market"
+      ],
       "mutableTags": [],
       "Instructions": []
     }
@@ -1948,59 +2166,6 @@
         {
           "deck": "Location",
           "tags": [],
-          "count": 1,
-          "label": "Location",
-          "action": "draw"
-        },
-        {
-          "deck": "Twist",
-          "tags": [],
-          "count": 1,
-          "label": "Twist",
-          "action": "draw"
-        }
-      ]
-    },
-    {
-      "id": "QuestTemplate-Destroy-0.6754406252657384",
-      "Deck": "QuestTemplate",
-      "CardName": "Destroy",
-      "TypeTags": [
-        "Shadow",
-        "Martial"
-      ],
-      "AspectTags": [
-        "Combat"
-      ],
-      "RewardText": "Spoils of war and territory control",
-      "mutableTags": [],
-      "ConsequenceText": "Your forces are routed and scattered",
-      "DrawInstructions": [
-        {
-          "deck": "NPC",
-          "tags": [
-            "Martial"
-          ],
-          "count": 1,
-          "label": "QuestGiver",
-          "action": "draw"
-        },
-        {
-          "deck": "NPC",
-          "tags": [
-            "Light",
-            "Order"
-          ],
-          "count": 1,
-          "label": "Target",
-          "action": "draw"
-        },
-        {
-          "deck": "Location",
-          "tags": [
-            "Nature",
-            "Light"
-          ],
           "count": 1,
           "label": "Location",
           "action": "draw"
@@ -2130,120 +2295,7 @@
       ]
     },
     {
-      "id": "Quest Template-Defend-0.30276905173431723",
-      "Deck": "Quest Template",
-      "CardName": "Defend",
-      "TypeTags": [
-        "Martial",
-        "Order"
-      ],
-      "AspectTags": [
-        "Military"
-      ],
-      "RewardText": "Honor and gratitude from the people",
-      "mutableTags": [],
-      "Instructions": [],
-      "ConsequenceText": "The defended location falls to the enemy",
-      "DrawInstructions": [
-        {
-          "deck": "locations",
-          "tags": [
-            "Order",
-            "Martial"
-          ],
-          "count": 1,
-          "label": "Attacked Location",
-          "action": "draw",
-          "prefix": "",
-          "suffix": "is under attack"
-        },
-        {
-          "deck": "npcs",
-          "tags": [
-            "Shadow"
-          ],
-          "count": 1,
-          "label": "the villan",
-          "action": "draw",
-          "prefix": "by the villian",
-          "suffix": ""
-        },
-        {
-          "deck": "loot",
-          "tags": [
-            "Magic Item"
-          ],
-          "count": 1,
-          "label": "the reward",
-          "action": "draw",
-          "prefix": "Successfully defending will result in a reward of",
-          "suffix": ""
-        }
-      ]
-    },
-    {
-      "id": "Quest Template-Heist aaa-0.628662475046386",
-      "Deck": "Quest Template",
-      "CardName": "Heist aaa",
-      "TypeTags": [
-        "Wealth",
-        "Arcane"
-      ],
-      "AspectTags": [
-        "Stealth"
-      ],
-      "RewardText": "A share of the stolen riches",
-      "mutableTags": [],
-      "Instructions": [],
-      "ConsequenceText": "The operation collapses and the crew is exposed",
-      "DrawInstructions": [
-        {
-          "deck": "locations",
-          "tags": [
-            "Wealth"
-          ],
-          "count": 1,
-          "label": "Target Location",
-          "action": "draw",
-          "prefix": "Your mark is",
-          "suffix": "—a vault ripe for the taking"
-        },
-        {
-          "deck": "twists",
-          "tags": [
-            "Arcane"
-          ],
-          "count": 1,
-          "label": "Arcane Obstacle",
-          "action": "draw",
-          "prefix": "but the place is guarded by",
-          "suffix": "which complicates the job"
-        },
-        {
-          "deck": "npcs",
-          "tags": [
-            "Wealth"
-          ],
-          "count": 1,
-          "label": "Quest Giver",
-          "action": "draw",
-          "prefix": "The job comes from",
-          "suffix": "who promises a generous payout"
-        },
-        {
-          "deck": "loot",
-          "tags": [
-            "Wealth"
-          ],
-          "count": 1,
-          "label": "Primary Reward",
-          "action": "draw",
-          "prefix": "If the heist succeeds, you walk away with",
-          "suffix": ""
-        }
-      ]
-    },
-    {
+      "id": "Quest Template-Investigate-0.7277810118689843",
       "Deck": "Quest Template",
       "CardName": "Investigate",
       "TypeTags": [
@@ -2255,6 +2307,7 @@
       ],
       "RewardText": "Secret knowledge and understanding",
       "mutableTags": [],
+      "Instructions": [],
       "DesignerNotes": "",
       "ConsequenceText": "The mystery deepens and spreads chaos",
       "DrawInstructions": [
@@ -2298,6 +2351,180 @@
           "count": 1,
           "label": "Twist",
           "action": "draw"
+        }
+      ]
+    },
+    {
+      "Deck": "Quest Template",
+      "CardName": "Defend",
+      "TypeTags": [
+        "Martial",
+        "Order"
+      ],
+      "AspectTags": [
+        "Military"
+      ],
+      "RewardText": "Honor and gratitude from the people",
+      "mutableTags": [],
+      "DesignerNotes": "",
+      "ConsequenceText": "The defended location falls to the enemy",
+      "DrawInstructions": [
+        {
+          "deck": "locations",
+          "tags": [
+            "Order",
+            "Martial"
+          ],
+          "count": 1,
+          "label": "Attacked Location",
+          "action": "draw",
+          "prefix": "",
+          "suffix": "is under attack"
+        },
+        {
+          "deck": "npcs",
+          "tags": [
+            "Shadow"
+          ],
+          "count": 1,
+          "label": "the villan",
+          "action": "draw",
+          "prefix": "by the villian",
+          "suffix": ""
+        },
+        {
+          "deck": "loot",
+          "tags": [],
+          "count": 1,
+          "label": "the reward",
+          "action": "draw",
+          "prefix": "Successfully defending will result in a reward of",
+          "suffix": "",
+          "faceDown": false
+        }
+      ]
+    },
+    {
+      "Deck": "Quest Template",
+      "CardName": "Destroy",
+      "TypeTags": [
+        "Shadow",
+        "Martial"
+      ],
+      "AspectTags": [
+        "Combat"
+      ],
+      "RewardText": "Spoils of war and territory control",
+      "mutableTags": [],
+      "DesignerNotes": "",
+      "ConsequenceText": "Your forces are routed and scattered",
+      "DrawInstructions": [
+        {
+          "deck": "twists",
+          "tags": [],
+          "count": 1,
+          "label": "Label for token instruction",
+          "action": "addToken",
+          "prefix": "",
+          "suffix": "",
+          "faceDown": false
+        },
+        {
+          "deck": "npcs",
+          "tags": [
+            "Martial"
+          ],
+          "count": 1,
+          "label": "QuestGiver",
+          "action": "draw",
+          "prefix": "",
+          "suffix": "Asks you to sack",
+          "faceDown": false
+        },
+        {
+          "deck": "locations",
+          "tags": [
+            "Shadow"
+          ],
+          "count": 1,
+          "label": "Location",
+          "action": "draw",
+          "prefix": "",
+          "suffix": "",
+          "faceDown": false
+        },
+        {
+          "deck": "twists",
+          "tags": [],
+          "count": 2,
+          "label": "Twist",
+          "action": "draw",
+          "prefix": "",
+          "suffix": "",
+          "faceDown": true
+        }
+      ]
+    },
+    {
+      "Deck": "Quest Template",
+      "CardName": "Heist aaa",
+      "TypeTags": [
+        "Wealth",
+        "Arcane"
+      ],
+      "AspectTags": [
+        "Stealth"
+      ],
+      "RewardText": "A share of the stolen riches",
+      "mutableTags": [],
+      "DesignerNotes": "",
+      "ConsequenceText": "The operation collapses and the crew is exposed",
+      "DrawInstructions": [
+        {
+          "deck": "locations",
+          "tags": [
+            "Shadow"
+          ],
+          "count": 1,
+          "label": "Target Location",
+          "action": "draw",
+          "prefix": "Your mark is",
+          "suffix": "—a vault ripe for the taking",
+          "faceDown": false
+        },
+        {
+          "deck": "twists",
+          "tags": [
+            "Arcane"
+          ],
+          "count": 1,
+          "label": "Arcane Obstacle",
+          "action": "draw",
+          "prefix": "but the place is guarded by",
+          "suffix": "which complicates the job",
+          "faceDown": true
+        },
+        {
+          "deck": "npcs",
+          "tags": [
+            "Wealth"
+          ],
+          "count": 1,
+          "label": "Quest Giver",
+          "action": "draw",
+          "prefix": "The job comes from",
+          "suffix": "who promises a generous payout"
+        },
+        {
+          "deck": "loot",
+          "tags": [
+            "Wealth"
+          ],
+          "count": 1,
+          "label": "Primary Reward",
+          "action": "draw",
+          "prefix": "If the heist succeeds, you walk away with",
+          "suffix": ""
         }
       ]
     }

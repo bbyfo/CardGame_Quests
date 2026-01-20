@@ -22,6 +22,7 @@ class CardManager {
     };
     this.autocompleteSetupDone = false; // Track if event listeners are set up
     this.serverMode = false; // Detected if server is available
+    this.selectedSuggestionIndex = -1; // Track keyboard navigation in autocomplete
     this.init();
   }
 
@@ -196,6 +197,10 @@ class CardManager {
         });
       }
     }
+    
+    // Log discovered tags for debugging
+    console.log('✓ Discovered TypeTags:', Array.from(this.allTags.type).sort().join(', '));
+    console.log('✓ Discovered AspectTags:', Array.from(this.allTags.aspect).sort().join(', '));
   }
 
   /**
@@ -430,6 +435,7 @@ class CardManager {
     
     input.addEventListener('input', (e) => {
       const value = e.target.value.trim();
+      this.selectedSuggestionIndex = -1; // Reset selection on input change
       if (value.length > 0 && suggestionsDiv) {
         const currentSuggestions = getCurrentSuggestions();
         const filtered = currentSuggestions.filter(s => 
@@ -442,22 +448,67 @@ class CardManager {
     });
 
     input.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') {
+      if (!suggestionsDiv) return;
+      
+      const isDropdownVisible = suggestionsDiv.classList.contains('active');
+      const options = suggestionsDiv.querySelectorAll('.autocomplete-option');
+      
+      // Handle arrow keys and tab for navigation
+      if ((e.key === 'ArrowDown' || e.key === 'ArrowUp' || e.key === 'Tab') && isDropdownVisible && options.length > 0) {
         e.preventDefault();
-        const value = e.target.value.trim();
-        if (value.length > 0) {
-          this.addTag(inputId, value);
+        
+        // Remove current selection
+        if (this.selectedSuggestionIndex >= 0 && options[this.selectedSuggestionIndex]) {
+          options[this.selectedSuggestionIndex].classList.remove('selected');
+        }
+        
+        // Update index
+        if (e.key === 'ArrowDown' || (e.key === 'Tab' && !e.shiftKey)) {
+          this.selectedSuggestionIndex = (this.selectedSuggestionIndex + 1) % options.length;
+        } else if (e.key === 'ArrowUp' || (e.key === 'Tab' && e.shiftKey)) {
+          this.selectedSuggestionIndex = this.selectedSuggestionIndex <= 0 ? options.length - 1 : this.selectedSuggestionIndex - 1;
+        }
+        
+        // Apply new selection
+        options[this.selectedSuggestionIndex].classList.add('selected');
+        options[this.selectedSuggestionIndex].scrollIntoView({ block: 'nearest' });
+      }
+      // Handle Enter key
+      else if (e.key === 'Enter') {
+        e.preventDefault();
+        
+        // If dropdown is visible and an option is selected, use that
+        if (isDropdownVisible && this.selectedSuggestionIndex >= 0 && options[this.selectedSuggestionIndex]) {
+          const selectedText = options[this.selectedSuggestionIndex].textContent;
+          this.addTag(inputId, selectedText);
           input.value = '';
-          if (suggestionsDiv) {
+          suggestionsDiv.classList.remove('active');
+          this.selectedSuggestionIndex = -1;
+        }
+        // Otherwise use the typed value
+        else {
+          const value = e.target.value.trim();
+          if (value.length > 0) {
+            this.addTag(inputId, value);
+            input.value = '';
             suggestionsDiv.classList.remove('active');
+            this.selectedSuggestionIndex = -1;
           }
         }
+      }
+      // Handle Escape to close dropdown
+      else if (e.key === 'Escape' && isDropdownVisible) {
+        suggestionsDiv.classList.remove('active');
+        this.selectedSuggestionIndex = -1;
       }
     });
 
     input.addEventListener('blur', () => {
       if (suggestionsDiv) {
-        setTimeout(() => suggestionsDiv.classList.remove('active'), 200);
+        setTimeout(() => {
+          suggestionsDiv.classList.remove('active');
+          this.selectedSuggestionIndex = -1;
+        }, 200);
       }
     });
   }
@@ -513,6 +564,18 @@ class CardManager {
     const listId = this.getTagListId(inputId);
     const list = document.getElementById(listId);
     if (!list) return;
+
+    // Validate TypeTags against discovered tags
+    if (inputId === 'type-tags-input' || inputId === 'filter-type-tags-input') {
+      const validTypeTags = Array.from(this.allTags.type);
+      if (!validTypeTags.includes(tagValue)) {
+        this.showNotification(
+          `⚠️ Invalid TypeTag: "${tagValue}". Valid tags are: ${validTypeTags.sort().join(', ')}`,
+          'warning'
+        );
+        return;
+      }
+    }
 
     // Check if tag already exists (clean comparison, no need to trim '×')
     const existingTags = Array.from(list.querySelectorAll('.tag')).map(t => t.textContent.trim());
