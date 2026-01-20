@@ -335,11 +335,11 @@ class UIManager {
     
     const { deck, count, tags, label, faceDown } = instructionData;
     const countText = count > 1 ? `${count} cards` : '1 card';
-    const deckText = deck;
+    const deckText = `<strong>${deck}</strong>`;
     
     let tagsText = '';
     if (tags && tags.length > 0) {
-      tagsText = ` which have ${tags.join(', ')}`;
+      tagsText = ` which have [${tags.join(', ')}]`;
     }
     
     let instruction = `Draw ${countText} from ${deckText}${tagsText}.`;

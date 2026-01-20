@@ -107,7 +107,7 @@ main {
 .quest-role strong {
   color: var(--primary-color);
   display: inline-block;
-  min-width: 80px;
+  min-width: min-content;
 }
 
 .btn-go-to-card {
