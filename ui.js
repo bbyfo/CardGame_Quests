@@ -401,8 +401,8 @@ class UIManager {
       // Handle array of cards (multiple draws for same label)
       if (Array.isArray(componentData)) {
         return `<div class="quest-role">
-          ${playerInstructionHTML}
           ${instructionPreviewHTML}
+          ${playerInstructionHTML}
           <div class="quest-details">
             ${componentData.map((card, index) => `
               <div class="multi-card-item">
@@ -422,8 +422,8 @@ class UIManager {
       
       // Handle single card
       return `<div class="quest-role">
-        ${playerInstructionHTML}
         ${instructionPreviewHTML}
+        ${playerInstructionHTML}
         <div class="quest-details">
           <div class="quest-role-header">
             ${wrapCardName(componentData.CardName)}
