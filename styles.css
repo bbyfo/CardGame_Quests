@@ -57,6 +57,38 @@ main {
   border-left: 4px solid var(--secondary-color);
 }
 
+.quest-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.quest-header h3 {
+  margin: 0;
+}
+
+.btn-toggle-details {
+  padding: 6px 12px;
+  background-color: #667eea;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background-color 0.2s;
+  white-space: nowrap;
+}
+
+.btn-toggle-details:hover {
+  background-color: #5568d3;
+}
+
+.quest-details {
+  display: block;
+}
+
 .quest-role {
   margin: 15px 0;
   padding: 10px;

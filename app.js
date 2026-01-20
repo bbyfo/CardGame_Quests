@@ -42,6 +42,9 @@ async function initializeApp() {
     uiManager = new UIManager(questEngine, validator);
     uiManager.initialize();
 
+    // Make uiManager globally accessible for toggle buttons
+    window.uiManager = uiManager;
+
     console.log('✓ Application initialized successfully');
     console.log('Loaded decks:', Object.keys(dataLoader.decks));
     console.log('Data source:', dataSourceInfo);

@@ -393,46 +393,57 @@ class UIManager {
       // Handle array of cards (multiple draws for same label)
       if (Array.isArray(componentData)) {
         return `<div class="quest-role">
-          ${componentData.map((card, index) => `
-            <div class="multi-card-item">
-              <span class="card-number">#${index + 1}</span> ${wrapCardName(card.CardName)}
-              <button class="btn-go-to-card" onclick="window.open('cardManager.html?cardId=${encodeURIComponent(card.id || '')}&cardName=${encodeURIComponent(card.CardName)}', '_blank')" title="Open in Card Manager">🔍 Go to Card</button>
-              ${playerInstructionHTML}
-              <div class="tags">
-                <span class="tag-label">Type Tags:</span> ${card.TypeTags.join(', ')}
-                <span class="tag-label">Aspect Tags:</span> ${card.AspectTags.join(', ')}
-                ${card.mutableTags && card.mutableTags.length > 0 ? `<span class="tag-label">Mutable Tags:</span> ${card.mutableTags.join(', ')}` : ''}
+          ${playerInstructionHTML}
+          <div class="quest-details">
+            ${componentData.map((card, index) => `
+              <div class="multi-card-item">
+                <span class="card-number">#${index + 1}</span> ${wrapCardName(card.CardName)}
+                <button class="btn-go-to-card" onclick="window.open('cardManager.html?cardId=${encodeURIComponent(card.id || '')}&cardName=${encodeURIComponent(card.CardName)}', '_blank')" title="Open in Card Manager">🔍 Go to Card</button>
+                <div class="tags">
+                  <span class="tag-label">Type Tags:</span> ${card.TypeTags.join(', ')}
+                  <span class="tag-label">Aspect Tags:</span> ${card.AspectTags.join(', ')}
+                  ${card.mutableTags && card.mutableTags.length > 0 ? `<span class="tag-label">Mutable Tags:</span> ${card.mutableTags.join(', ')}` : ''}
+                </div>
+                ${formatInstructions(card.Instructions)}
               </div>
-              ${formatInstructions(card.Instructions)}
-            </div>
-          `).join('')}
+            `).join('')}
+          </div>
         </div>`;
       }
       
       // Handle single card
       return `<div class="quest-role">
-        <div class="quest-role-header">
-          ${wrapCardName(componentData.CardName)}
-          <button class="btn-go-to-card" onclick="window.open('cardManager.html?cardId=${encodeURIComponent(componentData.id || '')}&cardName=${encodeURIComponent(componentData.CardName)}', '_blank')" title="Open in Card Manager">🔍 Go to Card</button>
-        </div>
         ${playerInstructionHTML}
-        <div class="tags">
-          <span class="tag-label">Type Tags:</span> ${componentData.TypeTags.join(', ')}
-          <span class="tag-label">Aspect Tags:</span> ${componentData.AspectTags.join(', ')}
-          ${componentData.mutableTags && componentData.mutableTags.length > 0 ? `<span class="tag-label">Mutable Tags:</span> ${componentData.mutableTags.join(', ')}` : ''}
+        <div class="quest-details">
+          <div class="quest-role-header">
+            ${wrapCardName(componentData.CardName)}
+            <button class="btn-go-to-card" onclick="window.open('cardManager.html?cardId=${encodeURIComponent(componentData.id || '')}&cardName=${encodeURIComponent(componentData.CardName)}', '_blank')" title="Open in Card Manager">🔍 Go to Card</button>
+          </div>
+          <div class="tags">
+            <span class="tag-label">Type Tags:</span> ${componentData.TypeTags.join(', ')}
+            <span class="tag-label">Aspect Tags:</span> ${componentData.AspectTags.join(', ')}
+            ${componentData.mutableTags && componentData.mutableTags.length > 0 ? `<span class="tag-label">Mutable Tags:</span> ${componentData.mutableTags.join(', ')}` : ''}
+          </div>
+          ${formatInstructions(componentData.Instructions)}
         </div>
-        ${formatInstructions(componentData.Instructions)}
       </div>`;
     };
 
     // Build quest display HTML
     let questHTML = `
       <div class="quest-display">
-        <h3>Generated Quest</h3>
+        <div class="quest-header">
+          <h3>Generated Quest</h3>
+          <button class="btn-toggle-details" onclick="window.uiManager.toggleQuestDetails(this)">
+            Show Player Instructions Only
+          </button>
+        </div>
         <div class="quest-role">
-          <div class="quest-role-header">
-            <strong>Template:</strong> <span class="card-name">${quest.template.CardName}</span>
-            <button class="btn-go-to-card" onclick="window.open('cardManager.html?cardId=${encodeURIComponent(quest.template.id || '')}&cardName=${encodeURIComponent(quest.template.CardName)}', '_blank')" title="Open in Card Manager">🔍 Go to Template</button>
+          <div class="quest-details">
+            <div class="quest-role-header">
+              <strong>Template:</strong> <span class="card-name">${quest.template.CardName}</span>
+              <button class="btn-go-to-card" onclick="window.open('cardManager.html?cardId=${encodeURIComponent(quest.template.id || '')}&cardName=${encodeURIComponent(quest.template.CardName)}', '_blank')" title="Open in Card Manager">🔍 Go to Template</button>
+            </div>
           </div>
         </div>
     `;
@@ -679,7 +690,20 @@ class UIManager {
       this.addLog(`❌ Template Download Error: ${error.message}`);
     }
   }
-}
+  /**
+   * Toggle quest details visibility
+   */
+  toggleQuestDetails(button) {
+    const questDisplay = button.closest('.quest-display');
+    const allDetails = questDisplay.querySelectorAll('.quest-details');
+    const isHidden = allDetails[0].style.display === 'none';
+    
+    allDetails.forEach(details => {
+      details.style.display = isHidden ? 'block' : 'none';
+    });
+    
+    button.textContent = isHidden ? 'Show Details' : 'Show Player Instructions Only';
+  }}
 
 // Export for use in modules
 if (typeof module !== 'undefined' && module.exports) {
