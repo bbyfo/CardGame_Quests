@@ -1267,6 +1267,7 @@ class CardManager {
           ${card.DesignerNotes ? `<div class="designer-notes"><strong>Designer Notes:</strong> ${card.DesignerNotes}</div>` : ''}
           <div class="card-item-actions">
             <button class="btn btn-secondary btn-edit" data-deck="${deckName}" data-name="${card.CardName}">Edit</button>
+            <button class="btn btn-secondary btn-duplicate" data-deck="${deckName}" data-name="${card.CardName}">Duplicate</button>
             <button class="btn btn-danger btn-delete" data-deck="${deckName}" data-name="${card.CardName}">Delete</button>
           </div>
         </div>
@@ -1276,9 +1277,11 @@ class CardManager {
       `;
 
       const editBtn = item.querySelector('.btn-edit');
+      const duplicateBtn = item.querySelector('.btn-duplicate');
       const deleteBtn = item.querySelector('.btn-delete');
 
       editBtn.addEventListener('click', () => this.loadCardForEdit(deckName, card.CardName));
+      duplicateBtn.addEventListener('click', () => this.duplicateCard(deckName, card.CardName));
       deleteBtn.addEventListener('click', () => this.deleteCard(deckName, card.CardName));
 
       list.appendChild(item);
@@ -1356,6 +1359,78 @@ class CardManager {
     const cancelBtn = document.getElementById('btn-cancel-edit');
     if (cancelBtn) {
       cancelBtn.style.display = 'block';
+    }
+
+    // Scroll to form
+    document.querySelector('.card-form-section').scrollIntoView({ behavior: 'smooth' });
+  }
+
+  /**
+   * Duplicate a card (load as new card with "COPY OF " prefix)
+   */
+  duplicateCard(deckName, cardName) {
+    const deck = this.cards[deckName];
+    const card = deck.find(c => c.CardName === cardName);
+    if (!card) return;
+
+    // Auto-expand Create/Edit Card section if it's collapsed
+    const formContent = document.getElementById('card-form');
+    const formToggleBtn = document.querySelector('[data-section="card-form"]');
+    if (formContent && formContent.classList.contains('collapsed')) {
+      formContent.classList.remove('collapsed');
+      if (formToggleBtn) {
+        formToggleBtn.setAttribute('aria-expanded', 'true');
+      }
+    }
+
+    // DO NOT track original deck/card name - this is a new card, not an edit
+    this.originalDeckName = null;
+    this.originalCardName = null;
+
+    // Set deck select
+    document.getElementById('deck-select').value = deckName;
+    this.handleDeckChange({ target: { value: deckName } });
+
+    // Set card name with "COPY OF " prefix
+    document.getElementById('card-name').value = `COPY OF ${card.CardName}`;
+
+    // Set tags
+    this.clearTagList('type-tags-list');
+    card.TypeTags.forEach(tag => this.addTag('type-tags-input', tag));
+
+    this.clearTagList('aspect-tags-list');
+    card.AspectTags.forEach(tag => this.addTag('aspect-tags-input', tag));
+
+    this.clearTagList('mutable-tags-list');
+    card.mutableTags.forEach(tag => this.addTag('mutable-tags-input', tag));
+
+    // Set instructions based on card type
+    const isQuestTemplate = deckName === 'questtemplates';
+    
+    if (isQuestTemplate) {
+      // Load DrawInstructions for QuestTemplate cards
+      this.drawInstructionData = JSON.parse(JSON.stringify(card.DrawInstructions || []));
+      this.renderDrawInstructions();
+      
+      // Load RewardText and ConsequenceText
+      const rewardTextEl = document.getElementById('reward-text');
+      const consequenceTextEl = document.getElementById('consequence-text');
+      if (rewardTextEl) rewardTextEl.value = card.RewardText || '';
+      if (consequenceTextEl) consequenceTextEl.value = card.ConsequenceText || '';
+    } else {
+      // Load regular Instructions for other card types
+      this.instructionData = JSON.parse(JSON.stringify(card.Instructions || []));
+      this.renderInstructions();
+    }
+
+    // Load designer notes
+    const designerNotesEl = document.getElementById('designer-notes');
+    if (designerNotesEl) designerNotesEl.value = card.DesignerNotes || '';
+
+    // DO NOT show cancel button - this is a new card
+    const cancelBtn = document.getElementById('btn-cancel-edit');
+    if (cancelBtn) {
+      cancelBtn.style.display = 'none';
     }
 
     // Scroll to form
