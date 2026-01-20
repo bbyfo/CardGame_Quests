@@ -562,6 +562,16 @@ class CardManager {
   }
 
   /**
+   * Return tags de-duplicated while preserving order
+   */
+  dedupeTags(tags) {
+    if (!Array.isArray(tags)) return tags;
+    const out = [];
+    tags.forEach(t => { if (!out.includes(t)) out.push(t); });
+    return out;
+  }
+
+  /**
    * Clear a tag list
    */
   clearTagList(listId) {
@@ -609,9 +619,9 @@ class CardManager {
     const cardData = {
       Deck: this.getDeckDisplayName(deckSelect),
       CardName: cardName,
-      TypeTags: this.getTagsFromList('type-tags-list'),
-      AspectTags: this.getTagsFromList('aspect-tags-list'),
-      mutableTags: this.getTagsFromList('mutable-tags-list'),
+      TypeTags: this.dedupeTags(this.getTagsFromList('type-tags-list')),
+      AspectTags: this.dedupeTags(this.getTagsFromList('aspect-tags-list')),
+      mutableTags: this.dedupeTags(this.getTagsFromList('mutable-tags-list')),
       DesignerNotes: document.getElementById('designer-notes')?.value || ''
     };
 
@@ -843,7 +853,7 @@ class CardManager {
       return;
     }
 
-    const tags = this.getTagsFromList('instruction-tags-list');
+    const tags = this.dedupeTags(this.getTagsFromList('instruction-tags-list'));
     if (tags.length === 0) {
       alert('Please add at least one tag to the instruction');
       return;
@@ -852,7 +862,7 @@ class CardManager {
     const instruction = {
       TargetDeck: targetDeck,
       Tags: tags
-    };
+    }; 
 
     if (this.editingInstructionIndex >= 0) {
       // Editing existing instruction
@@ -952,7 +962,7 @@ class CardManager {
     const label = document.getElementById('draw-label').value.trim();
     const prefix = document.getElementById('draw-prefix').value.trim();
     const suffix = document.getElementById('draw-suffix').value.trim();
-    const tags = this.getTagsFromList('draw-tags-list');
+    const tags = this.dedupeTags(this.getTagsFromList('draw-tags-list')); 
 
     if (!action) {
       alert('Please select an action');

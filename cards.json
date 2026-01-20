@@ -543,7 +543,7 @@
       "Deck": "NPC",
       "CardName": "Ravager Queen Khyzara",
       "TypeTags": [
-        "Chaos"
+        "Shadow"
       ],
       "AspectTags": [
         "Warlord"
@@ -556,7 +556,7 @@
       "Deck": "NPC",
       "CardName": "Stormcaller Vesh Tal",
       "TypeTags": [
-        "Chaos",
+        "Shadow",
         "Arcane"
       ],
       "AspectTags": [
@@ -570,7 +570,7 @@
       "Deck": "NPC",
       "CardName": "The Laughing Prophet",
       "TypeTags": [
-        "Chaos"
+        "Shadow"
       ],
       "AspectTags": [
         "Madness"
@@ -583,7 +583,7 @@
       "Deck": "NPC",
       "CardName": "Ironfang the Unbound",
       "TypeTags": [
-        "Chaos",
+        "Shadow",
         "Martial"
       ],
       "AspectTags": [
@@ -624,7 +624,6 @@
       "Deck": "NPC",
       "CardName": "High Priestess Seraphine Dawnstar",
       "TypeTags": [
-        "Light",
         "Light"
       ],
       "AspectTags": [
@@ -791,7 +790,6 @@
       "Deck": "NPC",
       "CardName": "Shadow Regent Malvorn",
       "TypeTags": [
-        "Shadow",
         "Shadow"
       ],
       "AspectTags": [
@@ -849,8 +847,7 @@
       "Deck": "Twist",
       "CardName": "Betrayal",
       "TypeTags": [
-        "Shadow",
-        "Chaos"
+        "Shadow"
       ],
       "AspectTags": [
         "Mystery"
@@ -859,8 +856,7 @@
       "Instructions": [
         {
           "Tags": [
-            "Shadow",
-            "Chaos"
+            "Shadow"
           ],
           "TargetDeck": "Failure"
         },
@@ -901,7 +897,7 @@
       "CardName": "Environmental Hazard",
       "TypeTags": [
         "Nature",
-        "Chaos"
+        "Shadow"
       ],
       "AspectTags": [
         "Nature"
@@ -916,7 +912,7 @@
         },
         {
           "Tags": [
-            "Chaos"
+            "Shadow"
           ],
           "TargetDeck": "Failure"
         }
@@ -926,7 +922,7 @@
       "Deck": "Twist",
       "CardName": "Time Pressure",
       "TypeTags": [
-        "Chaos",
+        "Shadow",
         "Order"
       ],
       "AspectTags": [
@@ -936,7 +932,7 @@
       "Instructions": [
         {
           "Tags": [
-            "Chaos"
+            "Shadow"
           ],
           "TargetDeck": "Failure"
         }
@@ -959,8 +955,7 @@
       "Deck": "Monster",
       "CardName": "Blinding Eye",
       "TypeTags": [
-        "Shadow",
-        "Chaos"
+        "Shadow"
       ],
       "AspectTags": [
         "Aberration"
@@ -974,7 +969,7 @@
       "CardName": "Blistered Bull",
       "TypeTags": [
         "Nature",
-        "Chaos"
+        "Shadow"
       ],
       "AspectTags": [
         "Beast"
@@ -1001,8 +996,7 @@
       "Deck": "Monster",
       "CardName": "Dark Imp",
       "TypeTags": [
-        "Shadow",
-        "Chaos"
+        "Shadow"
       ],
       "AspectTags": [
         "Demon"
@@ -1016,7 +1010,7 @@
       "CardName": "Deathrattle Hyena",
       "TypeTags": [
         "Nature",
-        "Chaos"
+        "Shadow"
       ],
       "AspectTags": [
         "Beast"
@@ -1029,8 +1023,7 @@
       "Deck": "Monster",
       "CardName": "Eclipse Herald",
       "TypeTags": [
-        "Shadow",
-        "Chaos"
+        "Shadow"
       ],
       "AspectTags": [
         "Spirit"
@@ -1156,7 +1149,7 @@
       "CardName": "Lesser Rothog",
       "TypeTags": [
         "Nature",
-        "Chaos"
+        "Shadow"
       ],
       "AspectTags": [
         "Beast"
@@ -1170,7 +1163,7 @@
       "CardName": "Magmolt",
       "TypeTags": [
         "Arcane",
-        "Chaos"
+        "Shadow"
       ],
       "AspectTags": [
         "Elemental"
@@ -1183,8 +1176,7 @@
       "Deck": "Monster",
       "CardName": "Moonwraith",
       "TypeTags": [
-        "Shadow",
-        "Chaos"
+        "Shadow"
       ],
       "AspectTags": [
         "Spirit"
@@ -1211,8 +1203,7 @@
       "Deck": "Monster",
       "CardName": "Nighthound",
       "TypeTags": [
-        "Shadow",
-        "Chaos"
+        "Shadow"
       ],
       "AspectTags": [
         "Beast"
@@ -1239,8 +1230,7 @@
       "Deck": "Monster",
       "CardName": "Pitchwing",
       "TypeTags": [
-        "Shadow",
-        "Chaos"
+        "Shadow"
       ],
       "AspectTags": [
         "Beast"
@@ -1254,7 +1244,7 @@
       "CardName": "Plaguehornet Swarm",
       "TypeTags": [
         "Nature",
-        "Chaos"
+        "Shadow"
       ],
       "AspectTags": [
         "Insect"
@@ -1282,7 +1272,7 @@
       "CardName": "Rabid Wolverine",
       "TypeTags": [
         "Nature",
-        "Chaos"
+        "Shadow"
       ],
       "AspectTags": [
         "Beast"
@@ -1323,8 +1313,7 @@
       "Deck": "Monster",
       "CardName": "Skeletal Warrior",
       "TypeTags": [
-        "Shadow",
-        "Chaos"
+        "Shadow"
       ],
       "AspectTags": [
         "Undead"
@@ -1338,7 +1327,7 @@
       "CardName": "Slavering Howler",
       "TypeTags": [
         "Nature",
-        "Chaos"
+        "Shadow"
       ],
       "AspectTags": [
         "Beast"
@@ -1366,7 +1355,7 @@
       "CardName": "Storm Acolyte",
       "TypeTags": [
         "Arcane",
-        "Chaos"
+        "Shadow"
       ],
       "AspectTags": [
         "Humanoid"
@@ -1380,7 +1369,7 @@
       "CardName": "Thunderbolt",
       "TypeTags": [
         "Arcane",
-        "Chaos"
+        "Shadow"
       ],
       "AspectTags": [
         "Elemental"
@@ -1393,8 +1382,7 @@
       "Deck": "Monster",
       "CardName": "Voidcry",
       "TypeTags": [
-        "Shadow",
-        "Chaos"
+        "Shadow"
       ],
       "AspectTags": [
         "Aberration"
@@ -1408,7 +1396,7 @@
       "CardName": "Wastefang Spider",
       "TypeTags": [
         "Nature",
-        "Chaos"
+        "Shadow"
       ],
       "AspectTags": [
         "Insect"
@@ -1604,7 +1592,7 @@
       "Deck": "Location",
       "CardName": "The Shattered Meridian",
       "TypeTags": [
-        "Chaos",
+        "Shadow",
         "Arcane"
       ],
       "AspectTags": [
@@ -1716,7 +1704,7 @@
       "Deck": "Location",
       "CardName": "Crimson Rift Chasm",
       "TypeTags": [
-        "Chaos",
+        "Shadow",
         "Arcane"
       ],
       "AspectTags": [
@@ -1835,7 +1823,7 @@
       "Deck": "QuestTemplate",
       "CardName": "Destroy",
       "TypeTags": [
-        "Chaos",
+        "Shadow",
         "Martial"
       ],
       "AspectTags": [
@@ -1939,7 +1927,6 @@
       "Deck": "QuestTemplate",
       "CardName": "Recover",
       "TypeTags": [
-        "Light",
         "Light"
       ],
       "AspectTags": [
@@ -1952,7 +1939,6 @@
         {
           "deck": "NPC",
           "tags": [
-            "Light",
             "Light"
           ],
           "count": 1,
@@ -1993,7 +1979,7 @@
       "Deck": "QuestTemplate",
       "CardName": "Heist",
       "TypeTags": [
-        "Chaos",
+        "Shadow",
         "Wealth"
       ],
       "AspectTags": [
@@ -2006,7 +1992,7 @@
         {
           "deck": "NPC",
           "tags": [
-            "Chaos",
+            "Shadow",
             "Wealth"
           ],
           "count": 1,
@@ -2016,8 +2002,7 @@
         {
           "deck": "Location",
           "tags": [
-            "Shadow",
-            "Chaos"
+            "Shadow"
           ],
           "count": 1,
           "label": "Location",
@@ -2037,7 +2022,6 @@
           "deck": "NPC",
           "tags": [
             "Wealth",
-            "Chaos",
             "Shadow"
           ],
           "count": 1,
