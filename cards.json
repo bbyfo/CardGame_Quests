@@ -859,6 +859,7 @@
       "Instructions": []
     },
     {
+      "id": "NPC-Archivist-General Thalen Quill-0.3130127527064751",
       "Deck": "NPC",
       "CardName": "Archivist-General Thalen Quill",
       "TypeTags": [
@@ -869,8 +870,8 @@
         "Bureaucracy"
       ],
       "mutableTags": [],
-      "DesignerNotes": "Here are some notes.",
-      "Instructions": []
+      "Instructions": [],
+      "DesignerNotes": "Here are some notes."
     }
   ],
   "twists": [
@@ -951,6 +952,7 @@
       ]
     },
     {
+      "id": "Twist-Time Pressure-0.3508469673626271",
       "Deck": "Twist",
       "CardName": "Time Pressure",
       "TypeTags": [
@@ -971,6 +973,7 @@
       ]
     },
     {
+      "id": "Twist-Illusion dangerous cargo-0.7939542175954403",
       "Deck": "Twist",
       "CardName": "Illusion dangerous cargo",
       "TypeTags": [
@@ -1451,6 +1454,7 @@
       "Instructions": []
     },
     {
+      "id": "Monster-Armor-Cap Centipede-0.5182749399695602",
       "Deck": "Monster",
       "CardName": "Armor-Cap Centipede",
       "TypeTags": [
@@ -1788,6 +1792,7 @@
       "Instructions": []
     },
     {
+      "id": "Location-Ashspire Warrens-0.7827803532314364",
       "Deck": "Location",
       "CardName": "Ashspire Warrens",
       "TypeTags": [
@@ -1890,57 +1895,6 @@
             "Nature",
             "Light"
           ],
-          "count": 1,
-          "label": "Location",
-          "action": "draw"
-        },
-        {
-          "deck": "Twist",
-          "tags": [],
-          "count": 1,
-          "label": "Twist",
-          "action": "draw"
-        }
-      ]
-    },
-    {
-      "id": "QuestTemplate-Investigate-0.9577519442819",
-      "Deck": "QuestTemplate",
-      "CardName": "Investigate",
-      "TypeTags": [
-        "Order",
-        "Arcane"
-      ],
-      "AspectTags": [
-        "Mystery"
-      ],
-      "RewardText": "Secret knowledge and understanding",
-      "mutableTags": [],
-      "ConsequenceText": "The mystery deepens and spreads chaos",
-      "DrawInstructions": [
-        {
-          "deck": "NPC",
-          "tags": [
-            "Arcane",
-            "Order"
-          ],
-          "count": 1,
-          "label": "QuestGiver",
-          "action": "draw"
-        },
-        {
-          "deck": "Location",
-          "tags": [
-            "Arcane",
-            "Nature"
-          ],
-          "count": 1,
-          "label": "Target",
-          "action": "draw"
-        },
-        {
-          "deck": "Location",
-          "tags": [],
           "count": 1,
           "label": "Location",
           "action": "draw"
@@ -2122,6 +2076,7 @@
       ]
     },
     {
+      "id": "Quest Template-Heist aaa-0.628662475046386",
       "Deck": "Quest Template",
       "CardName": "Heist aaa",
       "TypeTags": [
@@ -2133,6 +2088,7 @@
       ],
       "RewardText": "A share of the stolen riches",
       "mutableTags": [],
+      "Instructions": [],
       "ConsequenceText": "The operation collapses and the crew is exposed",
       "DrawInstructions": [
         {
@@ -2178,6 +2134,64 @@
           "action": "draw",
           "prefix": "If the heist succeeds, you walk away with",
           "suffix": ""
+        }
+      ]
+    },
+    {
+      "Deck": "Quest Template",
+      "CardName": "Investigate",
+      "TypeTags": [
+        "Order",
+        "Arcane"
+      ],
+      "AspectTags": [
+        "Mystery"
+      ],
+      "RewardText": "Secret knowledge and understanding",
+      "mutableTags": [],
+      "DesignerNotes": "",
+      "ConsequenceText": "The mystery deepens and spreads chaos",
+      "DrawInstructions": [
+        {
+          "deck": "locations",
+          "tags": [
+            "Nature",
+            "Arcane"
+          ],
+          "count": 1,
+          "label": "Location",
+          "action": "draw",
+          "prefix": "Travel to",
+          "suffix": "and investigate rumors about"
+        },
+        {
+          "deck": "loot",
+          "tags": [
+            "Arcane"
+          ],
+          "count": 1,
+          "label": "Target",
+          "action": "draw",
+          "prefix": "",
+          "suffix": "Either bring it back or report what you learned"
+        },
+        {
+          "deck": "npcs",
+          "tags": [
+            "Light"
+          ],
+          "count": 1,
+          "label": "QuestGiver",
+          "action": "draw",
+          "prefix": "to",
+          "suffix": ""
+        },
+        {
+          "deck": "Twist",
+          "tags": [],
+          "count": 1,
+          "label": "Twist",
+          "action": "draw"
         }
       ]
     }
