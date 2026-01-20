@@ -728,10 +728,29 @@
 
 .modal-body {
   padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 1.5rem;
+  max-height: calc(100vh - 250px);
+  overflow-y: auto;
 }
+
+/* Draw instruction modal - special grid layout */
+#draw-instruction-modal .modal-body {
+  grid-template-areas:
+    "action deck"
+    "count label"
+    "prefix suffix"
+    "tags tags";
+}
+
+#draw-instruction-modal .form-group:nth-child(1) { grid-area: action; }
+#draw-instruction-modal .form-group:nth-child(2) { grid-area: deck; }
+#draw-instruction-modal .form-group:nth-child(3) { grid-area: count; }
+#draw-instruction-modal .form-group:nth-child(4) { grid-area: prefix; }
+#draw-instruction-modal .form-group:nth-child(5) { grid-area: label; }
+#draw-instruction-modal .form-group:nth-child(6) { grid-area: suffix; }
+#draw-instruction-modal .form-group:nth-child(7) { grid-area: tags; }
 
 .modal-footer {
   display: flex;
@@ -822,6 +841,22 @@
 
   .modal-content {
     width: 95%;
+  }
+
+  /* Single column modal layout on mobile */
+  .modal-body {
+    grid-template-columns: 1fr;
+  }
+
+  #draw-instruction-modal .modal-body {
+    grid-template-areas:
+      "action"
+      "deck"
+      "count"
+      "label"
+      "prefix"
+      "suffix"
+      "tags";
   }
 }
 
