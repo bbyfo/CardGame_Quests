@@ -1470,337 +1470,443 @@
   ],
   "locations": [
     {
-      "id": "Location-Gilded Harbor Exchange-0.6387756002644887",
+      "id": "Location-Gloomfen Crossing-0.184392",
       "Deck": "Location",
-      "CardName": "Gilded Harbor Exchange",
-      "TypeTags": [
-        "Wealth",
-        "Light"
-      ],
-      "AspectTags": [
-        "Commerce"
-      ],
+      "CardName": "Gloomfen Crossing",
+      "TypeTags": ["Shadow"],
+      "AspectTags": ["Swamp"],
       "mutableTags": [],
       "Instructions": []
     },
     {
-      "id": "Location-Sunpetal Orchard-0.9787394113153588",
+      "id": "Location-Whispergrave Market-0.552918",
       "Deck": "Location",
-      "CardName": "Sunpetal Orchard",
-      "TypeTags": [
-        "Nature",
-        "Light"
-      ],
-      "AspectTags": [
-        "Rural"
-      ],
+      "CardName": "Whispergrave Market",
+      "TypeTags": ["Shadow", "Wealth"],
+      "AspectTags": ["Trade"],
       "mutableTags": [],
       "Instructions": []
     },
     {
-      "id": "Location-The Argent Parade Grounds-0.4335354380091957",
+      "id": "Location-Nightfall Promenade-0.903112",
       "Deck": "Location",
-      "CardName": "The Argent Parade Grounds",
-      "TypeTags": [
-        "Martial",
-        "Wealth"
-      ],
-      "AspectTags": [
-        "Military"
-      ],
+      "CardName": "Nightfall Promenade",
+      "TypeTags": ["Shadow"],
+      "AspectTags": ["Urban"],
       "mutableTags": [],
       "Instructions": []
     },
     {
-      "id": "Location-Moonveil Market District-0.1620513447152767",
+      "id": "Location-Blackthorn Warrens-0.332781",
       "Deck": "Location",
-      "CardName": "Moonveil Market District",
-      "TypeTags": [
-        "Wealth",
-        "Shadow"
-      ],
-      "AspectTags": [
-        "Trade"
-      ],
+      "CardName": "Blackthorn Warrens",
+      "TypeTags": ["Shadow"],
+      "AspectTags": ["Underground"],
       "mutableTags": [],
       "Instructions": []
     },
     {
-      "id": "Location-Starwell Conservatory-0.4096072491303422",
+      "id": "Location-Murkspire Docks-0.119004",
       "Deck": "Location",
-      "CardName": "Starwell Conservatory",
-      "TypeTags": [
-        "Arcane",
-        "Light"
-      ],
-      "AspectTags": [
-        "Mystic"
-      ],
+      "CardName": "Murkspire Docks",
+      "TypeTags": ["Shadow", "Wealth"],
+      "AspectTags": ["Harbor"],
       "mutableTags": [],
       "Instructions": []
     },
     {
-      "id": "Location-Greenwater Terraces-0.20393895211347235",
+      "id": "Location-Shadeglass Plaza-0.774221",
       "Deck": "Location",
-      "CardName": "Greenwater Terraces",
-      "TypeTags": [
-        "Nature",
-        "Wealth"
-      ],
-      "AspectTags": [
-        "Garden"
-      ],
+      "CardName": "Shadeglass Plaza",
+      "TypeTags": ["Shadow"],
+      "AspectTags": ["Market"],
       "mutableTags": [],
       "Instructions": []
     },
     {
-      "id": "Location-The Silver Bastion-0.43178531029845435",
+      "id": "Location-Dreadmire Basin-0.661204",
       "Deck": "Location",
-      "CardName": "The Silver Bastion",
-      "TypeTags": [
-        "Martial",
-        "Order"
-      ],
-      "AspectTags": [
-        "Fortress"
-      ],
+      "CardName": "Dreadmire Basin",
+      "TypeTags": ["Shadow"],
+      "AspectTags": ["Marsh"],
       "mutableTags": [],
       "Instructions": []
     },
     {
-      "id": "Location-Lanternspire Heights-0.4568905553974415",
+      "id": "Location-Silkbane Alley-0.447821",
       "Deck": "Location",
-      "CardName": "Lanternspire Heights",
-      "TypeTags": [
-        "Light",
-        "Wealth"
-      ],
-      "AspectTags": [
-        "Urban"
-      ],
+      "CardName": "Silkbane Alley",
+      "TypeTags": ["Shadow"],
+      "AspectTags": ["Slum"],
       "mutableTags": [],
       "Instructions": []
     },
     {
-      "id": "Location-Whisperroot Hollow-0.9392442860643614",
+      "id": "Location-Ebonvault Exchange-0.228771",
       "Deck": "Location",
-      "CardName": "Whisperroot Hollow",
-      "TypeTags": [
-        "Nature",
-        "Shadow"
-      ],
-      "AspectTags": [
-        "Forest"
-      ],
+      "CardName": "Ebonvault Exchange",
+      "TypeTags": ["Shadow", "Wealth"],
+      "AspectTags": ["Commerce"],
       "mutableTags": [],
       "Instructions": []
     },
     {
-      "id": "Location-The Arcstone Repository-0.5094432937640843",
+      "id": "Location-Gravewind Terrace-0.503882",
       "Deck": "Location",
-      "CardName": "The Arcstone Repository",
-      "TypeTags": [
-        "Arcane",
-        "Wealth"
-      ],
-      "AspectTags": [
-        "Archive"
-      ],
+      "CardName": "Gravewind Terrace",
+      "TypeTags": ["Shadow"],
+      "AspectTags": ["Ruins"],
       "mutableTags": [],
       "Instructions": []
     },
     {
-      "id": "Location-Cragforge Caravan Post-0.003261632793796765",
+      "id": "Location-Nightroot Grove-0.883512",
       "Deck": "Location",
-      "CardName": "Cragforge Caravan Post",
-      "TypeTags": [
-        "Wealth",
-        "Martial"
-      ],
-      "AspectTags": [
-        "Outpost"
-      ],
+      "CardName": "Nightroot Grove",
+      "TypeTags": ["Shadow"],
+      "AspectTags": ["Forest"],
       "mutableTags": [],
       "Instructions": []
     },
     {
-      "id": "Location-The Shattered Meridian-0.3328068437253353",
+      "id": "Location-Umbral Caravan Post-0.339912",
       "Deck": "Location",
-      "CardName": "The Shattered Meridian",
-      "TypeTags": [
-        "Shadow",
-        "Arcane"
-      ],
-      "AspectTags": [
-        "Hazard"
-      ],
+      "CardName": "Umbral Caravan Post",
+      "TypeTags": ["Shadow", "Wealth"],
+      "AspectTags": ["Outpost"],
       "mutableTags": [],
       "Instructions": []
     },
     {
-      "id": "Location-Glimmerfall Sanctuary-0.775155358856178",
+      "id": "Location-Shattermist Ridge-0.771004",
       "Deck": "Location",
-      "CardName": "Glimmerfall Sanctuary",
-      "TypeTags": [
-        "Light",
-        "Order"
-      ],
-      "AspectTags": [
-        "Holy"
-      ],
+      "CardName": "Shattermist Ridge",
+      "TypeTags": ["Shadow"],
+      "AspectTags": ["Hazard"],
       "mutableTags": [],
       "Instructions": []
     },
     {
-      "id": "Location-Verdant Crown Grove-0.4361684642519532",
+      "id": "Location-Fogreach Hamlet-0.912771",
       "Deck": "Location",
-      "CardName": "Verdant Crown Grove",
-      "TypeTags": [
-        "Nature",
-        "Light"
-      ],
-      "AspectTags": [
-        "Forest"
-      ],
+      "CardName": "Fogreach Hamlet",
+      "TypeTags": ["Shadow"],
+      "AspectTags": ["Village"],
       "mutableTags": [],
       "Instructions": []
     },
     {
-      "id": "Location-Runescar Plateau-0.1601882177909527",
+      "id": "Location-Blackveil Archives-0.552781",
       "Deck": "Location",
-      "CardName": "Runescar Plateau",
-      "TypeTags": [
-        "Arcane",
-        "Martial"
-      ],
-      "AspectTags": [
-        "Ancient"
-      ],
+      "CardName": "Blackveil Archives",
+      "TypeTags": ["Shadow"],
+      "AspectTags": ["Library"],
       "mutableTags": [],
       "Instructions": []
     },
     {
-      "id": "Location-The Golden Exchange-0.11790976540639297",
+      "id": "Location-Mirewatch Bastion-0.661992",
       "Deck": "Location",
-      "CardName": "The Golden Exchange",
-      "TypeTags": [
-        "Wealth",
-        "Order"
-      ],
-      "AspectTags": [
-        "Commerce"
-      ],
+      "CardName": "Mirewatch Bastion",
+      "TypeTags": ["Shadow"],
+      "AspectTags": ["Fortress"],
       "mutableTags": [],
       "Instructions": []
     },
     {
-      "id": "Location-Moonshroud Fen-0.16019416777138895",
+      "id": "Location-Sootfen Outskirts-0.447001",
       "Deck": "Location",
-      "CardName": "Moonshroud Fen",
-      "TypeTags": [
-        "Shadow",
-        "Nature"
-      ],
-      "AspectTags": [
-        "Swamp"
-      ],
+      "CardName": "Sootfen Outskirts",
+      "TypeTags": ["Shadow"],
+      "AspectTags": ["Rural"],
       "mutableTags": [],
       "Instructions": []
     },
     {
-      "id": "Location-Stormbreaker Keep-0.9944293472212976",
+      "id": "Location-Gloomspire Observatory-0.119882",
       "Deck": "Location",
-      "CardName": "Stormbreaker Keep",
-      "TypeTags": [
-        "Martial",
-        "Order"
-      ],
-      "AspectTags": [
-        "Fortress"
-      ],
+      "CardName": "Gloomspire Observatory",
+      "TypeTags": ["Shadow"],
+      "AspectTags": ["Mystic"],
       "mutableTags": [],
       "Instructions": []
     },
     {
-      "id": "Location-The Arcane Observatory-0.11449762771316263",
+      "id": "Location-Umbrastone Crypts-0.774002",
       "Deck": "Location",
-      "CardName": "The Arcane Observatory",
-      "TypeTags": [
-        "Arcane",
-        "Light"
-      ],
-      "AspectTags": [
-        "Mystic"
-      ],
+      "CardName": "Umbrastone Crypts",
+      "TypeTags": ["Shadow"],
+      "AspectTags": ["Crypt"],
       "mutableTags": [],
       "Instructions": []
     },
     {
-      "id": "Location-Crimson Rift Chasm-0.8429813129159546",
+      "id": "Location-Nightmarket Warrens-0.661441",
       "Deck": "Location",
-      "CardName": "Crimson Rift Chasm",
-      "TypeTags": [
-        "Shadow",
-        "Arcane"
-      ],
-      "AspectTags": [
-        "Hazard"
-      ],
+      "CardName": "Nightmarket Warrens",
+      "TypeTags": ["Shadow", "Wealth"],
+      "AspectTags": ["Trade"],
       "mutableTags": [],
       "Instructions": []
     },
     {
-      "id": "Location-Silkmarket Promenade-0.7430678670128485",
+      "id": "Location-Blackmarsh Causeway-0.447112",
       "Deck": "Location",
-      "CardName": "Silkmarket Promenade",
-      "TypeTags": [
-        "Wealth",
-        "Light"
-      ],
-      "AspectTags": [
-        "Trade"
-      ],
+      "CardName": "Blackmarsh Causeway",
+      "TypeTags": ["Shadow"],
+      "AspectTags": ["Road"],
       "mutableTags": [],
       "Instructions": []
     },
     {
-      "id": "Location-Hollowshade Necropolis-0.5321917397410942",
+      "id": "Location-Shadefall Caverns-0.119441",
       "Deck": "Location",
-      "CardName": "Hollowshade Necropolis",
-      "TypeTags": [
-        "Shadow",
-        "Order"
-      ],
-      "AspectTags": [
-        "Ruins"
-      ],
+      "CardName": "Shadefall Caverns",
+      "TypeTags": ["Shadow"],
+      "AspectTags": ["Cavern"],
       "mutableTags": [],
       "Instructions": []
     },
     {
-      "id": "Location-Ironroot Barricade-0.08884915139210836",
+      "id": "Location-Moonshroud Bazaar-0.774551",
       "Deck": "Location",
-      "CardName": "Ironroot Barricade",
-      "TypeTags": [
-        "Nature",
-        "Martial"
-      ],
-      "AspectTags": [
-        "Defensive"
-      ],
+      "CardName": "Moonshroud Bazaar",
+      "TypeTags": ["Shadow", "Wealth"],
+      "AspectTags": ["Market"],
       "mutableTags": [],
       "Instructions": []
     },
     {
-      "id": "Location-Ashspire Warrens-0.7827803532314364",
+      "id": "Location-Duskwater Crossing-0.661221",
       "Deck": "Location",
-      "CardName": "Ashspire Warrens",
-      "TypeTags": [
-        "Shadow"
-      ],
-      "AspectTags": [
-        "Underground"
-      ],
+      "CardName": "Duskwater Crossing",
+      "TypeTags": ["Shadow"],
+      "AspectTags": ["Bridge"],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Location-Umbral Shrine-0.447551",
+      "Deck": "Location",
+      "CardName": "Umbral Shrine",
+      "TypeTags": ["Shadow"],
+      "AspectTags": ["Sacred"],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Location-Nightglass Foundry-0.119771",
+      "Deck": "Location",
+      "CardName": "Nightglass Foundry",
+      "TypeTags": ["Shadow"],
+      "AspectTags": ["Industrial"],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Location-Gloomtide Harbor-0.774991",
+      "Deck": "Location",
+      "CardName": "Gloomtide Harbor",
+      "TypeTags": ["Shadow", "Wealth"],
+      "AspectTags": ["Harbor"],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Location-Blackspire Monastery-0.661882",
+      "Deck": "Location",
+      "CardName": "Blackspire Monastery",
+      "TypeTags": ["Shadow"],
+      "AspectTags": ["Sacred"],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Location-Dreadshore Cliffs-0.447771",
+      "Deck": "Location",
+      "CardName": "Dreadshore Cliffs",
+      "TypeTags": ["Shadow"],
+      "AspectTags": ["Hazard"],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Location-Mireveil Outpost-0.119661",
+      "Deck": "Location",
+      "CardName": "Mireveil Outpost",
+      "TypeTags": ["Shadow"],
+      "AspectTags": ["Outpost"],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Location-Nightbarrow Fields-0.774112",
+      "Deck": "Location",
+      "CardName": "Nightbarrow Fields",
+      "TypeTags": ["Shadow"],
+      "AspectTags": ["Rural"],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Location-Umbralwine Cellars-0.661771",
+      "Deck": "Location",
+      "CardName": "Umbralwine Cellars",
+      "TypeTags": ["Shadow", "Wealth"],
+      "AspectTags": ["Storage"],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Location-Shadefen Orchard-0.447992",
+      "Deck": "Location",
+      "CardName": "Shadefen Orchard",
+      "TypeTags": ["Shadow"],
+      "AspectTags": ["Farm"],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Location-Gloomhollow Ruins-0.119882",
+      "Deck": "Location",
+      "CardName": "Gloomhollow Ruins",
+      "TypeTags": ["Shadow"],
+      "AspectTags": ["Ruins"],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Location-Sunpetal Terrace-0.552441",
+      "Deck": "Location",
+      "CardName": "Sunpetal Terrace",
+      "TypeTags": ["Light", "Nature"],
+      "AspectTags": ["Garden"],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Location-Azurewind Academy-0.661551",
+      "Deck": "Location",
+      "CardName": "Azurewind Academy",
+      "TypeTags": ["Arcane", "Light"],
+      "AspectTags": ["Mystic"],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Location-Ironmarch Garrison-0.447331",
+      "Deck": "Location",
+      "CardName": "Ironmarch Garrison",
+      "TypeTags": ["Martial", "Order"],
+      "AspectTags": ["Fortress"],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Location-Goldleaf Exchange-0.119221",
+      "Deck": "Location",
+      "CardName": "Goldleaf Exchange",
+      "TypeTags": ["Wealth", "Light"],
+      "AspectTags": ["Trade"],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Location-Runebloom Conservatory-0.774661",
+      "Deck": "Location",
+      "CardName": "Runebloom Conservatory",
+      "TypeTags": ["Arcane", "Nature"],
+      "AspectTags": ["Botanical"],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Location-Silvercrest Citadel-0.661112",
+      "Deck": "Location",
+      "CardName": "Silvercrest Citadel",
+      "TypeTags": ["Order", "Light"],
+      "AspectTags": ["Sacred"],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Location-Hammerfall Arena-0.447661",
+      "Deck": "Location",
+      "CardName": "Hammerfall Arena",
+      "TypeTags": ["Martial", "Wealth"],
+      "AspectTags": ["Sport"],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Location-Starweave Observatory-0.119771",
+      "Deck": "Location",
+      "CardName": "Starweave Observatory",
+      "TypeTags": ["Arcane", "Order"],
+      "AspectTags": ["Mystic"],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Location-Riverbloom Crossing-0.774221",
+      "Deck": "Location",
+      "CardName": "Riverbloom Crossing",
+      "TypeTags": ["Nature", "Wealth"],
+      "AspectTags": ["Bridge"],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Location-Dawnspire Monastery-0.661771",
+      "Deck": "Location",
+      "CardName": "Dawnspire Monastery",
+      "TypeTags": ["Light", "Order"],
+      "AspectTags": ["Sacred"],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Location-Emberforge Outpost-0.447221",
+      "Deck": "Location",
+      "CardName": "Emberforge Outpost",
+      "TypeTags": ["Martial", "Arcane"],
+      "AspectTags": ["Industrial"],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Location-Goldtide Harbor-0.119551",
+      "Deck": "Location",
+      "CardName": "Goldtide Harbor",
+      "TypeTags": ["Wealth", "Order"],
+      "AspectTags": ["Harbor"],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Location-Brightwind Fields-0.774991",
+      "Deck": "Location",
+      "CardName": "Brightwind Fields",
+      "TypeTags": ["Nature", "Light"],
+      "AspectTags": ["Rural"],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Location-Runeguard Bastion-0.661441",
+      "Deck": "Location",
+      "CardName": "Runeguard Bastion",
+      "TypeTags": ["Arcane", "Martial"],
+      "AspectTags": ["Fortress"],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "id": "Location-Sunforge Plaza-0.447992",
+      "Deck": "Location",
+      "CardName": "Sunforge Plaza",
+      "TypeTags": ["Light", "Wealth"],
+      "AspectTags": ["Market"],
       "mutableTags": [],
       "Instructions": []
     }
