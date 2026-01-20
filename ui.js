@@ -381,6 +381,14 @@ class UIManager {
       const playerInstructionHTML = playerInstruction ? 
         `<div class="player-instruction">📋 <em>${playerInstruction}</em></div>` : '';
       
+      // Build instruction preview (similar to card manager)
+      let previewText = '';
+      if (prefix) previewText += `<em>"${prefix}"</em> `;
+      previewText += `<strong>[${label}]</strong>`;
+      if (suffix) previewText += ` <em>"${suffix}"</em>`;
+      const instructionPreviewHTML = previewText ? 
+        `<div class="instruction-preview">${previewText}</div>` : '';
+      
       // Helper to wrap card name with prefix/suffix
       const wrapCardName = (cardName) => {
         let wrapped = '';
@@ -394,6 +402,7 @@ class UIManager {
       if (Array.isArray(componentData)) {
         return `<div class="quest-role">
           ${playerInstructionHTML}
+          ${instructionPreviewHTML}
           <div class="quest-details">
             ${componentData.map((card, index) => `
               <div class="multi-card-item">
@@ -414,6 +423,7 @@ class UIManager {
       // Handle single card
       return `<div class="quest-role">
         ${playerInstructionHTML}
+        ${instructionPreviewHTML}
         <div class="quest-details">
           <div class="quest-role-header">
             ${wrapCardName(componentData.CardName)}
@@ -696,13 +706,13 @@ class UIManager {
   toggleQuestDetails(button) {
     const questDisplay = button.closest('.quest-display');
     const allDetails = questDisplay.querySelectorAll('.quest-details');
-    const isHidden = allDetails[0].style.display === 'none';
+    const isHidden = window.getComputedStyle(allDetails[0]).display === 'none';
     
     allDetails.forEach(details => {
       details.style.display = isHidden ? 'block' : 'none';
     });
     
-    button.textContent = isHidden ? 'Show Details' : 'Show Player Instructions Only';
+    button.textContent = isHidden ? 'Show Player Instructions Only' : 'Show Details';
   }}
 
 // Export for use in modules
