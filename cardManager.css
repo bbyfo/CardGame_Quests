@@ -546,6 +546,23 @@
   font-size: 0.9rem;
 }
 
+.designer-notes {
+  margin-top: 0.75rem;
+  padding: 0.5rem;
+  background-color: #fffbea;
+  border-left: 3px solid #f59e0b;
+  border-radius: 3px;
+  font-size: 0.85rem;
+  color: #92400e;
+  font-style: italic;
+}
+
+.designer-notes strong {
+  font-weight: 600;
+  font-style: normal;
+  color: #78350f;
+}
+
 .tag-group {
   display: flex;
   align-items: flex-start;

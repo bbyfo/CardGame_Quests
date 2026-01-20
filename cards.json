@@ -620,20 +620,6 @@
       "Instructions": []
     },
     {
-      "id": "NPC-Archivist-General Thalen Quill-0.5353586149038169",
-      "Deck": "NPC",
-      "CardName": "Archivist-General Thalen Quill",
-      "TypeTags": [
-        "Order",
-        "Arcane"
-      ],
-      "AspectTags": [
-        "Bureaucracy"
-      ],
-      "mutableTags": [],
-      "Instructions": []
-    },
-    {
       "id": "NPC-High Priestess Seraphine Dawnstar-0.6207498332646653",
       "Deck": "NPC",
       "CardName": "High Priestess Seraphine Dawnstar",
@@ -841,6 +827,20 @@
       ],
       "mutableTags": [],
       "Instructions": []
+    },
+    {
+      "Deck": "NPC",
+      "CardName": "Archivist-General Thalen Quill",
+      "TypeTags": [
+        "Order",
+        "Arcane"
+      ],
+      "AspectTags": [
+        "Bureaucracy"
+      ],
+      "mutableTags": [],
+      "DesignerNotes": "Here are some notes.",
+      "Instructions": []
     }
   ],
   "twists": [
@@ -870,27 +870,6 @@
             "Order"
           ],
           "TargetDeck": "Reward"
-        }
-      ]
-    },
-    {
-      "id": "Twist-Time Pressure-0.002727774457773724",
-      "Deck": "Twist",
-      "CardName": "Time Pressure",
-      "TypeTags": [
-        "Chaos",
-        "Order"
-      ],
-      "AspectTags": [
-        "Quest"
-      ],
-      "mutableTags": [],
-      "Instructions": [
-        {
-          "Tags": [
-            "Chaos"
-          ],
-          "TargetDeck": "Failure"
         }
       ]
     },
@@ -942,23 +921,39 @@
           "TargetDeck": "Failure"
         }
       ]
+    },
+    {
+      "Deck": "Twist",
+      "CardName": "Time Pressure",
+      "TypeTags": [
+        "Chaos",
+        "Order"
+      ],
+      "AspectTags": [
+        "Quest"
+      ],
+      "mutableTags": [],
+      "Instructions": [
+        {
+          "Tags": [
+            "Chaos"
+          ],
+          "TargetDeck": "Failure"
+        }
+      ]
+    },
+    {
+      "Deck": "Twist",
+      "CardName": "Illusion dangerous cargo",
+      "TypeTags": [
+        "Arcane"
+      ],
+      "AspectTags": [],
+      "mutableTags": [],
+      "Instructions": []
     }
   ],
   "monsters": [
-    {
-      "id": "Monster-Armor-Cap Centipede-0.41767496158324147",
-      "Deck": "Monster",
-      "CardName": "Armor-Cap Centipede",
-      "TypeTags": [
-        "Nature",
-        "Chaos"
-      ],
-      "AspectTags": [
-        "Insect"
-      ],
-      "mutableTags": [],
-      "Instructions": []
-    },
     {
       "id": "Monster-Blinding Eye-0.4066984169053094",
       "Deck": "Monster",
@@ -1434,6 +1429,19 @@
       ],
       "mutableTags": [],
       "Instructions": []
+    },
+    {
+      "Deck": "Monster",
+      "CardName": "Armor-Cap Centipede",
+      "TypeTags": [
+        "Shadow",
+        "Nature"
+      ],
+      "AspectTags": [
+        "Insect"
+      ],
+      "mutableTags": [],
+      "Instructions": []
     }
   ],
   "locations": [
@@ -1620,20 +1628,6 @@
       "Instructions": []
     },
     {
-      "id": "Location-Ashspire Warrens-0.4896170998827363",
-      "Deck": "Location",
-      "CardName": "Ashspire Warrens",
-      "TypeTags": [
-        "Chaos",
-        "Shadow"
-      ],
-      "AspectTags": [
-        "Underground"
-      ],
-      "mutableTags": [],
-      "Instructions": []
-    },
-    {
       "id": "Location-Verdant Crown Grove-0.4361684642519532",
       "Deck": "Location",
       "CardName": "Verdant Crown Grove",
@@ -1769,6 +1763,18 @@
       ],
       "AspectTags": [
         "Defensive"
+      ],
+      "mutableTags": [],
+      "Instructions": []
+    },
+    {
+      "Deck": "Location",
+      "CardName": "Ashspire Warrens",
+      "TypeTags": [
+        "Shadow"
+      ],
+      "AspectTags": [
+        "Underground"
       ],
       "mutableTags": [],
       "Instructions": []
@@ -2048,6 +2054,7 @@
       ]
     },
     {
+      "id": "Quest Template-Defend-0.30276905173431723",
       "Deck": "Quest Template",
       "CardName": "Defend",
       "TypeTags": [
@@ -2059,6 +2066,7 @@
       ],
       "RewardText": "Honor and gratitude from the people",
       "mutableTags": [],
+      "Instructions": [],
       "ConsequenceText": "The defended location falls to the enemy",
       "DrawInstructions": [
         {
@@ -2098,64 +2106,64 @@
       ]
     },
     {
-  "Deck": "Quest Template",
-  "CardName": "Heist aaa",
-  "TypeTags": [
-    "Wealth",
-    "Arcane"
-  ],
-  "AspectTags": [
-    "Stealth"
-  ],
-  "RewardText": "A share of the stolen riches",
-  "mutableTags": [],
-  "ConsequenceText": "The operation collapses and the crew is exposed",
-  "DrawInstructions": [
-    {
-      "deck": "locations",
-      "tags": [
-        "Wealth"
-      ],
-      "count": 1,
-      "label": "Target Location",
-      "action": "draw",
-      "prefix": "Your mark is",
-      "suffix": "—a vault ripe for the taking"
-    },
-    {
-      "deck": "npcs",
-      "tags": [
+      "Deck": "Quest Template",
+      "CardName": "Heist aaa",
+      "TypeTags": [
+        "Wealth",
         "Arcane"
       ],
-      "count": 1,
-      "label": "Arcane Obstacle",
-      "action": "draw",
-      "prefix": "but the place is guarded by",
-      "suffix": "whose wards complicate the job"
-    },
-    {
-      "deck": "npcs",
-      "tags": [
-        "Wealth"
+      "AspectTags": [
+        "Stealth"
       ],
-      "count": 1,
-      "label": "Quest Giver",
-      "action": "draw",
-      "prefix": "The job comes from",
-      "suffix": "who promises a generous payout"
-    },
-    {
-      "deck": "loot",
-      "tags": [
-        "Wealth"
-      ],
-      "count": 1,
-      "label": "Primary Reward",
-      "action": "draw",
-      "prefix": "If the heist succeeds, you walk away with",
-      "suffix": ""
+      "RewardText": "A share of the stolen riches",
+      "mutableTags": [],
+      "ConsequenceText": "The operation collapses and the crew is exposed",
+      "DrawInstructions": [
+        {
+          "deck": "locations",
+          "tags": [
+            "Wealth"
+          ],
+          "count": 1,
+          "label": "Target Location",
+          "action": "draw",
+          "prefix": "Your mark is",
+          "suffix": "—a vault ripe for the taking"
+        },
+        {
+          "deck": "twists",
+          "tags": [
+            "Arcane"
+          ],
+          "count": 1,
+          "label": "Arcane Obstacle",
+          "action": "draw",
+          "prefix": "but the place is guarded by",
+          "suffix": "which complicates the job"
+        },
+        {
+          "deck": "npcs",
+          "tags": [
+            "Wealth"
+          ],
+          "count": 1,
+          "label": "Quest Giver",
+          "action": "draw",
+          "prefix": "The job comes from",
+          "suffix": "who promises a generous payout"
+        },
+        {
+          "deck": "loot",
+          "tags": [
+            "Wealth"
+          ],
+          "count": 1,
+          "label": "Primary Reward",
+          "action": "draw",
+          "prefix": "If the heist succeeds, you walk away with",
+          "suffix": ""
+        }
+      ]
     }
-  ]
-}
   ]
 }

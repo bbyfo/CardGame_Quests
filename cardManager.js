@@ -611,7 +611,8 @@ class CardManager {
       CardName: cardName,
       TypeTags: this.getTagsFromList('type-tags-list'),
       AspectTags: this.getTagsFromList('aspect-tags-list'),
-      mutableTags: this.getTagsFromList('mutable-tags-list')
+      mutableTags: this.getTagsFromList('mutable-tags-list'),
+      DesignerNotes: document.getElementById('designer-notes')?.value || ''
     };
 
     // Add appropriate instruction/draw instruction data based on deck type
@@ -1263,6 +1264,7 @@ class CardManager {
             ${typeTagsHtml}
             ${aspectTagsHtml}
           </div>
+          ${card.DesignerNotes ? `<div class="designer-notes"><strong>Designer Notes:</strong> ${card.DesignerNotes}</div>` : ''}
           <div class="card-item-actions">
             <button class="btn btn-secondary btn-edit" data-deck="${deckName}" data-name="${card.CardName}">Edit</button>
             <button class="btn btn-danger btn-delete" data-deck="${deckName}" data-name="${card.CardName}">Delete</button>
@@ -1345,6 +1347,10 @@ class CardManager {
       this.instructionData = JSON.parse(JSON.stringify(card.Instructions || []));
       this.renderInstructions();
     }
+
+    // Load designer notes
+    const designerNotesEl = document.getElementById('designer-notes');
+    if (designerNotesEl) designerNotesEl.value = card.DesignerNotes || '';
 
     // Show cancel button
     const cancelBtn = document.getElementById('btn-cancel-edit');
