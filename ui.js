@@ -333,7 +333,7 @@ class UIManager {
   generatePlayerInstruction(instructionData) {
     if (!instructionData || !instructionData.deck) return '';
     
-    const { deck, count, tags, label } = instructionData;
+    const { deck, count, tags, label, faceDown } = instructionData;
     const countText = count > 1 ? `${count} cards` : '1 card';
     const deckText = deck;
     
@@ -342,7 +342,13 @@ class UIManager {
       tagsText = ` which have ${tags.join(', ')}`;
     }
     
-    return `Draw ${countText} from ${deckText}${tagsText}.`;
+    let instruction = `Draw ${countText} from ${deckText}${tagsText}.`;
+    
+    if (faceDown) {
+      instruction += ' (Leave face down until battleground setup phase)';
+    }
+    
+    return instruction;
   }
 
   /**

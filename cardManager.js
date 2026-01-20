@@ -794,7 +794,11 @@ class CardManager {
       modal.style.display = 'flex';
       if (title) title.textContent = 'Add Instruction';
       this.editingInstructionIndex = -1; // -1 means adding new
-      this.instructionData.push({ TargetDeck: '', Tags: [] });
+      this.instructionData.push({ TargetDeck: '', Tags: [], faceDown: false });
+      
+      // Clear faceDown checkbox
+      const faceDownCheckbox = document.getElementById('instruction-face-down');
+      if (faceDownCheckbox) faceDownCheckbox.checked = false;
     }
   }
 
@@ -819,6 +823,12 @@ class CardManager {
     instruction.Tags.forEach(tag => {
       this.addTag('instruction-tags', tag);
     });
+
+    // Set faceDown checkbox
+    const faceDownCheckbox = document.getElementById('instruction-face-down');
+    if (faceDownCheckbox) {
+      faceDownCheckbox.checked = instruction.faceDown || false;
+    }
 
     // Open modal with edit title
     const modal = document.getElementById('instruction-modal');
@@ -860,9 +870,12 @@ class CardManager {
       return;
     }
 
+    const faceDown = document.getElementById('instruction-face-down').checked;
+
     const instruction = {
       TargetDeck: targetDeck,
-      Tags: tags
+      Tags: tags,
+      faceDown: faceDown
     }; 
 
     if (this.editingInstructionIndex >= 0) {
@@ -939,6 +952,10 @@ class CardManager {
       document.getElementById('draw-prefix').value = '';
       document.getElementById('draw-suffix').value = '';
       this.clearTagList('draw-tags-list');
+      
+      // Clear faceDown checkbox
+      const faceDownCheckbox = document.getElementById('draw-face-down');
+      if (faceDownCheckbox) faceDownCheckbox.checked = false;
     }
   }
 
@@ -963,7 +980,8 @@ class CardManager {
     const label = document.getElementById('draw-label').value.trim();
     const prefix = document.getElementById('draw-prefix').value.trim();
     const suffix = document.getElementById('draw-suffix').value.trim();
-    const tags = this.dedupeTags(this.getTagsFromList('draw-tags-list')); 
+    const tags = this.dedupeTags(this.getTagsFromList('draw-tags-list'));
+    const faceDown = document.getElementById('draw-face-down').checked; 
 
     if (!action) {
       alert('Please select an action');
@@ -987,7 +1005,8 @@ class CardManager {
       tags: tags,
       label: label,
       prefix: prefix || '',
-      suffix: suffix || ''
+      suffix: suffix || '',
+      faceDown: faceDown
     };
 
     if (this.editingDrawInstructionIndex >= 0) {
@@ -1115,6 +1134,12 @@ class CardManager {
       instruction.tags.forEach(tag => {
         this.addTag('draw-tags-input', tag);
       });
+    }
+
+    // Set faceDown checkbox
+    const faceDownCheckbox = document.getElementById('draw-face-down');
+    if (faceDownCheckbox) {
+      faceDownCheckbox.checked = instruction.faceDown || false;
     }
 
     // Open modal

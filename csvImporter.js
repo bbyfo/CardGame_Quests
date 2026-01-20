@@ -167,6 +167,7 @@ class CSVImporter {
   /**
    * Parse instructions from pipe-separated format
    * Format: Location[Building;Vault;Fortress]|Target[Magic Item;Artifact]
+   * With faceDown flag: Location[Building;Vault;Fortress]:facedown|Target[Magic Item;Artifact]
    */
   static parseInstructions(instructionString) {
     if (!instructionString || instructionString.trim() === '') {
@@ -177,7 +178,15 @@ class CSVImporter {
     const parts = instructionString.split('|');
     
     for (const part of parts) {
-      const match = part.match(/^(\w+)\[(.+)\]$/);
+      // Check for facedown flag at the end
+      let faceDown = false;
+      let cleanPart = part.trim();
+      if (cleanPart.toLowerCase().endsWith(':facedown')) {
+        faceDown = true;
+        cleanPart = cleanPart.slice(0, -9).trim(); // Remove ':facedown'
+      }
+      
+      const match = cleanPart.match(/^(\w+)\[(.+)\]$/);
       if (match) {
         const targetDeck = match[1].trim();
         const tagsString = match[2];
@@ -186,7 +195,8 @@ class CSVImporter {
         if (targetDeck && tags.length > 0) {
           instructions.push({
             TargetDeck: targetDeck,
-            Tags: tags
+            Tags: tags,
+            faceDown: faceDown
           });
         }
       }
@@ -342,7 +352,13 @@ Failure,Curse,Magical;Permanent,Magic,ThisCard[Afflicted]`;
       let instructionsStr = '';
       if (card.Instructions && Array.isArray(card.Instructions) && card.Instructions.length > 0) {
         instructionsStr = card.Instructions
-          .map(instr => `${instr.TargetDeck}[${instr.Tags.join(';')}]`)
+          .map(instr => {
+            let instrStr = `${instr.TargetDeck}[${instr.Tags.join(';')}]`;
+            if (instr.faceDown) {
+              instrStr += ':facedown';
+            }
+            return instrStr;
+          })
           .join('|');
       }
 
