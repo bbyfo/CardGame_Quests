@@ -92,14 +92,14 @@
                 class="autocomplete-input"
               >
               <datalist id="type-tags-datalist">
-                <option value="Holy">Holy (Red)</option>
-                <option value="Nature">Nature (Green)</option>
-                <option value="Order">Order (Blue)</option>
-                <option value="Arcane">Arcane (Yellow)</option>
-                <option value="Martial">Martial (Silver)</option>
-                <option value="Light">Light (White)</option>
-                <option value="Shadow">Shadow (Black)</option>
-                <option value="Wealth">Wealth (Gold)</option>
+                <option value="Holy">Red (Holy)</option>
+                <option value="Nature">Green (Nature)</option>
+                <option value="Order">Blue (Order)</option>
+                <option value="Arcane">Yellow (Arcane)</option>
+                <option value="Martial">Silver (Martial)</option>
+                <option value="Light">White (Light)</option>
+                <option value="Shadow">Black (Shadow)</option>
+                <option value="Wealth">Gold (Wealth)</option>
               </datalist>
               <div id="type-tags-suggestions" class="autocomplete-dropdown"></div>
               <div id="type-tags-list" class="tags-list"></div>
@@ -204,7 +204,8 @@
               <input 
                 type="text" 
                 id="filter-type-tags-input" 
-                placeholder="Add type tags to filter and press Enter"
+                list="type-tags-datalist"
+                placeholder="Add type tags to filter (Holy, Nature, Order, Arcane, Martial, Light, Shadow, Wealth) and press Enter"
                 class="autocomplete-input"
               />
               <div id="filter-type-tags-suggestions" class="autocomplete-suggestions"></div>
@@ -250,8 +251,8 @@
             <input 
               type="text" 
               id="instruction-tags" 
-              list="type-tags-datalist"
-              placeholder="Add tags (Holy, Nature, Order, Arcane, Martial, Light, Shadow, Wealth) and press Enter"
+              list="type-tags-datalisHoly
+              placeholder="Add tags (Chaos, Nature, Order, Arcane, Martial, Light, Shadow, Wealth) and press Enter"
               class="autocomplete-input"
             >
             <div id="instruction-tags-suggestions" class="autocomplete-dropdown"></div>
