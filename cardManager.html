@@ -239,6 +239,10 @@
         <button type="button" class="modal-close" id="modal-close">&times;</button>
       </div>
       <div class="modal-body">
+        <p style="color: #666; font-size: 0.9rem; margin-bottom: 1rem;">
+          Instructions add tokens to other cards during quest generation. Example: An NPC with [Justice, Martial] instruction targeting "Location" will add those tokens to the drawn Location card.
+        </p>
+        
         <div class="form-group">
           <label for="instruction-target-deck">Target Deck *</label>
           <select id="instruction-target-deck" required>
@@ -248,21 +252,22 @@
             <option value="Twist">Twist</option>
             <option value="ThisCard">This Card</option>
           </select>
+          <small style="color: #666;">Where to apply these tokens</small>
         </div>
 
         <div class="form-group">
-          <label for="instruction-tags">Tags *</label>
+          <label for="instruction-tags">Tags/Tokens *</label>
           <div class="tag-input-container">
             <input 
               type="text" 
               id="instruction-tags" 
-              list="type-tags-datalisHoly
-              placeholder="Add tags (Chaos, Nature, Order, Arcane, Martial, Light, Shadow, Wealth) and press Enter"
+              placeholder="Add TypeTags and press Enter"
               class="autocomplete-input"
             >
             <div id="instruction-tags-suggestions" class="autocomplete-dropdown"></div>
             <div id="instruction-tags-list" class="tags-list"></div>
           </div>
+          <small style="color: #666;">Tokens that will be placed on the target deck (e.g., Justice, Deceit, Nature). Type ? to see all options.</small>
         </div>
 
         <div class="form-group checkbox-group">
@@ -334,13 +339,12 @@
         </div>
 
         <div class="form-group">
-          <label for="draw-tags-input">Tags</label>
+          <label for="draw-tags-input">Tags (type ? to see all options)</label>
           <div class="tag-input-container">
             <input 
               type="text" 
               id="draw-tags-input" 
-              list="type-tags-datalist"
-              placeholder="Add tags (Holy, Nature, Order, Arcane, Martial, Light, Shadow, Wealth) and press Enter"
+              placeholder="Add TypeTags and press Enter (type ? to see all options)"
               class="autocomplete-input"
             >
             <div id="draw-tags-suggestions" class="autocomplete-dropdown"></div>

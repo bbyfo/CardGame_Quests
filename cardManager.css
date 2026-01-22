@@ -122,7 +122,7 @@
   border: 1px solid #ddd;
   border-top: none;
   border-radius: 0 0 4px 4px;
-  max-height: 200px;
+  max-height: 300px;
   overflow-y: auto;
   z-index: 100;
   display: none;
@@ -130,18 +130,36 @@
 }
 
 .autocomplete-dropdown.active {
-  display: block;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .autocomplete-option {
   padding: 0.5rem 0.75rem;
   cursor: pointer;
   transition: background-color 0.2s;
+  flex-shrink: 0;
+}
+
+.autocomplete-option.disabled {
+  color: #999;
+  background-color: #f9f9f9;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.autocomplete-option.disabled:hover {
+  background-color: #f9f9f9;
 }
 
 .autocomplete-option:hover,
 .autocomplete-option.selected {
   background-color: #f0f0f0;
+}
+
+.autocomplete-option.disabled.selected {
+  background-color: #f5f5f5;
 }
 
 /* Tags List */
@@ -742,6 +760,27 @@
   gap: 1rem 1.5rem;
   max-height: calc(100vh - 250px);
   overflow-y: auto;
+}
+
+/* Instruction modal (regular cards) - grid layout */
+#instruction-modal .modal-body {
+  grid-template-columns: 1fr;
+}
+
+#instruction-modal .modal-body p {
+  grid-column: 1;
+}
+
+#instruction-modal .form-group:nth-of-type(1) {
+  grid-column: 1;
+}
+
+#instruction-modal .form-group:nth-of-type(2) {
+  grid-column: 1;
+}
+
+#instruction-modal .form-group:nth-of-type(3) {
+  grid-column: 1;
 }
 
 /* Draw instruction modal - special grid layout */

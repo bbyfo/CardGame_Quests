@@ -493,14 +493,24 @@ class CardManager {
     input.addEventListener('input', (e) => {
       const value = e.target.value.trim();
       this.selectedSuggestionIndex = -1; // Reset selection on input change
-      if (value.length > 0 && suggestionsDiv) {
-        const currentSuggestions = getCurrentSuggestions();
-        const filtered = currentSuggestions.filter(s => 
-          s.toLowerCase().includes(value.toLowerCase())
-        );
-        this.showSuggestions(suggestionsDiv, filtered, value, inputId);
-      } else if (suggestionsDiv) {
-        suggestionsDiv.classList.remove('active');
+      
+      if (suggestionsDiv) {
+        // Special case: '?' shows all available tags
+        if (value === '?') {
+          const currentSuggestions = getCurrentSuggestions();
+          this.showSuggestions(suggestionsDiv, currentSuggestions, '', inputId);
+          return;
+        }
+        
+        if (value.length > 0) {
+          const currentSuggestions = getCurrentSuggestions();
+          const filtered = currentSuggestions.filter(s => 
+            s.toLowerCase().includes(value.toLowerCase())
+          );
+          this.showSuggestions(suggestionsDiv, filtered, value, inputId);
+        } else {
+          suggestionsDiv.classList.remove('active');
+        }
       }
     });
 
@@ -589,18 +599,41 @@ class CardManager {
     const availableSuggestions = suggestions.filter(s => !existingTags.includes(s));
     
     const unique = [...new Set(availableSuggestions)];
-    const limited = unique.slice(0, 8);
+    const limited = unique.slice(0, 15); // Increased from 8 to 15 for better visibility
 
     if (limited.length === 0) {
       container.classList.remove('active');
       return;
     }
 
+    // Check if we need to validate against Polarity (for draw-tags-input)
+    let allowedTags = null;
+    if (inputId === 'draw-tags-input') {
+      const polaritySelect = document.getElementById('draw-polarity');
+      const polarity = polaritySelect ? polaritySelect.value : '';
+      if (polarity) {
+        allowedTags = this.getPolarityAllowedTags(polarity);
+      }
+    }
+
     limited.forEach(suggestion => {
       const option = document.createElement('div');
       option.className = 'autocomplete-option';
+      
+      // Check if this tag is disabled due to Polarity mismatch
+      const isDisabled = allowedTags && !allowedTags.includes(suggestion);
+      if (isDisabled) {
+        option.classList.add('disabled');
+        option.title = `This tag doesn't match the selected Polarity`;
+      }
+      
       option.textContent = suggestion;
       option.addEventListener('click', () => {
+        // Don't allow selecting disabled options
+        if (isDisabled) {
+          return;
+        }
+        
         this.addTag(inputId, suggestion);
         const input = document.getElementById(inputId);
         input.value = '';
