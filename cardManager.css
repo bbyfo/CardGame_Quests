@@ -789,6 +789,7 @@
     "action deck"
     "count label"
     "prefix suffix"
+    "polarity polarity"
     "tags tags";
 }
 
@@ -798,7 +799,17 @@
 #draw-instruction-modal .form-group:nth-child(4) { grid-area: prefix; }
 #draw-instruction-modal .form-group:nth-child(5) { grid-area: label; }
 #draw-instruction-modal .form-group:nth-child(6) { grid-area: suffix; }
-#draw-instruction-modal .form-group:nth-child(7) { grid-area: tags; }
+#draw-instruction-modal .form-group:nth-child(7) { grid-area: polarity; }
+#draw-instruction-modal .form-group:nth-child(8) { grid-area: tags; }
+
+/* Position draw-tags autocomplete above the input */
+#draw-tags-suggestions.autocomplete-dropdown {
+  top: auto;
+  bottom: 100%;
+  border-radius: 4px 4px 0 0;
+  border-top: 1px solid #ddd;
+  border-bottom: none;
+}
 
 .modal-footer {
   display: flex;

@@ -1365,20 +1365,44 @@ class CardManager {
     const cardName = urlParams.get('cardName');
     
     if (cardId || cardName) {
-      // Expand Browse Cards section
-      const browseSection = document.querySelector('[data-section="browse-cards"]');
-      const browseContent = document.getElementById('browse-cards');
-      if (browseContent && browseContent.classList.contains('collapsed')) {
-        browseContent.classList.remove('collapsed');
-        if (browseSection) {
-          browseSection.setAttribute('aria-expanded', 'true');
-        }
-      }
-      
-      // Wait for render to complete, then scroll to card
+      // Wait for cards to be loaded first
       setTimeout(() => {
-        this.scrollToCard(cardId, cardName);
-      }, 300);
+        // Find the card and its deck
+        let foundDeckName = null;
+        let foundCard = null;
+        
+        for (const deckName in this.cards) {
+          const deck = this.cards[deckName];
+          if (Array.isArray(deck)) {
+            const card = deck.find(c => c.CardName === cardName);
+            if (card) {
+              foundDeckName = deckName;
+              foundCard = card;
+              break;
+            }
+          }
+        }
+        
+        if (foundDeckName && foundCard) {
+          // Load the card for editing
+          this.loadCardForEdit(foundDeckName, cardName);
+          
+          // Also expand Browse Cards section and scroll to it
+          const browseSection = document.querySelector('[data-section="browse-cards"]');
+          const browseContent = document.getElementById('browse-cards');
+          if (browseContent && browseContent.classList.contains('collapsed')) {
+            browseContent.classList.remove('collapsed');
+            if (browseSection) {
+              browseSection.setAttribute('aria-expanded', 'true');
+            }
+          }
+          
+          // Scroll to card in browse view
+          setTimeout(() => {
+            this.scrollToCard(cardId, cardName);
+          }, 300);
+        }
+      }, 500);
     }
   }
 
