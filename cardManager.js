@@ -53,14 +53,11 @@ class CardManager {
     const polaritySelect = document.getElementById('polarity-select');
     const polarity = polaritySelect ? polaritySelect.value : '';
     
-    // Get allowed tags for this polarity
-    const allowedTags = polarity ? this.getPolarityAllowedTags(polarity) : [];
+    // Show all TypeTags - showSuggestions will handle greying out invalid ones
+    const allTypeTags = Array.from(this.allTags.type);
     
-    // Filter discovered TypeTags to only show allowed ones
-    const filteredTags = Array.from(this.allTags.type).filter(tag => allowedTags.includes(tag));
-    
-    // Re-setup the autocomplete with filtered tags
-    this.setupTagAutocomplete('type-tags-input', 'type-tags-suggestions', filteredTags);
+    // Re-setup the autocomplete with all tags (validation happens in showSuggestions)
+    this.setupTagAutocomplete('type-tags-input', 'type-tags-suggestions', allTypeTags);
   }
 
   async init() {
@@ -606,10 +603,17 @@ class CardManager {
       return;
     }
 
-    // Check if we need to validate against Polarity (for draw-tags-input)
+    // Check if we need to validate against Polarity (for draw-tags-input and type-tags-input)
     let allowedTags = null;
     if (inputId === 'draw-tags-input') {
       const polaritySelect = document.getElementById('draw-polarity');
+      const polarity = polaritySelect ? polaritySelect.value : '';
+      if (polarity) {
+        allowedTags = this.getPolarityAllowedTags(polarity);
+      }
+    } else if (inputId === 'type-tags-input') {
+      // For Create/Edit Card, check the card's Polarity
+      const polaritySelect = document.getElementById('polarity-select');
       const polarity = polaritySelect ? polaritySelect.value : '';
       if (polarity) {
         allowedTags = this.getPolarityAllowedTags(polarity);

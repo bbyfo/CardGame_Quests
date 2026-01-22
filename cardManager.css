@@ -811,6 +811,15 @@
   border-bottom: none;
 }
 
+/* Position type-tags autocomplete above the input */
+#type-tags-suggestions.autocomplete-dropdown {
+  top: auto;
+  bottom: 100%;
+  border-radius: 4px 4px 0 0;
+  border-top: 1px solid #ddd;
+  border-bottom: none;
+}
+
 .modal-footer {
   display: flex;
   gap: 1rem;
