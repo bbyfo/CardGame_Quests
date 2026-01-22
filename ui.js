@@ -333,13 +333,31 @@ class UIManager {
   generatePlayerInstruction(instructionData) {
     if (!instructionData || !instructionData.deck) return '';
     
-    const { deck, count, tags, label, faceDown } = instructionData;
+    const { deck, count, tags, label, faceDown, polarity } = instructionData;
     const countText = count > 1 ? `${count} cards` : '1 card';
     const deckText = `<strong>${deck}</strong>`;
     
     let tagsText = '';
-    if (tags && tags.length > 0) {
-      tagsText = ` which have [${tags.join(', ')}]`;
+    // Always show tag section if polarity exists, even without TypeTags
+    if (polarity || (tags && tags.length > 0)) {
+      let tagParts = [];
+      
+      // Always add Polarity badge first if present
+      if (polarity) {
+        tagParts.push(`<span class="polarity-badge polarity-${polarity.toLowerCase()}">${polarity}</span>`);
+      }
+      
+      // Add TypeTags with their color styling
+      if (tags && tags.length > 0) {
+        tags.forEach(tag => {
+          tagParts.push(`<span class="tag tag-${tag.toLowerCase()}">${tag}</span>`);
+        });
+      }
+      
+      // Only show "which have [tags]" if we have something to display
+      if (tagParts.length > 0) {
+        tagsText = ` which have [${tagParts.join(', ')}]`;
+      }
     }
     
     let instruction = `Draw ${countText} from ${deckText}${tagsText}.`;

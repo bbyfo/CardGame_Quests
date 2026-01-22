@@ -550,7 +550,7 @@ class QuestEngine {
         
         const label = instruction.label || `component_${i}`;
         
-        // Store instruction metadata (prefix, suffix, deck, count, tags, faceDown)
+        // Store instruction metadata (prefix, suffix, deck, count, tags, faceDown, polarity)
         this.quest.instructions[label] = {
           prefix: instruction.prefix || '',
           suffix: instruction.suffix || '',
@@ -558,7 +558,8 @@ class QuestEngine {
           count: instruction.count || 1,
           tags: instruction.tags || [],
           label: label,
-          faceDown: instruction.faceDown || false
+          faceDown: instruction.faceDown || false,
+          polarity: instruction.polarity || null
         };
         
         // If multiple cards drawn, store as array
