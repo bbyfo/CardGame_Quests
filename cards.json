@@ -541,7 +541,7 @@
       "Deck": "NPC",
       "CardName": "Broker Vaskel the Silver Tongue",
       "TypeTags": [
-        "Wealth"
+        "Greed"
       ],
       "AspectTags": [
         "Deception"
@@ -567,7 +567,7 @@
       "Deck": "NPC",
       "CardName": "Lord Malrec the Withering",
       "TypeTags": [
-        "Knowledge"
+        "Deceit"
       ],
       "AspectTags": [
         "Necromancy"
@@ -593,7 +593,7 @@
       "Deck": "NPC",
       "CardName": "High Inquisitor Draevin",
       "TypeTags": [
-        "Justice",
+        "Tyranny",
         "Zealotry"
       ],
       "AspectTags": [
@@ -620,7 +620,7 @@
       "Deck": "NPC",
       "CardName": "Stormcaller Vesh Tal",
       "TypeTags": [
-        "Knowledge"
+        "Deceit"
       ],
       "AspectTags": [
         "Tempest"
@@ -646,7 +646,7 @@
       "Deck": "NPC",
       "CardName": "Ironfang the Unbound",
       "TypeTags": [
-        "Martial"
+        "Savagery"
       ],
       "AspectTags": [
         "Berserker"
@@ -876,7 +876,7 @@
       "Deck": "NPC",
       "CardName": "Mistress of Whispers Selkira",
       "TypeTags": [
-        "Knowledge"
+        "Deceit"
       ],
       "AspectTags": [
         "Secrets"
@@ -890,7 +890,7 @@
       "Deck": "NPC",
       "CardName": "Dread Captain Vorak Blacktide",
       "TypeTags": [
-        "Martial"
+        "Savagery"
       ],
       "AspectTags": [
         "Terror"
@@ -966,7 +966,7 @@
       "Deck": "Twist",
       "CardName": "Environmental Hazard",
       "TypeTags": [
-        "Nature"
+        "Blight"
       ],
       "AspectTags": [
         "Nature"
@@ -991,7 +991,7 @@
       "Deck": "Twist",
       "CardName": "Time Pressure",
       "TypeTags": [
-        "Justice"
+        "Tyranny"
       ],
       "AspectTags": [
         "Quest"
@@ -1036,7 +1036,7 @@
       "Deck": "Monster",
       "CardName": "Blistered Bull",
       "TypeTags": [
-        "Nature"
+        "Blight"
       ],
       "AspectTags": [
         "Beast"
@@ -1077,7 +1077,7 @@
       "Deck": "Monster",
       "CardName": "Deathrattle Hyena",
       "TypeTags": [
-        "Nature"
+        "Blight"
       ],
       "AspectTags": [
         "Beast"
@@ -1223,7 +1223,7 @@
       "Deck": "Monster",
       "CardName": "Lesser Rothog",
       "TypeTags": [
-        "Nature"
+        "Blight"
       ],
       "AspectTags": [
         "Beast"
@@ -1237,7 +1237,7 @@
       "Deck": "Monster",
       "CardName": "Magmolt",
       "TypeTags": [
-        "Knowledge"
+        "Deceit"
       ],
       "AspectTags": [
         "Elemental"
@@ -1317,7 +1317,7 @@
       "Deck": "Monster",
       "CardName": "Plaguehornet Swarm",
       "TypeTags": [
-        "Nature"
+        "Blight"
       ],
       "AspectTags": [
         "Insect"
@@ -1331,7 +1331,7 @@
       "Deck": "Monster",
       "CardName": "Pyre Acolyte",
       "TypeTags": [
-        "Knowledge"
+        "Deceit"
       ],
       "AspectTags": [
         "Humanoid"
@@ -1345,7 +1345,7 @@
       "Deck": "Monster",
       "CardName": "Rabid Wolverine",
       "TypeTags": [
-        "Nature"
+        "Blight"
       ],
       "AspectTags": [
         "Beast"
@@ -1374,7 +1374,7 @@
       "Deck": "Monster",
       "CardName": "Shadow Sorcerer",
       "TypeTags": [
-        "Knowledge"
+        "Deceit"
       ],
       "AspectTags": [
         "Humanoid"
@@ -1400,7 +1400,7 @@
       "Deck": "Monster",
       "CardName": "Slavering Howler",
       "TypeTags": [
-        "Nature"
+        "Blight"
       ],
       "AspectTags": [
         "Beast"
@@ -1429,7 +1429,7 @@
       "Deck": "Monster",
       "CardName": "Storm Acolyte",
       "TypeTags": [
-        "Knowledge"
+        "Deceit"
       ],
       "AspectTags": [
         "Humanoid"
@@ -1443,7 +1443,7 @@
       "Deck": "Monster",
       "CardName": "Thunderbolt",
       "TypeTags": [
-        "Knowledge"
+        "Deceit"
       ],
       "AspectTags": [
         "Elemental"
@@ -1469,7 +1469,7 @@
       "Deck": "Monster",
       "CardName": "Wastefang Spider",
       "TypeTags": [
-        "Nature"
+        "Blight"
       ],
       "AspectTags": [
         "Insect"
@@ -1498,7 +1498,7 @@
       "Deck": "Monster",
       "CardName": "Armor-Cap Centipede",
       "TypeTags": [
-        "Nature"
+        "Blight"
       ],
       "AspectTags": [
         "Insect"
@@ -1526,7 +1526,7 @@
       "Deck": "Location",
       "CardName": "Whispergrave Market",
       "TypeTags": [
-        "Wealth"
+        "Greed"
       ],
       "AspectTags": [
         "Trade"
@@ -1564,7 +1564,7 @@
       "Deck": "Location",
       "CardName": "Murkspire Docks",
       "TypeTags": [
-        "Wealth"
+        "Greed"
       ],
       "AspectTags": [
         "Harbor"
@@ -1614,7 +1614,7 @@
       "Deck": "Location",
       "CardName": "Ebonvault Exchange",
       "TypeTags": [
-        "Wealth"
+        "Greed"
       ],
       "AspectTags": [
         "Commerce"
@@ -1652,7 +1652,7 @@
       "Deck": "Location",
       "CardName": "Umbral Caravan Post",
       "TypeTags": [
-        "Wealth"
+        "Greed"
       ],
       "AspectTags": [
         "Outpost"
@@ -1750,7 +1750,7 @@
       "Deck": "Location",
       "CardName": "Nightmarket Warrens",
       "TypeTags": [
-        "Wealth"
+        "Greed"
       ],
       "AspectTags": [
         "Trade"
@@ -1788,7 +1788,7 @@
       "Deck": "Location",
       "CardName": "Moonshroud Bazaar",
       "TypeTags": [
-        "Wealth"
+        "Greed"
       ],
       "AspectTags": [
         "Market"
@@ -1838,7 +1838,7 @@
       "Deck": "Location",
       "CardName": "Gloomtide Harbor",
       "TypeTags": [
-        "Wealth"
+        "Greed"
       ],
       "AspectTags": [
         "Harbor"
@@ -1900,7 +1900,7 @@
       "Deck": "Location",
       "CardName": "Umbralwine Cellars",
       "TypeTags": [
-        "Wealth"
+        "Greed"
       ],
       "AspectTags": [
         "Storage"
@@ -2264,7 +2264,7 @@
       "Deck": "QuestTemplate",
       "CardName": "Heist",
       "TypeTags": [
-        "Wealth"
+        "Greed"
       ],
       "AspectTags": [
         "Stealth"
@@ -2276,7 +2276,7 @@
         {
           "deck": "NPC",
           "tags": [
-            "Wealth"
+            "Greed"
           ],
           "count": 1,
           "label": "QuestGiver",
@@ -2294,8 +2294,8 @@
         {
           "deck": "NPC",
           "tags": [
-            "Wealth",
-            "Knowledge"
+            "Greed",
+            "Deceit"
           ],
           "count": 1,
           "label": "Target",
@@ -2305,7 +2305,7 @@
         {
           "deck": "NPC",
           "tags": [
-            "Wealth"
+            "Greed"
           ],
           "count": 1,
           "label": "Victim",
@@ -2442,7 +2442,7 @@
       "Deck": "Quest Template",
       "CardName": "Destroy",
       "TypeTags": [
-        "Martial"
+        "Savagery"
       ],
       "AspectTags": [
         "Combat"
