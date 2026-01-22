@@ -3,6 +3,10 @@
  * Card management GUI with autocomplete, validation, and form handling
  */
 
+// Polarity-based tag constants
+const LIGHT_TAGS = ['Knowledge', 'Justice', 'Righteousness', 'Nature', 'Martial', 'Wealth'];
+const SHADOW_TAGS = ['Deceit', 'Tyranny', 'Zealotry', 'Blight', 'Savagery', 'Greed'];
+
 class CardManager {
   constructor() {
     this.dataLoader = null;
@@ -10,6 +14,7 @@ class CardManager {
     this.currentEditingCardId = null;
     this.originalDeckName = null; // Track original deck when editing
     this.originalCardName = null; // Track original card name when editing
+    this.currentCardPolarity = null; // Track current card's Polarity for instruction display
     this.instructionData = [];
     this.drawInstructionData = []; // For QuestTemplate DrawInstructions
     this.editingInstructionIndex = -1; // -1 means not editing
@@ -18,12 +23,44 @@ class CardManager {
       type: new Set(),
       aspect: new Set(),
       mutable: new Set(),
-      instructionTags: new Set()
+      instructionTags: new Set(),
+      polarity: new Set()
     };
     this.autocompleteSetupDone = false; // Track if event listeners are set up
     this.serverMode = false; // Detected if server is available
     this.selectedSuggestionIndex = -1; // Track keyboard navigation in autocomplete
     this.init();
+  }
+
+  /**
+   * Get allowed TypeTags based on Polarity
+   * @param {string} polarity - 'Light' or 'Shadow'
+   * @returns {Array} Array of allowed tag names
+   */
+  getPolarityAllowedTags(polarity) {
+    if (polarity === 'Light') {
+      return LIGHT_TAGS;
+    } else if (polarity === 'Shadow') {
+      return SHADOW_TAGS;
+    }
+    return [];
+  }
+
+  /**
+   * Refresh TypeTag autocomplete suggestions based on selected Polarity
+   */
+  refreshTypeTagsAutocomplete() {
+    const polaritySelect = document.getElementById('polarity-select');
+    const polarity = polaritySelect ? polaritySelect.value : '';
+    
+    // Get allowed tags for this polarity
+    const allowedTags = polarity ? this.getPolarityAllowedTags(polarity) : [];
+    
+    // Filter discovered TypeTags to only show allowed ones
+    const filteredTags = Array.from(this.allTags.type).filter(tag => allowedTags.includes(tag));
+    
+    // Re-setup the autocomplete with filtered tags
+    this.setupTagAutocomplete('type-tags-input', 'type-tags-suggestions', filteredTags);
   }
 
   async init() {
@@ -182,6 +219,9 @@ class CardManager {
       const deck = this.cards[deckName];
       if (Array.isArray(deck)) {
         deck.forEach(card => {
+          if (card.Polarity) {
+            this.allTags.polarity.add(card.Polarity);
+          }
           if (card.TypeTags) {
             card.TypeTags.forEach(tag => {
               this.allTags.type.add(tag);
@@ -199,8 +239,15 @@ class CardManager {
     }
     
     // Log discovered tags for debugging
+    console.log('✓ Discovered Polarities:', Array.from(this.allTags.polarity).sort().join(', '));
     console.log('✓ Discovered TypeTags:', Array.from(this.allTags.type).sort().join(', '));
     console.log('✓ Discovered AspectTags:', Array.from(this.allTags.aspect).sort().join(', '));
+    
+    // Add all valid TypeTags to type and instructionTags sets (both Light and Shadow)
+    [...LIGHT_TAGS, ...SHADOW_TAGS].forEach(tag => {
+      this.allTags.type.add(tag);
+      this.allTags.instructionTags.add(tag);
+    });
   }
 
   /**
@@ -217,6 +264,16 @@ class CardManager {
     const deckSelect = document.getElementById('deck-select');
     if (deckSelect) {
       deckSelect.addEventListener('change', (e) => this.handleDeckChange(e));
+    }
+
+    // Polarity selection change - refresh TypeTag autocomplete
+    const polaritySelect = document.getElementById('polarity-select');
+    if (polaritySelect) {
+      polaritySelect.addEventListener('change', () => {
+        this.currentCardPolarity = polaritySelect.value;
+        this.refreshTypeTagsAutocomplete();
+        this.renderInstructions(); // Re-render to update Polarity tags
+      });
     }
 
     // Clear form button
@@ -565,7 +622,7 @@ class CardManager {
     const list = document.getElementById(listId);
     if (!list) return;
 
-    // Validate TypeTags against discovered tags
+    // Validate TypeTags against discovered tags AND Polarity
     if (inputId === 'type-tags-input' || inputId === 'filter-type-tags-input') {
       const validTypeTags = Array.from(this.allTags.type);
       if (!validTypeTags.includes(tagValue)) {
@@ -574,6 +631,29 @@ class CardManager {
           'warning'
         );
         return;
+      }
+      
+      // Additional validation for type-tags-input: check Polarity compatibility
+      if (inputId === 'type-tags-input') {
+        const polaritySelect = document.getElementById('polarity-select');
+        const polarity = polaritySelect ? polaritySelect.value : '';
+        
+        if (polarity) {
+          const allowedTags = this.getPolarityAllowedTags(polarity);
+          if (!allowedTags.includes(tagValue)) {
+            this.showNotification(
+              `❌ Cannot add '${tagValue}' to ${polarity} Polarity card. ${polarity} cards can only have: ${allowedTags.join(', ')}`,
+              'error'
+            );
+            return;
+          }
+        } else {
+          this.showNotification(
+            '⚠️ Please select a Polarity before adding TypeTags',
+            'warning'
+          );
+          return;
+        }
       }
     }
 
@@ -672,9 +752,26 @@ class CardManager {
 
     const deckSelect = document.getElementById('deck-select').value;
     const cardName = document.getElementById('card-name').value.trim();
+    const polarity = document.getElementById('polarity-select').value;
 
     if (!deckSelect || !cardName) {
       alert('Please select a deck and enter a card name');
+      return;
+    }
+
+    // Validate Polarity is selected
+    if (!polarity) {
+      alert('❌ Polarity is required. Please select Light or Shadow.');
+      return;
+    }
+
+    // Get TypeTags and validate against Polarity
+    const typeTags = this.dedupeTags(this.getTagsFromList('type-tags-list'));
+    const allowedTags = this.getPolarityAllowedTags(polarity);
+    const invalidTags = typeTags.filter(tag => !allowedTags.includes(tag));
+    
+    if (invalidTags.length > 0) {
+      alert(`❌ Invalid TypeTags for ${polarity} Polarity: ${invalidTags.join(', ')}\n\n${polarity} cards can only have: ${allowedTags.join(', ')}`);
       return;
     }
 
@@ -683,7 +780,8 @@ class CardManager {
     const cardData = {
       Deck: this.getDeckDisplayName(deckSelect),
       CardName: cardName,
-      TypeTags: this.dedupeTags(this.getTagsFromList('type-tags-list')),
+      Polarity: polarity,
+      TypeTags: typeTags,
       AspectTags: this.dedupeTags(this.getTagsFromList('aspect-tags-list')),
       mutableTags: this.dedupeTags(this.getTagsFromList('mutable-tags-list')),
       DesignerNotes: document.getElementById('designer-notes')?.value || ''
@@ -969,9 +1067,13 @@ class CardManager {
       item.className = 'instruction-item';
       item.style.cursor = 'pointer';
       item.title = 'Click to edit';
+      // Get card's Polarity to display as first tag
+      const polarityTag = this.currentCardPolarity ? `<span class="polarity-badge polarity-${this.currentCardPolarity.toLowerCase()}">${this.currentCardPolarity}</span>` : '';
+      
       item.innerHTML = `
         <h4>${instr.TargetDeck}</h4>
         <div class="instruction-tags">
+          ${polarityTag}
           ${instr.Tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
         </div>
         <span class="instruction-remove" data-index="${index}">✕</span>
@@ -1014,6 +1116,7 @@ class CardManager {
       document.getElementById('draw-label').value = '';
       document.getElementById('draw-prefix').value = '';
       document.getElementById('draw-suffix').value = '';
+      document.getElementById('draw-polarity').value = '';
       this.clearTagList('draw-tags-list');
       
       // Clear faceDown checkbox
@@ -1043,6 +1146,7 @@ class CardManager {
     const label = document.getElementById('draw-label').value.trim();
     const prefix = document.getElementById('draw-prefix').value.trim();
     const suffix = document.getElementById('draw-suffix').value.trim();
+    const polarity = document.getElementById('draw-polarity').value || null;
     const tags = this.dedupeTags(this.getTagsFromList('draw-tags-list'));
     const faceDown = document.getElementById('draw-face-down').checked; 
 
@@ -1069,6 +1173,7 @@ class CardManager {
       label: label,
       prefix: prefix || '',
       suffix: suffix || '',
+      polarity: polarity,
       faceDown: faceDown
     };
 
@@ -1122,7 +1227,8 @@ class CardManager {
           <span><strong>Deck:</strong> ${instr.deck}</span>
           <span><strong>Count:</strong> ${instr.count}</span>
         </div>
-        ${instr.tags.length > 0 ? `<div class="instruction-tags">
+        ${instr.tags.length > 0 || instr.polarity ? `<div class="instruction-tags">
+          ${instr.polarity ? `<span class="polarity-badge polarity-${instr.polarity.toLowerCase()}">${instr.polarity}</span>` : ''}
           ${instr.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
         </div>` : ''}
       `;
@@ -1190,6 +1296,7 @@ class CardManager {
     document.getElementById('draw-label').value = instruction.label;
     document.getElementById('draw-prefix').value = instruction.prefix || '';
     document.getElementById('draw-suffix').value = instruction.suffix || '';
+    document.getElementById('draw-polarity').value = instruction.polarity || '';
 
     // Clear and populate tags
     this.clearTagList('draw-tags-list');
@@ -1349,12 +1456,15 @@ class CardManager {
       const item = document.createElement('div');
       item.className = 'card-item';
       
-      // Create separate sections for TypeTags and AspectTags
+      // Create Polarity badge
+      const polarityBadgeHtml = card.Polarity ? `<span class="polarity-badge polarity-${card.Polarity.toLowerCase()}">${card.Polarity}</span>` : '';
+      
+      // Create separate sections for TypeTags and AspectTags with specific CSS classes
       const typeTagsHtml = card.TypeTags.length > 0 ? `
         <div class="tag-group">
           <span class="tag-group-label">Type:</span>
           <div class="tag-group-tags">
-            ${card.TypeTags.map(t => `<span class="tag tag-type">${t}</span>`).join('')}
+            ${card.TypeTags.map(t => `<span class="tag tag-type tag-${t.toLowerCase()}">${t}</span>`).join('')}
           </div>
         </div>
       ` : '';
@@ -1417,7 +1527,7 @@ class CardManager {
 
       item.innerHTML = `
         <div class="card-item-left">
-          <h4>${card.CardName}</h4>
+          <h4>${polarityBadgeHtml}${card.CardName}</h4>
           <span class="card-deck">${deckDisplayName}</span>
           <div class="card-tags">
             ${typeTagsHtml}
@@ -1480,6 +1590,14 @@ class CardManager {
 
     // Set card name
     document.getElementById('card-name').value = card.CardName;
+
+    // Set Polarity
+    const polaritySelect = document.getElementById('polarity-select');
+    if (polaritySelect && card.Polarity) {
+      polaritySelect.value = card.Polarity;
+      this.currentCardPolarity = card.Polarity; // Track for instruction rendering
+      this.refreshTypeTagsAutocomplete(); // Refresh autocomplete for this Polarity
+    }
 
     // Set tags
     this.clearTagList('type-tags-list');
@@ -1552,6 +1670,14 @@ class CardManager {
 
     // Set card name with "COPY OF " prefix
     document.getElementById('card-name').value = `COPY OF ${card.CardName}`;
+
+    // Set Polarity
+    const polaritySelect = document.getElementById('polarity-select');
+    if (polaritySelect && card.Polarity) {
+      polaritySelect.value = card.Polarity;
+      this.currentCardPolarity = card.Polarity; // Track for instruction rendering
+      this.refreshTypeTagsAutocomplete(); // Refresh autocomplete for this Polarity
+    }
 
     // Set tags
     this.clearTagList('type-tags-list');
@@ -1633,6 +1759,10 @@ class CardManager {
     // Clear edit tracking
     this.originalDeckName = null;
     this.originalCardName = null;
+    this.currentCardPolarity = null; // Clear tracked Polarity
+
+    // Reset TypeTag autocomplete to show all tags (no Polarity filter)
+    this.setupTagAutocomplete('type-tags-input', 'type-tags-suggestions', Array.from(this.allTags.type));
 
     const cancelBtn = document.getElementById('btn-cancel-edit');
     if (cancelBtn) {

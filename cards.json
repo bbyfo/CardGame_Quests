@@ -5,323 +5,345 @@
       "Deck": "Loot",
       "CardName": "Battle Scripture",
       "TypeTags": [
-        "Arcane"
+        "Knowledge"
       ],
       "AspectTags": [
         "Consumable",
         "Magic Item"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "Loot-Bear Fang Necklace-0.08686460494703396",
       "Deck": "Loot",
       "CardName": "Bear Fang Necklace",
       "TypeTags": [
-        "Arcane"
+        "Knowledge"
       ],
       "AspectTags": [
         "Jewelry",
         "Magic Item"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "Loot-Beastcleaner-0.5693196885822445",
       "Deck": "Loot",
       "CardName": "Beastcleaner",
       "TypeTags": [
-        "Arcane"
+        "Knowledge"
       ],
       "AspectTags": [
         "Tool",
         "Magic Item"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "Loot-Belt of Veracity-0.32115946281755436",
       "Deck": "Loot",
       "CardName": "Belt of Veracity",
       "TypeTags": [
-        "Arcane"
+        "Knowledge"
       ],
       "AspectTags": [
         "Clothing",
         "Magic Item"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "Loot-Blazing Morningstar-0.9709108734629167",
       "Deck": "Loot",
       "CardName": "Blazing Morningstar",
       "TypeTags": [
-        "Arcane"
+        "Knowledge"
       ],
       "AspectTags": [
         "Weapon",
         "Magic Item"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "Loot-Bolt of Light-0.36692621912689416",
       "Deck": "Loot",
       "CardName": "Bolt of Light",
       "TypeTags": [
-        "Light",
-        "Arcane"
+        "Knowledge"
       ],
       "AspectTags": [
         "Consumable",
         "Magic Item"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "Loot-Brass Suns-0.3795149307792517",
       "Deck": "Loot",
       "CardName": "Brass Suns",
       "TypeTags": [
-        "Arcane"
+        "Knowledge"
       ],
       "AspectTags": [
         "Jewelry",
         "Magic Item"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "Loot-Cloak of the Wilds-0.6549369825202925",
       "Deck": "Loot",
       "CardName": "Cloak of the Wilds",
       "TypeTags": [
-        "Arcane"
+        "Knowledge"
       ],
       "AspectTags": [
         "Clothing",
         "Magic Item"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "Loot-Cloudwatcher's Telescope-0.6287512581109473",
       "Deck": "Loot",
       "CardName": "Cloudwatcher's Telescope",
       "TypeTags": [
-        "Arcane"
+        "Knowledge"
       ],
       "AspectTags": [
         "Tool",
         "Magic Item"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "Loot-Collector's Scabbard-0.458378907712246",
       "Deck": "Loot",
       "CardName": "Collector's Scabbard",
       "TypeTags": [
-        "Arcane"
+        "Knowledge"
       ],
       "AspectTags": [
         "Tool",
         "Magic Item"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "Loot-Elven Recurve-0.0512826234530841",
       "Deck": "Loot",
       "CardName": "Elven Recurve",
       "TypeTags": [
-        "Arcane"
+        "Knowledge"
       ],
       "AspectTags": [
         "Weapon",
         "Magic Item"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "Loot-Enchanted Rucksack-0.45638154268719844",
       "Deck": "Loot",
       "CardName": "Enchanted Rucksack",
       "TypeTags": [
-        "Arcane"
+        "Knowledge"
       ],
       "AspectTags": [
         "Worn",
         "Magic Item"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "Loot-Helm of the Survivor-0.25306500543236066",
       "Deck": "Loot",
       "CardName": "Helm of the Survivor",
       "TypeTags": [
-        "Arcane"
+        "Knowledge"
       ],
       "AspectTags": [
         "Armor",
         "Magic Item"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "Loot-Meditation Beads-0.18419350837216397",
       "Deck": "Loot",
       "CardName": "Meditation Beads",
       "TypeTags": [
-        "Arcane"
+        "Knowledge"
       ],
       "AspectTags": [
         "Jewelry",
         "Magic Item"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "Loot-Nightfleece Gambeson-0.3160185206068493",
       "Deck": "Loot",
       "CardName": "Nightfleece Gambeson",
       "TypeTags": [
-        "Arcane"
+        "Knowledge"
       ],
       "AspectTags": [
         "Armor",
         "Magic Item"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "Loot-Plate of Protection-0.7212445032273687",
       "Deck": "Loot",
       "CardName": "Plate of Protection",
       "TypeTags": [
-        "Arcane"
+        "Knowledge"
       ],
       "AspectTags": [
         "Armor",
         "Magic Item"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "Loot-Platinum Cuirass-0.9603244672278843",
       "Deck": "Loot",
       "CardName": "Platinum Cuirass",
       "TypeTags": [
-        "Arcane"
+        "Knowledge"
       ],
       "AspectTags": [
         "Armor",
         "Magic Item"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "Loot-Prince's Coat of Plates-0.2863198574494904",
       "Deck": "Loot",
       "CardName": "Prince's Coat of Plates",
       "TypeTags": [
-        "Arcane"
+        "Knowledge"
       ],
       "AspectTags": [
         "Armor",
         "Magic Item"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "Loot-Saphire Signet-0.4166841326651026",
       "Deck": "Loot",
       "CardName": "Saphire Signet",
       "TypeTags": [
-        "Arcane"
+        "Knowledge"
       ],
       "AspectTags": [
         "Jewelry",
         "Magic Item"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "Loot-Steel Amulet-0.238800888760069",
       "Deck": "Loot",
       "CardName": "Steel Amulet",
       "TypeTags": [
-        "Arcane"
+        "Knowledge"
       ],
       "AspectTags": [
         "Jewelry",
         "Magic Item"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "Loot-Stormgather Staff-0.020691727590761544",
       "Deck": "Loot",
       "CardName": "Stormgather Staff",
       "TypeTags": [
-        "Arcane"
+        "Knowledge"
       ],
       "AspectTags": [
         "Weapon",
         "Magic Item"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "Loot-Sword and Dagger of the Hero-0.3435301108562816",
       "Deck": "Loot",
       "CardName": "Sword and Dagger of the Hero",
       "TypeTags": [
-        "Arcane"
+        "Knowledge"
       ],
       "AspectTags": [
         "Weapon",
         "Magic Item"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "Loot-Thunder's Roar Earrings-0.17790461559986304",
       "Deck": "Loot",
       "CardName": "Thunder's Roar Earrings",
       "TypeTags": [
-        "Arcane"
+        "Knowledge"
       ],
       "AspectTags": [
         "Jewelry",
         "Magic Item"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "Loot-Treasure 1/4-0.5842052401072773",
@@ -334,7 +356,8 @@
         "Treasure"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "Loot-Treasure 1/2-0.2066194690440133",
@@ -347,7 +370,8 @@
         "Treasure"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "Loot-Treasure 1-0.24196551724666893",
@@ -360,7 +384,8 @@
         "Treasure"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "Loot-Treasure 2-0.06945770573202581",
@@ -373,7 +398,8 @@
         "Treasure"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "Loot-Treasure 3-0.6763211445708567",
@@ -386,77 +412,83 @@
         "Treasure"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "Loot-Unbreakable Spear-0.8381699599688917",
       "Deck": "Loot",
       "CardName": "Unbreakable Spear",
       "TypeTags": [
-        "Arcane"
+        "Knowledge"
       ],
       "AspectTags": [
         "Weapon",
         "Magic Item"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "Loot-Veteran's Cowl-0.935890171090921",
       "Deck": "Loot",
       "CardName": "Veteran's Cowl",
       "TypeTags": [
-        "Arcane"
+        "Knowledge"
       ],
       "AspectTags": [
         "Clothing",
         "Magic Item"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "Loot-Wavetreader Boots-0.546914152274753",
       "Deck": "Loot",
       "CardName": "Wavetreader Boots",
       "TypeTags": [
-        "Arcane"
+        "Knowledge"
       ],
       "AspectTags": [
         "Worn",
         "Magic Item"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "Loot-Wizard's Cap and Gown-0.6010550235268705",
       "Deck": "Loot",
       "CardName": "Wizard's Cap and Gown",
       "TypeTags": [
-        "Arcane"
+        "Knowledge"
       ],
       "AspectTags": [
         "Clothing",
         "Magic Item"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "Loot-Dwarven Meal-0.5423750276587543",
       "Deck": "Loot",
       "CardName": "Dwarven Meal",
       "TypeTags": [
-        "Arcane"
+        "Knowledge"
       ],
       "AspectTags": [
         "Consumable",
         "Magic Item"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     }
   ],
   "npcs": [
@@ -466,13 +498,14 @@
       "CardName": "Guildmaster Thorne Highledger",
       "TypeTags": [
         "Wealth",
-        "Order"
+        "Justice"
       ],
       "AspectTags": [
         "Commerce"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "NPC-Lady Miravelle Coinwright-0.08172562328723154",
@@ -480,231 +513,234 @@
       "CardName": "Lady Miravelle Coinwright",
       "TypeTags": [
         "Wealth",
-        "Arcane"
+        "Knowledge"
       ],
       "AspectTags": [
         "Enchantment"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "NPC-Duke Ralston of the Golden Exchange-0.04510891013167295",
       "Deck": "NPC",
       "CardName": "Duke Ralston of the Golden Exchange",
       "TypeTags": [
-        "Wealth",
-        "Light"
+        "Wealth"
       ],
       "AspectTags": [
         "Nobility"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "NPC-Broker Vaskel the Silver Tongue-0.7686754251333549",
       "Deck": "NPC",
       "CardName": "Broker Vaskel the Silver Tongue",
       "TypeTags": [
-        "Wealth",
-        "Shadow"
+        "Wealth"
       ],
       "AspectTags": [
         "Deception"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Shadow"
     },
     {
       "id": "NPC-The Veiled Matriarch-0.4191918179201053",
       "Deck": "NPC",
       "CardName": "The Veiled Matriarch",
-      "TypeTags": [
-        "Shadow"
-      ],
+      "TypeTags": [],
       "AspectTags": [
         "Darkness"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Shadow"
     },
     {
       "id": "NPC-Lord Malrec the Withering-0.15509074982387172",
       "Deck": "NPC",
       "CardName": "Lord Malrec the Withering",
       "TypeTags": [
-        "Shadow",
-        "Arcane"
+        "Knowledge"
       ],
       "AspectTags": [
         "Necromancy"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Shadow"
     },
     {
       "id": "NPC-Silktongue Varos-0.9989051498473481",
       "Deck": "NPC",
       "CardName": "Silktongue Varos",
-      "TypeTags": [
-        "Shadow"
-      ],
+      "TypeTags": [],
       "AspectTags": [
         "Deception"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Shadow"
     },
     {
       "id": "NPC-High Inquisitor Draevin-0.842543482697278",
       "Deck": "NPC",
       "CardName": "High Inquisitor Draevin",
       "TypeTags": [
-        "Shadow",
-        "Order"
+        "Justice",
+        "Zealotry"
       ],
       "AspectTags": [
         "Tyranny"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Shadow"
     },
     {
       "id": "NPC-Ravager Queen Khyzara-0.6593961943446088",
       "Deck": "NPC",
       "CardName": "Ravager Queen Khyzara",
-      "TypeTags": [
-        "Shadow"
-      ],
+      "TypeTags": [],
       "AspectTags": [
         "Warlord"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Shadow"
     },
     {
       "id": "NPC-Stormcaller Vesh Tal-0.8899555275080197",
       "Deck": "NPC",
       "CardName": "Stormcaller Vesh Tal",
       "TypeTags": [
-        "Shadow",
-        "Arcane"
+        "Knowledge"
       ],
       "AspectTags": [
         "Tempest"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Shadow"
     },
     {
       "id": "NPC-The Laughing Prophet-0.4918623822221392",
       "Deck": "NPC",
       "CardName": "The Laughing Prophet",
-      "TypeTags": [
-        "Shadow"
-      ],
+      "TypeTags": [],
       "AspectTags": [
         "Madness"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Shadow"
     },
     {
       "id": "NPC-Ironfang the Unbound-0.13958686332116",
       "Deck": "NPC",
       "CardName": "Ironfang the Unbound",
       "TypeTags": [
-        "Shadow",
         "Martial"
       ],
       "AspectTags": [
         "Berserker"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Shadow"
     },
     {
       "id": "NPC-High Chancellor Veridan-0.8513968830587341",
       "Deck": "NPC",
       "CardName": "High Chancellor Veridan",
       "TypeTags": [
-        "Order"
+        "Justice"
       ],
       "AspectTags": [
         "Leadership"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "NPC-Justicar Aurelia Stoneward-0.8347287329808051",
       "Deck": "NPC",
       "CardName": "Justicar Aurelia Stoneward",
       "TypeTags": [
-        "Order",
+        "Justice",
         "Martial"
       ],
       "AspectTags": [
         "Law"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "NPC-High Priestess Seraphine Dawnstar-0.6207498332646653",
       "Deck": "NPC",
       "CardName": "High Priestess Seraphine Dawnstar",
       "TypeTags": [
-        "Light"
+        "Righteousness"
       ],
       "AspectTags": [
         "Compassion"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "NPC-Cardinal Rovan Emberlight-0.8894303675868444",
       "Deck": "NPC",
       "CardName": "Cardinal Rovan Emberlight",
       "TypeTags": [
-        "Light",
-        "Order"
+        "Justice",
+        "Righteousness"
       ],
       "AspectTags": [
         "Faith"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "NPC-Warden of the Flame Lysander Hale-0.11349966015702762",
       "Deck": "NPC",
       "CardName": "Warden of the Flame Lysander Hale",
       "TypeTags": [
-        "Light",
-        "Martial"
+        "Martial",
+        "Righteousness"
       ],
       "AspectTags": [
         "Purity"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "NPC-Elder Oakheart of the Verdant Circle-0.7446518283230295",
       "Deck": "NPC",
       "CardName": "Elder Oakheart of the Verdant Circle",
       "TypeTags": [
-        "Nature",
-        "Light"
+        "Nature"
       ],
       "AspectTags": [
         "Druidic"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "NPC-Huntmaster Sylra Windstalker-0.6691987483169907",
@@ -718,7 +754,8 @@
         "Beast"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "NPC-Grovekeeper Mosswhisper-0.6164300967343829",
@@ -726,55 +763,58 @@
       "CardName": "Grovekeeper Mosswhisper",
       "TypeTags": [
         "Nature",
-        "Arcane"
+        "Knowledge"
       ],
       "AspectTags": [
         "Mystic"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "NPC-Archmage Solinar the Radiant-0.029248553793436383",
       "Deck": "NPC",
       "CardName": "Archmage Solinar the Radiant",
       "TypeTags": [
-        "Arcane",
-        "Light"
+        "Knowledge"
       ],
       "AspectTags": [
         "Wizard"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "NPC-Chronomancer Lyssia Vale-0.29602469406750387",
       "Deck": "NPC",
       "CardName": "Chronomancer Lyssia Vale",
       "TypeTags": [
-        "Arcane",
-        "Order"
+        "Knowledge",
+        "Justice"
       ],
       "AspectTags": [
         "Time"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "NPC-Runesmith Eldric Ironglyph-0.0364356949403738",
       "Deck": "NPC",
       "CardName": "Runesmith Eldric Ironglyph",
       "TypeTags": [
-        "Arcane",
+        "Knowledge",
         "Martial"
       ],
       "AspectTags": [
         "Crafting"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "NPC-General Cassian Steelmarch-0.3137642792005859",
@@ -782,27 +822,28 @@
       "CardName": "General Cassian Steelmarch",
       "TypeTags": [
         "Martial",
-        "Order"
+        "Justice"
       ],
       "AspectTags": [
         "Military"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "NPC-Champion Aria Stormblade-0.17106492580942367",
       "Deck": "NPC",
       "CardName": "Champion Aria Stormblade",
       "TypeTags": [
-        "Martial",
-        "Light"
+        "Martial"
       ],
       "AspectTags": [
         "Hero"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "NPC-Commander Thorne Ironsoul-0.03627593158747844",
@@ -815,62 +856,63 @@
         "Tactics"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "NPC-Shadow Regent Malvorn-0.9432668629991056",
       "Deck": "NPC",
       "CardName": "Shadow Regent Malvorn",
-      "TypeTags": [
-        "Shadow"
-      ],
+      "TypeTags": [],
       "AspectTags": [
         "Darkness"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Shadow"
     },
     {
       "id": "NPC-Mistress of Whispers Selkira-0.993213298216585",
       "Deck": "NPC",
       "CardName": "Mistress of Whispers Selkira",
       "TypeTags": [
-        "Shadow",
-        "Arcane"
+        "Knowledge"
       ],
       "AspectTags": [
         "Secrets"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Shadow"
     },
     {
       "id": "NPC-Dread Captain Vorak Blacktide-0.8855986772436756",
       "Deck": "NPC",
       "CardName": "Dread Captain Vorak Blacktide",
       "TypeTags": [
-        "Shadow",
         "Martial"
       ],
       "AspectTags": [
         "Terror"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Shadow"
     },
     {
       "Deck": "NPC",
       "CardName": "Archivist-General Thalen Quill",
       "TypeTags": [
-        "Order",
-        "Arcane"
+        "Justice",
+        "Knowledge"
       ],
       "AspectTags": [
         "Bureaucracy"
       ],
       "mutableTags": [],
       "DesignerNotes": "Here are some notes.",
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     }
   ],
   "twists": [
@@ -878,36 +920,32 @@
       "id": "Twist-Betrayal-0.4599964506631683",
       "Deck": "Twist",
       "CardName": "Betrayal",
-      "TypeTags": [
-        "Shadow"
-      ],
+      "TypeTags": [],
       "AspectTags": [
         "Mystery"
       ],
       "mutableTags": [],
       "Instructions": [
         {
-          "Tags": [
-            "Shadow"
-          ],
+          "Tags": [],
           "TargetDeck": "Failure"
         },
         {
           "Tags": [
-            "Light",
-            "Order"
+            "Justice"
           ],
           "TargetDeck": "Reward"
         }
-      ]
+      ],
+      "Polarity": "Shadow"
     },
     {
       "id": "Twist-Hidden Ally-0.09578304642776803",
       "Deck": "Twist",
       "CardName": "Hidden Ally",
       "TypeTags": [
-        "Light",
-        "Order"
+        "Justice",
+        "Righteousness"
       ],
       "AspectTags": [
         "Compassion"
@@ -916,20 +954,19 @@
       "Instructions": [
         {
           "Tags": [
-            "Light",
-            "Order"
+            "Justice"
           ],
           "TargetDeck": "Reward"
         }
-      ]
+      ],
+      "Polarity": "Light"
     },
     {
       "id": "Twist-Environmental Hazard-0.09167171234770899",
       "Deck": "Twist",
       "CardName": "Environmental Hazard",
       "TypeTags": [
-        "Nature",
-        "Shadow"
+        "Nature"
       ],
       "AspectTags": [
         "Nature"
@@ -943,20 +980,18 @@
           "TargetDeck": "Reward"
         },
         {
-          "Tags": [
-            "Shadow"
-          ],
+          "Tags": [],
           "TargetDeck": "Failure"
         }
-      ]
+      ],
+      "Polarity": "Shadow"
     },
     {
       "id": "Twist-Time Pressure-0.3508469673626271",
       "Deck": "Twist",
       "CardName": "Time Pressure",
       "TypeTags": [
-        "Shadow",
-        "Order"
+        "Justice"
       ],
       "AspectTags": [
         "Quest"
@@ -964,23 +999,23 @@
       "mutableTags": [],
       "Instructions": [
         {
-          "Tags": [
-            "Shadow"
-          ],
+          "Tags": [],
           "TargetDeck": "Failure"
         }
-      ]
+      ],
+      "Polarity": "Shadow"
     },
     {
       "id": "Twist-Illusion dangerous cargo-0.7939542175954403",
       "Deck": "Twist",
       "CardName": "Illusion dangerous cargo",
       "TypeTags": [
-        "Arcane"
+        "Knowledge"
       ],
       "AspectTags": [],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     }
   ],
   "monsters": [
@@ -988,483 +1023,489 @@
       "id": "Monster-Blinding Eye-0.4066984169053094",
       "Deck": "Monster",
       "CardName": "Blinding Eye",
-      "TypeTags": [
-        "Shadow"
-      ],
+      "TypeTags": [],
       "AspectTags": [
         "Aberration"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Shadow"
     },
     {
       "id": "Monster-Blistered Bull-0.8493463863890378",
       "Deck": "Monster",
       "CardName": "Blistered Bull",
       "TypeTags": [
-        "Nature",
-        "Shadow"
+        "Nature"
       ],
       "AspectTags": [
         "Beast"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Shadow"
     },
     {
       "id": "Monster-Bugbear Bandit-0.9229424610033357",
       "Deck": "Monster",
       "CardName": "Bugbear Bandit",
       "TypeTags": [
-        "Order",
+        "Justice",
         "Martial"
       ],
       "AspectTags": [
         "Humanoid"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "Monster-Dark Imp-0.10997058000117321",
       "Deck": "Monster",
       "CardName": "Dark Imp",
-      "TypeTags": [
-        "Shadow"
-      ],
+      "TypeTags": [],
       "AspectTags": [
         "Demon"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Shadow"
     },
     {
       "id": "Monster-Deathrattle Hyena-0.4970795405660037",
       "Deck": "Monster",
       "CardName": "Deathrattle Hyena",
       "TypeTags": [
-        "Nature",
-        "Shadow"
+        "Nature"
       ],
       "AspectTags": [
         "Beast"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Shadow"
     },
     {
       "id": "Monster-Eclipse Herald-0.24915684657568005",
       "Deck": "Monster",
       "CardName": "Eclipse Herald",
-      "TypeTags": [
-        "Shadow"
-      ],
+      "TypeTags": [],
       "AspectTags": [
         "Spirit"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Shadow"
     },
     {
       "id": "Monster-Gnoll Spear Hunter-0.9460536613064744",
       "Deck": "Monster",
       "CardName": "Gnoll Spear Hunter",
       "TypeTags": [
-        "Order",
+        "Justice",
         "Martial"
       ],
       "AspectTags": [
         "Humanoid"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "Monster-Goblin Ballista Crew-0.43942466287721016",
       "Deck": "Monster",
       "CardName": "Goblin Ballista Crew",
       "TypeTags": [
-        "Order",
+        "Justice",
         "Martial"
       ],
       "AspectTags": [
         "Humanoid"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "Monster-Goblin Wolfrider-0.018383693227463804",
       "Deck": "Monster",
       "CardName": "Goblin Wolfrider",
       "TypeTags": [
-        "Order",
+        "Justice",
         "Martial"
       ],
       "AspectTags": [
         "Humanoid"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "Monster-Hobgoblin Bandit-0.7458927527700012",
       "Deck": "Monster",
       "CardName": "Hobgoblin Bandit",
       "TypeTags": [
-        "Order",
+        "Justice",
         "Martial"
       ],
       "AspectTags": [
         "Humanoid"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "Monster-Hobgoblin Bolter-0.2322543248140636",
       "Deck": "Monster",
       "CardName": "Hobgoblin Bolter",
       "TypeTags": [
-        "Order",
+        "Justice",
         "Martial"
       ],
       "AspectTags": [
         "Humanoid"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "Monster-Hobgoblin Scout-0.7438067486067503",
       "Deck": "Monster",
       "CardName": "Hobgoblin Scout",
       "TypeTags": [
-        "Order",
+        "Justice",
         "Martial"
       ],
       "AspectTags": [
         "Humanoid"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "Monster-Ice Wisp-0.22878107108968082",
       "Deck": "Monster",
       "CardName": "Ice Wisp",
       "TypeTags": [
-        "Arcane",
-        "Order"
+        "Knowledge",
+        "Justice"
       ],
       "AspectTags": [
         "Spirit"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "Monster-Kobold Trapper-0.6268323493730971",
       "Deck": "Monster",
       "CardName": "Kobold Trapper",
       "TypeTags": [
-        "Order",
+        "Justice",
         "Martial"
       ],
       "AspectTags": [
         "Humanoid"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "Monster-Lesser Rothog-0.3142928883948065",
       "Deck": "Monster",
       "CardName": "Lesser Rothog",
       "TypeTags": [
-        "Nature",
-        "Shadow"
+        "Nature"
       ],
       "AspectTags": [
         "Beast"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Shadow"
     },
     {
       "id": "Monster-Magmolt-0.37534829235950196",
       "Deck": "Monster",
       "CardName": "Magmolt",
       "TypeTags": [
-        "Arcane",
-        "Shadow"
+        "Knowledge"
       ],
       "AspectTags": [
         "Elemental"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Shadow"
     },
     {
       "id": "Monster-Moonwraith-0.4339554163282756",
       "Deck": "Monster",
       "CardName": "Moonwraith",
-      "TypeTags": [
-        "Shadow"
-      ],
+      "TypeTags": [],
       "AspectTags": [
         "Spirit"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Shadow"
     },
     {
       "id": "Monster-Mud Elemental-0.011462947299685888",
       "Deck": "Monster",
       "CardName": "Mud Elemental",
       "TypeTags": [
-        "Arcane",
+        "Knowledge",
         "Nature"
       ],
       "AspectTags": [
         "Elemental"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "Monster-Nighthound-0.49825549703813354",
       "Deck": "Monster",
       "CardName": "Nighthound",
-      "TypeTags": [
-        "Shadow"
-      ],
+      "TypeTags": [],
       "AspectTags": [
         "Beast"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Shadow"
     },
     {
       "id": "Monster-Orc Mercenary-0.5450264145782023",
       "Deck": "Monster",
       "CardName": "Orc Mercenary",
       "TypeTags": [
-        "Order",
+        "Justice",
         "Martial"
       ],
       "AspectTags": [
         "Humanoid"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "Monster-Pitchwing-0.780220417428259",
       "Deck": "Monster",
       "CardName": "Pitchwing",
-      "TypeTags": [
-        "Shadow"
-      ],
+      "TypeTags": [],
       "AspectTags": [
         "Beast"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Shadow"
     },
     {
       "id": "Monster-Plaguehornet Swarm-0.06965527444776332",
       "Deck": "Monster",
       "CardName": "Plaguehornet Swarm",
       "TypeTags": [
-        "Nature",
-        "Shadow"
+        "Nature"
       ],
       "AspectTags": [
         "Insect"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Shadow"
     },
     {
       "id": "Monster-Pyre Acolyte-0.8446759647257167",
       "Deck": "Monster",
       "CardName": "Pyre Acolyte",
       "TypeTags": [
-        "Arcane",
-        "Shadow"
+        "Knowledge"
       ],
       "AspectTags": [
         "Humanoid"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Shadow"
     },
     {
       "id": "Monster-Rabid Wolverine-0.6295145623148992",
       "Deck": "Monster",
       "CardName": "Rabid Wolverine",
       "TypeTags": [
-        "Nature",
-        "Shadow"
+        "Nature"
       ],
       "AspectTags": [
         "Beast"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Shadow"
     },
     {
       "id": "Monster-Sandkin-0.6494550101204201",
       "Deck": "Monster",
       "CardName": "Sandkin",
       "TypeTags": [
-        "Arcane",
+        "Knowledge",
         "Nature"
       ],
       "AspectTags": [
         "Elemental"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "Monster-Shadow Sorcerer-0.6472634824035519",
       "Deck": "Monster",
       "CardName": "Shadow Sorcerer",
       "TypeTags": [
-        "Shadow",
-        "Arcane"
+        "Knowledge"
       ],
       "AspectTags": [
         "Humanoid"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Shadow"
     },
     {
       "id": "Monster-Skeletal Warrior-0.6653203428178066",
       "Deck": "Monster",
       "CardName": "Skeletal Warrior",
-      "TypeTags": [
-        "Shadow"
-      ],
+      "TypeTags": [],
       "AspectTags": [
         "Undead"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Shadow"
     },
     {
       "id": "Monster-Slavering Howler-0.7928377728241573",
       "Deck": "Monster",
       "CardName": "Slavering Howler",
       "TypeTags": [
-        "Nature",
-        "Shadow"
+        "Nature"
       ],
       "AspectTags": [
         "Beast"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Shadow"
     },
     {
       "id": "Monster-Stone Acolyte-0.44189373384730346",
       "Deck": "Monster",
       "CardName": "Stone Acolyte",
       "TypeTags": [
-        "Arcane",
-        "Order"
+        "Knowledge",
+        "Justice"
       ],
       "AspectTags": [
         "Humanoid"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "Monster-Storm Acolyte-0.6270306079597886",
       "Deck": "Monster",
       "CardName": "Storm Acolyte",
       "TypeTags": [
-        "Arcane",
-        "Shadow"
+        "Knowledge"
       ],
       "AspectTags": [
         "Humanoid"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Shadow"
     },
     {
       "id": "Monster-Thunderbolt-0.22742199391836782",
       "Deck": "Monster",
       "CardName": "Thunderbolt",
       "TypeTags": [
-        "Arcane",
-        "Shadow"
+        "Knowledge"
       ],
       "AspectTags": [
         "Elemental"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Shadow"
     },
     {
       "id": "Monster-Voidcry-0.242091408101887",
       "Deck": "Monster",
       "CardName": "Voidcry",
-      "TypeTags": [
-        "Shadow"
-      ],
+      "TypeTags": [],
       "AspectTags": [
         "Aberration"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Shadow"
     },
     {
       "id": "Monster-Wastefang Spider-0.07565206118225998",
       "Deck": "Monster",
       "CardName": "Wastefang Spider",
       "TypeTags": [
-        "Nature",
-        "Shadow"
-      ],
-      "AspectTags": [
-        "Insect"
-      ],
-      "mutableTags": [],
-      "Instructions": []
-    },
-    {
-      "id": "Monster-Wave Acolyte-0.6201060825789364",
-      "Deck": "Monster",
-      "CardName": "Wave Acolyte",
-      "TypeTags": [
-        "Arcane",
-        "Order"
-      ],
-      "AspectTags": [
-        "Humanoid"
-      ],
-      "mutableTags": [],
-      "Instructions": []
-    },
-    {
-      "id": "Monster-Armor-Cap Centipede-0.5182749399695602",
-      "Deck": "Monster",
-      "CardName": "Armor-Cap Centipede",
-      "TypeTags": [
-        "Shadow",
         "Nature"
       ],
       "AspectTags": [
         "Insect"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Shadow"
+    },
+    {
+      "id": "Monster-Wave Acolyte-0.6201060825789364",
+      "Deck": "Monster",
+      "CardName": "Wave Acolyte",
+      "TypeTags": [
+        "Knowledge",
+        "Justice"
+      ],
+      "AspectTags": [
+        "Humanoid"
+      ],
+      "mutableTags": [],
+      "Instructions": [],
+      "Polarity": "Light"
+    },
+    {
+      "id": "Monster-Armor-Cap Centipede-0.5182749399695602",
+      "Deck": "Monster",
+      "CardName": "Armor-Cap Centipede",
+      "TypeTags": [
+        "Nature"
+      ],
+      "AspectTags": [
+        "Insect"
+      ],
+      "mutableTags": [],
+      "Instructions": [],
+      "Polarity": "Shadow"
     }
   ],
   "locations": [
@@ -1472,479 +1513,453 @@
       "id": "Location-Gloomfen Crossing-0.184392",
       "Deck": "Location",
       "CardName": "Gloomfen Crossing",
-      "TypeTags": [
-        "Shadow"
-      ],
+      "TypeTags": [],
       "AspectTags": [
         "Swamp"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Shadow"
     },
     {
       "id": "Location-Whispergrave Market-0.552918",
       "Deck": "Location",
       "CardName": "Whispergrave Market",
       "TypeTags": [
-        "Shadow",
         "Wealth"
       ],
       "AspectTags": [
         "Trade"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Shadow"
     },
     {
       "id": "Location-Nightfall Promenade-0.903112",
       "Deck": "Location",
       "CardName": "Nightfall Promenade",
-      "TypeTags": [
-        "Shadow"
-      ],
+      "TypeTags": [],
       "AspectTags": [
         "Urban"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Shadow"
     },
     {
       "id": "Location-Blackthorn Warrens-0.332781",
       "Deck": "Location",
       "CardName": "Blackthorn Warrens",
-      "TypeTags": [
-        "Shadow"
-      ],
+      "TypeTags": [],
       "AspectTags": [
         "Underground"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Shadow"
     },
     {
       "id": "Location-Murkspire Docks-0.119004",
       "Deck": "Location",
       "CardName": "Murkspire Docks",
       "TypeTags": [
-        "Shadow",
         "Wealth"
       ],
       "AspectTags": [
         "Harbor"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Shadow"
     },
     {
       "id": "Location-Shadeglass Plaza-0.774221",
       "Deck": "Location",
       "CardName": "Shadeglass Plaza",
-      "TypeTags": [
-        "Shadow"
-      ],
+      "TypeTags": [],
       "AspectTags": [
         "Market"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Shadow"
     },
     {
       "id": "Location-Dreadmire Basin-0.661204",
       "Deck": "Location",
       "CardName": "Dreadmire Basin",
-      "TypeTags": [
-        "Shadow"
-      ],
+      "TypeTags": [],
       "AspectTags": [
         "Marsh"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Shadow"
     },
     {
       "id": "Location-Silkbane Alley-0.447821",
       "Deck": "Location",
       "CardName": "Silkbane Alley",
-      "TypeTags": [
-        "Shadow"
-      ],
+      "TypeTags": [],
       "AspectTags": [
         "Slum"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Shadow"
     },
     {
       "id": "Location-Ebonvault Exchange-0.228771",
       "Deck": "Location",
       "CardName": "Ebonvault Exchange",
       "TypeTags": [
-        "Shadow",
         "Wealth"
       ],
       "AspectTags": [
         "Commerce"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Shadow"
     },
     {
       "id": "Location-Gravewind Terrace-0.503882",
       "Deck": "Location",
       "CardName": "Gravewind Terrace",
-      "TypeTags": [
-        "Shadow"
-      ],
+      "TypeTags": [],
       "AspectTags": [
         "Ruins"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Shadow"
     },
     {
       "id": "Location-Nightroot Grove-0.883512",
       "Deck": "Location",
       "CardName": "Nightroot Grove",
-      "TypeTags": [
-        "Shadow"
-      ],
+      "TypeTags": [],
       "AspectTags": [
         "Forest"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Shadow"
     },
     {
       "id": "Location-Umbral Caravan Post-0.339912",
       "Deck": "Location",
       "CardName": "Umbral Caravan Post",
       "TypeTags": [
-        "Shadow",
         "Wealth"
       ],
       "AspectTags": [
         "Outpost"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Shadow"
     },
     {
       "id": "Location-Shattermist Ridge-0.771004",
       "Deck": "Location",
       "CardName": "Shattermist Ridge",
-      "TypeTags": [
-        "Shadow"
-      ],
+      "TypeTags": [],
       "AspectTags": [
         "Hazard"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Shadow"
     },
     {
       "id": "Location-Fogreach Hamlet-0.912771",
       "Deck": "Location",
       "CardName": "Fogreach Hamlet",
-      "TypeTags": [
-        "Shadow"
-      ],
+      "TypeTags": [],
       "AspectTags": [
         "Village"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Shadow"
     },
     {
       "id": "Location-Blackveil Archives-0.552781",
       "Deck": "Location",
       "CardName": "Blackveil Archives",
-      "TypeTags": [
-        "Shadow"
-      ],
+      "TypeTags": [],
       "AspectTags": [
         "Library"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Shadow"
     },
     {
       "id": "Location-Mirewatch Bastion-0.661992",
       "Deck": "Location",
       "CardName": "Mirewatch Bastion",
-      "TypeTags": [
-        "Shadow"
-      ],
+      "TypeTags": [],
       "AspectTags": [
         "Fortress"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Shadow"
     },
     {
       "id": "Location-Sootfen Outskirts-0.447001",
       "Deck": "Location",
       "CardName": "Sootfen Outskirts",
-      "TypeTags": [
-        "Shadow"
-      ],
+      "TypeTags": [],
       "AspectTags": [
         "Rural"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Shadow"
     },
     {
       "id": "Location-Gloomspire Observatory-0.119882",
       "Deck": "Location",
       "CardName": "Gloomspire Observatory",
-      "TypeTags": [
-        "Shadow"
-      ],
+      "TypeTags": [],
       "AspectTags": [
         "Mystic"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Shadow"
     },
     {
       "id": "Location-Umbrastone Crypts-0.774002",
       "Deck": "Location",
       "CardName": "Umbrastone Crypts",
-      "TypeTags": [
-        "Shadow"
-      ],
+      "TypeTags": [],
       "AspectTags": [
         "Crypt"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Shadow"
     },
     {
       "id": "Location-Nightmarket Warrens-0.661441",
       "Deck": "Location",
       "CardName": "Nightmarket Warrens",
       "TypeTags": [
-        "Shadow",
         "Wealth"
       ],
       "AspectTags": [
         "Trade"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Shadow"
     },
     {
       "id": "Location-Blackmarsh Causeway-0.447112",
       "Deck": "Location",
       "CardName": "Blackmarsh Causeway",
-      "TypeTags": [
-        "Shadow"
-      ],
+      "TypeTags": [],
       "AspectTags": [
         "Road"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Shadow"
     },
     {
       "id": "Location-Shadefall Caverns-0.119441",
       "Deck": "Location",
       "CardName": "Shadefall Caverns",
-      "TypeTags": [
-        "Shadow"
-      ],
+      "TypeTags": [],
       "AspectTags": [
         "Cavern"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Shadow"
     },
     {
       "id": "Location-Moonshroud Bazaar-0.774551",
       "Deck": "Location",
       "CardName": "Moonshroud Bazaar",
       "TypeTags": [
-        "Shadow",
         "Wealth"
       ],
       "AspectTags": [
         "Market"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Shadow"
     },
     {
       "id": "Location-Duskwater Crossing-0.661221",
       "Deck": "Location",
       "CardName": "Duskwater Crossing",
-      "TypeTags": [
-        "Shadow"
-      ],
+      "TypeTags": [],
       "AspectTags": [
         "Bridge"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Shadow"
     },
     {
       "id": "Location-Umbral Shrine-0.447551",
       "Deck": "Location",
       "CardName": "Umbral Shrine",
-      "TypeTags": [
-        "Shadow"
-      ],
+      "TypeTags": [],
       "AspectTags": [
         "Sacred"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Shadow"
     },
     {
       "id": "Location-Nightglass Foundry-0.119771",
       "Deck": "Location",
       "CardName": "Nightglass Foundry",
-      "TypeTags": [
-        "Shadow"
-      ],
+      "TypeTags": [],
       "AspectTags": [
         "Industrial"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Shadow"
     },
     {
       "id": "Location-Gloomtide Harbor-0.774991",
       "Deck": "Location",
       "CardName": "Gloomtide Harbor",
       "TypeTags": [
-        "Shadow",
         "Wealth"
       ],
       "AspectTags": [
         "Harbor"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Shadow"
     },
     {
       "id": "Location-Blackspire Monastery-0.661882",
       "Deck": "Location",
       "CardName": "Blackspire Monastery",
-      "TypeTags": [
-        "Shadow"
-      ],
+      "TypeTags": [],
       "AspectTags": [
         "Sacred"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Shadow"
     },
     {
       "id": "Location-Dreadshore Cliffs-0.447771",
       "Deck": "Location",
       "CardName": "Dreadshore Cliffs",
-      "TypeTags": [
-        "Shadow"
-      ],
+      "TypeTags": [],
       "AspectTags": [
         "Hazard"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Shadow"
     },
     {
       "id": "Location-Mireveil Outpost-0.119661",
       "Deck": "Location",
       "CardName": "Mireveil Outpost",
-      "TypeTags": [
-        "Shadow"
-      ],
+      "TypeTags": [],
       "AspectTags": [
         "Outpost"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Shadow"
     },
     {
       "id": "Location-Nightbarrow Fields-0.774112",
       "Deck": "Location",
       "CardName": "Nightbarrow Fields",
-      "TypeTags": [
-        "Shadow"
-      ],
+      "TypeTags": [],
       "AspectTags": [
         "Rural"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Shadow"
     },
     {
       "id": "Location-Umbralwine Cellars-0.661771",
       "Deck": "Location",
       "CardName": "Umbralwine Cellars",
       "TypeTags": [
-        "Shadow",
         "Wealth"
       ],
       "AspectTags": [
         "Storage"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Shadow"
     },
     {
       "id": "Location-Shadefen Orchard-0.447992",
       "Deck": "Location",
       "CardName": "Shadefen Orchard",
-      "TypeTags": [
-        "Shadow"
-      ],
+      "TypeTags": [],
       "AspectTags": [
         "Farm"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Shadow"
     },
     {
       "id": "Location-Gloomhollow Ruins-0.119882",
       "Deck": "Location",
       "CardName": "Gloomhollow Ruins",
-      "TypeTags": [
-        "Shadow"
-      ],
+      "TypeTags": [],
       "AspectTags": [
         "Ruins"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Shadow"
     },
     {
       "id": "Location-Sunpetal Terrace-0.552441",
       "Deck": "Location",
       "CardName": "Sunpetal Terrace",
       "TypeTags": [
-        "Light",
         "Nature"
       ],
       "AspectTags": [
         "Garden"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "Location-Azurewind Academy-0.661551",
       "Deck": "Location",
       "CardName": "Azurewind Academy",
       "TypeTags": [
-        "Arcane",
-        "Light"
+        "Knowledge"
       ],
       "AspectTags": [
         "Mystic"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "Location-Ironmarch Garrison-0.447331",
@@ -1952,55 +1967,58 @@
       "CardName": "Ironmarch Garrison",
       "TypeTags": [
         "Martial",
-        "Order"
+        "Justice"
       ],
       "AspectTags": [
         "Fortress"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "Location-Goldleaf Exchange-0.119221",
       "Deck": "Location",
       "CardName": "Goldleaf Exchange",
       "TypeTags": [
-        "Wealth",
-        "Light"
+        "Wealth"
       ],
       "AspectTags": [
         "Trade"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "Location-Runebloom Conservatory-0.774661",
       "Deck": "Location",
       "CardName": "Runebloom Conservatory",
       "TypeTags": [
-        "Arcane",
+        "Knowledge",
         "Nature"
       ],
       "AspectTags": [
         "Botanical"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "Location-Silvercrest Citadel-0.661112",
       "Deck": "Location",
       "CardName": "Silvercrest Citadel",
       "TypeTags": [
-        "Order",
-        "Light"
+        "Justice",
+        "Righteousness"
       ],
       "AspectTags": [
         "Sacred"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "Location-Hammerfall Arena-0.447661",
@@ -2014,21 +2032,23 @@
         "Sport"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "Location-Starweave Observatory-0.119771",
       "Deck": "Location",
       "CardName": "Starweave Observatory",
       "TypeTags": [
-        "Arcane",
-        "Order"
+        "Knowledge",
+        "Justice"
       ],
       "AspectTags": [
         "Mystic"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "Location-Riverbloom Crossing-0.774221",
@@ -2042,21 +2062,23 @@
         "Bridge"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "Location-Dawnspire Monastery-0.661771",
       "Deck": "Location",
       "CardName": "Dawnspire Monastery",
       "TypeTags": [
-        "Light",
-        "Order"
+        "Justice",
+        "Righteousness"
       ],
       "AspectTags": [
         "Sacred"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "Location-Emberforge Outpost-0.447221",
@@ -2064,13 +2086,14 @@
       "CardName": "Emberforge Outpost",
       "TypeTags": [
         "Martial",
-        "Arcane"
+        "Knowledge"
       ],
       "AspectTags": [
         "Industrial"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "Location-Goldtide Harbor-0.119551",
@@ -2078,55 +2101,57 @@
       "CardName": "Goldtide Harbor",
       "TypeTags": [
         "Wealth",
-        "Order"
+        "Justice"
       ],
       "AspectTags": [
         "Harbor"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "Location-Brightwind Fields-0.774991",
       "Deck": "Location",
       "CardName": "Brightwind Fields",
       "TypeTags": [
-        "Nature",
-        "Light"
+        "Nature"
       ],
       "AspectTags": [
         "Rural"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "Location-Runeguard Bastion-0.661441",
       "Deck": "Location",
       "CardName": "Runeguard Bastion",
       "TypeTags": [
-        "Arcane",
+        "Knowledge",
         "Martial"
       ],
       "AspectTags": [
         "Fortress"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     },
     {
       "id": "Location-Sunforge Plaza-0.447992",
       "Deck": "Location",
       "CardName": "Sunforge Plaza",
       "TypeTags": [
-        "Light",
         "Wealth"
       ],
       "AspectTags": [
         "Market"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "Polarity": "Light"
     }
   ],
   "questtemplates": [
@@ -2135,8 +2160,7 @@
       "Deck": "QuestTemplate",
       "CardName": "Retrieve",
       "TypeTags": [
-        "Light",
-        "Order"
+        "Justice"
       ],
       "AspectTags": [
         "Quest"
@@ -2148,44 +2172,47 @@
         {
           "deck": "NPC",
           "tags": [
-            "Order"
+            "Justice"
           ],
           "count": 1,
           "label": "QuestGiver",
-          "action": "draw"
+          "action": "draw",
+          "polarity": null
         },
         {
           "deck": "NPC",
           "tags": [
-            "Arcane"
+            "Knowledge"
           ],
           "count": 1,
           "label": "Target",
-          "action": "draw"
+          "action": "draw",
+          "polarity": null
         },
         {
           "deck": "Location",
           "tags": [],
           "count": 1,
           "label": "Location",
-          "action": "draw"
+          "action": "draw",
+          "polarity": null
         },
         {
           "deck": "Twist",
           "tags": [],
           "count": 1,
           "label": "Twist",
-          "action": "draw"
+          "action": "draw",
+          "polarity": null
         }
-      ]
+      ],
+      "Polarity": "Light"
     },
     {
       "id": "QuestTemplate-Recover-0.6934478172396541",
       "Deck": "QuestTemplate",
       "CardName": "Recover",
-      "TypeTags": [
-        "Light"
-      ],
+      "TypeTags": [],
       "AspectTags": [
         "Compassion"
       ],
@@ -2195,48 +2222,48 @@
       "DrawInstructions": [
         {
           "deck": "NPC",
-          "tags": [
-            "Light"
-          ],
+          "tags": [],
           "count": 1,
           "label": "QuestGiver",
-          "action": "draw"
+          "action": "draw",
+          "polarity": null
         },
         {
           "deck": "NPC",
           "tags": [
-            "Light",
-            "Arcane"
+            "Knowledge"
           ],
           "count": 1,
           "label": "Target",
-          "action": "draw"
+          "action": "draw",
+          "polarity": null
         },
         {
           "deck": "Location",
           "tags": [
-            "Martial",
-            "Shadow"
+            "Martial"
           ],
           "count": 1,
           "label": "Location",
-          "action": "draw"
+          "action": "draw",
+          "polarity": null
         },
         {
           "deck": "Twist",
           "tags": [],
           "count": 1,
           "label": "Twist",
-          "action": "draw"
+          "action": "draw",
+          "polarity": null
         }
-      ]
+      ],
+      "Polarity": "Light"
     },
     {
       "id": "QuestTemplate-Heist-0.6461371042604421",
       "Deck": "QuestTemplate",
       "CardName": "Heist",
       "TypeTags": [
-        "Shadow",
         "Wealth"
       ],
       "AspectTags": [
@@ -2249,58 +2276,60 @@
         {
           "deck": "NPC",
           "tags": [
-            "Shadow",
             "Wealth"
           ],
           "count": 1,
           "label": "QuestGiver",
-          "action": "draw"
+          "action": "draw",
+          "polarity": null
         },
         {
           "deck": "Location",
-          "tags": [
-            "Shadow"
-          ],
+          "tags": [],
           "count": 1,
           "label": "Location",
-          "action": "draw"
+          "action": "draw",
+          "polarity": null
         },
         {
           "deck": "NPC",
           "tags": [
             "Wealth",
-            "Arcane"
+            "Knowledge"
           ],
           "count": 1,
           "label": "Target",
-          "action": "draw"
+          "action": "draw",
+          "polarity": null
         },
         {
           "deck": "NPC",
           "tags": [
-            "Wealth",
-            "Shadow"
+            "Wealth"
           ],
           "count": 1,
           "label": "Victim",
-          "action": "draw"
+          "action": "draw",
+          "polarity": null
         },
         {
           "deck": "Twist",
           "tags": [],
           "count": 1,
           "label": "Twist",
-          "action": "draw"
+          "action": "draw",
+          "polarity": null
         }
-      ]
+      ],
+      "Polarity": "Shadow"
     },
     {
       "id": "Quest Template-Investigate-0.7277810118689843",
       "Deck": "Quest Template",
       "CardName": "Investigate",
       "TypeTags": [
-        "Order",
-        "Arcane"
+        "Justice",
+        "Knowledge"
       ],
       "AspectTags": [
         "Mystery"
@@ -2315,51 +2344,54 @@
           "deck": "locations",
           "tags": [
             "Nature",
-            "Arcane"
+            "Knowledge"
           ],
           "count": 1,
           "label": "Location",
           "action": "draw",
           "prefix": "Travel to",
-          "suffix": "and investigate rumors about"
+          "suffix": "and investigate rumors about",
+          "polarity": null
         },
         {
           "deck": "loot",
           "tags": [
-            "Arcane"
+            "Knowledge"
           ],
           "count": 1,
           "label": "Target",
           "action": "draw",
           "prefix": "",
-          "suffix": "Either bring it back or report what you learned"
+          "suffix": "Either bring it back or report what you learned",
+          "polarity": null
         },
         {
           "deck": "npcs",
-          "tags": [
-            "Light"
-          ],
+          "tags": [],
           "count": 1,
           "label": "QuestGiver",
           "action": "draw",
           "prefix": "to",
-          "suffix": ""
+          "suffix": "",
+          "polarity": null
         },
         {
           "deck": "Twist",
           "tags": [],
           "count": 1,
           "label": "Twist",
-          "action": "draw"
+          "action": "draw",
+          "polarity": null
         }
-      ]
+      ],
+      "Polarity": "Light"
     },
     {
       "Deck": "Quest Template",
       "CardName": "Defend",
       "TypeTags": [
         "Martial",
-        "Order"
+        "Justice"
       ],
       "AspectTags": [
         "Military"
@@ -2372,25 +2404,25 @@
         {
           "deck": "locations",
           "tags": [
-            "Order",
+            "Justice",
             "Martial"
           ],
           "count": 1,
           "label": "Attacked Location",
           "action": "draw",
           "prefix": "",
-          "suffix": "is under attack"
+          "suffix": "is under attack",
+          "polarity": null
         },
         {
           "deck": "npcs",
-          "tags": [
-            "Shadow"
-          ],
+          "tags": [],
           "count": 1,
           "label": "the villan",
           "action": "draw",
           "prefix": "by the villian",
-          "suffix": ""
+          "suffix": "",
+          "polarity": null
         },
         {
           "deck": "loot",
@@ -2400,15 +2432,16 @@
           "action": "draw",
           "prefix": "Successfully defending will result in a reward of",
           "suffix": "",
-          "faceDown": false
+          "faceDown": false,
+          "polarity": null
         }
-      ]
+      ],
+      "Polarity": "Light"
     },
     {
       "Deck": "Quest Template",
       "CardName": "Destroy",
       "TypeTags": [
-        "Shadow",
         "Martial"
       ],
       "AspectTags": [
@@ -2427,7 +2460,8 @@
           "action": "addToken",
           "prefix": "",
           "suffix": "",
-          "faceDown": false
+          "faceDown": false,
+          "polarity": null
         },
         {
           "deck": "npcs",
@@ -2439,19 +2473,19 @@
           "action": "draw",
           "prefix": "",
           "suffix": "Asks you to sack",
-          "faceDown": false
+          "faceDown": false,
+          "polarity": null
         },
         {
           "deck": "locations",
-          "tags": [
-            "Shadow"
-          ],
+          "tags": [],
           "count": 1,
           "label": "Location",
           "action": "draw",
           "prefix": "",
           "suffix": "",
-          "faceDown": false
+          "faceDown": false,
+          "polarity": null
         },
         {
           "deck": "twists",
@@ -2461,16 +2495,18 @@
           "action": "draw",
           "prefix": "",
           "suffix": "",
-          "faceDown": true
+          "faceDown": true,
+          "polarity": null
         }
-      ]
+      ],
+      "Polarity": "Shadow"
     },
     {
       "Deck": "Quest Template",
       "CardName": "Heist aaa",
       "TypeTags": [
         "Wealth",
-        "Arcane"
+        "Knowledge"
       ],
       "AspectTags": [
         "Stealth"
@@ -2482,27 +2518,27 @@
       "DrawInstructions": [
         {
           "deck": "locations",
-          "tags": [
-            "Shadow"
-          ],
+          "tags": [],
           "count": 1,
           "label": "Target Location",
           "action": "draw",
           "prefix": "Your mark is",
           "suffix": "—a vault ripe for the taking",
-          "faceDown": false
+          "faceDown": false,
+          "polarity": null
         },
         {
           "deck": "twists",
           "tags": [
-            "Arcane"
+            "Knowledge"
           ],
           "count": 1,
           "label": "Arcane Obstacle",
           "action": "draw",
           "prefix": "but the place is guarded by",
           "suffix": "which complicates the job",
-          "faceDown": true
+          "faceDown": true,
+          "polarity": null
         },
         {
           "deck": "npcs",
@@ -2513,7 +2549,8 @@
           "label": "Quest Giver",
           "action": "draw",
           "prefix": "The job comes from",
-          "suffix": "who promises a generous payout"
+          "suffix": "who promises a generous payout",
+          "polarity": null
         },
         {
           "deck": "loot",
@@ -2524,9 +2561,11 @@
           "label": "Primary Reward",
           "action": "draw",
           "prefix": "If the heist succeeds, you walk away with",
-          "suffix": ""
+          "suffix": "",
+          "polarity": null
         }
-      ]
+      ],
+      "Polarity": "Light"
     }
   ]
 }

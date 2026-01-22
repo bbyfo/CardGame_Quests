@@ -80,6 +80,16 @@
             <input type="text" id="card-name" placeholder="e.g., King, Demon Lord, Retrieve" required>
           </div>
 
+          <!-- Polarity -->
+          <div class="form-group">
+            <label for="polarity-select">Polarity <span style="color: red;">*</span></label>
+            <select id="polarity-select" required>
+              <option value="">-- Select Polarity --</option>
+              <option value="Light">Light</option>
+              <option value="Shadow">Shadow</option>
+            </select>
+          </div>
+
           <!-- Type Tags with Autocomplete -->
           <div class="form-group">
             <label for="type-tags-input">Type Tags</label>
@@ -312,6 +322,15 @@
         <div class="form-group">
           <label for="draw-suffix">Suffix</label>
           <input type="text" id="draw-suffix" placeholder="e.g., 'asks the heroes to', 'lurks nearby'">
+        </div>
+
+        <div class="form-group">
+          <label for="draw-polarity">Polarity</label>
+          <select id="draw-polarity">
+            <option value="">-- Any Polarity --</option>
+            <option value="Light">Light</option>
+            <option value="Shadow">Shadow</option>
+          </select>
         </div>
 
         <div class="form-group">

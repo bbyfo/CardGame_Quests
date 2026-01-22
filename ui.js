@@ -389,13 +389,24 @@ class UIManager {
       const instructionPreviewHTML = previewText ? 
         `<div class="instruction-preview">${previewText}</div>` : '';
       
-      // Helper to wrap card name with prefix/suffix
-      const wrapCardName = (cardName) => {
+      // Helper to wrap card name with prefix/suffix and Polarity badge
+      const wrapCardName = (cardName, polarity) => {
         let wrapped = '';
+        if (polarity) {
+          wrapped += `<span class="polarity-badge polarity-${polarity.toLowerCase()}">${polarity}</span> `;
+        }
         if (prefix) wrapped += `<span class="prefix">${prefix} </span>`;
         wrapped += `<strong class="card-name">${cardName}</strong>`;
         if (suffix) wrapped += `<span class="suffix"> ${suffix}</span>`;
         return wrapped;
+      };
+      
+      // Helper to format TypeTags with CSS classes
+      const formatTypeTags = (typeTags) => {
+        if (!typeTags || typeTags.length === 0) return '';
+        return typeTags.map(tag => 
+          `<span class="tag tag-${tag.toLowerCase()}">${tag}</span>`
+        ).join(' ');
       };
       
       // Handle array of cards (multiple draws for same label)
@@ -406,10 +417,10 @@ class UIManager {
           <div class="quest-details">
             ${componentData.map((card, index) => `
               <div class="multi-card-item">
-                <span class="card-number">#${index + 1}</span> ${wrapCardName(card.CardName)}
+                <span class="card-number">#${index + 1}</span> ${wrapCardName(card.CardName, card.Polarity)}
                 <button class="btn-go-to-card" onclick="window.open('cardManager.html?cardId=${encodeURIComponent(card.id || '')}&cardName=${encodeURIComponent(card.CardName)}', '_blank')" title="Open in Card Manager">🔍 Go to Card</button>
                 <div class="tags">
-                  <span class="tag-label">Type Tags:</span> ${card.TypeTags.join(', ')}
+                  <span class="tag-label">Type Tags:</span> ${formatTypeTags(card.TypeTags)}
                   <span class="tag-label">Aspect Tags:</span> ${card.AspectTags.join(', ')}
                   ${card.mutableTags && card.mutableTags.length > 0 ? `<span class="tag-label">Mutable Tags:</span> ${card.mutableTags.join(', ')}` : ''}
                 </div>
@@ -426,11 +437,11 @@ class UIManager {
         ${playerInstructionHTML}
         <div class="quest-details">
           <div class="quest-role-header">
-            ${wrapCardName(componentData.CardName)}
+            ${wrapCardName(componentData.CardName, componentData.Polarity)}
             <button class="btn-go-to-card" onclick="window.open('cardManager.html?cardId=${encodeURIComponent(componentData.id || '')}&cardName=${encodeURIComponent(componentData.CardName)}', '_blank')" title="Open in Card Manager">🔍 Go to Card</button>
           </div>
           <div class="tags">
-            <span class="tag-label">Type Tags:</span> ${componentData.TypeTags.join(', ')}
+            <span class="tag-label">Type Tags:</span> ${formatTypeTags(componentData.TypeTags)}
             <span class="tag-label">Aspect Tags:</span> ${componentData.AspectTags.join(', ')}
             ${componentData.mutableTags && componentData.mutableTags.length > 0 ? `<span class="tag-label">Mutable Tags:</span> ${componentData.mutableTags.join(', ')}` : ''}
           </div>

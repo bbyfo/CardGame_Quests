@@ -221,7 +221,7 @@ class QuestEngine {
   /**
    * Helper: Draw with fallback rule (configurable redraws before auto-accept)
    */
-  drawWithFallback(deck, requiredTags, deckName, targetName) {
+  drawWithFallback(deck, requiredTags, deckName, targetName, requiredPolarity) {
     let attempts = 0;
     let selectedCard = null;
     let selectedIndex = -1;
@@ -240,32 +240,48 @@ class QuestEngine {
       const cardTags = this.getDrawTags(card);
       const matches = this.getTagIntersection(cardTags, requiredTags);
 
-      // Empty requiredTags means no constraint - accept any card
-      const isMatch = requiredTags.length === 0 || matches.length > 0;
+      // Check Polarity match (undefined/null requiredPolarity means accept any)
+      const polarityMatch = !requiredPolarity || (card.Polarity === requiredPolarity);
+      
+      // Empty requiredTags means no tag constraint, but still check Polarity
+      const tagMatch = requiredTags.length === 0 || matches.length > 0;
+      const isMatch = tagMatch && polarityMatch;
 
       if (isMatch) {
         selectedCard = card;
         selectedIndex = deckIndex;
+        
+        const reasons = [];
         if (requiredTags.length === 0) {
-          this.log(
-            `${deckName} Draw #${attempts}: ACCEPTED "${card.CardName}" (no tag constraints)`,
-            { card: card.CardName, noConstraints: true },
-            true // Verbose only
-          );
+          reasons.push('no tag constraints');
         } else {
-          this.log(
-            `${deckName} Draw #${attempts}: ACCEPTED "${card.CardName}" (matched tags: ${matches.join(', ')})`,
-            { card: card.CardName, matchedTags: matches },
-            true // Verbose only
-          );
+          reasons.push(`matched tags: ${matches.join(', ')}`);
         }
+        if (requiredPolarity) {
+          reasons.push(`polarity: ${card.Polarity}`);
+        }
+        
+        this.log(
+          `${deckName} Draw #${attempts}: ACCEPTED "${card.CardName}" (${reasons.join(', ')})`,
+          { card: card.CardName, matchedTags: matches, polarity: card.Polarity },
+          true // Verbose only
+        );
       } else {
         // Card was rejected - move it to bottom of deck
         deck.splice(deckIndex, 1);
         deck.push(card);
+        
+        const rejectionReasons = [];
+        if (!tagMatch) {
+          rejectionReasons.push(`no matching tags, needs: ${requiredTags.join(', ')}`);
+        }
+        if (!polarityMatch) {
+          rejectionReasons.push(`wrong polarity: ${card.Polarity}, needs: ${requiredPolarity}`);
+        }
+        
         this.log(
-          `${deckName} Draw #${attempts}: REJECTED "${card.CardName}" (no matching tags, needs: ${requiredTags.join(', ')}) - moved to bottom`,
-          { card: card.CardName, requiredTags: requiredTags },
+          `${deckName} Draw #${attempts}: REJECTED "${card.CardName}" (${rejectionReasons.join(', ')}) - moved to bottom`,
+          { card: card.CardName, requiredTags: requiredTags, requiredPolarity: requiredPolarity, cardPolarity: card.Polarity },
           true // Verbose only
         );
 
@@ -335,16 +351,27 @@ class QuestEngine {
   /**
    * Helper: Count cards matching criteria
    */
-  countMatchingCards(deck, requiredTags) {
+  countMatchingCards(deck, requiredTags, requiredPolarity) {
     if (!deck || !Array.isArray(deck)) {
       return 0;
     }
-    if (!requiredTags || requiredTags.length === 0) {
+    
+    // If no constraints at all, return full deck count
+    if ((!requiredTags || requiredTags.length === 0) && !requiredPolarity) {
       return deck.length;
     }
+    
     return deck.filter(card => {
-      const cardTags = this.getDrawTags(card);
-      return requiredTags.some(req => cardTags.includes(req));
+      // Check tag match
+      const tagMatch = !requiredTags || requiredTags.length === 0 || (() => {
+        const cardTags = this.getDrawTags(card);
+        return requiredTags.some(req => cardTags.includes(req));
+      })();
+      
+      // Check Polarity match (undefined/null requiredPolarity means accept any)
+      const polarityMatch = !requiredPolarity || (card.Polarity === requiredPolarity);
+      
+      return tagMatch && polarityMatch;
     }).length;
   }
 
@@ -353,7 +380,7 @@ class QuestEngine {
    * Supports drawing multiple cards if count > 1
    */
   processDrawInstruction(instruction) {
-    const { action, deck: deckName, count, tags, label } = instruction;
+    const { action, deck: deckName, count, tags, label, polarity } = instruction;
 
     if (action === 'addToken') {
       // Add pending instruction for future deck
@@ -383,17 +410,22 @@ class QuestEngine {
 
       this.log(`=== Drawing from ${deckName} (label: ${label || 'unlabeled'}) ===`);
       
-      const matchCount = this.countMatchingCards(deck, allTags);
+      // Log Polarity constraint if present
+      if (polarity) {
+        this.log(`Polarity constraint: ${polarity}`);
+      }
+      
+      const matchCount = this.countMatchingCards(deck, allTags, polarity);
       const totalCount = deck.length;
       const percentage = totalCount > 0 ? ((matchCount / totalCount) * 100).toFixed(1) : '0.0';
 
-      if (allTags.length > 0) {
-        this.log(
-          `Looking for ${deckName} with tags: [${allTags.join(', ')}]`,
-          { requiredTags: allTags }
-        );
+      if (allTags.length > 0 || polarity) {
+        const constraints = [];
+        if (allTags.length > 0) constraints.push(`tags: [${allTags.join(', ')}]`);
+        if (polarity) constraints.push(`polarity: ${polarity}`);
+        this.log(`Looking for ${deckName} with ${constraints.join(', ')}`);
       } else {
-        this.log(`Drawing from ${deckName} (no tag constraints)`);
+        this.log(`Drawing from ${deckName} (no constraints)`);
       }
       
       this.log(`Match pool: ${matchCount}/${totalCount} (${percentage}%)`);
@@ -404,10 +436,13 @@ class QuestEngine {
       }
 
       // Check for zero match pool
-      if (allTags.length > 0 && matchCount === 0) {
+      if ((allTags.length > 0 || polarity) && matchCount === 0) {
+        const constraints = [];
+        if (allTags.length > 0) constraints.push(`tags [${allTags.join(', ')}]`);
+        if (polarity) constraints.push(`polarity ${polarity}`);
         this.log(
-          `❌ FATAL ERROR: Zero match pool for ${deckName}! No cards have the required tags [${allTags.join(', ')}].`,
-          { step: deckName, requiredTags: allTags, deckSize: totalCount },
+          `❌ FATAL ERROR: Zero match pool for ${deckName}! No cards match ${constraints.join(' and ')}.`,
+          { step: deckName, requiredTags: allTags, requiredPolarity: polarity, deckSize: totalCount },
           false,
           'error'
         );
@@ -419,7 +454,7 @@ class QuestEngine {
       const drawCount = count || 1;
       
       for (let i = 0; i < drawCount; i++) {
-        const card = this.drawWithFallback(deck, allTags, deckName, label || deckName);
+        const card = this.drawWithFallback(deck, allTags, deckName, label || deckName, polarity);
         
         if (!card) {
           this.log(`ERROR: Failed to draw card ${i + 1}/${drawCount} from ${deckName}`);

@@ -870,3 +870,149 @@
 }
 
 /* Removed Tag Statistics Section - moved to statistics.html */
+
+/* Polarity Badge Styles - WCAG AA Compliant */
+.polarity-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-right: 0.5rem;
+  white-space: nowrap;
+}
+
+.polarity-light {
+  background-color: #fef3c7; /* amber-100 */
+  color: #78350f; /* amber-900 */
+  /* Contrast ratio: 7.8:1 - exceeds WCAG AA (4.5:1) */
+}
+
+.polarity-shadow {
+  background-color: #4c1d95; /* violet-900 */
+  color: #f3f4f6; /* gray-100 */
+  /* Contrast ratio: 9.2:1 - exceeds WCAG AA (4.5:1) */
+}
+
+/* TypeTag Specific Colors - WCAG AA Compliant */
+/* Light Tags */
+.tag-knowledge {
+  background-color: #fef3c7; /* amber-100 */
+  color: #78350f; /* amber-900 */
+}
+
+.tag-knowledge:hover {
+  background-color: #fde68a; /* amber-200 */
+  color: #78350f;
+}
+
+.tag-justice {
+  background-color: #dbeafe; /* blue-100 */
+  color: #1e3a8a; /* blue-900 */
+}
+
+.tag-justice:hover {
+  background-color: #bfdbfe; /* blue-200 */
+  color: #1e3a8a;
+}
+
+.tag-righteousness {
+  background-color: #fecaca; /* red-200 */
+  color: #7f1d1d; /* red-900 */
+}
+
+.tag-righteousness:hover {
+  background-color: #fca5a5; /* red-300 */
+  color: #7f1d1d;
+}
+
+.tag-nature {
+  background-color: #d1fae5; /* green-200 */
+  color: #14532d; /* green-900 */
+}
+
+.tag-nature:hover {
+  background-color: #a7f3d0; /* green-300 */
+  color: #14532d;
+}
+
+.tag-martial {
+  background-color: #e2e8f0; /* slate-200 */
+  color: #0f172a; /* slate-900 */
+}
+
+.tag-martial:hover {
+  background-color: #cbd5e1; /* slate-300 */
+  color: #0f172a;
+}
+
+.tag-wealth {
+  background-color: #fef3c7; /* amber-100 */
+  color: #78350f; /* amber-900 */
+}
+
+.tag-wealth:hover {
+  background-color: #fde68a; /* amber-200 */
+  color: #78350f;
+}
+
+/* Shadow Tags */
+.tag-deceit {
+  background-color: #78350f; /* amber-900 */
+  color: #fef3c7; /* amber-100 */
+}
+
+.tag-deceit:hover {
+  background-color: #92400e; /* amber-800 */
+  color: #fef3c7;
+}
+
+.tag-tyranny {
+  background-color: #1e3a8a; /* blue-900 */
+  color: #dbeafe; /* blue-100 */
+}
+
+.tag-tyranny:hover {
+  background-color: #1e40af; /* blue-800 */
+  color: #dbeafe;
+}
+
+.tag-zealotry {
+  background-color: #7f1d1d; /* red-900 */
+  color: #fecaca; /* red-200 */
+}
+
+.tag-zealotry:hover {
+  background-color: #991b1b; /* red-800 */
+  color: #fecaca;
+}
+
+.tag-blight {
+  background-color: #14532d; /* green-900 */
+  color: #d1fae5; /* green-200 */
+}
+
+.tag-blight:hover {
+  background-color: #166534; /* green-800 */
+  color: #d1fae5;
+}
+
+.tag-savagery {
+  background-color: #0f172a; /* slate-900 */
+  color: #e2e8f0; /* slate-200 */
+}
+
+.tag-savagery:hover {
+  background-color: #1e293b; /* slate-800 */
+  color: #e2e8f0;
+}
+
+.tag-greed {
+  background-color: #78350f; /* amber-900 */
+  color: #fef3c7; /* amber-100 */
+}
+
+.tag-greed:hover {
+  background-color: #92400e; /* amber-800 */
+  color: #fef3c7;
+}
