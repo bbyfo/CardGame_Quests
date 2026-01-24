@@ -21,7 +21,7 @@
 
     <main style="flex: 1; display: grid; grid-template-columns: min-content 1fr; gap: 2rem; padding: 2rem; overflow: hidden;">
       <!-- Left Side: Icon Palette -->
-      <div style="overflow-y: auto;">
+      <div id="icon-palette" style="overflow-y: auto;">
         <div style="margin-bottom: 1rem;">
           <button id="back-btn" class="btn btn-secondary">
             ← Back to List
@@ -35,7 +35,17 @@
           <!-- Icon palette will be rendered here -->
         </div>
 
-        <div style="margin-top: 2rem; background: white; border-radius: 8px; padding: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+
+      </div>
+
+      <!-- Right Side: Card Mockup -->
+      <div style="overflow-y: auto;">
+        <div id="card-mockup-container">
+          <!-- Card mockup will be rendered here -->
+        </div>
+      </div>
+
+              <div style="grid-column: 1 / -1; margin-top: 2rem; background: white; border-radius: 8px; padding: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
           <h3 style="margin-bottom: 1rem;">💡 Tips</h3>
           <ul style="padding-left: 1.5rem; line-height: 1.8;">
             <li>Drag cost and harm icons onto the card fields</li>
@@ -46,14 +56,7 @@
             <li>Changes auto-save after 1 second</li>
           </ul>
         </div>
-      </div>
 
-      <!-- Right Side: Card Mockup -->
-      <div style="overflow-y: auto;">
-        <div id="card-mockup-container">
-          <!-- Card mockup will be rendered here -->
-        </div>
-      </div>
     </main>
 
     <footer>
