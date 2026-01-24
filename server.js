@@ -176,6 +176,51 @@ app.get('/api/health', (req, res) => {
   });
 });
 
+/**
+ * GET /api/tag-config - Load tag configurations
+ */
+app.get('/api/tag-config', async (req, res) => {
+  try {
+    const tagConfigFile = path.join(__dirname, 'tag-config.json');
+    
+    // Try to read from file
+    try {
+      const data = await fs.readFile(tagConfigFile, 'utf8');
+      res.json(JSON.parse(data));
+    } catch (error) {
+      // File doesn't exist yet, return empty config
+      res.json({ tagConfigurations: {}, version: 1 });
+    }
+  } catch (error) {
+    console.error('Error loading tag config:', error);
+    res.status(500).json({ error: 'Failed to load tag configuration' });
+  }
+});
+
+/**
+ * POST /api/tag-config - Save tag configurations
+ */
+app.post('/api/tag-config', async (req, res) => {
+  try {
+    const tagConfigFile = path.join(__dirname, 'tag-config.json');
+    const config = req.body;
+    
+    // Validate
+    if (!config.tagConfigurations) {
+      return res.status(400).json({ error: 'Invalid tag configuration format' });
+    }
+    
+    // Save to file
+    await fs.writeFile(tagConfigFile, JSON.stringify(config, null, 2), 'utf8');
+    console.log('✓ Tag configuration saved');
+    
+    res.json({ success: true, message: 'Tag configuration saved successfully' });
+  } catch (error) {
+    console.error('Error saving tag config:', error);
+    res.status(500).json({ error: 'Failed to save tag configuration' });
+  }
+});
+
 // Start server
 app.listen(PORT, () => {
   console.log(`

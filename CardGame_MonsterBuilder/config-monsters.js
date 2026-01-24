@@ -210,9 +210,22 @@ const MONSTER_CONFIG = {
   // Polarity Types (from QuestGenerator)
   POLARITY_TYPES: ['Light', 'Shadow'],
 
-  // TypeTags (Polarity-restricted, from QuestGenerator)
-  LIGHT_TAGS: ['Knowledge', 'Justice', 'Righteousness', 'Nature', 'Martial', 'Wealth'],
-  SHADOW_TAGS: ['Deceit', 'Tyranny', 'Zealotry', 'Blight', 'Savagery', 'Greed'],
+  // TypeTags (Polarity-restricted, from shared tag config)
+  get LIGHT_TAGS() {
+    if (window.TAG_CONFIG_MANAGER && window.TAG_CONFIG_MANAGER.initialized) {
+      return window.TAG_CONFIG_MANAGER.getTagsByPolarity('Light');
+    }
+    // Fallback if tag config not loaded
+    return ['Knowledge', 'Justice', 'Righteousness', 'Nature', 'Martial', 'Wealth'];
+  },
+  
+  get SHADOW_TAGS() {
+    if (window.TAG_CONFIG_MANAGER && window.TAG_CONFIG_MANAGER.initialized) {
+      return window.TAG_CONFIG_MANAGER.getTagsByPolarity('Shadow');
+    }
+    // Fallback if tag config not loaded
+    return ['Deceit', 'Tyranny', 'Zealotry', 'Blight', 'Savagery', 'Greed'];
+  },
 
   // AspectTags (Secondary flavor tags)
   ASPECT_TAGS: [

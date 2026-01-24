@@ -3,9 +3,24 @@
  * Card management GUI with autocomplete, validation, and form handling
  */
 
-// Polarity-based tag constants
-const LIGHT_TAGS = ['Knowledge', 'Justice', 'Righteousness', 'Nature', 'Martial', 'Wealth'];
-const SHADOW_TAGS = ['Deceit', 'Tyranny', 'Zealotry', 'Blight', 'Savagery', 'Greed'];
+// Polarity-based tag constants (now dynamic from tag config)
+function getLightTags() {
+  if (window.TAG_CONFIG_MANAGER && window.TAG_CONFIG_MANAGER.initialized) {
+    return window.TAG_CONFIG_MANAGER.getTagsByPolarity('Light');
+  }
+  return ['Knowledge', 'Justice', 'Righteousness', 'Nature', 'Martial', 'Wealth'];
+}
+
+function getShadowTags() {
+  if (window.TAG_CONFIG_MANAGER && window.TAG_CONFIG_MANAGER.initialized) {
+    return window.TAG_CONFIG_MANAGER.getTagsByPolarity('Shadow');
+  }
+  return ['Deceit', 'Tyranny', 'Zealotry', 'Blight', 'Savagery', 'Greed'];
+}
+
+// Maintain backward compatibility
+const LIGHT_TAGS = getLightTags();
+const SHADOW_TAGS = getShadowTags();
 
 class CardManager {
   constructor() {

@@ -369,6 +369,13 @@
 
   <!-- Load modules -->
   <script src="config.js"></script>
+  <script src="../shared/tagConfig.js"></script>
+  <script>
+    // Initialize tag config manager
+    if (window.TAG_CONFIG_MANAGER) {
+      window.TAG_CONFIG_MANAGER.init().catch(err => console.warn('Tag config init failed:', err));
+    }
+  </script>
   <script src="dataLoader.js"></script>
   <script src="csvImporter.js"></script>
   <script src="cardManager.js"></script>

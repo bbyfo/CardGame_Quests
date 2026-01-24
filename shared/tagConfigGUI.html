@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tag Configuration Settings</title>
+  <link rel="stylesheet" href="../CardGame_QuestGenerator/base.css">
+  <link rel="stylesheet" href="../CardGame_QuestGenerator/nav.css">
+  <link rel="stylesheet" href="tagConfigGUI.css">
+</head>
+<body class="loading">
+  <!-- Navigation -->
+  <div id="nav-container"></div>
+
+  <!-- Main Content -->
+  <div class="container">
+    <header>
+      <h1>🎨 Tag Configuration Settings</h1>
+      <p>Customize colors and icons for all tag types</p>
+    </header>
+
+    <main>
+      <!-- Toolbar -->
+      <div class="toolbar">
+        <div class="search-box">
+          <input type="text" id="search-tags" placeholder="Search tags..." />
+        </div>
+        <div class="toolbar-actions">
+          <button id="reset-btn" class="btn btn-secondary">🔄 Reset to Defaults</button>
+          <button id="export-btn" class="btn btn-secondary">📥 Export JSON</button>
+          <button id="import-btn" class="btn btn-secondary">📤 Import JSON</button>
+          <button id="save-btn" class="btn btn-primary">💾 Save Changes</button>
+        </div>
+      </div>
+
+      <!-- Filter Status -->
+      <div id="filter-status">Showing all tags</div>
+
+      <!-- Polarity Section -->
+      <section class="config-section">
+        <h2>Polarity Tags</h2>
+        <div id="polarity-tags" class="tag-grid">
+          <!-- Polarity tags will be rendered here -->
+        </div>
+      </section>
+
+      <!-- TypeTags Section -->
+      <section class="config-section">
+        <h2>Type Tags (Light/Shadow Pairs)</h2>
+        <div id="type-tags" class="tag-pairs">
+          <!-- TypeTag pairs will be rendered here -->
+        </div>
+        <button id="add-type-pair-btn" class="btn btn-secondary btn-small">➕ Add New Type Pair</button>
+      </section>
+
+      <!-- AspectTags Section -->
+      <section class="config-section">
+        <h2>Aspect Tags</h2>
+        <p class="section-note">AspectTags use default styling unless customized below</p>
+        <div id="aspect-tags" class="tag-grid">
+          <!-- AspectTag configs will be rendered here -->
+        </div>
+        <button id="add-aspect-btn" class="btn btn-secondary btn-small">➕ Add New Aspect Tag</button>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Card Game Apps | Tag Configuration v1.0</p>
+    </footer>
+  </div>
+
+  <!-- Loading Spinner -->
+  <div class="loading-spinner">
+    <div class="spinner-icon"></div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="../CardGame_QuestGenerator/config.js"></script>
+  <script src="tagConfig.js"></script>
+  <script src="tagConfigGUI.js"></script>
+  <script src="../CardGame_QuestGenerator/navLoader.js"></script>
+</body>
+</html>
