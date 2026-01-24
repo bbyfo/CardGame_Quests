@@ -11,12 +11,3 @@
     # envVars:
     #   - key: DATABASE_URL
     #     sync: false
-  
-  - type: static
-    name: cardgame-monster-builder
-    branch: main
-    rootDir: CardGame_MonsterBuilder
-    buildCommand: echo "No build needed for static site"
-    staticPublishPath: .
-    # Change to type: web with Node.js if Monster Builder is also a Node app
-    autoDeploy: true
