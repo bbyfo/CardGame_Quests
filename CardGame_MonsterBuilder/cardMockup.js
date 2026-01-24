@@ -317,6 +317,7 @@ class CardMockup {
   setupIconArrayDragDrop() {
     // Make icon array fields drop zones
     document.querySelectorAll('.icon-array-field').forEach(field => {
+      // Desktop drag events
       field.addEventListener('dragover', (e) => {
         e.preventDefault();
         field.classList.add('drag-over');
@@ -337,6 +338,17 @@ class CardMockup {
         
         // Validate icon type matches field
         if (iconType === expectedType) {
+          this.addIconToArray(fieldName, iconCode);
+        }
+      });
+
+      // Mobile touch event (custom event from IconPalette)
+      field.addEventListener('icon-drop', (e) => {
+        const { iconCode, iconType, fieldName } = e.detail;
+        const expectedType = field.dataset.iconType;
+        
+        // Validate icon type matches field
+        if (iconType === expectedType && fieldName === field.dataset.field) {
           this.addIconToArray(fieldName, iconCode);
         }
       });

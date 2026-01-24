@@ -360,8 +360,18 @@
 }
 
 .icon-array-field.drag-over {
-  border-color: #667eea;
-  background: #e7f1ff;
+  background: #e3f2fd;
+  border-color: #2196f3;
+  border-width: 3px;
+  box-shadow: 0 0 20px rgba(33, 150, 243, 0.3);
+}
+
+.icon-array-field.drag-over-active {
+  background: #c8e6c9;
+  border-color: #4caf50;
+  border-width: 3px;
+  transform: scale(1.02);
+  box-shadow: 0 0 20px rgba(76, 175, 80, 0.5);
 }
 
 .icon-array-label {
