@@ -19,14 +19,14 @@
       <p>Design your monster card</p>
     </header>
 
-    <main style="flex: 1; display: grid; grid-template-columns: min-content 1fr; gap: 2rem; padding: 2rem;">
+    <main class="builder-main">
       <!-- Left Side: Icon Palette -->
-      <div id="icon-palette" style="position: sticky; top: 20px; align-self: start; max-height: calc(100vh - 40px); overflow-y: auto;">
-        <div style="margin-bottom: 1rem;">
+      <div id="icon-palette">
+        <div id="builder-actions">
           <button id="back-btn" class="btn btn-secondary">
             ← Back to List
           </button>
-          <button id="save-monster-btn" class="btn btn-primary" style="margin-left: 0.5rem;">
+          <button id="save-monster-btn" class="btn btn-primary">
             💾 Save Monster
           </button>
         </div>
@@ -39,15 +39,15 @@
       </div>
 
       <!-- Right Side: Card Mockup -->
-      <div style="overflow-y: auto;">
+      <div id="card-preview">
         <div id="card-mockup-container">
           <!-- Card mockup will be rendered here -->
         </div>
       </div>
 
-              <div style="grid-column: 1 / -1; margin-top: 2rem; background: white; border-radius: 8px; padding: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-          <h3 style="margin-bottom: 1rem;">💡 Tips</h3>
-          <ul style="padding-left: 1.5rem; line-height: 1.8;">
+      <div id="builder-tips">
+        <h3>💡 Tips</h3>
+        <ul>
             <li>Drag cost and harm icons onto the card fields</li>
             <li>Click the monster name to edit it</li>
             <li>Click polarity to cycle between Light and Shadow</li>
@@ -104,18 +104,5 @@
       }
     });
   </script>
-
-  <style>
-    /* Responsive layout */
-    @media (max-width: 1024px) {
-      main {
-        /* grid-template-columns: 1fr !important; */
-      }
-      
-      #card-mockup-container {
-        order: -1; /* Show card first on mobile */
-      }
-    }
-  </style>
 </body>
 </html>
