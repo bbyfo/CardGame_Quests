@@ -77,7 +77,9 @@ class BottomSheet {
     const cancelBtn = sheet.querySelector('[data-action="cancel"]');
     if (cancelBtn) {
       cancelBtn.addEventListener('click', () => {
-        this.onCancel();
+        if (typeof this.onCancel === 'function') {
+          this.onCancel();
+        }
         this.close();
       });
     }
@@ -85,7 +87,9 @@ class BottomSheet {
     const saveBtn = sheet.querySelector('[data-action="save"]');
     if (saveBtn) {
       saveBtn.addEventListener('click', () => {
-        this.onSave();
+        if (typeof this.onSave === 'function') {
+          this.onSave();
+        }
         this.close();
       });
     }

@@ -301,76 +301,88 @@ class MonsterManager {
    * Open bottom sheet for specific field
    */
   openSheetForField(fieldName) {
-    let sheet = null;
+    const self = this;
 
     switch (fieldName) {
-      case 'TypeTags':
-        sheet = new TagSelectorSheet('TypeTags', this.currentMonster.TypeTags, this.currentMonster.Polarity);
-        sheet.onSave = () => {
-          this.updateField('TypeTags', sheet.getTags());
-          this.cardMockup.loadMonster(this.currentMonster);
+      case 'TypeTags': {
+        const sheet = new TagSelectorSheet('TypeTags', this.currentMonster.TypeTags, this.currentMonster.Polarity);
+        sheet.onSave = function() {
+          self.updateField('TypeTags', sheet.getTags());
+          self.cardMockup.loadMonster(self.currentMonster);
         };
+        sheet.open();
         break;
+      }
 
-      case 'AspectTags':
-        sheet = new TagSelectorSheet('AspectTags', this.currentMonster.AspectTags);
-        sheet.onSave = () => {
-          this.updateField('AspectTags', sheet.getTags());
-          this.cardMockup.loadMonster(this.currentMonster);
+      case 'AspectTags': {
+        const sheet = new TagSelectorSheet('AspectTags', this.currentMonster.AspectTags);
+        sheet.onSave = function() {
+          self.updateField('AspectTags', sheet.getTags());
+          self.cardMockup.loadMonster(self.currentMonster);
         };
+        sheet.open();
         break;
+      }
 
-      case 'CardImage':
-        sheet = new ImagePickerSheet(this.currentMonster.CardImage);
-        sheet.onSave = () => {
-          this.updateField('CardImage', sheet.getImageUrl() || null);
-          this.cardMockup.loadMonster(this.currentMonster);
+      case 'CardImage': {
+        const sheet = new ImagePickerSheet(this.currentMonster.CardImage);
+        sheet.onSave = function() {
+          self.updateField('CardImage', sheet.getImageUrl() || null);
+          self.cardMockup.loadMonster(self.currentMonster);
         };
+        sheet.open();
         break;
+      }
 
-      case 'Habitat':
-        sheet = new HabitatSelectorSheet(this.currentMonster.Habitat || []);
-        sheet.onSave = () => {
-          this.updateField('Habitat', sheet.getHabitats());
-          this.cardMockup.loadMonster(this.currentMonster);
+      case 'Habitat': {
+        const sheet = new HabitatSelectorSheet(this.currentMonster.Habitat || []);
+        sheet.onSave = function() {
+          self.updateField('Habitat', sheet.getHabitats());
+          self.cardMockup.loadMonster(self.currentMonster);
         };
+        sheet.open();
         break;
+      }
 
-      case 'DesignerNotes':
-        sheet = new NotesEditorSheet(this.currentMonster.DesignerNotes);
-        sheet.onSave = () => {
-          this.updateField('DesignerNotes', sheet.getNotes() || null);
-          this.cardMockup.loadMonster(this.currentMonster);
+      case 'DesignerNotes': {
+        const sheet = new NotesEditorSheet(this.currentMonster.DesignerNotes);
+        sheet.onSave = function() {
+          self.updateField('DesignerNotes', sheet.getNotes() || null);
+          self.cardMockup.loadMonster(self.currentMonster);
         };
+        sheet.open();
         break;
+      }
 
-      case 'FlavorText':
-        sheet = new FlavorTextSheet(this.currentMonster.FlavorText);
-        sheet.onSave = () => {
-          this.updateField('FlavorText', sheet.getFlavorText() || null);
-          this.cardMockup.loadMonster(this.currentMonster);
+      case 'FlavorText': {
+        const sheet = new FlavorTextSheet(this.currentMonster.FlavorText);
+        sheet.onSave = function() {
+          self.updateField('FlavorText', sheet.getFlavorText() || null);
+          self.cardMockup.loadMonster(self.currentMonster);
         };
+        sheet.open();
         break;
+      }
 
-      case 'SpecialAbilities':
-        sheet = new SpecialAbilitiesSheet(this.currentMonster.SpecialAbilities || []);
-        sheet.onSave = () => {
-          this.updateField('SpecialAbilities', sheet.getAbilities());
-          this.cardMockup.loadMonster(this.currentMonster);
+      case 'SpecialAbilities': {
+        const sheet = new SpecialAbilitiesSheet(this.currentMonster.SpecialAbilities || []);
+        sheet.onSave = function() {
+          self.updateField('SpecialAbilities', sheet.getAbilities());
+          self.cardMockup.loadMonster(self.currentMonster);
         };
+        sheet.open();
         break;
+      }
 
-      case 'Instructions':
-        sheet = new InstructionEditorSheet(this.currentMonster.Instructions || []);
-        sheet.onSave = () => {
-          this.updateField('Instructions', sheet.getInstructions());
-          this.cardMockup.loadMonster(this.currentMonster);
+      case 'Instructions': {
+        const sheet = new InstructionEditorSheet(this.currentMonster.Instructions || []);
+        sheet.onSave = function() {
+          self.updateField('Instructions', sheet.getInstructions());
+          self.cardMockup.loadMonster(self.currentMonster);
         };
+        sheet.open();
         break;
-    }
-
-    if (sheet) {
-      sheet.open();
+      }
     }
   }
 
