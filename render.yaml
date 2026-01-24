@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: "CardGame Quest Generator"
+    env: node
+    plan: free
+    branch: main
+    root: CardGame_QuestGenerator
+    buildCommand: npm install
+    startCommand: npm start
+    autoDeploy: true
+    # Add envVars: if you need to set database URLs, secrets, etc.
+    # envVars:
+    #   - key: DATABASE_URL
+    #     sync: false
+
+# If you want a separate static site service for the Monster Builder,
+# add another service block here with `type: static` or configure it
+# in the Render UI. I can add that for you if you want.
