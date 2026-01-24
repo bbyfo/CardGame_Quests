@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monster Builder - Monster List</title>
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="nav.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="loading">
+  <!-- Navigation -->
+  <div id="nav-container"></div>
+
+  <!-- Main Content -->
+  <div class="container">
+    <header>
+      <h1>👾 Monster Builder</h1>
+      <p>Create and manage monster cards for your board game</p>
+    </header>
+
+    <main style="flex: 1; padding: 2rem; overflow-y: auto;">
+      <!-- Toolbar -->
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem;">
+        <div>
+          <button id="new-monster-btn" class="btn btn-primary btn-large">
+            ➕ New Monster
+          </button>
+        </div>
+        <div style="display: flex; gap: 0.5rem;">
+          <button id="export-btn" class="btn btn-secondary">
+            📥 Export JSON
+          </button>
+          <button id="import-btn" class="btn btn-secondary">
+            📤 Import JSON
+          </button>
+        </div>
+      </div>
+
+      <!-- Statistics -->
+      <div id="stats-container" style="margin-bottom: 2rem;">
+        <!-- Stats will be rendered here -->
+      </div>
+
+      <!-- Monster List -->
+      <div id="monster-list">
+        <!-- Monster cards will be rendered here -->
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Card Game Apps | Monster Builder v1.0</p>
+    </footer>
+  </div>
+
+  <!-- Loading Spinner -->
+  <div class="loading-spinner">
+    <div class="spinner-icon"></div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="config.js"></script>
+  <script src="config-monsters.js"></script>
+  <script src="monster-schema.js"></script>
+  <script src="ui-schema.js"></script>
+  <script src="dataLoader.js"></script>
+  <script src="monsterManager.js"></script>
+  <script src="navLoader.js"></script>
+
+  <script>
+    // Initialize Monster Manager and UI
+    let monsterManager;
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      try {
+        monsterManager = new MonsterManager();
+        await monsterManager.init();
+        monsterManager.initListUI();
+
+        // Render statistics
+        renderStats();
+      } catch (error) {
+        console.error('Initialization error:', error);
+        document.getElementById('monster-list').innerHTML = `
+          <div style="text-align: center; padding: 2rem; color: #e74c3c;">
+            <p>Error loading monsters: ${error.message}</p>
+          </div>
+        `;
+      }
+    });
+
+    function renderStats() {
+      const stats = monsterManager.getStatistics();
+      const container = document.getElementById('stats-container');
+      
+      container.innerHTML = `
+        <div style="background: white; border-radius: 8px; padding: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+          <h2 style="margin-bottom: 1rem;">📊 Statistics</h2>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem;">
+            <div>
+              <div style="font-size: 2rem; font-weight: bold; color: #667eea;">${stats.total}</div>
+              <div style="color: #6c757d;">Total Monsters</div>
+            </div>
+            <div>
+              <div style="font-size: 2rem; font-weight: bold; color: #f39c12;">${stats.byPolarity.Light}</div>
+              <div style="color: #6c757d;">Light</div>
+            </div>
+            <div>
+              <div style="font-size: 2rem; font-weight: bold; color: #8e44ad;">${stats.byPolarity.Shadow}</div>
+              <div style="color: #6c757d;">Shadow</div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+  </script>
+</body>
+</html>

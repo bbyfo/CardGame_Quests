@@ -1,0 +1,779 @@
+/**
+ * styles.css
+ * Monster Builder specific styles
+ * Icons, card mockup, bottom sheets, drag-and-drop
+ */
+
+/* ============================================
+   ICON STYLES - Cost, Harm, Strategy
+   ============================================ */
+
+/* Base icon style */
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: 18px;
+  transition: transform 0.2s;
+  user-select: none;
+}
+
+.icon.draggable {
+  cursor: grab;
+}
+
+.icon.draggable:active {
+  cursor: grabbing;
+}
+
+/* Cost Icons */
+.icon-cost-red {
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  color: white;
+}
+
+.icon-cost-red::before {
+  content: '🗡️';
+}
+
+.icon-cost-green {
+  background: linear-gradient(135deg, #27ae60, #229954);
+  color: white;
+}
+
+.icon-cost-green::before {
+  content: '🌿';
+}
+
+.icon-cost-blue {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  color: white;
+}
+
+.icon-cost-blue::before {
+  content: '💙';
+}
+
+.icon-cost-yellow {
+  background: linear-gradient(135deg, #f1c40f, #f39c12);
+  color: white;
+}
+
+.icon-cost-yellow::before {
+  content: '☀️';
+}
+
+.icon-cost-purple {
+  background: linear-gradient(135deg, #9b59b6, #8e44ad);
+  color: white;
+}
+
+.icon-cost-purple::before {
+  content: '🔮';
+}
+
+.icon-cost-iron {
+  background: linear-gradient(135deg, #95a5a6, #7f8c8d);
+  color: white;
+}
+
+.icon-cost-iron::before {
+  content: '⚙️';
+}
+
+.icon-cost-gold {
+  background: linear-gradient(135deg, #f39c12, #e67e22);
+  color: white;
+}
+
+.icon-cost-gold::before {
+  content: '💰';
+}
+
+.icon-cost-any {
+  background: linear-gradient(135deg, #ecf0f1, #bdc3c7);
+  color: #2c3e50;
+}
+
+.icon-cost-any::before {
+  content: '⚪';
+}
+
+/* Harm Icons */
+.icon-harm-wound {
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  color: white;
+}
+
+.icon-harm-wound::before {
+  content: '💔';
+}
+
+.icon-harm-exhausted {
+  background: linear-gradient(135deg, #f39c12, #e67e22);
+  color: white;
+}
+
+.icon-harm-exhausted::before {
+  content: '😓';
+}
+
+.icon-harm-dazed {
+  background: linear-gradient(135deg, #95a5a6, #7f8c8d);
+  color: white;
+}
+
+.icon-harm-dazed::before {
+  content: '😵';
+}
+
+.icon-harm-poisoned {
+  background: linear-gradient(135deg, #16a085, #138f75);
+  color: white;
+}
+
+.icon-harm-poisoned::before {
+  content: '☠️';
+}
+
+.icon-harm-cursed {
+  background: linear-gradient(135deg, #8e44ad, #6c3483);
+  color: white;
+}
+
+.icon-harm-cursed::before {
+  content: '👿';
+}
+
+.icon-harm-stunned {
+  background: linear-gradient(135deg, #f1c40f, #f39c12);
+  color: white;
+}
+
+.icon-harm-stunned::before {
+  content: '⚡';
+}
+
+.icon-harm-burned {
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  color: white;
+}
+
+.icon-harm-burned::before {
+  content: '🔥';
+}
+
+.icon-harm-frozen {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  color: white;
+}
+
+.icon-harm-frozen::before {
+  content: '❄️';
+}
+
+.icon-harm-bleeding {
+  background: linear-gradient(135deg, #c0392b, #922b21);
+  color: white;
+}
+
+.icon-harm-bleeding::before {
+  content: '🩸';
+}
+
+.icon-harm-scared {
+  background: linear-gradient(135deg, #95a5a6, #7f8c8d);
+  color: white;
+}
+
+.icon-harm-scared::before {
+  content: '😱';
+}
+
+/* Strategy Icons */
+.icon-strategy-stationary::before { content: '🚫'; }
+.icon-strategy-patrol::before { content: '🚶'; }
+.icon-strategy-chase::before { content: '🏃'; }
+.icon-strategy-flee::before { content: '🏃‍♂️'; }
+.icon-strategy-teleport::before { content: '✨'; }
+.icon-strategy-swarm::before { content: '👥'; }
+.icon-strategy-guard::before { content: '🛡️'; }
+.icon-strategy-random::before { content: '🎲'; }
+
+/* ============================================
+   CARD MOCKUP STYLES
+   ============================================ */
+
+.card-mockup-container {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.card-mockup {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  padding: 1.5rem;
+  border: 3px solid #2c3e50;
+  position: relative;
+}
+
+.card-mockup.frame-light {
+  border-color: #f39c12;
+  background: linear-gradient(135deg, #fff9e6 0%, white 20%);
+}
+
+.card-mockup.frame-shadow {
+  border-color: #8e44ad;
+  background: linear-gradient(135deg, #f4ecf7 0%, white 20%);
+}
+
+.card-mockup.frame-elite {
+  border-color: #e74c3c;
+  border-width: 4px;
+}
+
+.card-mockup.frame-boss {
+  border-color: #c0392b;
+  border-width: 5px;
+  box-shadow: 0 8px 32px rgba(192, 57, 43, 0.4);
+}
+
+.card-header {
+  text-align: center;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #ecf0f1;
+}
+
+.card-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #2c3e50;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.card-name:hover {
+  background: #ecf0f1;
+}
+
+.card-polarity {
+  display: inline-block;
+  margin-top: 0.25rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.card-polarity:hover {
+  transform: scale(1.05);
+}
+
+.card-polarity.Light {
+  background: linear-gradient(135deg, #f39c12, #f1c40f);
+  color: white;
+}
+
+.card-polarity.Shadow {
+  background: linear-gradient(135deg, #8e44ad, #9b59b6);
+  color: white;
+}
+
+.card-image {
+  width: 100%;
+  height: 150px;
+  background: #ecf0f1;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.card-image:hover {
+  opacity: 0.8;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-image.placeholder {
+  color: #95a5a6;
+  font-size: 0.9rem;
+}
+
+.card-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.stat-field {
+  background: #f8f9fa;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #dee2e6;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: #6c757d;
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.stat-value {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+/* Icon array fields on card */
+.icon-array-field {
+  background: #f8f9fa;
+  padding: 0.75rem;
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+  border: 2px dashed #dee2e6;
+  min-height: 60px;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.icon-array-field.drag-over {
+  border-color: #667eea;
+  background: #e7f1ff;
+}
+
+.icon-array-label {
+  font-size: 0.75rem;
+  color: #6c757d;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.icon-array-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  min-height: 32px;
+}
+
+.icon-array-content .icon {
+  position: relative;
+}
+
+.icon-array-content .icon .remove-icon {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  width: 16px;
+  height: 16px;
+  background: #e74c3c;
+  color: white;
+  border-radius: 50%;
+  font-size: 10px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.icon-array-content .icon:hover .remove-icon {
+  display: flex;
+}
+
+/* Numeric stepper */
+.numeric-stepper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.numeric-stepper button {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #dee2e6;
+  background: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+.numeric-stepper button:hover {
+  background: #e7f1ff;
+}
+
+.numeric-stepper button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.numeric-stepper .value {
+  min-width: 40px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Enum cycler */
+.enum-cycler {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: white;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.enum-cycler:hover {
+  background: #e7f1ff;
+}
+
+.enum-cycler .icon {
+  width: 24px;
+  height: 24px;
+  font-size: 16px;
+}
+
+.enum-cycler .label {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* Tags display */
+.card-tags {
+  margin-bottom: 1rem;
+}
+
+.tag-group {
+  margin-bottom: 0.5rem;
+}
+
+.tag-group-label {
+  font-size: 0.75rem;
+  color: #6c757d;
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: background 0.2s;
+  min-height: 32px;
+}
+
+.tag-list:hover {
+  background: #ecf0f1;
+}
+
+.tag {
+  padding: 0.25rem 0.75rem;
+  background: #34495e;
+  color: white;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.tag.light {
+  background: linear-gradient(135deg, #f39c12, #e67e22);
+}
+
+.tag.shadow {
+  background: linear-gradient(135deg, #8e44ad, #6c3483);
+}
+
+/* ============================================
+   ICON PALETTE (Drag Source)
+   ============================================ */
+
+.icon-palette {
+  background: white;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+}
+
+.icon-palette h3 {
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+  color: #2c3e50;
+}
+
+.icon-palette-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+  gap: 0.5rem;
+}
+
+.icon-palette .icon {
+  cursor: grab;
+}
+
+.icon-palette .icon:active {
+  cursor: grabbing;
+}
+
+/* ============================================
+   BOTTOM SHEET STYLES
+   ============================================ */
+
+.sheet-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 999;
+}
+
+.sheet-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.bottom-sheet {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-height: 80vh;
+  background: white;
+  border-radius: 16px 16px 0 0;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+  z-index: 1000;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.bottom-sheet.active {
+  transform: translateY(0);
+}
+
+.sheet-handle {
+  width: 40px;
+  height: 4px;
+  background: #ccc;
+  border-radius: 2px;
+  margin: 12px auto;
+  flex-shrink: 0;
+}
+
+.sheet-header {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #dee2e6;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.sheet-header h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #2c3e50;
+}
+
+.sheet-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #6c757d;
+  cursor: pointer;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.sheet-close:hover {
+  background: #f8f9fa;
+}
+
+.sheet-content {
+  padding: 1.5rem;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.sheet-footer {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid #dee2e6;
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
+  flex-shrink: 0;
+}
+
+/* Desktop: center as modal */
+@media (min-width: 768px) {
+  .bottom-sheet {
+    left: 50%;
+    bottom: 50%;
+    transform: translate(-50%, 50%) translateY(100%);
+    max-width: 600px;
+    max-height: 80vh;
+    border-radius: 16px;
+  }
+  
+  .bottom-sheet.active {
+    transform: translate(-50%, 50%) translateY(0);
+  }
+}
+
+/* ============================================
+   MONSTER LIST STYLES
+   ============================================ */
+
+.monster-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+.monster-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: 2px solid transparent;
+}
+
+.monster-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.monster-card h3 {
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+}
+
+.monster-card .polarity-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.monster-card .polarity-badge.Light {
+  background: #f39c12;
+  color: white;
+}
+
+.monster-card .polarity-badge.Shadow {
+  background: #8e44ad;
+  color: white;
+}
+
+.monster-card .tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin-top: 0.5rem;
+}
+
+.monster-card .tags .tag {
+  font-size: 0.75rem;
+  padding: 0.2rem 0.5rem;
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+.hidden {
+  display: none !important;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
+
+.p-1 { padding: 0.5rem; }
+.p-2 { padding: 1rem; }
+.p-3 { padding: 1.5rem; }
+
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.flex-row { flex-direction: row; }
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+.gap-1 { gap: 0.5rem; }
+.gap-2 { gap: 1rem; }
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================ */
+
+@media (max-width: 768px) {
+  .card-mockup-container {
+    max-width: 100%;
+    padding: 0.5rem;
+  }
+
+  .card-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .icon-palette-grid {
+    grid-template-columns: repeat(auto-fill, minmax(36px, 1fr));
+  }
+
+  .monster-grid {
+    grid-template-columns: 1fr;
+  }
+}

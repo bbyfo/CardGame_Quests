@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monster Builder - Edit Monster</title>
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="nav.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="loading">
+  <!-- Navigation -->
+  <div id="nav-container"></div>
+
+  <!-- Main Content -->
+  <div class="container">
+    <header>
+      <h1>🎨 Monster Builder</h1>
+      <p>Design your monster card</p>
+    </header>
+
+    <main style="flex: 1; display: grid; grid-template-columns: 1fr 400px; gap: 2rem; padding: 2rem; overflow: hidden;">
+      <!-- Left Side: Icon Palette -->
+      <div style="overflow-y: auto;">
+        <div style="margin-bottom: 1rem;">
+          <button id="back-btn" class="btn btn-secondary">
+            ← Back to List
+          </button>
+          <button id="save-monster-btn" class="btn btn-primary" style="margin-left: 0.5rem;">
+            💾 Save Monster
+          </button>
+        </div>
+
+        <div id="icon-palette-container">
+          <!-- Icon palette will be rendered here -->
+        </div>
+
+        <div style="margin-top: 2rem; background: white; border-radius: 8px; padding: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+          <h3 style="margin-bottom: 1rem;">💡 Tips</h3>
+          <ul style="padding-left: 1.5rem; line-height: 1.8;">
+            <li>Drag cost and harm icons onto the card fields</li>
+            <li>Click the monster name to edit it</li>
+            <li>Click polarity to cycle between Light and Shadow</li>
+            <li>Use +/− buttons to adjust numeric values</li>
+            <li>Click tags, habitat, and other buttons to open editors</li>
+            <li>Changes auto-save after 1 second</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Right Side: Card Mockup -->
+      <div style="overflow-y: auto;">
+        <div id="card-mockup-container">
+          <!-- Card mockup will be rendered here -->
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Card Game Apps | Monster Builder v1.0</p>
+    </footer>
+  </div>
+
+  <!-- Loading Spinner -->
+  <div class="loading-spinner">
+    <div class="spinner-icon"></div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="config.js"></script>
+  <script src="config-monsters.js"></script>
+  <script src="monster-schema.js"></script>
+  <script src="ui-schema.js"></script>
+  <script src="dataLoader.js"></script>
+  <script src="cardMockup.js"></script>
+  <script src="components/IconPalette.js"></script>
+  <script src="components/BottomSheet.js"></script>
+  <script src="components/sheets.js"></script>
+  <script src="monsterManager.js"></script>
+  <script src="navLoader.js"></script>
+
+  <script>
+    // Initialize Monster Manager and Builder UI
+    let monsterManager;
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      try {
+        // Get monster ID from URL if editing existing
+        const urlParams = new URLSearchParams(window.location.search);
+        const monsterId = urlParams.get('id');
+
+        // Initialize manager
+        monsterManager = new MonsterManager();
+        await monsterManager.init();
+        
+        // Initialize builder UI
+        monsterManager.initBuilderUI(monsterId);
+      } catch (error) {
+        console.error('Initialization error:', error);
+        alert(`Error: ${error.message}`);
+      }
+    });
+  </script>
+
+  <style>
+    /* Responsive layout */
+    @media (max-width: 1024px) {
+      main {
+        grid-template-columns: 1fr !important;
+      }
+      
+      #card-mockup-container {
+        order: -1; /* Show card first on mobile */
+      }
+    }
+  </style>
+</body>
+</html>

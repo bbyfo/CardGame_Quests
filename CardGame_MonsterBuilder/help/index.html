@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monster Builder - Help</title>
+  <link rel="stylesheet" href="../base.css">
+  <link rel="stylesheet" href="../nav.css">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body class="loading">
+  <!-- Navigation -->
+  <div id="nav-container"></div>
+
+  <!-- Main Content -->
+  <div class="container">
+    <header>
+      <h1>📚 Monster Builder Help</h1>
+      <p>Documentation and guides</p>
+    </header>
+
+    <main style="flex: 1; padding: 2rem; overflow-y: auto;">
+      <section>
+        <h2>🎯 Getting Started</h2>
+        <p>Monster Builder is a card-first UI for creating monster cards for your board game.</p>
+        
+        <h3>Quick Start</h3>
+        <ol>
+          <li>Click "New Monster" to create a new monster card</li>
+          <li>Edit the name by clicking on it</li>
+          <li>Drag cost and harm icons from the palette onto the card</li>
+          <li>Click buttons to open editors for complex fields</li>
+          <li>Changes auto-save after 1 second</li>
+        </ol>
+      </section>
+
+      <section>
+        <h2>🎴 Monster Card Fields</h2>
+        
+        <h3>Core Identity</h3>
+        <ul>
+          <li><strong>Name</strong>: Monster display name</li>
+          <li><strong>Polarity</strong>: Light or Shadow alignment</li>
+          <li><strong>Type Tags</strong>: Core identity (must match polarity)</li>
+          <li><strong>Aspect Tags</strong>: Secondary creature types</li>
+        </ul>
+
+        <h3>Combat Stats</h3>
+        <ul>
+          <li><strong>Block Cost</strong>: Icons needed to encounter/block</li>
+          <li><strong>To Vanquish</strong>: Icons needed to defeat</li>
+          <li><strong>On Hit</strong>: Harm effects when monster attacks</li>
+          <li><strong>Move Distance</strong>: How far monster can move</li>
+          <li><strong>Attack Range</strong>: How far monster can attack</li>
+        </ul>
+
+        <h3>Behavior</h3>
+        <ul>
+          <li><strong>Move Strategy</strong>: Movement pattern (chase, patrol, etc.)</li>
+          <li><strong>Habitat</strong>: Biomes where monster appears</li>
+          <li><strong>Special Abilities</strong>: Unique monster powers</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>🎨 Icon Types</h2>
+        
+        <h3>Cost Icons</h3>
+        <ul>
+          <li>Red: Physical/Martial</li>
+          <li>Green: Nature</li>
+          <li>Blue: Magic/Arcane</li>
+          <li>Yellow: Light/Holy</li>
+          <li>Purple: Shadow/Curse</li>
+          <li>Iron: Equipment/Tech</li>
+          <li>Gold: Wealth</li>
+          <li>Any: Wildcard</li>
+        </ul>
+
+        <h3>Harm Icons</h3>
+        <ul>
+          <li>Wound: Physical damage</li>
+          <li>Exhausted: Fatigue</li>
+          <li>Dazed: Confusion</li>
+          <li>Poisoned: Ongoing damage</li>
+          <li>Cursed: Negative status</li>
+          <li>Stunned: Can't act</li>
+          <li>Burned: Fire damage</li>
+          <li>Frozen: Cold/slow</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>🔧 Tips & Tricks</h2>
+        <ul>
+          <li>Use auto-save: Changes save automatically after 1 second of inactivity</li>
+          <li>Export regularly: Download JSON backups of your monsters</li>
+          <li>TypeTags are polarity-restricted: Light monsters can only have Light tags</li>
+          <li>Use descriptive names: Make monsters easy to find in the list</li>
+          <li>Add designer notes: Document balance decisions and playtesting feedback</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>❓ Troubleshooting</h2>
+        
+        <h3>Monster won't save</h3>
+        <p>Check that:</p>
+        <ul>
+          <li>Monster has a name</li>
+          <li>TypeTags match the Polarity</li>
+          <li>Numeric values are within valid ranges (0-20)</li>
+        </ul>
+
+        <h3>Server offline warning</h3>
+        <p>The app will use localStorage as a fallback. Data is still saved locally but won't sync to the server.</p>
+
+        <h3>Drag and drop not working</h3>
+        <p>Make sure you're dragging icons onto the correct fields (cost icons on cost fields, harm icons on harm fields).</p>
+      </section>
+
+      <section>
+        <h2>🔗 Related Apps</h2>
+        <ul>
+          <li><a href="../../CardGame_QuestGenerator/index.html">Quest Generator</a>: Generate quests using monster cards</li>
+          <li><a href="../../CardGame_QuestGenerator/cardManager.html">Card Manager</a>: Manage all card types</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Card Game Apps | Monster Builder v1.0</p>
+    </footer>
+  </div>
+
+  <!-- Scripts -->
+  <script src="../navLoader.js"></script>
+</body>
+</html>

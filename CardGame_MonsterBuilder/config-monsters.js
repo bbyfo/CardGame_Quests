@@ -1,0 +1,273 @@
+/**
+ * config-monsters.js
+ * Monster-specific configuration: icons, enums, CSS class mappings
+ * All dynamic lists for data-driven UI
+ */
+
+const MONSTER_CONFIG = {
+  // Cost Icon Types with CSS class mappings
+  COST_TYPES: {
+    red: {
+      code: 'red',
+      label: 'Red (Physical)',
+      cssClass: 'icon-cost-red',
+      symbol: '🗡️'
+    },
+    green: {
+      code: 'green',
+      label: 'Green (Nature)',
+      cssClass: 'icon-cost-green',
+      symbol: '🌿'
+    },
+    blue: {
+      code: 'blue',
+      label: 'Blue (Magic)',
+      cssClass: 'icon-cost-blue',
+      symbol: '💙'
+    },
+    yellow: {
+      code: 'yellow',
+      label: 'Yellow (Light)',
+      cssClass: 'icon-cost-yellow',
+      symbol: '☀️'
+    },
+    purple: {
+      code: 'purple',
+      label: 'Purple (Shadow)',
+      cssClass: 'icon-cost-purple',
+      symbol: '🔮'
+    },
+    iron: {
+      code: 'iron',
+      label: 'Iron (Equipment)',
+      cssClass: 'icon-cost-iron',
+      symbol: '⚙️'
+    },
+    gold: {
+      code: 'gold',
+      label: 'Gold (Wealth)',
+      cssClass: 'icon-cost-gold',
+      symbol: '💰'
+    },
+    any: {
+      code: 'any',
+      label: 'Any (Wildcard)',
+      cssClass: 'icon-cost-any',
+      symbol: '⚪'
+    }
+  },
+
+  // Harm Icon Types with CSS class mappings
+  HARM_TYPES: {
+    wound: {
+      code: 'wound',
+      label: 'Wound',
+      cssClass: 'icon-harm-wound',
+      symbol: '💔'
+    },
+    exhausted: {
+      code: 'exhausted',
+      label: 'Exhausted',
+      cssClass: 'icon-harm-exhausted',
+      symbol: '😓'
+    },
+    dazed: {
+      code: 'dazed',
+      label: 'Dazed',
+      cssClass: 'icon-harm-dazed',
+      symbol: '😵'
+    },
+    poisoned: {
+      code: 'poisoned',
+      label: 'Poisoned',
+      cssClass: 'icon-harm-poisoned',
+      symbol: '☠️'
+    },
+    cursed: {
+      code: 'cursed',
+      label: 'Cursed',
+      cssClass: 'icon-harm-cursed',
+      symbol: '👿'
+    },
+    stunned: {
+      code: 'stunned',
+      label: 'Stunned',
+      cssClass: 'icon-harm-stunned',
+      symbol: '⚡'
+    },
+    burned: {
+      code: 'burned',
+      label: 'Burned',
+      cssClass: 'icon-harm-burned',
+      symbol: '🔥'
+    },
+    frozen: {
+      code: 'frozen',
+      label: 'Frozen',
+      cssClass: 'icon-harm-frozen',
+      symbol: '❄️'
+    },
+    bleeding: {
+      code: 'bleeding',
+      label: 'Bleeding',
+      cssClass: 'icon-harm-bleeding',
+      symbol: '🩸'
+    },
+    scared: {
+      code: 'scared',
+      label: 'Scared',
+      cssClass: 'icon-harm-scared',
+      symbol: '😱'
+    }
+  },
+
+  // Move Strategy Types with CSS class mappings
+  MOVE_STRATEGIES: {
+    stationary: {
+      code: 'stationary',
+      label: 'Stationary',
+      cssClass: 'icon-strategy-stationary',
+      symbol: '🚫',
+      description: 'Does not move'
+    },
+    patrol: {
+      code: 'patrol',
+      label: 'Patrol',
+      cssClass: 'icon-strategy-patrol',
+      symbol: '🚶',
+      description: 'Follows a fixed path'
+    },
+    chase: {
+      code: 'chase',
+      label: 'Chase',
+      cssClass: 'icon-strategy-chase',
+      symbol: '🏃',
+      description: 'Pursues nearest target'
+    },
+    flee: {
+      code: 'flee',
+      label: 'Flee',
+      cssClass: 'icon-strategy-flee',
+      symbol: '🏃‍♂️',
+      description: 'Runs away from threats'
+    },
+    teleport: {
+      code: 'teleport',
+      label: 'Teleport',
+      cssClass: 'icon-strategy-teleport',
+      symbol: '✨',
+      description: 'Instant repositioning'
+    },
+    swarm: {
+      code: 'swarm',
+      label: 'Swarm',
+      cssClass: 'icon-strategy-swarm',
+      symbol: '👥',
+      description: 'Groups with allies'
+    },
+    guard: {
+      code: 'guard',
+      label: 'Guard',
+      cssClass: 'icon-strategy-guard',
+      symbol: '🛡️',
+      description: 'Defends a specific area'
+    },
+    random: {
+      code: 'random',
+      label: 'Random',
+      cssClass: 'icon-strategy-random',
+      symbol: '🎲',
+      description: 'Unpredictable movement'
+    }
+  },
+
+  // Habitat/Biome Types
+  HABITATS: [
+    'Forest',
+    'Mountain',
+    'Swamp',
+    'Desert',
+    'Cave',
+    'Urban',
+    'Aquatic',
+    'Tundra',
+    'Volcanic',
+    'Plains',
+    'Ruins',
+    'Dungeon',
+    'Any'
+  ],
+
+  // Frame Style Types
+  FRAME_STYLES: {
+    basic: { code: 'basic', label: 'Basic', cssClass: 'frame-basic' },
+    elite: { code: 'elite', label: 'Elite', cssClass: 'frame-elite' },
+    boss: { code: 'boss', label: 'Boss', cssClass: 'frame-boss' },
+    minion: { code: 'minion', label: 'Minion', cssClass: 'frame-minion' },
+    legendary: { code: 'legendary', label: 'Legendary', cssClass: 'frame-legendary' }
+  },
+
+  // Polarity Types (from QuestGenerator)
+  POLARITY_TYPES: ['Light', 'Shadow'],
+
+  // TypeTags (Polarity-restricted, from QuestGenerator)
+  LIGHT_TAGS: ['Knowledge', 'Justice', 'Righteousness', 'Nature', 'Martial', 'Wealth'],
+  SHADOW_TAGS: ['Deceit', 'Tyranny', 'Zealotry', 'Blight', 'Savagery', 'Greed'],
+
+  // AspectTags (Secondary flavor tags)
+  ASPECT_TAGS: [
+    'Humanoid',
+    'Beast',
+    'Aberration',
+    'Demon',
+    'Spirit',
+    'Elemental',
+    'Undead',
+    'Dragon',
+    'Construct',
+    'Plant',
+    'Ooze',
+    'Giant',
+    'Fey',
+    'Celestial',
+    'Fiend'
+  ],
+
+  // Helper methods
+  getCostIcon(code) {
+    return this.COST_TYPES[code] || null;
+  },
+
+  getHarmIcon(code) {
+    return this.HARM_TYPES[code] || null;
+  },
+
+  getMoveStrategy(code) {
+    return this.MOVE_STRATEGIES[code] || null;
+  },
+
+  getFrameStyle(code) {
+    return this.FRAME_STYLES[code] || null;
+  },
+
+  // Get all cost codes as array
+  getAllCostCodes() {
+    return Object.keys(this.COST_TYPES);
+  },
+
+  // Get all harm codes as array
+  getAllHarmCodes() {
+    return Object.keys(this.HARM_TYPES);
+  },
+
+  // Get all strategy codes as array
+  getAllStrategyCodes() {
+    return Object.keys(this.MOVE_STRATEGIES);
+  },
+
+  // Validate TypeTags match Polarity
+  validateTypeTags(polarity, typeTags) {
+    const validTags = polarity === 'Light' ? this.LIGHT_TAGS : this.SHADOW_TAGS;
+    return typeTags.every(tag => validTags.includes(tag));
+  }
+};
