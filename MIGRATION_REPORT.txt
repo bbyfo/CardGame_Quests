@@ -1,0 +1,552 @@
+═══════════════════════════════════════════════════════════════
+              POLARITY MIGRATION VALIDATION REPORT
+═══════════════════════════════════════════════════════════════
+
+Total Cards Migrated: 159
+
+✓ CONFIDENT (93 cards)
+───────────────────────────────────────────────────────────────
+Cards with explicit Light/Shadow TypeTag assignments
+
+
+⚠ IFFY (66 cards)
+───────────────────────────────────────────────────────────────
+Cards inferred from context or single neutral tags
+
+Card: Battle Scripture (Loot)
+  ID: Loot-Battle Scripture-0.059338629623886585
+  Assigned Polarity: Light
+  Old TypeTags: Arcane
+  New TypeTags: Knowledge
+  AspectTags: Consumable, Magic Item
+  Reason: Default to Light (neutral TypeTags: Arcane)
+
+Card: Bear Fang Necklace (Loot)
+  ID: Loot-Bear Fang Necklace-0.08686460494703396
+  Assigned Polarity: Light
+  Old TypeTags: Arcane
+  New TypeTags: Knowledge
+  AspectTags: Jewelry, Magic Item
+  Reason: Default to Light (neutral TypeTags: Arcane)
+
+Card: Beastcleaner (Loot)
+  ID: Loot-Beastcleaner-0.5693196885822445
+  Assigned Polarity: Light
+  Old TypeTags: Arcane
+  New TypeTags: Knowledge
+  AspectTags: Tool, Magic Item
+  Reason: Default to Light (neutral TypeTags: Arcane)
+
+Card: Belt of Veracity (Loot)
+  ID: Loot-Belt of Veracity-0.32115946281755436
+  Assigned Polarity: Light
+  Old TypeTags: Arcane
+  New TypeTags: Knowledge
+  AspectTags: Clothing, Magic Item
+  Reason: Default to Light (neutral TypeTags: Arcane)
+
+Card: Blazing Morningstar (Loot)
+  ID: Loot-Blazing Morningstar-0.9709108734629167
+  Assigned Polarity: Light
+  Old TypeTags: Arcane
+  New TypeTags: Knowledge
+  AspectTags: Weapon, Magic Item
+  Reason: Default to Light (neutral TypeTags: Arcane)
+
+Card: Brass Suns (Loot)
+  ID: Loot-Brass Suns-0.3795149307792517
+  Assigned Polarity: Light
+  Old TypeTags: Arcane
+  New TypeTags: Knowledge
+  AspectTags: Jewelry, Magic Item
+  Reason: Default to Light (neutral TypeTags: Arcane)
+
+Card: Cloak of the Wilds (Loot)
+  ID: Loot-Cloak of the Wilds-0.6549369825202925
+  Assigned Polarity: Light
+  Old TypeTags: Arcane
+  New TypeTags: Knowledge
+  AspectTags: Clothing, Magic Item
+  Reason: Default to Light (neutral TypeTags: Arcane)
+
+Card: Cloudwatcher's Telescope (Loot)
+  ID: Loot-Cloudwatcher's Telescope-0.6287512581109473
+  Assigned Polarity: Light
+  Old TypeTags: Arcane
+  New TypeTags: Knowledge
+  AspectTags: Tool, Magic Item
+  Reason: Default to Light (neutral TypeTags: Arcane)
+
+Card: Collector's Scabbard (Loot)
+  ID: Loot-Collector's Scabbard-0.458378907712246
+  Assigned Polarity: Light
+  Old TypeTags: Arcane
+  New TypeTags: Knowledge
+  AspectTags: Tool, Magic Item
+  Reason: Default to Light (neutral TypeTags: Arcane)
+
+Card: Elven Recurve (Loot)
+  ID: Loot-Elven Recurve-0.0512826234530841
+  Assigned Polarity: Light
+  Old TypeTags: Arcane
+  New TypeTags: Knowledge
+  AspectTags: Weapon, Magic Item
+  Reason: Default to Light (neutral TypeTags: Arcane)
+
+Card: Enchanted Rucksack (Loot)
+  ID: Loot-Enchanted Rucksack-0.45638154268719844
+  Assigned Polarity: Light
+  Old TypeTags: Arcane
+  New TypeTags: Knowledge
+  AspectTags: Worn, Magic Item
+  Reason: Default to Light (neutral TypeTags: Arcane)
+
+Card: Helm of the Survivor (Loot)
+  ID: Loot-Helm of the Survivor-0.25306500543236066
+  Assigned Polarity: Light
+  Old TypeTags: Arcane
+  New TypeTags: Knowledge
+  AspectTags: Armor, Magic Item
+  Reason: Default to Light (neutral TypeTags: Arcane)
+
+Card: Meditation Beads (Loot)
+  ID: Loot-Meditation Beads-0.18419350837216397
+  Assigned Polarity: Light
+  Old TypeTags: Arcane
+  New TypeTags: Knowledge
+  AspectTags: Jewelry, Magic Item
+  Reason: Default to Light (neutral TypeTags: Arcane)
+
+Card: Nightfleece Gambeson (Loot)
+  ID: Loot-Nightfleece Gambeson-0.3160185206068493
+  Assigned Polarity: Light
+  Old TypeTags: Arcane
+  New TypeTags: Knowledge
+  AspectTags: Armor, Magic Item
+  Reason: Default to Light (neutral TypeTags: Arcane)
+
+Card: Plate of Protection (Loot)
+  ID: Loot-Plate of Protection-0.7212445032273687
+  Assigned Polarity: Light
+  Old TypeTags: Arcane
+  New TypeTags: Knowledge
+  AspectTags: Armor, Magic Item
+  Reason: Default to Light (neutral TypeTags: Arcane)
+
+Card: Platinum Cuirass (Loot)
+  ID: Loot-Platinum Cuirass-0.9603244672278843
+  Assigned Polarity: Light
+  Old TypeTags: Arcane
+  New TypeTags: Knowledge
+  AspectTags: Armor, Magic Item
+  Reason: Default to Light (neutral TypeTags: Arcane)
+
+Card: Prince's Coat of Plates (Loot)
+  ID: Loot-Prince's Coat of Plates-0.2863198574494904
+  Assigned Polarity: Light
+  Old TypeTags: Arcane
+  New TypeTags: Knowledge
+  AspectTags: Armor, Magic Item
+  Reason: Default to Light (neutral TypeTags: Arcane)
+
+Card: Saphire Signet (Loot)
+  ID: Loot-Saphire Signet-0.4166841326651026
+  Assigned Polarity: Light
+  Old TypeTags: Arcane
+  New TypeTags: Knowledge
+  AspectTags: Jewelry, Magic Item
+  Reason: Default to Light (neutral TypeTags: Arcane)
+
+Card: Steel Amulet (Loot)
+  ID: Loot-Steel Amulet-0.238800888760069
+  Assigned Polarity: Light
+  Old TypeTags: Arcane
+  New TypeTags: Knowledge
+  AspectTags: Jewelry, Magic Item
+  Reason: Default to Light (neutral TypeTags: Arcane)
+
+Card: Stormgather Staff (Loot)
+  ID: Loot-Stormgather Staff-0.020691727590761544
+  Assigned Polarity: Light
+  Old TypeTags: Arcane
+  New TypeTags: Knowledge
+  AspectTags: Weapon, Magic Item
+  Reason: Default to Light (neutral TypeTags: Arcane)
+
+Card: Sword and Dagger of the Hero (Loot)
+  ID: Loot-Sword and Dagger of the Hero-0.3435301108562816
+  Assigned Polarity: Light
+  Old TypeTags: Arcane
+  New TypeTags: Knowledge
+  AspectTags: Weapon, Magic Item
+  Reason: Default to Light (neutral TypeTags: Arcane)
+
+Card: Thunder's Roar Earrings (Loot)
+  ID: Loot-Thunder's Roar Earrings-0.17790461559986304
+  Assigned Polarity: Light
+  Old TypeTags: Arcane
+  New TypeTags: Knowledge
+  AspectTags: Jewelry, Magic Item
+  Reason: Default to Light (neutral TypeTags: Arcane)
+
+Card: Treasure 1/4 (Loot)
+  ID: Loot-Treasure 1/4-0.5842052401072773
+  Assigned Polarity: Light
+  Old TypeTags: Wealth
+  New TypeTags: Wealth
+  AspectTags: Treasure
+  Reason: Default to Light (neutral TypeTags: Wealth)
+
+Card: Treasure 1/2 (Loot)
+  ID: Loot-Treasure 1/2-0.2066194690440133
+  Assigned Polarity: Light
+  Old TypeTags: Wealth
+  New TypeTags: Wealth
+  AspectTags: Treasure
+  Reason: Default to Light (neutral TypeTags: Wealth)
+
+Card: Treasure 1 (Loot)
+  ID: Loot-Treasure 1-0.24196551724666893
+  Assigned Polarity: Light
+  Old TypeTags: Wealth
+  New TypeTags: Wealth
+  AspectTags: Treasure
+  Reason: Default to Light (neutral TypeTags: Wealth)
+
+Card: Treasure 2 (Loot)
+  ID: Loot-Treasure 2-0.06945770573202581
+  Assigned Polarity: Light
+  Old TypeTags: Wealth
+  New TypeTags: Wealth
+  AspectTags: Treasure
+  Reason: Default to Light (neutral TypeTags: Wealth)
+
+Card: Treasure 3 (Loot)
+  ID: Loot-Treasure 3-0.6763211445708567
+  Assigned Polarity: Light
+  Old TypeTags: Wealth
+  New TypeTags: Wealth
+  AspectTags: Treasure
+  Reason: Default to Light (neutral TypeTags: Wealth)
+
+Card: Unbreakable Spear (Loot)
+  ID: Loot-Unbreakable Spear-0.8381699599688917
+  Assigned Polarity: Light
+  Old TypeTags: Arcane
+  New TypeTags: Knowledge
+  AspectTags: Weapon, Magic Item
+  Reason: Default to Light (neutral TypeTags: Arcane)
+
+Card: Veteran's Cowl (Loot)
+  ID: Loot-Veteran's Cowl-0.935890171090921
+  Assigned Polarity: Light
+  Old TypeTags: Arcane
+  New TypeTags: Knowledge
+  AspectTags: Clothing, Magic Item
+  Reason: Default to Light (neutral TypeTags: Arcane)
+
+Card: Wavetreader Boots (Loot)
+  ID: Loot-Wavetreader Boots-0.546914152274753
+  Assigned Polarity: Light
+  Old TypeTags: Arcane
+  New TypeTags: Knowledge
+  AspectTags: Worn, Magic Item
+  Reason: Default to Light (neutral TypeTags: Arcane)
+
+Card: Wizard's Cap and Gown (Loot)
+  ID: Loot-Wizard's Cap and Gown-0.6010550235268705
+  Assigned Polarity: Light
+  Old TypeTags: Arcane
+  New TypeTags: Knowledge
+  AspectTags: Clothing, Magic Item
+  Reason: Default to Light (neutral TypeTags: Arcane)
+
+Card: Dwarven Meal (Loot)
+  ID: Loot-Dwarven Meal-0.5423750276587543
+  Assigned Polarity: Light
+  Old TypeTags: Arcane
+  New TypeTags: Knowledge
+  AspectTags: Consumable, Magic Item
+  Reason: Default to Light (neutral TypeTags: Arcane)
+
+Card: Guildmaster Thorne Highledger (NPC)
+  ID: NPC-Guildmaster Thorne Highledger-0.03253845561178814
+  Assigned Polarity: Light
+  Old TypeTags: Wealth, Order
+  New TypeTags: Wealth, Justice
+  AspectTags: Commerce
+  Reason: Default to Light (neutral TypeTags: Wealth, Order)
+
+Card: Lady Miravelle Coinwright (NPC)
+  ID: NPC-Lady Miravelle Coinwright-0.08172562328723154
+  Assigned Polarity: Light
+  Old TypeTags: Wealth, Arcane
+  New TypeTags: Wealth, Knowledge
+  AspectTags: Enchantment
+  Reason: Default to Light (neutral TypeTags: Wealth, Arcane)
+
+Card: High Chancellor Veridan (NPC)
+  ID: NPC-High Chancellor Veridan-0.8513968830587341
+  Assigned Polarity: Light
+  Old TypeTags: Order
+  New TypeTags: Justice
+  AspectTags: Leadership
+  Reason: Inferred from AspectTags: leadership
+
+Card: Justicar Aurelia Stoneward (NPC)
+  ID: NPC-Justicar Aurelia Stoneward-0.8347287329808051
+  Assigned Polarity: Light
+  Old TypeTags: Order, Martial
+  New TypeTags: Justice, Martial
+  AspectTags: Law
+  Reason: Inferred from AspectTags: law
+
+Card: Huntmaster Sylra Windstalker (NPC)
+  ID: NPC-Huntmaster Sylra Windstalker-0.6691987483169907
+  Assigned Polarity: Light
+  Old TypeTags: Nature, Martial
+  New TypeTags: Nature, Martial
+  AspectTags: Beast
+  Reason: Default to Light (neutral TypeTags: Nature, Martial)
+
+Card: Grovekeeper Mosswhisper (NPC)
+  ID: NPC-Grovekeeper Mosswhisper-0.6164300967343829
+  Assigned Polarity: Light
+  Old TypeTags: Nature, Arcane
+  New TypeTags: Nature, Knowledge
+  AspectTags: Mystic
+  Reason: Default to Light (neutral TypeTags: Nature, Arcane)
+
+Card: Chronomancer Lyssia Vale (NPC)
+  ID: NPC-Chronomancer Lyssia Vale-0.29602469406750387
+  Assigned Polarity: Light
+  Old TypeTags: Arcane, Order
+  New TypeTags: Knowledge, Justice
+  AspectTags: Time
+  Reason: Default to Light (neutral TypeTags: Arcane, Order)
+
+Card: Runesmith Eldric Ironglyph (NPC)
+  ID: NPC-Runesmith Eldric Ironglyph-0.0364356949403738
+  Assigned Polarity: Light
+  Old TypeTags: Arcane, Martial
+  New TypeTags: Knowledge, Martial
+  AspectTags: Crafting
+  Reason: Default to Light (neutral TypeTags: Arcane, Martial)
+
+Card: General Cassian Steelmarch (NPC)
+  ID: NPC-General Cassian Steelmarch-0.3137642792005859
+  Assigned Polarity: Light
+  Old TypeTags: Martial, Order
+  New TypeTags: Martial, Justice
+  AspectTags: Military
+  Reason: Default to Light (neutral TypeTags: Martial, Order)
+
+Card: Commander Thorne Ironsoul (NPC)
+  ID: NPC-Commander Thorne Ironsoul-0.03627593158747844
+  Assigned Polarity: Light
+  Old TypeTags: Martial
+  New TypeTags: Martial
+  AspectTags: Tactics
+  Reason: Default to Light (neutral TypeTags: Martial)
+
+Card: Archivist-General Thalen Quill (NPC)
+  ID: NO-ID
+  Assigned Polarity: Light
+  Old TypeTags: Order, Arcane
+  New TypeTags: Justice, Knowledge
+  AspectTags: Bureaucracy
+  Reason: Default to Light (neutral TypeTags: Order, Arcane)
+
+Card: Illusion dangerous cargo (Twist)
+  ID: Twist-Illusion dangerous cargo-0.7939542175954403
+  Assigned Polarity: Light
+  Old TypeTags: Arcane
+  New TypeTags: Knowledge
+  AspectTags: NONE
+  Reason: Default to Light (neutral TypeTags: Arcane)
+
+Card: Bugbear Bandit (Monster)
+  ID: Monster-Bugbear Bandit-0.9229424610033357
+  Assigned Polarity: Light
+  Old TypeTags: Order, Martial
+  New TypeTags: Justice, Martial
+  AspectTags: Humanoid
+  Reason: Default to Light (neutral TypeTags: Order, Martial)
+
+Card: Gnoll Spear Hunter (Monster)
+  ID: Monster-Gnoll Spear Hunter-0.9460536613064744
+  Assigned Polarity: Light
+  Old TypeTags: Order, Martial
+  New TypeTags: Justice, Martial
+  AspectTags: Humanoid
+  Reason: Default to Light (neutral TypeTags: Order, Martial)
+
+Card: Goblin Ballista Crew (Monster)
+  ID: Monster-Goblin Ballista Crew-0.43942466287721016
+  Assigned Polarity: Light
+  Old TypeTags: Order, Martial
+  New TypeTags: Justice, Martial
+  AspectTags: Humanoid
+  Reason: Default to Light (neutral TypeTags: Order, Martial)
+
+Card: Goblin Wolfrider (Monster)
+  ID: Monster-Goblin Wolfrider-0.018383693227463804
+  Assigned Polarity: Light
+  Old TypeTags: Order, Martial
+  New TypeTags: Justice, Martial
+  AspectTags: Humanoid
+  Reason: Default to Light (neutral TypeTags: Order, Martial)
+
+Card: Hobgoblin Bandit (Monster)
+  ID: Monster-Hobgoblin Bandit-0.7458927527700012
+  Assigned Polarity: Light
+  Old TypeTags: Order, Martial
+  New TypeTags: Justice, Martial
+  AspectTags: Humanoid
+  Reason: Default to Light (neutral TypeTags: Order, Martial)
+
+Card: Hobgoblin Bolter (Monster)
+  ID: Monster-Hobgoblin Bolter-0.2322543248140636
+  Assigned Polarity: Light
+  Old TypeTags: Order, Martial
+  New TypeTags: Justice, Martial
+  AspectTags: Humanoid
+  Reason: Default to Light (neutral TypeTags: Order, Martial)
+
+Card: Hobgoblin Scout (Monster)
+  ID: Monster-Hobgoblin Scout-0.7438067486067503
+  Assigned Polarity: Light
+  Old TypeTags: Order, Martial
+  New TypeTags: Justice, Martial
+  AspectTags: Humanoid
+  Reason: Default to Light (neutral TypeTags: Order, Martial)
+
+Card: Ice Wisp (Monster)
+  ID: Monster-Ice Wisp-0.22878107108968082
+  Assigned Polarity: Light
+  Old TypeTags: Arcane, Order
+  New TypeTags: Knowledge, Justice
+  AspectTags: Spirit
+  Reason: Default to Light (neutral TypeTags: Arcane, Order)
+
+Card: Kobold Trapper (Monster)
+  ID: Monster-Kobold Trapper-0.6268323493730971
+  Assigned Polarity: Light
+  Old TypeTags: Order, Martial
+  New TypeTags: Justice, Martial
+  AspectTags: Humanoid
+  Reason: Default to Light (neutral TypeTags: Order, Martial)
+
+Card: Mud Elemental (Monster)
+  ID: Monster-Mud Elemental-0.011462947299685888
+  Assigned Polarity: Light
+  Old TypeTags: Arcane, Nature
+  New TypeTags: Knowledge, Nature
+  AspectTags: Elemental
+  Reason: Default to Light (neutral TypeTags: Arcane, Nature)
+
+Card: Orc Mercenary (Monster)
+  ID: Monster-Orc Mercenary-0.5450264145782023
+  Assigned Polarity: Light
+  Old TypeTags: Order, Martial
+  New TypeTags: Justice, Martial
+  AspectTags: Humanoid
+  Reason: Default to Light (neutral TypeTags: Order, Martial)
+
+Card: Sandkin (Monster)
+  ID: Monster-Sandkin-0.6494550101204201
+  Assigned Polarity: Light
+  Old TypeTags: Arcane, Nature
+  New TypeTags: Knowledge, Nature
+  AspectTags: Elemental
+  Reason: Default to Light (neutral TypeTags: Arcane, Nature)
+
+Card: Stone Acolyte (Monster)
+  ID: Monster-Stone Acolyte-0.44189373384730346
+  Assigned Polarity: Light
+  Old TypeTags: Arcane, Order
+  New TypeTags: Knowledge, Justice
+  AspectTags: Humanoid
+  Reason: Default to Light (neutral TypeTags: Arcane, Order)
+
+Card: Wave Acolyte (Monster)
+  ID: Monster-Wave Acolyte-0.6201060825789364
+  Assigned Polarity: Light
+  Old TypeTags: Arcane, Order
+  New TypeTags: Knowledge, Justice
+  AspectTags: Humanoid
+  Reason: Default to Light (neutral TypeTags: Arcane, Order)
+
+Card: Ironmarch Garrison (Location)
+  ID: Location-Ironmarch Garrison-0.447331
+  Assigned Polarity: Light
+  Old TypeTags: Martial, Order
+  New TypeTags: Martial, Justice
+  AspectTags: Fortress
+  Reason: Default to Light (neutral TypeTags: Martial, Order)
+
+Card: Runebloom Conservatory (Location)
+  ID: Location-Runebloom Conservatory-0.774661
+  Assigned Polarity: Light
+  Old TypeTags: Arcane, Nature
+  New TypeTags: Knowledge, Nature
+  AspectTags: Botanical
+  Reason: Default to Light (neutral TypeTags: Arcane, Nature)
+
+Card: Hammerfall Arena (Location)
+  ID: Location-Hammerfall Arena-0.447661
+  Assigned Polarity: Light
+  Old TypeTags: Martial, Wealth
+  New TypeTags: Martial, Wealth
+  AspectTags: Sport
+  Reason: Default to Light (neutral TypeTags: Martial, Wealth)
+
+Card: Starweave Observatory (Location)
+  ID: Location-Starweave Observatory-0.119771
+  Assigned Polarity: Light
+  Old TypeTags: Arcane, Order
+  New TypeTags: Knowledge, Justice
+  AspectTags: Mystic
+  Reason: Default to Light (neutral TypeTags: Arcane, Order)
+
+Card: Riverbloom Crossing (Location)
+  ID: Location-Riverbloom Crossing-0.774221
+  Assigned Polarity: Light
+  Old TypeTags: Nature, Wealth
+  New TypeTags: Nature, Wealth
+  AspectTags: Bridge
+  Reason: Default to Light (neutral TypeTags: Nature, Wealth)
+
+Card: Emberforge Outpost (Location)
+  ID: Location-Emberforge Outpost-0.447221
+  Assigned Polarity: Light
+  Old TypeTags: Martial, Arcane
+  New TypeTags: Martial, Knowledge
+  AspectTags: Industrial
+  Reason: Default to Light (neutral TypeTags: Martial, Arcane)
+
+Card: Goldtide Harbor (Location)
+  ID: Location-Goldtide Harbor-0.119551
+  Assigned Polarity: Light
+  Old TypeTags: Wealth, Order
+  New TypeTags: Wealth, Justice
+  AspectTags: Harbor
+  Reason: Default to Light (neutral TypeTags: Wealth, Order)
+
+Card: Runeguard Bastion (Location)
+  ID: Location-Runeguard Bastion-0.661441
+  Assigned Polarity: Light
+  Old TypeTags: Arcane, Martial
+  New TypeTags: Knowledge, Martial
+  AspectTags: Fortress
+  Reason: Default to Light (neutral TypeTags: Arcane, Martial)
+
+
+❌ DUBIOUS (0 cards) - REQUIRES MANUAL REVIEW
+───────────────────────────────────────────────────────────────
+Cards with mismatches or no TypeTags
+
+
+═══════════════════════════════════════════════════════════════
+                         END OF REPORT
+═══════════════════════════════════════════════════════════════
