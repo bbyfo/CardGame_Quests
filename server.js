@@ -25,7 +25,15 @@ let dataSourceSummary = 'filesystem (cards.json)';
 // Middleware
 app.use(cors());
 app.use(express.json({ limit: '10mb' }));
-app.use(express.static(__dirname)); // Serve static files
+
+// Serve static files for the top-level apps directory (configurable via APPS_ROOT)
+// Default: parent directory (one level up). When this project lives in
+// apps/CardGame_Quests, the default APPS_ROOT will be the `apps` folder that
+// contains multiple app folders (e.g., CardGame_Quests, CardGame_MonsterBuilder).
+const APPS_ROOT = process.env.APPS_ROOT || path.join(__dirname, '..');
+app.use(express.static(APPS_ROOT)); // Serve top-level apps folder
+app.use(express.static(__dirname)); // Fallback to current app folder
+console.log(`ℹ Serving static files from: ${APPS_ROOT}`);
 
 // Initialize database on startup
 (async () => {
@@ -173,7 +181,13 @@ app.listen(PORT, () => {
   console.log(`
 ╔════════════════════════════════════════════════════════╗
 ║  Quest System Server                                   ║
-║  http://localhost:${PORT}                                ║
+║  http://localhost:${PORT}                              ║
+║                                                        ║
+║  Apps Root: ${APPS_ROOT}                               ║
+║                                                        ║
+║  Example apps:                                         ║
+║  • http://localhost:${PORT}/CardGame_Quests            ║
+║  • http://localhost:${PORT}/CardGame_MonsterBuilder    ║
 ║                                                        ║
 ║  API Endpoints:                                        ║
 ║  • GET  /api/cards   - Load cards                     ║

@@ -27,8 +27,18 @@ npm start
 
 ### 3. Access the Application
 
-- **Quest System**: http://localhost:3000/index.html
+The server can serve multiple apps from a single directory. By default it serves the parent directory (one level up) so this project can live in `apps/CardGame_Quests` and be accessed at `/CardGame_Quests`.
+
+- **Apps root (default)**: http://localhost:3000/ (serves the `apps` directory)
+- **Quest System**: http://localhost:3000/CardGame_Quests/
 - **Card Manager**: http://localhost:3000/cardManager.html
+
+You can override the directory the server serves by setting the `APPS_ROOT` environment variable before starting the server. Example (Windows PowerShell):
+
+```powershell
+$env:APPS_ROOT = 'C:\Users\guruf\OneDrive\Documents\CardGame\apps'
+npm start
+```
 
 ## Features
 
@@ -75,6 +85,10 @@ To host this online for remote collaboration:
    - Add authentication (username/password)
    - Add rate limiting
    - Use HTTPS for production
+
+**Deploying multiple apps (Render / other hosts)**
+
+If you want the server to host multiple app folders (for example, `CardGame_Quests` and `CardGame_MonsterBuilder`) set the `APPS_ROOT` environment variable in your host's settings to the absolute path of your `apps` directory (for example, `C:\Users\guruf\OneDrive\Documents\CardGame\apps`). Also set `PORT` to `3000` or your preferred port. On Render, add `APPS_ROOT` and `PORT` in the Environment section of your service dashboard.
 
 ## API Endpoints
 
