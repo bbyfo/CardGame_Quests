@@ -1,135 +1,33 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quest System Generator</title>
-  <link rel="stylesheet" href="base.css">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="nav.css">
-  <script src="navLoader.js"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CardGame Apps</title>
+  <style>
+    body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial; max-width: 800px; margin: 3rem auto; line-height: 1.6; padding: 0 1rem; }
+    header { margin-bottom: 2rem }
+    a.app { display: block; padding: .6rem; border: 1px solid #ddd; border-radius: 6px; margin: .5rem 0; text-decoration: none; color: #111 }
+    a.app:hover { background: #f7f7f7 }
+  </style>
 </head>
-<body class="loading">
-  <!-- Loading spinner -->
-  <div class="loading-spinner">
-    <div class="spinner-icon"></div>
-  </div>
+<body>
+  <header>
+    <h1>CardGame - Apps</h1>
+    <p>Links to the apps served from this directory.</p>
+  </header>
 
-  <!-- Navigation (loaded dynamically) -->
-  <div id="nav-container"></div>
+  <main>
+    <a class="app" href="./CardGame_Quests/">Quest Generator (CardGame_Quests)</a>
+    <a class="app" href="./CardGame_MonsterBuilder/">Monster Builder (CardGame_MonsterBuilder)</a>
 
-  <div class="container">
-    <header>
-      <h1>⚔️ Quest System Generator</h1>
-      <p>Generate, debug, and analyze procedural quests</p>
-    </header>
-
-    <main class="app-grid">
-      <!-- Primary: Generate Quest -->
-      <section class="generate-section">
-        <div class="generate-primary">
-          <button id="btn-generate" class="btn btn-primary btn-large">⚔️ Generate Quest</button>
-        </div>
-      </section>
-
-      <!-- Primary: Quest Output -->
-      <section class="quest-output-section">
-        <h2>Quest Output</h2>
-        <div id="quest-output" class="quest-output">
-          <p>Click the button above to generate a quest.</p>
-        </div>
-      </section>
-
-      <!-- Secondary A: Logs -->
-      <section class="log-section">
-        <div class="browser-header">
-          <h2>Generation Logs</h2>
-          <button class="toggle-btn" data-section="generation-logs" aria-expanded="false">▼</button>
-        </div>
-        <div id="generation-logs-content" class="collapsible-content collapsed">
-          <div id="log-window" class="log-window"></div>
-        </div>
-      </section>
-
-      <!-- Secondary B: Generation Settings -->
-      <section class="settings-section">
-        <div class="browser-header">
-          <h2>Generation Settings</h2>
-          <button class="toggle-btn" data-section="generation-settings" aria-expanded="false">▼</button>
-        </div>
-        
-        <div id="generation-settings-content" class="collapsible-content collapsed">
-          <div class="control-group">
-            <h3>Quest Template</h3>
-            <div class="input-group">
-              <label for="verb-selector">Starting Quest Template:</label>
-              <select id="verb-selector">
-                <option value="">-- Random Quest Template --</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="control-group">
-            <h3>Advanced Generation</h3>
-            <button id="btn-step-through" class="btn btn-secondary">Step-Through Mode</button>
-            <button id="btn-next-step" class="btn btn-secondary" disabled>Next Step</button>
-          </div>
-
-          <div class="control-group">
-            <h3>Generation Options</h3>
-            <div class="input-group">
-              <label for="seed-input">Seed (optional):</label>
-              <input type="text" id="seed-input" placeholder="Enter seed value">
-            </div>
-            <div class="input-group">
-              <label for="redraw-limit">Max Redraws:</label>
-              <select id="redraw-limit">
-                <option value="0">0 (Accept first card)</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="5">5</option>
-                <option value="10">10</option>
-                <option value="20">20</option>
-                <option value="50" selected>50 (Default)</option>
-                <option value="-1">∞ (Draw until match)</option>
-              </select>
-            </div>
-            <div class="checkbox-group">
-              <label>
-                <input type="checkbox" id="debug-toggle"> Debug Mode
-              </label>
-            </div>
-          </div>
-
-          <div class="control-group">
-            <h3>Validation Tools</h3>
-            <div class="input-group">
-              <label for="iterations-input">Iterations:</label>
-              <input type="number" id="iterations-input" value="100" min="1" max="10000">
-            </div>
-            <button id="btn-validate" class="btn btn-accent">Run Validation (N iterations)</button>
-          </div>
-
-          <div class="control-group">
-            <h3>Utilities</h3>
-            <button id="btn-clear-logs" class="btn btn-danger">Clear Logs</button>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      <p>Quest System v1.0 | Built with Pure HTML/JS/CSS</p>
-    </footer>
-  </div>
-
-  <!-- Load modules -->
-  <script src="dataLoader.js"></script>
-  <script src="questEngine.js"></script>
-  <script src="validator.js"></script>
-  <script src="csvImporter.js"></script>
-  <script src="ui.js"></script>
-  <script src="app.js"></script>
+    <section style="margin-top:2rem">
+      <h2>Notes</h2>
+      <ul>
+        <li>If you don't have an app folder yet, create it here (e.g., <code>CardGame_MonsterBuilder</code>).</li>
+        <li>To change where the server serves from, set the <code>APPS_ROOT</code> environment variable.</li>
+      </ul>
+    </section>
+  </main>
 </body>
 </html>
