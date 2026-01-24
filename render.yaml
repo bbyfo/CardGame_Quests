@@ -1,10 +1,9 @@
 ﻿services:
   - type: web
-    name: cardgame-quest-generator
+    name: cardgame-apps
     env: node
     plan: free
     branch: main
-    rootDir: CardGame_QuestGenerator
     buildCommand: npm install
     startCommand: npm start
     autoDeploy: true
