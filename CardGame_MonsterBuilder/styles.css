@@ -212,6 +212,7 @@
   max-width: 400px;
   margin: 0 auto;
   padding: 1rem;
+  margin-left: 110px;
 }
 
 .card-mockup {
@@ -516,28 +517,53 @@
    ICON PALETTE (Drag Source)
    ============================================ */
 
+.icon-palette-container {
+  position: fixed;
+  left: 0;
+  top: 80px;
+  width: 100px;
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0.25rem;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.95);
+  border-right: 1px solid #dee2e6;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
+}
+
 .icon-palette {
-  background: white;
-  border-radius: 8px;
-  padding: 1rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  margin-bottom: 1rem;
+  background: transparent;
+  border-radius: 4px;
+  padding: 0.5rem 0.25rem;
+  margin-bottom: 0.5rem;
 }
 
 .icon-palette h3 {
-  font-size: 1rem;
-  margin-bottom: 0.75rem;
+  font-size: 0.7rem;
+  margin-bottom: 0.5rem;
   color: #2c3e50;
+  font-weight: 600;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .icon-palette-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
-  gap: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  max-height: 350px;
+  gap: 0.35rem;
+  align-content: flex-start;
 }
 
 .icon-palette .icon {
   cursor: grab;
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  font-size: 14px;
 }
 
 .icon-palette .icon:active {
@@ -773,17 +799,41 @@
    ============================================ */
 
 @media (max-width: 768px) {
+  .icon-palette-container {
+    width: 80px;
+    padding: 0.2rem;
+    top: 60px;
+  }
+
+  .icon-palette {
+    padding: 0.4rem 0.2rem;
+  }
+
+  .icon-palette h3 {
+    font-size: 0.65rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .icon-palette-grid {
+    max-height: 300px;
+    gap: 0.3rem;
+  }
+
+  .icon-palette .icon {
+    width: 26px;
+    height: 26px;
+    font-size: 13px;
+  }
+
   .card-mockup-container {
     max-width: 100%;
     padding: 0.5rem;
+    margin-left: 85px;
+    margin-right: 0.5rem;
   }
 
   .card-stats {
     grid-template-columns: 1fr;
-  }
-
-  .icon-palette-grid {
-    grid-template-columns: repeat(auto-fill, minmax(36px, 1fr));
   }
 
   .monster-grid {
