@@ -209,10 +209,10 @@
 
 .card-mockup-container {
   width: 100%;
-  max-width: 400px;
+  /* max-width: 400px; */
   margin: 0 auto;
   padding: 1rem;
-  margin-left: 110px;
+  /* margin-left: 110px; */
 }
 
 .card-mockup {
@@ -551,7 +551,7 @@
 
 .icon-palette-grid {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   flex-wrap: wrap;
   max-height: 350px;
   gap: 0.35rem;
@@ -828,7 +828,7 @@
   .card-mockup-container {
     max-width: 100%;
     padding: 0.5rem;
-    margin-left: 85px;
+    /* margin-left: 85px; */
     margin-right: 0.5rem;
   }
 
