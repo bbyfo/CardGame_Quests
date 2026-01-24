@@ -42,6 +42,66 @@
         <!-- Stats will be rendered here -->
       </div>
 
+      <!-- Search, Filter, Sort -->
+      <div id="search-filter-container" style="background: white; border-radius: 8px; padding: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 2rem;">
+        <h3 style="margin-bottom: 1rem;">🔍 Search & Filter</h3>
+        
+        <!-- Search Bar -->
+        <div style="margin-bottom: 1rem;">
+          <input 
+            type="text" 
+            id="search-input" 
+            placeholder="Search by name..." 
+            style="width: 100%; padding: 0.75rem; border: 2px solid #dee2e6; border-radius: 8px; font-size: 1rem;"
+          />
+        </div>
+
+        <!-- Filters and Sort -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+          <!-- Polarity Filter -->
+          <div>
+            <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: #495057;">Polarity</label>
+            <select id="polarity-filter" style="width: 100%; padding: 0.5rem; border: 2px solid #dee2e6; border-radius: 8px;">
+              <option value="all">All</option>
+              <option value="Light">Light</option>
+              <option value="Shadow">Shadow</option>
+            </select>
+          </div>
+
+          <!-- Type Tags Filter -->
+          <div>
+            <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: #495057;">Type Tags</label>
+            <select id="typetag-filter" style="width: 100%; padding: 0.5rem; border: 2px solid #dee2e6; border-radius: 8px;">
+              <option value="all">All Types</option>
+            </select>
+          </div>
+
+          <!-- Habitat Filter -->
+          <div>
+            <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: #495057;">Habitat</label>
+            <select id="habitat-filter" style="width: 100%; padding: 0.5rem; border: 2px solid #dee2e6; border-radius: 8px;">
+              <option value="all">All Habitats</option>
+            </select>
+          </div>
+
+          <!-- Sort -->
+          <div>
+            <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: #495057;">Sort By</label>
+            <select id="sort-select" style="width: 100%; padding: 0.5rem; border: 2px solid #dee2e6; border-radius: 8px;">
+              <option value="name-asc" selected>Name (A-Z)</option>
+              <option value="name-desc">Name (Z-A)</option>
+              <option value="polarity">Polarity</option>
+              <option value="recent">Recently Modified</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Active Filter Count -->
+        <div id="filter-status" style="margin-top: 1rem; font-size: 0.9rem; color: #6c757d;">
+          Showing all monsters
+        </div>
+      </div>
+
       <!-- Monster List -->
       <div id="monster-list">
         <!-- Monster cards will be rendered here -->

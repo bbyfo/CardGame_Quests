@@ -390,6 +390,10 @@ class MonsterManager {
    * Initialize list UI (called from index.html)
    */
   initListUI() {
+    // Initialize filter dropdowns
+    this.populateFilterDropdowns();
+    
+    // Initial render with default sort (alphabetical)
     this.renderMonsterList();
 
     // Setup new monster button
@@ -425,7 +429,76 @@ class MonsterManager {
       });
     }
 
+    // Setup search input
+    const searchInput = document.getElementById('search-input');
+    if (searchInput) {
+      searchInput.addEventListener('input', () => this.renderMonsterList());
+    }
+
+    // Setup filter dropdowns
+    const polarityFilter = document.getElementById('polarity-filter');
+    if (polarityFilter) {
+      polarityFilter.addEventListener('change', () => this.renderMonsterList());
+    }
+
+    const typeTagFilter = document.getElementById('typetag-filter');
+    if (typeTagFilter) {
+      typeTagFilter.addEventListener('change', () => this.renderMonsterList());
+    }
+
+    const habitatFilter = document.getElementById('habitat-filter');
+    if (habitatFilter) {
+      habitatFilter.addEventListener('change', () => this.renderMonsterList());
+    }
+
+    // Setup sort dropdown
+    const sortSelect = document.getElementById('sort-select');
+    if (sortSelect) {
+      sortSelect.addEventListener('change', () => this.renderMonsterList());
+    }
+
     console.log('List UI initialized');
+  }
+
+  /**
+   * Populate filter dropdowns with available options
+   */
+  populateFilterDropdowns() {
+    const monsters = this.getAllMonsters();
+    
+    // Populate type tags
+    const typeTagSet = new Set();
+    monsters.forEach(m => {
+      if (m.TypeTags) m.TypeTags.forEach(tag => typeTagSet.add(tag));
+    });
+    
+    const typeTagFilter = document.getElementById('typetag-filter');
+    if (typeTagFilter) {
+      const sortedTypeTags = Array.from(typeTagSet).sort();
+      sortedTypeTags.forEach(tag => {
+        const option = document.createElement('option');
+        option.value = tag;
+        option.textContent = tag;
+        typeTagFilter.appendChild(option);
+      });
+    }
+
+    // Populate habitats
+    const habitatSet = new Set();
+    monsters.forEach(m => {
+      if (m.Habitat) m.Habitat.forEach(habitat => habitatSet.add(habitat));
+    });
+    
+    const habitatFilter = document.getElementById('habitat-filter');
+    if (habitatFilter) {
+      const sortedHabitats = Array.from(habitatSet).sort();
+      sortedHabitats.forEach(habitat => {
+        const option = document.createElement('option');
+        option.value = habitat;
+        option.textContent = habitat;
+        habitatFilter.appendChild(option);
+      });
+    }
   }
 
   /**
@@ -435,13 +508,23 @@ class MonsterManager {
     const container = document.getElementById('monster-list');
     if (!container) return;
 
-    const monsters = this.getAllMonsters();
+    let monsters = this.getAllMonsters();
+    const totalMonsters = monsters.length;
+
+    // Apply filters
+    monsters = this.applyFilters(monsters);
+
+    // Apply sorting
+    monsters = this.applySorting(monsters);
+
+    // Update filter status
+    this.updateFilterStatus(monsters.length, totalMonsters);
 
     if (monsters.length === 0) {
       container.innerHTML = `
         <div style="text-align: center; padding: 3rem; color: #95a5a6;">
-          <p style="font-size: 1.2rem; margin-bottom: 1rem;">No monsters yet</p>
-          <p>Click "New Monster" to create your first monster card</p>
+          <p style="font-size: 1.2rem; margin-bottom: 1rem;">No monsters found</p>
+          <p>Try adjusting your filters or create a new monster</p>
         </div>
       `;
       return;
@@ -460,6 +543,112 @@ class MonsterManager {
         window.location.href = `monsterBuilder.html?id=${encodeURIComponent(id)}`;
       });
     });
+  }
+
+  /**
+   * Apply filters to monster list
+   */
+  applyFilters(monsters) {
+    const searchInput = document.getElementById('search-input');
+    const polarityFilter = document.getElementById('polarity-filter');
+    const typeTagFilter = document.getElementById('typetag-filter');
+    const habitatFilter = document.getElementById('habitat-filter');
+
+    let filtered = [...monsters];
+
+    // Search filter
+    if (searchInput && searchInput.value.trim()) {
+      const searchTerm = searchInput.value.trim().toLowerCase();
+      filtered = filtered.filter(m => 
+        (m.CardName || '').toLowerCase().includes(searchTerm)
+      );
+    }
+
+    // Polarity filter
+    if (polarityFilter && polarityFilter.value !== 'all') {
+      filtered = filtered.filter(m => m.Polarity === polarityFilter.value);
+    }
+
+    // Type tag filter
+    if (typeTagFilter && typeTagFilter.value !== 'all') {
+      filtered = filtered.filter(m => 
+        m.TypeTags && m.TypeTags.includes(typeTagFilter.value)
+      );
+    }
+
+    // Habitat filter
+    if (habitatFilter && habitatFilter.value !== 'all') {
+      filtered = filtered.filter(m => 
+        m.Habitat && m.Habitat.includes(habitatFilter.value)
+      );
+    }
+
+    return filtered;
+  }
+
+  /**
+   * Apply sorting to monster list
+   */
+  applySorting(monsters) {
+    const sortSelect = document.getElementById('sort-select');
+    const sortValue = sortSelect ? sortSelect.value : 'name-asc';
+
+    const sorted = [...monsters];
+
+    switch (sortValue) {
+      case 'name-asc':
+        sorted.sort((a, b) => {
+          const nameA = (a.CardName || '').toLowerCase();
+          const nameB = (b.CardName || '').toLowerCase();
+          return nameA.localeCompare(nameB);
+        });
+        break;
+      
+      case 'name-desc':
+        sorted.sort((a, b) => {
+          const nameA = (a.CardName || '').toLowerCase();
+          const nameB = (b.CardName || '').toLowerCase();
+          return nameB.localeCompare(nameA);
+        });
+        break;
+      
+      case 'polarity':
+        sorted.sort((a, b) => {
+          if (a.Polarity === b.Polarity) {
+            return (a.CardName || '').localeCompare(b.CardName || '');
+          }
+          return (a.Polarity || '').localeCompare(b.Polarity || '');
+        });
+        break;
+      
+      case 'recent':
+        // Sort by ID descending (assuming higher ID = more recent)
+        sorted.sort((a, b) => {
+          const idA = parseInt(a.id) || 0;
+          const idB = parseInt(b.id) || 0;
+          return idB - idA;
+        });
+        break;
+    }
+
+    return sorted;
+  }
+
+  /**
+   * Update filter status message
+   */
+  updateFilterStatus(showing, total) {
+    const statusElement = document.getElementById('filter-status');
+    if (!statusElement) return;
+
+    if (showing === total) {
+      statusElement.textContent = `Showing all ${total} monsters`;
+      statusElement.style.color = '#6c757d';
+    } else {
+      statusElement.textContent = `Showing ${showing} of ${total} monsters`;
+      statusElement.style.color = '#667eea';
+      statusElement.style.fontWeight = '600';
+    }
   }
 
   /**
