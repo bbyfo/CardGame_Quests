@@ -1,10 +1,22 @@
 ﻿services:
   - type: web
-    name: "CardGame Quest Generator"
+    name: cardgame-quest-generator
     env: node
     plan: free
     branch: main
-    root: CardGame_QuestGenerator
+    rootDir: CardGame_QuestGenerator
     buildCommand: npm install
     startCommand: npm start
+    autoDeploy: true
+    # envVars:
+    #   - key: DATABASE_URL
+    #     sync: false
+  
+  - type: static
+    name: cardgame-monster-builder
+    branch: main
+    rootDir: CardGame_MonsterBuilder
+    buildCommand: echo "No build needed for static site"
+    staticPublishPath: .
+    # Change to type: web with Node.js if Monster Builder is also a Node app
     autoDeploy: true
