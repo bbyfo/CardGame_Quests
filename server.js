@@ -186,7 +186,7 @@ app.listen(PORT, () => {
 ║  Apps Root: ${APPS_ROOT}                               ║
 ║                                                        ║
 ║  Example apps:                                         ║
-║  • http://localhost:${PORT}/CardGame_Quests            ║
+║  • http://localhost:${PORT}/CardGame_QuestGenerator    ║
 ║  • http://localhost:${PORT}/CardGame_MonsterBuilder    ║
 ║                                                        ║
 ║  API Endpoints:                                        ║
