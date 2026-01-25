@@ -5,53 +5,143 @@
  */
 
 const MONSTER_CONFIG = {
+  // Cost Icon to TypeTag mapping (for dynamic colors from TAG_CONFIG_MANAGER)
+  COST_TO_TAG_MAP: {
+    red: 'Martial',      // Red = Physical/Martial
+    green: 'Nature',     // Green = Nature
+    blue: 'Knowledge',   // Blue = Magic/Knowledge
+    yellow: 'Righteousness', // Yellow = Light/Holy/Righteousness
+    purple: 'Deceit',    // Purple = Shadow/Curse/Deceit
+    iron: 'Power',       // Iron = Equipment/Tech/Power
+    gold: 'Wealth',      // Gold = Wealth
+    any: null            // Any = Wildcard (no tag association)
+  },
+
   // Cost Icon Types with CSS class mappings
   COST_TYPES: {
     red: {
       code: 'red',
-      label: 'Red (Physical)',
+      get label() {
+        const tag = MONSTER_CONFIG.COST_TO_TAG_MAP.red;
+        return tag && window.TAG_CONFIG_MANAGER?.initialized 
+          ? window.TAG_CONFIG_MANAGER.getLabel(tag) 
+          : 'Red (Physical)';
+      },
+      get color() {
+        const tag = MONSTER_CONFIG.COST_TO_TAG_MAP.red;
+        return tag && window.TAG_CONFIG_MANAGER?.initialized
+          ? window.TAG_CONFIG_MANAGER.getConfig(tag).color
+          : '#DC2626';
+      },
       cssClass: 'icon-cost-red',
       symbol: '🗡️'
     },
     green: {
       code: 'green',
-      label: 'Green (Nature)',
+      get label() {
+        const tag = MONSTER_CONFIG.COST_TO_TAG_MAP.green;
+        return tag && window.TAG_CONFIG_MANAGER?.initialized 
+          ? window.TAG_CONFIG_MANAGER.getLabel(tag) 
+          : 'Green (Nature)';
+      },
+      get color() {
+        const tag = MONSTER_CONFIG.COST_TO_TAG_MAP.green;
+        return tag && window.TAG_CONFIG_MANAGER?.initialized
+          ? window.TAG_CONFIG_MANAGER.getConfig(tag).color
+          : '#10B981';
+      },
       cssClass: 'icon-cost-green',
       symbol: '🌿'
     },
     blue: {
       code: 'blue',
-      label: 'Blue (Magic)',
+      get label() {
+        const tag = MONSTER_CONFIG.COST_TO_TAG_MAP.blue;
+        return tag && window.TAG_CONFIG_MANAGER?.initialized 
+          ? window.TAG_CONFIG_MANAGER.getLabel(tag) 
+          : 'Blue (Magic)';
+      },
+      get color() {
+        const tag = MONSTER_CONFIG.COST_TO_TAG_MAP.blue;
+        return tag && window.TAG_CONFIG_MANAGER?.initialized
+          ? window.TAG_CONFIG_MANAGER.getConfig(tag).color
+          : '#3B82F6';
+      },
       cssClass: 'icon-cost-blue',
       symbol: '💙'
     },
     yellow: {
       code: 'yellow',
-      label: 'Yellow (Light)',
+      get label() {
+        const tag = MONSTER_CONFIG.COST_TO_TAG_MAP.yellow;
+        return tag && window.TAG_CONFIG_MANAGER?.initialized 
+          ? window.TAG_CONFIG_MANAGER.getLabel(tag) 
+          : 'Yellow (Light)';
+      },
+      get color() {
+        const tag = MONSTER_CONFIG.COST_TO_TAG_MAP.yellow;
+        return tag && window.TAG_CONFIG_MANAGER?.initialized
+          ? window.TAG_CONFIG_MANAGER.getConfig(tag).color
+          : '#FDE047';
+      },
       cssClass: 'icon-cost-yellow',
       symbol: '☀️'
     },
     purple: {
       code: 'purple',
-      label: 'Purple (Shadow)',
+      get label() {
+        const tag = MONSTER_CONFIG.COST_TO_TAG_MAP.purple;
+        return tag && window.TAG_CONFIG_MANAGER?.initialized 
+          ? window.TAG_CONFIG_MANAGER.getLabel(tag) 
+          : 'Purple (Shadow)';
+      },
+      get color() {
+        const tag = MONSTER_CONFIG.COST_TO_TAG_MAP.purple;
+        return tag && window.TAG_CONFIG_MANAGER?.initialized
+          ? window.TAG_CONFIG_MANAGER.getConfig(tag).color
+          : '#8B5CF6';
+      },
       cssClass: 'icon-cost-purple',
       symbol: '🔮'
     },
     iron: {
       code: 'iron',
-      label: 'Iron (Equipment)',
+      get label() {
+        const tag = MONSTER_CONFIG.COST_TO_TAG_MAP.iron;
+        return tag && window.TAG_CONFIG_MANAGER?.initialized 
+          ? window.TAG_CONFIG_MANAGER.getLabel(tag) 
+          : 'Iron (Equipment)';
+      },
+      get color() {
+        const tag = MONSTER_CONFIG.COST_TO_TAG_MAP.iron;
+        return tag && window.TAG_CONFIG_MANAGER?.initialized
+          ? window.TAG_CONFIG_MANAGER.getConfig(tag).color
+          : '#6B7280';
+      },
       cssClass: 'icon-cost-iron',
       symbol: '⚙️'
     },
     gold: {
       code: 'gold',
-      label: 'Gold (Wealth)',
+      get label() {
+        const tag = MONSTER_CONFIG.COST_TO_TAG_MAP.gold;
+        return tag && window.TAG_CONFIG_MANAGER?.initialized 
+          ? window.TAG_CONFIG_MANAGER.getLabel(tag) 
+          : 'Gold (Wealth)';
+      },
+      get color() {
+        const tag = MONSTER_CONFIG.COST_TO_TAG_MAP.gold;
+        return tag && window.TAG_CONFIG_MANAGER?.initialized
+          ? window.TAG_CONFIG_MANAGER.getConfig(tag).color
+          : '#FBBF24';
+      },
       cssClass: 'icon-cost-gold',
       symbol: '💰'
     },
     any: {
       code: 'any',
       label: 'Any (Wildcard)',
+      color: '#E5E7EB',
       cssClass: 'icon-cost-any',
       symbol: '⚪'
     }

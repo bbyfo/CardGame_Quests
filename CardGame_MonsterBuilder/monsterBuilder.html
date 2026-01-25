@@ -72,12 +72,6 @@
   <!-- Scripts -->
   <script src="config.js"></script>
   <script src="../shared/tagConfig.js"></script>
-  <script>
-    // Initialize tag config manager
-    if (window.TAG_CONFIG_MANAGER) {
-      window.TAG_CONFIG_MANAGER.init().catch(err => console.warn('Tag config init failed:', err));
-    }
-  </script>
   <script src="config-monsters.js"></script>
   <script src="monster-schema.js"></script>
   <script src="ui-schema.js"></script>
@@ -95,6 +89,11 @@
 
     document.addEventListener('DOMContentLoaded', async () => {
       try {
+        // Initialize tag config manager first
+        if (window.TAG_CONFIG_MANAGER) {
+          await window.TAG_CONFIG_MANAGER.init().catch(err => console.warn('Tag config init failed:', err));
+        }
+        
         // Get monster ID from URL if editing existing
         const urlParams = new URLSearchParams(window.location.search);
         const monsterId = urlParams.get('id');

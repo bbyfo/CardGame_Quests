@@ -45,7 +45,54 @@ class MonsterManager {
       saveServerBtn.title = this.serverMode ? 'Save monsters to server (writes apps/cards.json)' : 'Server offline - click to save to localStorage instead';
     }
 
+    // Inject dynamic icon styles from tag config
+    this.injectIconStyles();
+
     console.log('Monster Manager initialized');
+  }
+
+  /**
+   * Inject dynamic CSS for cost icons based on TAG_CONFIG_MANAGER
+   */
+  injectIconStyles() {
+    // Remove existing dynamic icon styles
+    const existingStyle = document.getElementById('dynamic-icon-styles');
+    if (existingStyle) existingStyle.remove();
+
+    // Generate CSS for all cost icons using tag colors
+    const css = Object.entries(MONSTER_CONFIG.COST_TYPES)
+      .filter(([code, _]) => code !== 'any') // Skip 'any' wildcard
+      .map(([code, iconConfig]) => {
+        const color = iconConfig.color || '#6B7280';
+        // Create a lighter shade for gradient
+        const lighterColor = this.lightenColor(color, 20);
+        return `
+        .icon-cost-${code} {
+          background: linear-gradient(135deg, ${color}, ${lighterColor}) !important;
+          color: white !important;
+        }
+      `;
+      }).join('\n');
+
+    // Inject into DOM
+    const style = document.createElement('style');
+    style.id = 'dynamic-icon-styles';
+    style.textContent = css;
+    document.head.appendChild(style);
+  }
+
+  /**
+   * Lighten a hex color by a percentage
+   */
+  lightenColor(hex, percent) {
+    if (!hex || !hex.startsWith('#')) return hex;
+    
+    const num = parseInt(hex.replace('#', ''), 16);
+    const r = Math.min(255, ((num >> 16) & 0xFF) + Math.round(((255 - ((num >> 16) & 0xFF)) * percent) / 100));
+    const g = Math.min(255, ((num >> 8) & 0xFF) + Math.round(((255 - ((num >> 8) & 0xFF)) * percent) / 100));
+    const b = Math.min(255, (num & 0xFF) + Math.round(((255 - (num & 0xFF)) * percent) / 100));
+    
+    return `#${((r << 16) | (g << 8) | b).toString(16).padStart(6, '0')}`;
   }
 
   /**
