@@ -691,14 +691,26 @@ class MonsterManager {
    * Render single monster card for list
    */
   renderMonsterCard(monster) {
+    const typeTagsHtml = (monster.TypeTags || []).map(tag => {
+      const tagLabel = window.TAG_CONFIG_MANAGER?.getLabel(tag) || tag;
+      return `<span class="tag tag-${tag.toLowerCase()}">${tagLabel}</span>`;
+    }).join('');
+    
+    const aspectTagsHtml = (monster.AspectTags || []).map(tag => {
+      const tagLabel = window.TAG_CONFIG_MANAGER?.getLabel(tag) || tag;
+      return `<span class="tag tag-${tag.toLowerCase()}">${tagLabel}</span>`;
+    }).join('');
+    
     return `
       <div class="monster-card" data-id="${monster.id}">
         <h3>${monster.CardName || 'Unnamed Monster'}</h3>
-        <div class="polarity-badge ${monster.Polarity}">${monster.Polarity}</div>
-        <div class="tags">
-          ${(monster.TypeTags || []).map(tag => `<span class="tag light">${tag}</span>`).join('')}
-          ${(monster.AspectTags || []).map(tag => `<span class="tag shadow">${tag}</span>`).join('')}
+        <div class="tags" style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.5rem;">
+          <div class="polarity-badge ${monster.Polarity}">${monster.Polarity}</div>
+          ${typeTagsHtml}
         </div>
+        ${aspectTagsHtml ? `<div class="tags" style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+          ${aspectTagsHtml}
+        </div>` : ''}
         ${monster.MoveStrategy ? `<div style="margin-top: 0.5rem; font-size: 0.85rem;">Strategy: ${monster.MoveStrategy}</div>` : ''}
       </div>
     `;
