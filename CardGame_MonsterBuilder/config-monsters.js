@@ -7,14 +7,14 @@
 const MONSTER_CONFIG = {
   // Cost Icon to TypeTag mapping (for dynamic colors from TAG_CONFIG_MANAGER)
   COST_TO_TAG_MAP: {
-    red: 'Righteousness',      // Red = Righteousness
-    green: 'Nature',     // Green = Nature
-    blue: 'Knowledge',   // Blue = Magic/Knowledge
-    yellow: 'Justice', // Yellow = Justice
-    purple: 'Deceit',    // Purple = Shadow/Curse/Deceit
-    iron: 'Power',       // Iron = Equipment/Tech/Power
-    gold: 'Wealth',      // Gold = Wealth
-    any: null            // Any = Wildcard (no tag association)
+    red: 'Righteousness',      // Red = Righteousness (Red_Righteous icon \uf002)
+    green: 'Nature',     // Green = Nature (Green_Nature icon \uf000)
+    blue: 'Justice',   // Blue = Justice (Blue_Justice icon \uf005)
+    yellow: 'Knowledge', // Yellow = Knowledge (Yellow_Wisdom icon \uf004)
+    purple: 'Deceit',    // Purple = Shadow/Curse/Deceit (no icon yet)
+    iron: 'Power',       // Iron = Power (Steel_Power icon \uf001)
+    gold: 'Wealth',      // Gold = Wealth (placeholder icon \uf006)
+    any: null            // Any = Wildcard (Star_Any icon \uf003)
   },
 
   // Cost Icon Types with CSS class mappings
