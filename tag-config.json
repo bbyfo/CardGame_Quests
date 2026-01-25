@@ -24,9 +24,10 @@
       "name": "Justice",
       "label": "Justice",
       "category": "TypeTag",
-      "color": "#729ae9",
-      "textColor": "#000000",
+      "color": "#3B82F6",
+      "textColor": "#FFFFFF",
       "iconUrl": null,
+      "iconGlyph": "",
       "polarityAssociation": "Light",
       "pairedWith": "Tyranny"
     },
@@ -34,19 +35,21 @@
       "name": "Nature",
       "label": "Nature",
       "category": "TypeTag",
-      "color": "#16da2d",
-      "textColor": "#000000",
+      "color": "#10B981",
+      "textColor": "#FFFFFF",
       "iconUrl": null,
+      "iconGlyph": "",
       "polarityAssociation": "Light",
       "pairedWith": "Blight"
     },
     "Knowledge": {
       "name": "Knowledge",
-      "label": "Wisdom",
+      "label": "Knowledge",
       "category": "TypeTag",
-      "color": "#fde047",
-      "textColor": "#000000",
+      "color": "#FDE047",
+      "textColor": "#422006",
       "iconUrl": null,
+      "iconGlyph": "",
       "polarityAssociation": "Light",
       "pairedWith": "Deceit"
     },
@@ -57,6 +60,7 @@
       "color": "#E5E7EB",
       "textColor": "#1F2937",
       "iconUrl": null,
+      "iconGlyph": "",
       "polarityAssociation": "Light",
       "pairedWith": "Savagery"
     },
@@ -67,6 +71,7 @@
       "color": "#EF4444",
       "textColor": "#FFFFFF",
       "iconUrl": null,
+      "iconGlyph": "",
       "polarityAssociation": "Light",
       "pairedWith": "Zealotry"
     },
@@ -74,21 +79,11 @@
       "name": "Wealth",
       "label": "Sacrifice",
       "category": "TypeTag",
-      "color": "#fbb623",
+      "color": "#fbbf24",
       "textColor": "#000000",
       "iconUrl": null,
       "polarityAssociation": "Light",
       "pairedWith": "Greed"
-    },
-    "Martial": {
-      "name": "Martial",
-      "label": "Martial",
-      "category": "TypeTag",
-      "color": "#dd2cbc",
-      "textColor": "#FFFFFF",
-      "iconUrl": null,
-      "polarityAssociation": "Light",
-      "pairedWith": null
     },
     "Tyranny": {
       "name": "Tyranny",
@@ -112,10 +107,10 @@
     },
     "Deceit": {
       "name": "Deceit",
-      "label": "Treachery",
+      "label": "Deceit",
       "category": "TypeTag",
-      "color": "#ca8a04",
-      "textColor": "#000000",
+      "color": "#CA8A04",
+      "textColor": "#FEF9C3",
       "iconUrl": null,
       "polarityAssociation": "Shadow",
       "pairedWith": "Knowledge"
@@ -152,5 +147,5 @@
     }
   },
   "version": 1,
-  "exportedAt": "2026-01-25T19:11:02.133Z"
+  "exportedAt": "2026-01-25T19:34:21.059Z"
 }
