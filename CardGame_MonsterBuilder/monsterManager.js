@@ -38,6 +38,13 @@ class MonsterManager {
       this.showNotification('Server offline - using localStorage', 'warning');
     }
 
+    // Enable/disable Save to Server button based on connectivity
+    const saveServerBtn = document.getElementById('save-to-server-btn');
+    if (saveServerBtn) {
+      saveServerBtn.disabled = !this.serverMode;
+      saveServerBtn.title = this.serverMode ? 'Save monsters to server (writes apps/cards.json)' : 'Server offline - click to save to localStorage instead';
+    }
+
     console.log('Monster Manager initialized');
   }
 
@@ -429,6 +436,35 @@ class MonsterManager {
       });
     }
 
+    // Save to server (writes apps/cards.json) or localStorage if offline
+    const saveToServerBtn = document.getElementById('save-to-server-btn');
+    if (saveToServerBtn) {
+      saveToServerBtn.addEventListener('click', async () => {
+        if (!this.serverMode) {
+          if (!confirm('Server appears to be offline. Save to localStorage instead? Click OK to save locally, Cancel to abort.')) {
+            return;
+          }
+          try {
+            await this.dataLoader.saveToLocalStorage();
+            this.showNotification('Saved monsters to localStorage', 'success');
+            return;
+          } catch (error) {
+            console.error('Local save failed:', error);
+            this.showNotification('Save failed: ' + error.message, 'error');
+            return;
+          }
+        }
+
+        // If server is online, persist to server (cards.json)
+        try {
+          await this.saveAllToServer();
+        } catch (error) {
+          console.error('Save to server failed:', error);
+          this.showNotification('Save failed: ' + error.message, 'error');
+        }
+      });
+    }
+
     // Setup search input
     const searchInput = document.getElementById('search-input');
     if (searchInput) {
@@ -666,6 +702,21 @@ class MonsterManager {
         ${monster.MoveStrategy ? `<div style="margin-top: 0.5rem; font-size: 0.85rem;">Strategy: ${monster.MoveStrategy}</div>` : ''}
       </div>
     `;
+  }
+
+  /**
+   * Persist all monsters (writes to server cards.json when online)
+   */
+  async saveAllToServer() {
+    // If a monster is being edited, ensure it's saved first
+    if (this.currentMonster) {
+      const saved = await this.saveMonster();
+      if (!saved) throw new Error('Current monster validation failed — aborting save');
+    }
+
+    // Save all data via DataLoader (will POST to /api/cards when serverMode is true)
+    await this.dataLoader.saveData();
+    this.showNotification('Monsters saved to server (cards.json)', 'success');
   }
 }
 

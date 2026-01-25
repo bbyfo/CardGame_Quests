@@ -354,11 +354,31 @@ function applySearchFilter() {
 }
 
 /**
- * Handle reset to defaults
+ * Handle reset to defaults (offers to load from server file)
  */
-function handleReset() {
-  tagConfigManager.resetToDefaults();
-  renderAllTags();
+async function handleReset() {
+  // Ask user whether to load from server file or use built-in defaults
+  const useServer = confirm('Load saved tag configurations from server file (tag-config.json) if available?\n\nClick OK to load from server file, Cancel to reset to built-in defaults.');
+
+  if (useServer) {
+    const success = await tagConfigManager.loadFromServerFile();
+    if (success) {
+      alert('✓ Tag configurations loaded from server file.');
+      renderAllTags();
+      return;
+    } else {
+      if (!confirm('Failed to load from server file. Do you want to reset to built-in defaults instead?')) {
+        return;
+      }
+    }
+  }
+
+  // Fallback: reset to built-in defaults
+  const ok = tagConfigManager.resetToDefaults();
+  if (ok) {
+    alert('✓ Tag configurations reset to built-in defaults.');
+    renderAllTags();
+  }
 }
 
 /**

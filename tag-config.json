@@ -1,0 +1,11 @@
+{
+  "tagConfigurations": {
+    "TestTag": {
+      "label": "Test",
+      "category": "AspectTag",
+      "name": "TestTag"
+    }
+  },
+  "version": 1,
+  "lastModified": "2026-01-24T19:11:59.8417149-08:00"
+}

@@ -180,10 +180,10 @@ class TagConfigurationManager {
   }
 
   /**
-   * Reset all configurations to defaults
+   * Reset all configurations to built-in defaults
    */
   resetToDefaults() {
-    if (!confirm('Reset all tag configurations to defaults? This cannot be undone.')) {
+    if (!confirm('Reset all tag configurations to built-in defaults? This cannot be undone.')) {
       return false;
     }
     
@@ -193,6 +193,42 @@ class TagConfigurationManager {
     this._injectDynamicStyles();
     this._notifyListeners();
     return true;
+  }
+
+  /**
+   * Load configurations from the server file (tag-config.json)
+   * Returns true if loaded successfully, false otherwise
+   */
+  async loadFromServerFile() {
+    try {
+      if (!window.CONFIG) {
+        console.warn('No CONFIG available to load from server');
+        return false;
+      }
+      const response = await fetch(`${CONFIG.API_BASE_URL}/api/tag-config`, {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' }
+      });
+      if (!response.ok) {
+        console.warn('Server returned non-OK response when loading tag-config');
+        return false;
+      }
+      const data = await response.json();
+      if (data && data.tagConfigurations && Object.keys(data.tagConfigurations).length > 0) {
+        this.configs = data.tagConfigurations;
+        this._saveToLocalStorage();
+        this._injectDynamicStyles();
+        this._notifyListeners();
+        console.log('Loaded tag configurations from server file');
+        return true;
+      } else {
+        console.warn('Server tag-config.json is empty or contains no tag configurations');
+        return false;
+      }
+    } catch (error) {
+      console.warn('Failed to load tag config from server file:', error);
+    }
+    return false;
   }
 
   // ============================================
