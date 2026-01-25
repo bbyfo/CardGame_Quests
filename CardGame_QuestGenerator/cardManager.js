@@ -713,9 +713,13 @@ class CardManager {
     const existingTags = Array.from(list.querySelectorAll('.tag')).map(t => t.textContent.trim());
     if (existingTags.includes(tagValue)) return;
 
+    // Get the label from TAG_CONFIG_MANAGER if available
+    const tagLabel = window.TAG_CONFIG_MANAGER?.getLabel(tagValue) || tagValue;
+
     const tag = document.createElement('span');
-    tag.className = 'tag';
-    tag.textContent = tagValue; // Clean text only, '×' added via CSS ::after
+    tag.className = `tag tag-${tagValue.toLowerCase()}`; // Add specific tag class for styling
+    tag.textContent = tagLabel; // Use label for display
+    tag.dataset.tagName = tagValue; // Store original tag name for form submission
 
     // Click anywhere on tag to remove it
     tag.addEventListener('click', () => {
@@ -753,7 +757,7 @@ class CardManager {
     if (!list) return [];
     
     return Array.from(list.querySelectorAll('.tag'))
-      .map(tag => tag.textContent.trim())
+      .map(tag => tag.dataset.tagName || tag.textContent.trim()) // Use stored tag name if available
       .filter(text => text.length > 0);
   }
 

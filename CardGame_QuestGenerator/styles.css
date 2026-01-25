@@ -226,6 +226,42 @@ main {
 .tags {
   font-size: 0.9em;
   color: #555;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+/* Polarity Badge Styles */
+.polarity-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.polarity-badge.light,
+.polarity-badge.Light {
+  background: #f39c12;
+  color: white;
+}
+
+.polarity-badge.shadow,
+.polarity-badge.Shadow {
+  background: #8e44ad;
+  color: white;
+}
+
+/* Tag Styles (base - specific colors injected by TAG_CONFIG_MANAGER) */
+.tag {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: #e0e0e0;
+  color: #333;
 }
 
 /* Log Section */

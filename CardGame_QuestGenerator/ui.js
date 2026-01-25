@@ -447,36 +447,53 @@ class UIManager {
           ${instructionPreviewHTML}
           ${playerInstructionHTML}
           <div class="quest-details">
-            ${componentData.map((card, index) => `
+            ${componentData.map((card, index) => {
+              // Detect if it's a monster by checking for monster-specific fields
+              const isMonster = card.CardType === 'Monster' || card.BlockCost || card.ToVanquish || card.OnHit;
+              const cardUrl = isMonster 
+                ? `../CardGame_MonsterBuilder/monsterBuilder.html?id=${encodeURIComponent(card.id || '')}`
+                : `cardManager.html?cardId=${encodeURIComponent(card.id || '')}&cardName=${encodeURIComponent(card.CardName)}`;
+              const typeTags = formatTypeTags(card.TypeTags);
+              const aspectTags = formatAspectTags(card.AspectTags);
+              return `
               <div class="multi-card-item">
                 <span class="card-number">#${index + 1}</span> ${wrapCardName(card.CardName)}
-                <button class="btn-go-to-card" onclick="window.open('cardManager.html?cardId=${encodeURIComponent(card.id || '')}&cardName=${encodeURIComponent(card.CardName)}', '_blank')" title="Open in Card Manager">🔍 Go to Card</button>
+                <button class="btn-go-to-card" onclick="window.open('${cardUrl}', '_blank')" title="${isMonster ? 'Open in Monster Builder' : 'Open in Card Manager'}">🔍 Go to Card</button>
                 <div class="tags">
                   ${formatPolarityBadge(card.Polarity)}
-                  <span class="tag-label">Type Tags:</span> ${formatTypeTags(card.TypeTags)}
-                  <span class="tag-label">Aspect Tags:</span> ${formatAspectTags(card.AspectTags)}
+                  ${typeTags ? `<span class="tag-label">Type Tags:</span> ${typeTags}` : ''}
+                  ${aspectTags ? `<span class="tag-label">Aspect Tags:</span> ${aspectTags}` : ''}
                   ${card.mutableTags && card.mutableTags.length > 0 ? `<span class="tag-label">Mutable Tags:</span> ${card.mutableTags.join(', ')}` : ''}
                 </div>
                 ${formatInstructions(card.Instructions)}
               </div>
-            `).join('')}
+            `;
+            }).join('')}
           </div>
         </div>`;
       }
       
       // Handle single card
+      // Detect if it's a monster by checking for monster-specific fields
+      const isMonster = componentData.CardType === 'Monster' || componentData.BlockCost || componentData.ToVanquish || componentData.OnHit;
+      const cardUrl = isMonster 
+        ? `../CardGame_MonsterBuilder/monsterBuilder.html?id=${encodeURIComponent(componentData.id || '')}`
+        : `cardManager.html?cardId=${encodeURIComponent(componentData.id || '')}&cardName=${encodeURIComponent(componentData.CardName)}`;
+      const typeTags = formatTypeTags(componentData.TypeTags);
+      const aspectTags = formatAspectTags(componentData.AspectTags);
+      
       return `<div class="quest-role">
         ${instructionPreviewHTML}
         ${playerInstructionHTML}
         <div class="quest-details">
           <div class="quest-role-header">
             ${wrapCardName(componentData.CardName)}
-            <button class="btn-go-to-card" onclick="window.open('cardManager.html?cardId=${encodeURIComponent(componentData.id || '')}&cardName=${encodeURIComponent(componentData.CardName)}', '_blank')" title="Open in Card Manager">🔍 Go to Card</button>
+            <button class="btn-go-to-card" onclick="window.open('${cardUrl}', '_blank')" title="${isMonster ? 'Open in Monster Builder' : 'Open in Card Manager'}">🔍 Go to Card</button>
           </div>
           <div class="tags">
             ${formatPolarityBadge(componentData.Polarity)}
-            <span class="tag-label">Type Tags:</span> ${formatTypeTags(componentData.TypeTags)}
-            <span class="tag-label">Aspect Tags:</span> ${formatAspectTags(componentData.AspectTags)}
+            ${typeTags ? `<span class="tag-label">Type Tags:</span> ${typeTags}` : ''}
+            ${aspectTags ? `<span class="tag-label">Aspect Tags:</span> ${aspectTags}` : ''}
             ${componentData.mutableTags && componentData.mutableTags.length > 0 ? `<span class="tag-label">Mutable Tags:</span> ${componentData.mutableTags.join(', ')}` : ''}
           </div>
           ${formatInstructions(componentData.Instructions)}

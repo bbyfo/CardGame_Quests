@@ -13,6 +13,12 @@ let uiManager;
  */
 async function initializeApp() {
   try {
+    // Initialize tag configuration manager first
+    if (window.TAG_CONFIG_MANAGER) {
+      await window.TAG_CONFIG_MANAGER.init().catch(err => console.warn('Tag config init failed:', err));
+      console.log('TAG_CONFIG_MANAGER initialized. Sample tag (Martial):', window.TAG_CONFIG_MANAGER.getConfig('Martial'));
+    }
+
     // Check data source from server health endpoint
     let dataSourceInfo = 'Unknown';
     try {
