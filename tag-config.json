@@ -1,11 +1,156 @@
 {
   "tagConfigurations": {
-    "TestTag": {
-      "label": "Test",
-      "category": "AspectTag",
-      "name": "TestTag"
+    "Light": {
+      "name": "Light",
+      "label": "Light",
+      "category": "Polarity",
+      "color": "#FFFFFF",
+      "textColor": "#000000",
+      "iconUrl": null,
+      "polarityAssociation": "Light",
+      "pairedWith": "Shadow"
+    },
+    "Shadow": {
+      "name": "Shadow",
+      "label": "Shadow",
+      "category": "Polarity",
+      "color": "#000000",
+      "textColor": "#FFFFFF",
+      "iconUrl": null,
+      "polarityAssociation": "Shadow",
+      "pairedWith": "Light"
+    },
+    "Justice": {
+      "name": "Justice",
+      "label": "Justice",
+      "category": "TypeTag",
+      "color": "#729ae9",
+      "textColor": "#000000",
+      "iconUrl": null,
+      "polarityAssociation": "Light",
+      "pairedWith": "Tyranny"
+    },
+    "Nature": {
+      "name": "Nature",
+      "label": "Nature",
+      "category": "TypeTag",
+      "color": "#16da2d",
+      "textColor": "#000000",
+      "iconUrl": null,
+      "polarityAssociation": "Light",
+      "pairedWith": "Blight"
+    },
+    "Knowledge": {
+      "name": "Knowledge",
+      "label": "Wisdom",
+      "category": "TypeTag",
+      "color": "#fde047",
+      "textColor": "#000000",
+      "iconUrl": null,
+      "polarityAssociation": "Light",
+      "pairedWith": "Deceit"
+    },
+    "Power": {
+      "name": "Power",
+      "label": "Power",
+      "category": "TypeTag",
+      "color": "#E5E7EB",
+      "textColor": "#1F2937",
+      "iconUrl": null,
+      "polarityAssociation": "Light",
+      "pairedWith": "Savagery"
+    },
+    "Righteousness": {
+      "name": "Righteousness",
+      "label": "Righteousness",
+      "category": "TypeTag",
+      "color": "#EF4444",
+      "textColor": "#FFFFFF",
+      "iconUrl": null,
+      "polarityAssociation": "Light",
+      "pairedWith": "Zealotry"
+    },
+    "Wealth": {
+      "name": "Wealth",
+      "label": "Sacrifice",
+      "category": "TypeTag",
+      "color": "#fbb623",
+      "textColor": "#000000",
+      "iconUrl": null,
+      "polarityAssociation": "Light",
+      "pairedWith": "Greed"
+    },
+    "Martial": {
+      "name": "Martial",
+      "label": "Martial",
+      "category": "TypeTag",
+      "color": "#dd2cbc",
+      "textColor": "#FFFFFF",
+      "iconUrl": null,
+      "polarityAssociation": "Light",
+      "pairedWith": null
+    },
+    "Tyranny": {
+      "name": "Tyranny",
+      "label": "Tyranny",
+      "category": "TypeTag",
+      "color": "#1E3A8A",
+      "textColor": "#E0E7FF",
+      "iconUrl": null,
+      "polarityAssociation": "Shadow",
+      "pairedWith": "Justice"
+    },
+    "Blight": {
+      "name": "Blight",
+      "label": "Blight",
+      "category": "TypeTag",
+      "color": "#14532D",
+      "textColor": "#D1FAE5",
+      "iconUrl": null,
+      "polarityAssociation": "Shadow",
+      "pairedWith": "Nature"
+    },
+    "Deceit": {
+      "name": "Deceit",
+      "label": "Treachery",
+      "category": "TypeTag",
+      "color": "#ca8a04",
+      "textColor": "#000000",
+      "iconUrl": null,
+      "polarityAssociation": "Shadow",
+      "pairedWith": "Knowledge"
+    },
+    "Savagery": {
+      "name": "Savagery",
+      "label": "Savagery",
+      "category": "TypeTag",
+      "color": "#4B5563",
+      "textColor": "#F3F4F6",
+      "iconUrl": null,
+      "polarityAssociation": "Shadow",
+      "pairedWith": "Power"
+    },
+    "Zealotry": {
+      "name": "Zealotry",
+      "label": "Zealotry",
+      "category": "TypeTag",
+      "color": "#7F1D1D",
+      "textColor": "#FECACA",
+      "iconUrl": null,
+      "polarityAssociation": "Shadow",
+      "pairedWith": "Righteousness"
+    },
+    "Greed": {
+      "name": "Greed",
+      "label": "Greed",
+      "category": "TypeTag",
+      "color": "#92400E",
+      "textColor": "#FEF3C7",
+      "iconUrl": null,
+      "polarityAssociation": "Shadow",
+      "pairedWith": "Wealth"
     }
   },
   "version": 1,
-  "lastModified": "2026-01-24T19:11:59.8417149-08:00"
+  "exportedAt": "2026-01-25T19:11:02.133Z"
 }
