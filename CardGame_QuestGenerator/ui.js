@@ -347,10 +347,11 @@ class UIManager {
         tagParts.push(`<span class="polarity-badge polarity-${polarity.toLowerCase()}">${polarity}</span>`);
       }
       
-      // Add TypeTags with their color styling
+      // Add TypeTags with their color styling and labels
       if (tags && tags.length > 0) {
         tags.forEach(tag => {
-          tagParts.push(`<span class="tag tag-${tag.toLowerCase()}">${tag}</span>`);
+          const tagLabel = window.TAG_CONFIG_MANAGER?.getLabel(tag) || tag;
+          tagParts.push(`<span class="tag tag-${tag.toLowerCase()}">${tagLabel}</span>`);
         });
       }
       
@@ -416,12 +417,22 @@ class UIManager {
         return wrapped;
       };
       
-      // Helper to format TypeTags with CSS classes
+      // Helper to format TypeTags with CSS classes and labels
       const formatTypeTags = (typeTags) => {
         if (!typeTags || typeTags.length === 0) return '';
-        return typeTags.map(tag => 
-          `<span class="tag tag-${tag.toLowerCase()}">${tag}</span>`
-        ).join(' ');
+        return typeTags.map(tag => {
+          const tagLabel = window.TAG_CONFIG_MANAGER?.getLabel(tag) || tag;
+          return `<span class="tag tag-${tag.toLowerCase()}">${tagLabel}</span>`;
+        }).join(' ');
+      };
+      
+      // Helper to format AspectTags with labels
+      const formatAspectTags = (aspectTags) => {
+        if (!aspectTags || aspectTags.length === 0) return '';
+        return aspectTags.map(tag => {
+          const tagLabel = window.TAG_CONFIG_MANAGER?.getLabel(tag) || tag;
+          return tagLabel;
+        }).join(', ');
       };
       
       // Helper to format Polarity badge
@@ -443,7 +454,7 @@ class UIManager {
                 <div class="tags">
                   ${formatPolarityBadge(card.Polarity)}
                   <span class="tag-label">Type Tags:</span> ${formatTypeTags(card.TypeTags)}
-                  <span class="tag-label">Aspect Tags:</span> ${card.AspectTags.join(', ')}
+                  <span class="tag-label">Aspect Tags:</span> ${formatAspectTags(card.AspectTags)}
                   ${card.mutableTags && card.mutableTags.length > 0 ? `<span class="tag-label">Mutable Tags:</span> ${card.mutableTags.join(', ')}` : ''}
                 </div>
                 ${formatInstructions(card.Instructions)}
@@ -465,7 +476,7 @@ class UIManager {
           <div class="tags">
             ${formatPolarityBadge(componentData.Polarity)}
             <span class="tag-label">Type Tags:</span> ${formatTypeTags(componentData.TypeTags)}
-            <span class="tag-label">Aspect Tags:</span> ${componentData.AspectTags.join(', ')}
+            <span class="tag-label">Aspect Tags:</span> ${formatAspectTags(componentData.AspectTags)}
             ${componentData.mutableTags && componentData.mutableTags.length > 0 ? `<span class="tag-label">Mutable Tags:</span> ${componentData.mutableTags.join(', ')}` : ''}
           </div>
           ${formatInstructions(componentData.Instructions)}

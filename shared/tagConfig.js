@@ -39,12 +39,61 @@ class TagConfigurationManager {
       this.configs = localData || this.defaultConfigs;
     }
     
+    // Load AspectTags from cards.json
+    await this._loadAspectTagsFromCards();
+    
     // Inject dynamic styles
     this._injectDynamicStyles();
     this.initialized = true;
     
     console.log('Tag Configuration Manager initialized with', Object.keys(this.configs).length, 'configs');
     return this;
+  }
+
+  /**
+   * Load AspectTags from cards.json
+   */
+  async _loadAspectTagsFromCards() {
+    try {
+      if (!window.CONFIG) return;
+      
+      const response = await fetch(`${CONFIG.API_BASE_URL}/api/cards`);
+      if (!response.ok) return;
+      
+      const data = await response.json();
+      const aspectTagsSet = new Set();
+      
+      // Extract all unique AspectTags from all cards
+      Object.values(data).forEach(deck => {
+        if (Array.isArray(deck)) {
+          deck.forEach(card => {
+            if (card.AspectTags && Array.isArray(card.AspectTags)) {
+              card.AspectTags.forEach(tag => aspectTagsSet.add(tag));
+            }
+          });
+        }
+      });
+      
+      // Add AspectTags to configs if they don't exist
+      aspectTagsSet.forEach(tagName => {
+        if (!this.configs[tagName]) {
+          this.configs[tagName] = {
+            name: tagName,
+            label: tagName,
+            category: 'AspectTag',
+            color: null,
+            textColor: null,
+            iconUrl: null,
+            polarityAssociation: null,
+            pairedWith: null
+          };
+        }
+      });
+      
+      console.log('Loaded', aspectTagsSet.size, 'AspectTags from cards.json');
+    } catch (error) {
+      console.warn('Failed to load AspectTags from cards:', error);
+    }
   }
 
   // ============================================
@@ -57,6 +106,14 @@ class TagConfigurationManager {
   getConfig(tagName) {
     if (!tagName) return this._getDefaultForTag('Unknown');
     return this.configs[tagName] || this._getDefaultForTag(tagName);
+  }
+
+  /**
+   * Get display label for a tag
+   */
+  getLabel(tagName) {
+    const config = this.getConfig(tagName);
+    return config.label || tagName;
   }
 
   /**
@@ -89,6 +146,7 @@ class TagConfigurationManager {
   setConfig(tagName, config) {
     this.configs[tagName] = {
       name: tagName,
+      label: config.label || tagName,
       category: config.category || 'AspectTag',
       color: config.color || null,
       textColor: config.textColor || (config.color ? this._calculateTextColor(config.color) : null),
@@ -315,6 +373,7 @@ class TagConfigurationManager {
       // Polarity tags
       'Light': {
         name: 'Light',
+        label: 'Light',
         category: 'Polarity',
         color: '#FFFFFF',
         textColor: '#000000',
@@ -324,6 +383,7 @@ class TagConfigurationManager {
       },
       'Shadow': {
         name: 'Shadow',
+        label: 'Shadow',
         category: 'Polarity',
         color: '#000000',
         textColor: '#FFFFFF',
@@ -335,6 +395,7 @@ class TagConfigurationManager {
       // Light TypeTags
       'Justice': {
         name: 'Justice',
+        label: 'Justice',
         category: 'TypeTag',
         color: '#3B82F6', // Bright Blue
         textColor: '#FFFFFF',
@@ -344,6 +405,7 @@ class TagConfigurationManager {
       },
       'Nature': {
         name: 'Nature',
+        label: 'Nature',
         category: 'TypeTag',
         color: '#10B981', // Bright Green
         textColor: '#FFFFFF',
@@ -353,6 +415,7 @@ class TagConfigurationManager {
       },
       'Knowledge': {
         name: 'Knowledge',
+        label: 'Knowledge',
         category: 'TypeTag',
         color: '#FDE047', // Bright Yellow
         textColor: '#422006',
@@ -362,6 +425,7 @@ class TagConfigurationManager {
       },
       'Power': {
         name: 'Power',
+        label: 'Power',
         category: 'TypeTag',
         color: '#E5E7EB', // Bright Silver
         textColor: '#1F2937',
@@ -371,6 +435,7 @@ class TagConfigurationManager {
       },
       'Righteousness': {
         name: 'Righteousness',
+        label: 'Righteousness',
         category: 'TypeTag',
         color: '#EF4444', // Bright Red
         textColor: '#FFFFFF',
@@ -380,6 +445,7 @@ class TagConfigurationManager {
       },
       'Wealth': {
         name: 'Wealth',
+        label: 'Wealth',
         category: 'TypeTag',
         color: '#FBBF24', // Bright Gold
         textColor: '#78350F',
@@ -389,6 +455,7 @@ class TagConfigurationManager {
       },
       'Martial': {
         name: 'Martial',
+        label: 'Martial',
         category: 'TypeTag',
         color: '#DC2626', // Red
         textColor: '#FFFFFF',
@@ -400,6 +467,7 @@ class TagConfigurationManager {
       // Shadow TypeTags
       'Tyranny': {
         name: 'Tyranny',
+        label: 'Tyranny',
         category: 'TypeTag',
         color: '#1E3A8A', // Dark Blue/Midnight Indigo
         textColor: '#E0E7FF',
@@ -409,6 +477,7 @@ class TagConfigurationManager {
       },
       'Blight': {
         name: 'Blight',
+        label: 'Blight',
         category: 'TypeTag',
         color: '#14532D', // Dark Green/Rotting Moss
         textColor: '#D1FAE5',
@@ -418,6 +487,7 @@ class TagConfigurationManager {
       },
       'Deceit': {
         name: 'Deceit',
+        label: 'Deceit',
         category: 'TypeTag',
         color: '#CA8A04', // Dark Yellow/Tarnished Gold
         textColor: '#FEF9C3',
@@ -427,6 +497,7 @@ class TagConfigurationManager {
       },
       'Savagery': {
         name: 'Savagery',
+        label: 'Savagery',
         category: 'TypeTag',
         color: '#4B5563', // Dark Silver/Gunmetal
         textColor: '#F3F4F6',
@@ -436,6 +507,7 @@ class TagConfigurationManager {
       },
       'Zealotry': {
         name: 'Zealotry',
+        label: 'Zealotry',
         category: 'TypeTag',
         color: '#7F1D1D', // Dark Red/Blood Rust
         textColor: '#FECACA',
@@ -445,6 +517,7 @@ class TagConfigurationManager {
       },
       'Greed': {
         name: 'Greed',
+        label: 'Greed',
         category: 'TypeTag',
         color: '#92400E', // Dark Gold/Burnished Bronze
         textColor: '#FEF3C7',

@@ -142,11 +142,18 @@ function renderTagCard(tag) {
   const color = tag.color || '#6B7280';
   const textColor = tag.textColor || '#FFFFFF';
   const iconPreview = tag.iconUrl ? `<img src="${tag.iconUrl}" class="tag-icon" alt="" />` : '';
+  const label = tag.label || tag.name;
 
   return `
     <div class="tag-config-card" data-tag-name="${tag.name}">
       <div class="tag-name">${tag.name}</div>
       <div class="tag-category">${tag.category}</div>
+
+      <!-- Label -->
+      <div class="form-field">
+        <label>Display Label</label>
+        <input type="text" class="tag-label" value="${label}" placeholder="${tag.name}" />
+      </div>
 
       <!-- Color -->
       <div class="form-field">
@@ -179,7 +186,7 @@ function renderTagCard(tag) {
       <div class="tag-preview">
         <div class="tag-preview-label">Preview</div>
         <span class="tag" style="background-color: ${color}; color: ${textColor};">
-          ${iconPreview}${tag.name}
+          ${iconPreview}${label}
         </span>
       </div>
 
@@ -197,6 +204,22 @@ function renderTagCard(tag) {
 function attachCardListeners(container) {
   container.querySelectorAll('.tag-config-card').forEach(card => {
     const tagName = card.dataset.tagName;
+
+    // Label - only update on blur to prevent focus loss while typing
+    const labelInput = card.querySelector('.tag-label');
+    if (labelInput) {
+      labelInput.addEventListener('blur', () => updateTagConfig(card));
+      // Update preview while typing without saving
+      labelInput.addEventListener('input', () => {
+        const preview = card.querySelector('.tag-preview .tag');
+        const lastChild = preview.lastChild;
+        if (lastChild && lastChild.nodeType === Node.TEXT_NODE) {
+          lastChild.textContent = labelInput.value.trim() || card.dataset.tagName;
+        } else {
+          preview.textContent = labelInput.value.trim() || card.dataset.tagName;
+        }
+      });
+    }
 
     // Enable/disable color
     const enableColorCheckbox = card.querySelector('.enable-color');
@@ -266,12 +289,14 @@ function updateTagConfig(card) {
   const tagName = card.dataset.tagName;
   const config = tagConfigManager.getConfig(tagName);
 
+  const labelInput = card.querySelector('.tag-label');
   const enableColor = card.querySelector('.enable-color')?.checked;
   const colorInput = card.querySelector('.tag-color');
   const iconUrlInput = card.querySelector('.tag-icon-url');
   const polaritySelect = card.querySelector('.tag-polarity');
 
   const updatedConfig = {
+    label: labelInput.value.trim() || tagName,
     category: config.category,
     color: enableColor ? colorInput.value : null,
     iconUrl: iconUrlInput.value.trim() || null,
@@ -288,7 +313,7 @@ function updateTagConfig(card) {
   preview.style.color = textColor;
 
   const iconPreview = updatedConfig.iconUrl ? `<img src="${updatedConfig.iconUrl}" class="tag-icon" alt="" />` : '';
-  preview.innerHTML = iconPreview + tagName;
+  preview.innerHTML = iconPreview + (updatedConfig.label || tagName);
 }
 
 /**
