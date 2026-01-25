@@ -146,14 +146,8 @@ function renderTagCard(tag) {
 
   return `
     <div class="tag-config-card" data-tag-name="${tag.name}">
-      <div class="tag-name">${tag.name}</div>
+      <input type="text" class="tag-name" value="${label}" placeholder="${tag.name}" title="Internal name: ${tag.name}" />
       <div class="tag-category">${tag.category}</div>
-
-      <!-- Label -->
-      <div class="form-field">
-        <label>Display Label</label>
-        <input type="text" class="tag-label" value="${label}" placeholder="${tag.name}" />
-      </div>
 
       <!-- Color -->
       <div class="form-field">
@@ -205,18 +199,18 @@ function attachCardListeners(container) {
   container.querySelectorAll('.tag-config-card').forEach(card => {
     const tagName = card.dataset.tagName;
 
-    // Label - only update on blur to prevent focus loss while typing
-    const labelInput = card.querySelector('.tag-label');
-    if (labelInput) {
-      labelInput.addEventListener('blur', () => updateTagConfig(card));
+    // Tag name/label input - only update on blur to prevent focus loss while typing
+    const tagNameInput = card.querySelector('.tag-name');
+    if (tagNameInput) {
+      tagNameInput.addEventListener('blur', () => updateTagConfig(card));
       // Update preview while typing without saving
-      labelInput.addEventListener('input', () => {
+      tagNameInput.addEventListener('input', () => {
         const preview = card.querySelector('.tag-preview .tag');
         const lastChild = preview.lastChild;
         if (lastChild && lastChild.nodeType === Node.TEXT_NODE) {
-          lastChild.textContent = labelInput.value.trim() || card.dataset.tagName;
+          lastChild.textContent = tagNameInput.value.trim() || card.dataset.tagName;
         } else {
-          preview.textContent = labelInput.value.trim() || card.dataset.tagName;
+          preview.textContent = tagNameInput.value.trim() || card.dataset.tagName;
         }
       });
     }
@@ -289,14 +283,14 @@ function updateTagConfig(card) {
   const tagName = card.dataset.tagName;
   const config = tagConfigManager.getConfig(tagName);
 
-  const labelInput = card.querySelector('.tag-label');
+  const tagNameInput = card.querySelector('.tag-name');
   const enableColor = card.querySelector('.enable-color')?.checked;
   const colorInput = card.querySelector('.tag-color');
   const iconUrlInput = card.querySelector('.tag-icon-url');
   const polaritySelect = card.querySelector('.tag-polarity');
 
   const updatedConfig = {
-    label: labelInput.value.trim() || tagName,
+    label: tagNameInput.value.trim() || tagName,
     category: config.category,
     color: enableColor ? colorInput.value : null,
     iconUrl: iconUrlInput.value.trim() || null,
