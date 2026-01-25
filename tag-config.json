@@ -44,12 +44,11 @@
     },
     "Knowledge": {
       "name": "Knowledge",
-      "label": "Knowledge",
+      "label": "Wisdom",
       "category": "TypeTag",
-      "color": "#FDE047",
-      "textColor": "#422006",
+      "color": "#fde047",
+      "textColor": "#000000",
       "iconUrl": null,
-      "iconGlyph": "",
       "polarityAssociation": "Light",
       "pairedWith": "Deceit"
     },
@@ -147,5 +146,5 @@
     }
   },
   "version": 1,
-  "exportedAt": "2026-01-25T19:34:21.059Z"
+  "exportedAt": "2026-01-25T19:42:23.087Z"
 }

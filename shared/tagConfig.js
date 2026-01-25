@@ -201,16 +201,36 @@ class TagConfigurationManager {
    */
   async loadFromServerFile() {
     try {
-      if (!window.CONFIG) {
-        console.warn('No CONFIG available to load from server');
-        return false;
+      // First try API endpoint if CONFIG is available
+      if (window.CONFIG) {
+        try {
+          const response = await fetch(`${CONFIG.API_BASE_URL}/api/tag-config`, {
+            method: 'GET',
+            headers: { 'Content-Type': 'application/json' }
+          });
+          if (response.ok) {
+            const data = await response.json();
+            if (data && data.tagConfigurations && Object.keys(data.tagConfigurations).length > 0) {
+              this.configs = data.tagConfigurations;
+              this._saveToLocalStorage();
+              this._injectDynamicStyles();
+              this._notifyListeners();
+              console.log('Loaded tag configurations from server API');
+              return true;
+            }
+          }
+        } catch (apiError) {
+          console.log('API endpoint not available, trying direct file access...');
+        }
       }
-      const response = await fetch(`${CONFIG.API_BASE_URL}/api/tag-config`, {
+      
+      // Fallback: Try loading directly from tag-config.json file
+      const response = await fetch('../tag-config.json', {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' }
       });
       if (!response.ok) {
-        console.warn('Server returned non-OK response when loading tag-config');
+        console.warn('Failed to load tag-config.json file directly');
         return false;
       }
       const data = await response.json();
@@ -219,10 +239,10 @@ class TagConfigurationManager {
         this._saveToLocalStorage();
         this._injectDynamicStyles();
         this._notifyListeners();
-        console.log('Loaded tag configurations from server file');
+        console.log('Loaded tag configurations from tag-config.json file');
         return true;
       } else {
-        console.warn('Server tag-config.json is empty or contains no tag configurations');
+        console.warn('tag-config.json is empty or contains no tag configurations');
         return false;
       }
     } catch (error) {
