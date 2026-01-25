@@ -1126,7 +1126,7 @@ class CardManager {
         <h4>${instr.TargetDeck}</h4>
         <div class="instruction-tags">
           ${polarityTag}
-          ${instr.Tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+          ${instr.Tags.map(tag => `<span class="tag tag-${tag.toLowerCase()}">${tag}</span>`).join('')}
         </div>
         <span class="instruction-remove" data-index="${index}">✕</span>
       `;
@@ -1281,7 +1281,7 @@ class CardManager {
         </div>
         ${instr.tags.length > 0 || instr.polarity ? `<div class="instruction-tags">
           ${instr.polarity ? `<span class="polarity-badge polarity-${instr.polarity.toLowerCase()}">${instr.polarity}</span>` : ''}
-          ${instr.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+          ${instr.tags.map(tag => `<span class="tag tag-${tag.toLowerCase()}">${tag}</span>`).join('')}
         </div>` : ''}
       `;
 
@@ -1549,7 +1549,7 @@ class CardManager {
         <div class="tag-group">
           <span class="tag-group-label">Aspect:</span>
           <div class="tag-group-tags">
-            ${card.AspectTags.map(t => `<span class="tag tag-aspect">${t}</span>`).join('')}
+            ${card.AspectTags.map(t => `<span class="tag tag-${t.toLowerCase()}">${t}</span>`).join('')}
           </div>
         </div>
       ` : '';

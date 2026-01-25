@@ -371,13 +371,29 @@
   <script src="config.js"></script>
   <script src="../shared/tagConfig.js"></script>
   <script>
-    // Initialize tag config manager
-    if (window.TAG_CONFIG_MANAGER) {
-      window.TAG_CONFIG_MANAGER.init().catch(err => console.warn('Tag config init failed:', err));
-    }
+    // Initialize tag config manager and wait before loading other scripts
+    (async () => {
+      if (window.TAG_CONFIG_MANAGER) {
+        await window.TAG_CONFIG_MANAGER.init().catch(err => console.warn('Tag config init failed:', err));
+      }
+      
+      // Load remaining scripts after tag config is ready
+      const scriptsToLoad = [
+        'dataLoader.js',
+        'csvImporter.js',
+        'cardManager.js'
+      ];
+      
+      for (const src of scriptsToLoad) {
+        const script = document.createElement('script');
+        script.src = src;
+        document.head.appendChild(script);
+        await new Promise((resolve, reject) => {
+          script.onload = resolve;
+          script.onerror = reject;
+        });
+      }
+    })();
   </script>
-  <script src="dataLoader.js"></script>
-  <script src="csvImporter.js"></script>
-  <script src="cardManager.js"></script>
 </body>
 </html>
