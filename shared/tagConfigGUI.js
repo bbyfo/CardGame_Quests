@@ -239,6 +239,13 @@ function attachCardListeners(container) {
     if (colorInput) {
       colorInput.addEventListener('input', (e) => {
         hexInput.value = e.target.value;
+        // Live preview update
+        const preview = card.querySelector('.tag-preview .tag');
+        if (preview && enableColorCheckbox?.checked) {
+          const textColor = tagConfigManager._calculateTextColor(e.target.value);
+          preview.style.backgroundColor = e.target.value;
+          preview.style.color = textColor;
+        }
         updateTagConfig(card);
       });
     }
@@ -247,6 +254,13 @@ function attachCardListeners(container) {
       hexInput.addEventListener('input', (e) => {
         if (/^#[0-9A-F]{6}$/i.test(e.target.value)) {
           colorInput.value = e.target.value;
+          // Live preview update
+          const preview = card.querySelector('.tag-preview .tag');
+          if (preview && enableColorCheckbox?.checked) {
+            const textColor = tagConfigManager._calculateTextColor(e.target.value);
+            preview.style.backgroundColor = e.target.value;
+            preview.style.color = textColor;
+          }
           updateTagConfig(card);
         }
       });
