@@ -36,7 +36,8 @@
 }
 
 .icon-cost-red::before {
-  content: '🗡️';
+  content: '\f002';
+  font-family: 'CardGameFont' !important;
 }
 
 .icon-cost-green {
@@ -45,7 +46,8 @@
 }
 
 .icon-cost-green::before {
-  content: '🌿';
+  content: '\f000';
+  font-family: 'CardGameFont' !important;
 }
 
 .icon-cost-blue {
@@ -54,7 +56,8 @@
 }
 
 .icon-cost-blue::before {
-  content: '💙';
+  content: '\f004';
+  font-family: 'CardGameFont' !important;
 }
 
 .icon-cost-yellow {
@@ -63,7 +66,8 @@
 }
 
 .icon-cost-yellow::before {
-  content: '☀️';
+  content: '\f002';
+  font-family: 'CardGameFont' !important;
 }
 
 .icon-cost-purple {
@@ -72,7 +76,8 @@
 }
 
 .icon-cost-purple::before {
-  content: '🔮';
+  content: '\f008';
+  font-family: 'CardGameFont' !important;
 }
 
 .icon-cost-iron {
@@ -81,7 +86,8 @@
 }
 
 .icon-cost-iron::before {
-  content: '⚙️';
+  content: '\f001';
+  font-family: 'CardGameFont' !important;
 }
 
 .icon-cost-gold {
@@ -90,7 +96,8 @@
 }
 
 .icon-cost-gold::before {
-  content: '💰';
+  content: '\f006';
+  font-family: 'CardGameFont' !important;
 }
 
 .icon-cost-any {
@@ -99,7 +106,8 @@
 }
 
 .icon-cost-any::before {
-  content: '⚪';
+  content: '\f003';
+  font-family: 'CardGameFont' !important;
 }
 
 /* Harm Icons */

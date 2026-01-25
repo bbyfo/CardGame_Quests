@@ -329,24 +329,28 @@ class TagConfigurationManager {
           background-color: ${config.color} !important;
           color: ${config.textColor} !important;
           position: relative;
-          ${config.iconUrl ? 'padding-left: 2rem;' : ''}
+          ${config.iconGlyph ? 'padding-left: 2rem;' : ''}
         }
         .tag-${this._sanitizeClassName(tagName)}:hover {
           filter: brightness(0.9);
         }
-        ${config.iconUrl ? `
+        ${config.iconGlyph ? `
         .tag-${this._sanitizeClassName(tagName)}::before {
-          content: '';
+          content: '${config.iconGlyph}';
+          font-family: 'CardGameFont' !important;
           position: absolute;
-          left: 0.25rem;
+          left: 0.35rem;
           top: 50%;
           transform: translateY(-50%);
-          width: 1.2rem;
-          height: 1.2rem;
-          background-image: url('${config.iconUrl}');
-          background-size: contain;
-          background-repeat: no-repeat;
-          background-position: center;
+          font-size: 1.1rem;
+          line-height: 1;
+          speak: none;
+          font-style: normal;
+          font-weight: normal;
+          font-variant: normal;
+          text-transform: none;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
         }
         ` : ''}
       `).join('\n');
@@ -436,6 +440,7 @@ class TagConfigurationManager {
         color: '#3B82F6', // Bright Blue
         textColor: '#FFFFFF',
         iconUrl: null,
+        iconGlyph: '\uf005',
         polarityAssociation: 'Light',
         pairedWith: 'Tyranny'
       },
@@ -446,6 +451,7 @@ class TagConfigurationManager {
         color: '#10B981', // Bright Green
         textColor: '#FFFFFF',
         iconUrl: null,
+        iconGlyph: '\uf000',
         polarityAssociation: 'Light',
         pairedWith: 'Blight'
       },
@@ -456,6 +462,7 @@ class TagConfigurationManager {
         color: '#FDE047', // Bright Yellow
         textColor: '#422006',
         iconUrl: null,
+        iconGlyph: '\uf004',
         polarityAssociation: 'Light',
         pairedWith: 'Deceit'
       },
@@ -466,6 +473,7 @@ class TagConfigurationManager {
         color: '#E5E7EB', // Bright Silver
         textColor: '#1F2937',
         iconUrl: null,
+        iconGlyph: '\uf001',
         polarityAssociation: 'Light',
         pairedWith: 'Savagery'
       },
@@ -476,6 +484,7 @@ class TagConfigurationManager {
         color: '#EF4444', // Bright Red
         textColor: '#FFFFFF',
         iconUrl: null,
+        iconGlyph: '\uf002',
         polarityAssociation: 'Light',
         pairedWith: 'Zealotry'
       },
@@ -486,6 +495,7 @@ class TagConfigurationManager {
         color: '#FBBF24', // Bright Gold
         textColor: '#78350F',
         iconUrl: null,
+        iconGlyph: '\uf006',
         polarityAssociation: 'Light',
         pairedWith: 'Greed'
       },
@@ -496,6 +506,7 @@ class TagConfigurationManager {
         color: '#DC2626', // Red
         textColor: '#FFFFFF',
         iconUrl: null,
+        iconGlyph: '\uf007',
         polarityAssociation: 'Light',
         pairedWith: null
       },

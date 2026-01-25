@@ -32,16 +32,20 @@ class TagSelectorSheet extends BottomSheet {
       <div class="form-group">
         <label>Select tags:</label>
         <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem;">
-          ${availableTags.map(tag => `
-            <label class="checkbox-group">
-              <input 
-                type="checkbox" 
-                value="${tag}" 
-                ${selectedTags.includes(tag) ? 'checked' : ''}
-              />
-              <span>${tag}</span>
-            </label>
-          `).join('')}
+          ${availableTags.map(tag => {
+            const config = window.TAG_CONFIG_MANAGER?.getConfig(tag);
+            const iconHtml = config?.iconGlyph ? `<span class="icon" style="font-size: 1rem; margin-right: 0.25rem;">${config.iconGlyph}</span>` : '';
+            return `
+              <label class="checkbox-group">
+                <input 
+                  type="checkbox" 
+                  value="${tag}" 
+                  ${selectedTags.includes(tag) ? 'checked' : ''}
+                />
+                <span>${iconHtml}${tag}</span>
+              </label>
+            `;
+          }).join('')}
         </div>
       </div>
     `;
