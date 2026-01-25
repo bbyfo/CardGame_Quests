@@ -558,8 +558,9 @@ class CardManager {
         
         // If dropdown is visible and an option is selected, use that
         if (isDropdownVisible && this.selectedSuggestionIndex >= 0 && options[this.selectedSuggestionIndex]) {
-          const selectedText = options[this.selectedSuggestionIndex].textContent;
-          this.addTag(inputId, selectedText);
+          const selectedOption = options[this.selectedSuggestionIndex];
+          const selectedTagName = selectedOption.dataset.tagName || selectedOption.textContent;
+          this.addTag(inputId, selectedTagName);
           input.value = '';
           suggestionsDiv.classList.remove('active');
           this.selectedSuggestionIndex = -1;
@@ -646,14 +647,19 @@ class CardManager {
         option.title = `This tag doesn't match the selected Polarity`;
       }
       
-      option.textContent = suggestion;
+      // Display the label from TAG_CONFIG_MANAGER, but store the original tag name
+      const tagLabel = window.TAG_CONFIG_MANAGER?.getLabel(suggestion) || suggestion;
+      option.textContent = tagLabel;
+      option.dataset.tagName = suggestion; // Store original tag name
+      
       option.addEventListener('click', () => {
         // Don't allow selecting disabled options
         if (isDisabled) {
           return;
         }
         
-        this.addTag(inputId, suggestion);
+        // Use the stored tag name, not the displayed label
+        this.addTag(inputId, option.dataset.tagName);
         const input = document.getElementById(inputId);
         input.value = '';
         // Clear suggestions immediately
