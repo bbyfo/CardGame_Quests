@@ -499,17 +499,6 @@ class TagConfigurationManager {
         polarityAssociation: 'Light',
         pairedWith: 'Greed'
       },
-      'Martial': {
-        name: 'Martial',
-        label: 'Martial',
-        category: 'TypeTag',
-        color: '#DC2626', // Red
-        textColor: '#FFFFFF',
-        iconUrl: null,
-        iconGlyph: '\uf007',
-        polarityAssociation: 'Light',
-        pairedWith: null
-      },
       
       // Shadow TypeTags
       'Tyranny': {

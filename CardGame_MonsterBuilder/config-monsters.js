@@ -7,10 +7,10 @@
 const MONSTER_CONFIG = {
   // Cost Icon to TypeTag mapping (for dynamic colors from TAG_CONFIG_MANAGER)
   COST_TO_TAG_MAP: {
-    red: 'Martial',      // Red = Physical/Martial
+    red: 'Righteousness',      // Red = Righteousness
     green: 'Nature',     // Green = Nature
     blue: 'Knowledge',   // Blue = Magic/Knowledge
-    yellow: 'Righteousness', // Yellow = Light/Holy/Righteousness
+    yellow: 'Justice', // Yellow = Justice
     purple: 'Deceit',    // Purple = Shadow/Curse/Deceit
     iron: 'Power',       // Iron = Equipment/Tech/Power
     gold: 'Wealth',      // Gold = Wealth
@@ -306,7 +306,7 @@ const MONSTER_CONFIG = {
       return window.TAG_CONFIG_MANAGER.getTagsByPolarity('Light');
     }
     // Fallback if tag config not loaded
-    return ['Knowledge', 'Justice', 'Righteousness', 'Nature', 'Martial', 'Wealth'];
+    return ['Knowledge', 'Justice', 'Righteousness', 'Nature', 'Power', 'Wealth'];
   },
   
   get SHADOW_TAGS() {
@@ -353,9 +353,19 @@ const MONSTER_CONFIG = {
     return this.FRAME_STYLES[code] || null;
   },
 
-  // Get all cost codes as array
+  // Get all cost codes as array - only include codes that have associated Light TypeTags
   getAllCostCodes() {
-    return Object.keys(this.COST_TYPES);
+    // Get Light TypeTags from TAG_CONFIG_MANAGER
+    const lightTypeTags = window.TAG_CONFIG_MANAGER?.initialized 
+      ? window.TAG_CONFIG_MANAGER.getTagsByPolarity('Light')
+      : this.LIGHT_TAGS;
+    
+    // Filter COST_TYPES to only include those with Light TypeTags
+    return Object.keys(this.COST_TYPES).filter(code => {
+      const tag = this.COST_TO_TAG_MAP[code];
+      // Include wildcard (any) even if no tag, and include others only if tag is a Light TypeTag
+      return code === 'any' || (tag && lightTypeTags.includes(tag));
+    });
   },
 
   // Get all harm codes as array
