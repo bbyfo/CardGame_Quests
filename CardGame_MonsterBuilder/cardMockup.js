@@ -185,7 +185,7 @@ class CardMockup {
           </div>
         </div>
         
-        <div class="stat-field" style="grid-column: 1 / -1;">
+        <div class="stat-field full-width">
           <div class="stat-label">Movement Strategy</div>
           <div class="enum-cycler" id="move-strategy" data-field="MoveStrategy">
             ${this.renderMoveStrategy()}

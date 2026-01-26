@@ -329,17 +329,23 @@
 }
 
 .card-stats {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-wrap: wrap;
   gap: 0.75rem;
   margin-bottom: 1rem;
 }
 
 .stat-field {
+  flex: 1 1 calc(50% - 0.375rem);
+  min-width: 200px;
   background: #f8f9fa;
   padding: 0.75rem;
   border-radius: 8px;
   border: 1px solid #dee2e6;
+}
+
+.stat-field.full-width {
+  flex: 1 1 100%;
 }
 
 .stat-label {
@@ -465,6 +471,8 @@
   border-radius: 8px;
   cursor: pointer;
   transition: background 0.2s;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .enum-cycler:hover {
@@ -480,6 +488,9 @@
 .enum-cycler .label {
   font-size: 0.9rem;
   font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* Tags display */
@@ -896,7 +907,7 @@
   .icon-palette .icon {
     width: 40px;
     height: 40px;
-    font-size: 20px;
+    font-size: 40px;
   }
 
   .card-mockup-container {
@@ -904,13 +915,33 @@
     padding: 0.5rem;
     /* margin-left: 85px; */
     margin-right: 0.5rem;
+    box-sizing: border-box;
+  }
+
+  .card-mockup {
+    padding: 1rem;
+    box-sizing: border-box;
   }
 
   .card-stats {
-    grid-template-columns: 1fr;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .stat-field {
+    flex: 1 1 100%;
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   .monster-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 375px) {
+  .numeric-stepper {
+    flex-direction: column;
   }
 }

@@ -132,11 +132,11 @@ class TagConfigurationManager {
   }
 
   /**
-   * Get tags by polarity association
+   * Get tags by polarity association (TypeTags only, excludes Polarity tags themselves)
    */
   getTagsByPolarity(polarity) {
     return Object.values(this.configs)
-      .filter(config => config.polarityAssociation === polarity)
+      .filter(config => config.polarityAssociation === polarity && config.category === 'TypeTag')
       .map(config => config.name);
   }
 
