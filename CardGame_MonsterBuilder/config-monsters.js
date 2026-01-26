@@ -149,65 +149,71 @@ const MONSTER_CONFIG = {
 
   // Harm Icon Types with CSS class mappings
   HARM_TYPES: {
-    wound: {
-      code: 'wound',
-      label: 'Wound',
-      cssClass: 'icon-harm-wound',
-      symbol: '💔'
-    },
-    exhausted: {
-      code: 'exhausted',
-      label: 'Exhausted',
-      cssClass: 'icon-harm-exhausted',
-      symbol: '😓'
-    },
-    dazed: {
-      code: 'dazed',
-      label: 'Dazed',
-      cssClass: 'icon-harm-dazed',
-      symbol: '😵'
-    },
-    poisoned: {
-      code: 'poisoned',
-      label: 'Poisoned',
-      cssClass: 'icon-harm-poisoned',
-      symbol: '☠️'
-    },
-    cursed: {
-      code: 'cursed',
-      label: 'Cursed',
-      cssClass: 'icon-harm-cursed',
-      symbol: '👿'
+    disturbed: {
+      code: 'disturbed',
+      label: 'Disturbed',
+      cssClass: 'icon-harm-disturbed',
+      symbol: '\uf008'
     },
     stunned: {
       code: 'stunned',
       label: 'Stunned',
       cssClass: 'icon-harm-stunned',
-      symbol: '⚡'
+      symbol: '\uf009'
+    },
+    disoriented: {
+      code: 'disoriented',
+      label: 'Disoriented',
+      cssClass: 'icon-harm-disoriented',
+      symbol: '\uf00a'
+    },
+    shocked: {
+      code: 'shocked',
+      label: 'Shocked',
+      cssClass: 'icon-harm-shocked',
+      symbol: '\uf00b'
+    },
+    staggered: {
+      code: 'staggered',
+      label: 'Staggered',
+      cssClass: 'icon-harm-staggered',
+      symbol: '\uf00c'
+    },
+    blinded: {
+      code: 'blinded',
+      label: 'Blinded',
+      cssClass: 'icon-harm-blinded',
+      symbol: '\uf00d'
+    },
+    poisoned: {
+      code: 'poisoned',
+      label: 'Poisoned',
+      cssClass: 'icon-harm-poisoned',
+      symbol: '\uf00e'
+    },
+    wounded: {
+      code: 'wounded',
+      label: 'Wounded',
+      cssClass: 'icon-harm-wounded',
+      symbol: '\uf00f'
     },
     burned: {
       code: 'burned',
       label: 'Burned',
       cssClass: 'icon-harm-burned',
-      symbol: '🔥'
+      symbol: '\uf010'
     },
-    frozen: {
-      code: 'frozen',
-      label: 'Frozen',
-      cssClass: 'icon-harm-frozen',
-      symbol: '❄️'
+    weakened: {
+      code: 'weakened',
+      label: 'Weakened',
+      cssClass: 'icon-harm-weakened',
+      symbol: '\uf011'
     },
-    bleeding: {
-      code: 'bleeding',
-      label: 'Bleeding',
-      cssClass: 'icon-harm-bleeding',
-      symbol: '🩸'
-    },
-    scared: {
-      code: 'scared',
-      label: 'Scared',
-      cssClass: 'icon-harm-scared',
-      symbol: '😱'
+    addled: {
+      code: 'addled',
+      label: 'Addled',
+      cssClass: 'icon-harm-addled',
+      symbol: '\uf012'
     }
   },
 

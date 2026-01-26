@@ -111,49 +111,25 @@
 }
 
 /* Harm Icons */
-.icon-harm-wound {
-  background: linear-gradient(135deg, #e74c3c, #c0392b);
-  color: white;
-}
-
-.icon-harm-wound::before {
-  content: '💔';
-}
-
+/* Harm Icons */
 .icon-harm-exhausted {
   background: linear-gradient(135deg, #f39c12, #e67e22);
   color: white;
 }
 
 .icon-harm-exhausted::before {
-  content: '😓';
+  content: '\f013';
+  font-family: 'CardGameFont' !important;
 }
 
-.icon-harm-dazed {
+.icon-harm-disturbed {
   background: linear-gradient(135deg, #95a5a6, #7f8c8d);
   color: white;
 }
 
-.icon-harm-dazed::before {
-  content: '😵';
-}
-
-.icon-harm-poisoned {
-  background: linear-gradient(135deg, #16a085, #138f75);
-  color: white;
-}
-
-.icon-harm-poisoned::before {
-  content: '☠️';
-}
-
-.icon-harm-cursed {
-  background: linear-gradient(135deg, #8e44ad, #6c3483);
-  color: white;
-}
-
-.icon-harm-cursed::before {
-  content: '👿';
+.icon-harm-disturbed::before {
+  content: '\f008';
+  font-family: 'CardGameFont' !important;
 }
 
 .icon-harm-stunned {
@@ -162,7 +138,72 @@
 }
 
 .icon-harm-stunned::before {
-  content: '⚡';
+  content: '\f009';
+  font-family: 'CardGameFont' !important;
+}
+
+.icon-harm-disoriented {
+  background: linear-gradient(135deg, #95a5a6, #7f8c8d);
+  color: white;
+}
+
+.icon-harm-disoriented::before {
+  content: '\f00a';
+  font-family: 'CardGameFont' !important;
+}
+
+.icon-harm-shocked {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  color: white;
+}
+
+.icon-harm-shocked::before {
+  content: '\f00b';
+  font-family: 'CardGameFont' !important;
+}
+
+.icon-harm-staggered {
+  background: linear-gradient(135deg, #e67e22, #d35400);
+  color: white;
+}
+
+.icon-harm-staggered::before {
+  content: '\f00c';
+  font-family: 'CardGameFont' !important;
+}
+
+.icon-harm-blinded {
+  background: linear-gradient(135deg, #34495e, #2c3e50);
+  color: white;
+}
+.icon-harm-blinded::before {
+  content: '\f00d';
+  font-family: 'CardGameFont' !important;
+}
+.icon-harm-exhausted::before {
+  content: '\f013';
+  font-family: 'CardGameFont' !important;
+}
+}
+
+.icon-harm-poisoned {
+  background: linear-gradient(135deg, #16a085, #138f75);
+  color: white;
+}
+
+.icon-harm-poisoned::before {
+  content: '\f00e';
+  font-family: 'CardGameFont' !important;
+}
+
+.icon-harm-wounded {
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  color: white;
+}
+
+.icon-harm-wounded::before {
+  content: '\f00f';
+  font-family: 'CardGameFont' !important;
 }
 
 .icon-harm-burned {
@@ -171,43 +212,29 @@
 }
 
 .icon-harm-burned::before {
-  content: '🔥';
+  content: '\f010';
+  font-family: 'CardGameFont' !important;
 }
 
-.icon-harm-frozen {
-  background: linear-gradient(135deg, #3498db, #2980b9);
+.icon-harm-weakened {
+  background: linear-gradient(135deg, #8e44ad, #6c3483);
   color: white;
 }
 
-.icon-harm-frozen::before {
-  content: '❄️';
+.icon-harm-weakened::before {
+  content: '\f011';
+  font-family: 'CardGameFont' !important;
 }
 
-.icon-harm-bleeding {
-  background: linear-gradient(135deg, #c0392b, #922b21);
+.icon-harm-addled {
+  background: linear-gradient(135deg, #9b59b6, #7d3c98);
   color: white;
 }
 
-.icon-harm-bleeding::before {
-  content: '🩸';
+.icon-harm-addled::before {
+  content: '\f012';
+  font-family: 'CardGameFont' !important;
 }
-
-.icon-harm-scared {
-  background: linear-gradient(135deg, #95a5a6, #7f8c8d);
-  color: white;
-}
-
-.icon-harm-scared::before {
-  content: '😱';
-}
-
-/* Strategy Icons */
-.icon-strategy-stationary::before { content: '🚫'; }
-.icon-strategy-patrol::before { content: '🚶'; }
-.icon-strategy-chase::before { content: '🏃'; }
-.icon-strategy-flee::before { content: '🏃‍♂️'; }
-.icon-strategy-teleport::before { content: '✨'; }
-.icon-strategy-swarm::before { content: '👥'; }
 .icon-strategy-guard::before { content: '🛡️'; }
 .icon-strategy-random::before { content: '🎲'; }
 
