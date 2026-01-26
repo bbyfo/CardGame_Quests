@@ -9,7 +9,7 @@
 }
 @font-palette-values --palette0 {
     font-family: "CardGameFont";
-    base-palette: 0
+    base-palette: 0;
 }
 .icon {
     /* Use !important to prevent extensions from overriding this font. */
