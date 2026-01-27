@@ -366,21 +366,20 @@ class TagConfigurationManager {
         .tag-${this._sanitizeClassName(tagName)} {
           background-color: ${config.color} !important;
           color: ${config.textColor} !important;
-          position: relative;
-          ${hasGlyph ? 'padding-left: 2rem;' : ''}
+          ${hasGlyph ? '' : ''}
         }
         .tag-${this._sanitizeClassName(tagName)}:hover {
           filter: brightness(0.9);
         }
         ${hasGlyph ? `
         .tag-${this._sanitizeClassName(tagName)}::before {
+          /* use inline pseudo-element to avoid absolute positioning overlap */
           content: '${glyphEscape}';
           font-family: 'CardGameFont' !important;
-          position: absolute;
-          left: 0.35rem;
-          top: 50%;
-          transform: translateY(-50%);
-          font-size: 1.1rem;
+          display: inline-block;
+          vertical-align: middle;
+          margin-right: 0.45rem;
+          font-size: 1.4rem;
           line-height: 1;
           speak: none;
           font-style: normal;

@@ -24,10 +24,13 @@
       "name": "Justice",
       "label": "Justice",
       "category": "TypeTag",
-      "color": "#3B82F6",
+      "color": "#3b82f6",
       "textColor": "#FFFFFF",
       "iconUrl": null,
-      "iconGlyph": "",
+      "iconFont": {
+        "name": "icon-Blue_Justice",
+        "unicode": ""
+      },
       "polarityAssociation": "Light",
       "pairedWith": "Tyranny"
     },
@@ -35,10 +38,13 @@
       "name": "Nature",
       "label": "Nature",
       "category": "TypeTag",
-      "color": "#10B981",
-      "textColor": "#FFFFFF",
+      "color": "#10b981",
+      "textColor": "#000000",
       "iconUrl": null,
-      "iconGlyph": "",
+      "iconFont": {
+        "name": "icon-Green_Nature",
+        "unicode": ""
+      },
       "polarityAssociation": "Light",
       "pairedWith": "Blight"
     },
@@ -49,6 +55,10 @@
       "color": "#fde047",
       "textColor": "#000000",
       "iconUrl": null,
+      "iconFont": {
+        "name": "icon-Yellow_Wisdom",
+        "unicode": ""
+      },
       "polarityAssociation": "Light",
       "pairedWith": "Deceit"
     },
@@ -56,31 +66,41 @@
       "name": "Power",
       "label": "Power",
       "category": "TypeTag",
-      "color": "#E5E7EB",
-      "textColor": "#1F2937",
+      "color": "#e5e7eb",
+      "textColor": "#000000",
       "iconUrl": null,
-      "iconGlyph": "",
+      "iconFont": {
+        "name": "icon-Steel_Power",
+        "unicode": ""
+      },
       "polarityAssociation": "Light",
       "pairedWith": "Savagery"
     },
     "Righteousness": {
       "name": "Righteousness",
-      "label": "Righteousness",
+      "label": "Holy",
       "category": "TypeTag",
-      "color": "#EF4444",
+      "color": "#ef4444",
       "textColor": "#FFFFFF",
       "iconUrl": null,
-      "iconGlyph": "",
+      "iconFont": {
+        "name": "icon-Red_Righteous",
+        "unicode": ""
+      },
       "polarityAssociation": "Light",
       "pairedWith": "Zealotry"
     },
     "Wealth": {
       "name": "Wealth",
-      "label": "Sacrifice",
+      "label": "Abundance",
       "category": "TypeTag",
       "color": "#fbbf24",
       "textColor": "#000000",
       "iconUrl": null,
+      "iconFont": {
+        "name": "icon-pay-money",
+        "unicode": ""
+      },
       "polarityAssociation": "Light",
       "pairedWith": "Greed"
     },
@@ -88,9 +108,10 @@
       "name": "Tyranny",
       "label": "Tyranny",
       "category": "TypeTag",
-      "color": "#1E3A8A",
-      "textColor": "#E0E7FF",
+      "color": "#1e3a8a",
+      "textColor": "#FFFFFF",
       "iconUrl": null,
+      "iconFont": null,
       "polarityAssociation": "Shadow",
       "pairedWith": "Justice"
     },
@@ -106,10 +127,10 @@
     },
     "Deceit": {
       "name": "Deceit",
-      "label": "Deceit",
+      "label": "Treachery",
       "category": "TypeTag",
-      "color": "#CA8A04",
-      "textColor": "#FEF9C3",
+      "color": "#ca8a04",
+      "textColor": "#000000",
       "iconUrl": null,
       "polarityAssociation": "Shadow",
       "pairedWith": "Knowledge"
@@ -126,25 +147,27 @@
     },
     "Zealotry": {
       "name": "Zealotry",
-      "label": "Zealotry",
+      "label": "Defiled",
       "category": "TypeTag",
-      "color": "#7F1D1D",
-      "textColor": "#FECACA",
+      "color": "#7f1d1d",
+      "textColor": "#FFFFFF",
       "iconUrl": null,
+      "iconFont": null,
       "polarityAssociation": "Shadow",
       "pairedWith": "Righteousness"
     },
     "Greed": {
       "name": "Greed",
-      "label": "Greed",
+      "label": "Avarice",
       "category": "TypeTag",
-      "color": "#92400E",
-      "textColor": "#FEF3C7",
+      "color": "#92400e",
+      "textColor": "#FFFFFF",
       "iconUrl": null,
+      "iconFont": null,
       "polarityAssociation": "Shadow",
       "pairedWith": "Wealth"
     }
   },
   "version": 1,
-  "exportedAt": "2026-01-25T19:42:23.087Z"
+  "exportedAt": "2026-01-27T04:23:31.816Z"
 }

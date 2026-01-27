@@ -21,15 +21,24 @@ class DataLoader {
    */
   async loadData(dataPath = 'cards.json') {
     try {
-      // Add timestamp to prevent browser caching
+      // Try a few candidate locations for cards.json to handle different hosting paths
+      const candidates = [dataPath, '../cards.json', '/cards.json'];
       const cacheBuster = `?_=${Date.now()}`;
-      const response = await fetch(dataPath + cacheBuster);
-      if (!response.ok) {
-        throw new Error(`Failed to load ${dataPath}: ${response.statusText}`);
+      let lastErr = null;
+      for (const candidate of candidates) {
+        try {
+          const response = await fetch(candidate + cacheBuster);
+          if (!response.ok) throw new Error(`Failed to load ${candidate}: ${response.status} ${response.statusText}`);
+          const data = await response.json();
+          this.populateDecks(data);
+          return this.decks;
+        } catch (err) {
+          lastErr = err;
+          // try next candidate
+          console.warn(`DataLoader: could not load '${candidate}':`, err.message || err);
+        }
       }
-      const data = await response.json();
-      this.populateDecks(data);
-      return this.decks;
+      throw lastErr || new Error('Failed to find cards.json');
     } catch (error) {
       console.error('DataLoader error:', error);
       throw error;

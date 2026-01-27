@@ -16,66 +16,6 @@
       "Instructions": []
     },
     {
-      "id": "Loot-Bear Fang Necklace-0.08686460494703396",
-      "Deck": "Loot",
-      "CardName": "Bear Fang Necklace",
-      "Polarity": "Light",
-      "TypeTags": [
-        "Knowledge"
-      ],
-      "AspectTags": [
-        "Jewelry",
-        "Magic Item"
-      ],
-      "mutableTags": [],
-      "Instructions": []
-    },
-    {
-      "id": "Loot-Beastcleaner-0.5693196885822445",
-      "Deck": "Loot",
-      "CardName": "Beastcleaner",
-      "Polarity": "Light",
-      "TypeTags": [
-        "Knowledge"
-      ],
-      "AspectTags": [
-        "Tool",
-        "Magic Item"
-      ],
-      "mutableTags": [],
-      "Instructions": []
-    },
-    {
-      "id": "Loot-Belt of Veracity-0.32115946281755436",
-      "Deck": "Loot",
-      "CardName": "Belt of Veracity",
-      "Polarity": "Light",
-      "TypeTags": [
-        "Knowledge"
-      ],
-      "AspectTags": [
-        "Clothing",
-        "Magic Item"
-      ],
-      "mutableTags": [],
-      "Instructions": []
-    },
-    {
-      "id": "Loot-Blazing Morningstar-0.9709108734629167",
-      "Deck": "Loot",
-      "CardName": "Blazing Morningstar",
-      "Polarity": "Light",
-      "TypeTags": [
-        "Knowledge"
-      ],
-      "AspectTags": [
-        "Weapon",
-        "Magic Item"
-      ],
-      "mutableTags": [],
-      "Instructions": []
-    },
-    {
       "id": "Loot-Bolt of Light-0.36692621912689416",
       "Deck": "Loot",
       "CardName": "Bolt of Light",
@@ -100,21 +40,6 @@
       ],
       "AspectTags": [
         "Jewelry",
-        "Magic Item"
-      ],
-      "mutableTags": [],
-      "Instructions": []
-    },
-    {
-      "id": "Loot-Cloak of the Wilds-0.6549369825202925",
-      "Deck": "Loot",
-      "CardName": "Cloak of the Wilds",
-      "Polarity": "Light",
-      "TypeTags": [
-        "Knowledge"
-      ],
-      "AspectTags": [
-        "Clothing",
         "Magic Item"
       ],
       "mutableTags": [],
@@ -151,51 +76,6 @@
       "Instructions": []
     },
     {
-      "id": "Loot-Elven Recurve-0.0512826234530841",
-      "Deck": "Loot",
-      "CardName": "Elven Recurve",
-      "Polarity": "Light",
-      "TypeTags": [
-        "Knowledge"
-      ],
-      "AspectTags": [
-        "Weapon",
-        "Magic Item"
-      ],
-      "mutableTags": [],
-      "Instructions": []
-    },
-    {
-      "id": "Loot-Enchanted Rucksack-0.45638154268719844",
-      "Deck": "Loot",
-      "CardName": "Enchanted Rucksack",
-      "Polarity": "Light",
-      "TypeTags": [
-        "Knowledge"
-      ],
-      "AspectTags": [
-        "Worn",
-        "Magic Item"
-      ],
-      "mutableTags": [],
-      "Instructions": []
-    },
-    {
-      "id": "Loot-Helm of the Survivor-0.25306500543236066",
-      "Deck": "Loot",
-      "CardName": "Helm of the Survivor",
-      "Polarity": "Light",
-      "TypeTags": [
-        "Knowledge"
-      ],
-      "AspectTags": [
-        "Armor",
-        "Magic Item"
-      ],
-      "mutableTags": [],
-      "Instructions": []
-    },
-    {
       "id": "Loot-Meditation Beads-0.18419350837216397",
       "Deck": "Loot",
       "CardName": "Meditation Beads",
@@ -205,21 +85,6 @@
       ],
       "AspectTags": [
         "Jewelry",
-        "Magic Item"
-      ],
-      "mutableTags": [],
-      "Instructions": []
-    },
-    {
-      "id": "Loot-Nightfleece Gambeson-0.3160185206068493",
-      "Deck": "Loot",
-      "CardName": "Nightfleece Gambeson",
-      "Polarity": "Light",
-      "TypeTags": [
-        "Knowledge"
-      ],
-      "AspectTags": [
-        "Armor",
         "Magic Item"
       ],
       "mutableTags": [],
@@ -304,21 +169,6 @@
       "id": "Loot-Stormgather Staff-0.020691727590761544",
       "Deck": "Loot",
       "CardName": "Stormgather Staff",
-      "Polarity": "Light",
-      "TypeTags": [
-        "Knowledge"
-      ],
-      "AspectTags": [
-        "Weapon",
-        "Magic Item"
-      ],
-      "mutableTags": [],
-      "Instructions": []
-    },
-    {
-      "id": "Loot-Sword and Dagger of the Hero-0.3435301108562816",
-      "Deck": "Loot",
-      "CardName": "Sword and Dagger of the Hero",
       "Polarity": "Light",
       "TypeTags": [
         "Knowledge"
@@ -477,10 +327,84 @@
     },
     {
       "Deck": "Loot",
+      "CardName": "Bear Fang Necklace",
+      "Polarity": "Light",
+      "TypeTags": [
+        "Nature"
+      ],
+      "AspectTags": [
+        "Jewelry",
+        "Magic Item"
+      ],
+      "mutableTags": [],
+      "Instructions": [],
+      "DesignerNotes": ""
+    },
+    {
+      "Deck": "Loot",
+      "CardName": "Beastcleaner",
+      "Polarity": "Light",
+      "TypeTags": [
+        "Nature"
+      ],
+      "AspectTags": [
+        "Tool",
+        "Magic Item"
+      ],
+      "mutableTags": [],
+      "Instructions": [],
+      "DesignerNotes": ""
+    },
+    {
+      "Deck": "Loot",
+      "CardName": "Belt of Veracity",
+      "Polarity": "Light",
+      "TypeTags": [
+        "Righteousness"
+      ],
+      "AspectTags": [
+        "Clothing",
+        "Magic Item"
+      ],
+      "mutableTags": [],
+      "Instructions": [],
+      "DesignerNotes": ""
+    },
+    {
+      "Deck": "Loot",
+      "CardName": "Blazing Morningstar",
+      "Polarity": "Light",
+      "TypeTags": [
+        "Power"
+      ],
+      "AspectTags": [
+        "Weapon",
+        "Magic Item"
+      ],
+      "mutableTags": [],
+      "Instructions": [],
+      "DesignerNotes": ""
+    },
+    {
+      "Deck": "Loot",
+      "CardName": "Cloak of the Wilds",
+      "Polarity": "Light",
+      "TypeTags": [
+        "Nature"
+      ],
+      "AspectTags": [
+        "Clothing",
+        "Magic Item"
+      ],
+      "mutableTags": [],
+      "Instructions": [],
+      "DesignerNotes": ""
+    },
+    {
+      "Deck": "Loot",
       "CardName": "Dwarven Meal",
       "Polarity": "Light",
       "TypeTags": [
-        "Martial",
         "Wealth"
       ],
       "AspectTags": [
@@ -488,8 +412,83 @@
         "Magic Item"
       ],
       "mutableTags": [],
-      "DesignerNotes": "",
-      "Instructions": []
+      "Instructions": [],
+      "DesignerNotes": ""
+    },
+    {
+      "Deck": "Loot",
+      "CardName": "Elven Recurve",
+      "Polarity": "Light",
+      "TypeTags": [
+        "Nature"
+      ],
+      "AspectTags": [
+        "Weapon",
+        "Magic Item"
+      ],
+      "mutableTags": [],
+      "Instructions": [],
+      "DesignerNotes": ""
+    },
+    {
+      "Deck": "Loot",
+      "CardName": "Enchanted Rucksack",
+      "Polarity": "Light",
+      "TypeTags": [
+        "Power"
+      ],
+      "AspectTags": [
+        "Worn",
+        "Magic Item"
+      ],
+      "mutableTags": [],
+      "Instructions": [],
+      "DesignerNotes": ""
+    },
+    {
+      "Deck": "Loot",
+      "CardName": "Helm of the Survivor",
+      "Polarity": "Light",
+      "TypeTags": [
+        "Power"
+      ],
+      "AspectTags": [
+        "Armor",
+        "Magic Item"
+      ],
+      "mutableTags": [],
+      "Instructions": [],
+      "DesignerNotes": ""
+    },
+    {
+      "Deck": "Loot",
+      "CardName": "Nightfleece Gambeson",
+      "Polarity": "Light",
+      "TypeTags": [
+        "Nature"
+      ],
+      "AspectTags": [
+        "Armor",
+        "Magic Item"
+      ],
+      "mutableTags": [],
+      "Instructions": [],
+      "DesignerNotes": ""
+    },
+    {
+      "Deck": "Loot",
+      "CardName": "Sword and Dagger of the Hero",
+      "Polarity": "Light",
+      "TypeTags": [
+        "Power"
+      ],
+      "AspectTags": [
+        "Weapon",
+        "Magic Item"
+      ],
+      "mutableTags": [],
+      "Instructions": [],
+      "DesignerNotes": ""
     }
   ],
   "npcs": [
@@ -538,20 +537,6 @@
       "Instructions": []
     },
     {
-      "id": "NPC-Broker Vaskel the Silver Tongue-0.7686754251333549",
-      "Deck": "NPC",
-      "CardName": "Broker Vaskel the Silver Tongue",
-      "Polarity": "Shadow",
-      "TypeTags": [
-        "Greed"
-      ],
-      "AspectTags": [
-        "Deception"
-      ],
-      "mutableTags": [],
-      "Instructions": []
-    },
-    {
       "id": "NPC-The Veiled Matriarch-0.4191918179201053",
       "Deck": "NPC",
       "CardName": "The Veiled Matriarch",
@@ -559,20 +544,6 @@
       "TypeTags": [],
       "AspectTags": [
         "Darkness"
-      ],
-      "mutableTags": [],
-      "Instructions": []
-    },
-    {
-      "id": "NPC-Lord Malrec the Withering-0.15509074982387172",
-      "Deck": "NPC",
-      "CardName": "Lord Malrec the Withering",
-      "Polarity": "Shadow",
-      "TypeTags": [
-        "Deceit"
-      ],
-      "AspectTags": [
-        "Necromancy"
       ],
       "mutableTags": [],
       "Instructions": []
@@ -600,18 +571,6 @@
       ],
       "AspectTags": [
         "Tyranny"
-      ],
-      "mutableTags": [],
-      "Instructions": []
-    },
-    {
-      "id": "NPC-Ravager Queen Khyzara-0.6593961943446088",
-      "Deck": "NPC",
-      "CardName": "Ravager Queen Khyzara",
-      "Polarity": "Shadow",
-      "TypeTags": [],
-      "AspectTags": [
-        "Warlord"
       ],
       "mutableTags": [],
       "Instructions": []
@@ -657,35 +616,6 @@
       "Instructions": []
     },
     {
-      "id": "NPC-High Chancellor Veridan-0.8513968830587341",
-      "Deck": "NPC",
-      "CardName": "High Chancellor Veridan",
-      "Polarity": "Light",
-      "TypeTags": [
-        "Justice"
-      ],
-      "AspectTags": [
-        "Leadership"
-      ],
-      "mutableTags": [],
-      "Instructions": []
-    },
-    {
-      "id": "NPC-Justicar Aurelia Stoneward-0.8347287329808051",
-      "Deck": "NPC",
-      "CardName": "Justicar Aurelia Stoneward",
-      "Polarity": "Light",
-      "TypeTags": [
-        "Justice",
-        "Martial"
-      ],
-      "AspectTags": [
-        "Law"
-      ],
-      "mutableTags": [],
-      "Instructions": []
-    },
-    {
       "id": "NPC-High Priestess Seraphine Dawnstar-0.6207498332646653",
       "Deck": "NPC",
       "CardName": "High Priestess Seraphine Dawnstar",
@@ -715,79 +645,6 @@
       "Instructions": []
     },
     {
-      "id": "NPC-Warden of the Flame Lysander Hale-0.11349966015702762",
-      "Deck": "NPC",
-      "CardName": "Warden of the Flame Lysander Hale",
-      "Polarity": "Light",
-      "TypeTags": [
-        "Martial",
-        "Righteousness"
-      ],
-      "AspectTags": [
-        "Purity"
-      ],
-      "mutableTags": [],
-      "Instructions": []
-    },
-    {
-      "id": "NPC-Elder Oakheart of the Verdant Circle-0.7446518283230295",
-      "Deck": "NPC",
-      "CardName": "Elder Oakheart of the Verdant Circle",
-      "Polarity": "Light",
-      "TypeTags": [
-        "Nature"
-      ],
-      "AspectTags": [
-        "Druidic"
-      ],
-      "mutableTags": [],
-      "Instructions": []
-    },
-    {
-      "id": "NPC-Huntmaster Sylra Windstalker-0.6691987483169907",
-      "Deck": "NPC",
-      "CardName": "Huntmaster Sylra Windstalker",
-      "Polarity": "Light",
-      "TypeTags": [
-        "Nature",
-        "Martial"
-      ],
-      "AspectTags": [
-        "Beast"
-      ],
-      "mutableTags": [],
-      "Instructions": []
-    },
-    {
-      "id": "NPC-Grovekeeper Mosswhisper-0.6164300967343829",
-      "Deck": "NPC",
-      "CardName": "Grovekeeper Mosswhisper",
-      "Polarity": "Light",
-      "TypeTags": [
-        "Nature",
-        "Knowledge"
-      ],
-      "AspectTags": [
-        "Mystic"
-      ],
-      "mutableTags": [],
-      "Instructions": []
-    },
-    {
-      "id": "NPC-Archmage Solinar the Radiant-0.029248553793436383",
-      "Deck": "NPC",
-      "CardName": "Archmage Solinar the Radiant",
-      "Polarity": "Light",
-      "TypeTags": [
-        "Knowledge"
-      ],
-      "AspectTags": [
-        "Wizard"
-      ],
-      "mutableTags": [],
-      "Instructions": []
-    },
-    {
       "id": "NPC-Chronomancer Lyssia Vale-0.29602469406750387",
       "Deck": "NPC",
       "CardName": "Chronomancer Lyssia Vale",
@@ -803,77 +660,246 @@
       "Instructions": []
     },
     {
-      "id": "NPC-Runesmith Eldric Ironglyph-0.0364356949403738",
       "Deck": "NPC",
-      "CardName": "Runesmith Eldric Ironglyph",
+      "CardName": "Broker Vaskel the Silver Tongue",
+      "Polarity": "Shadow",
+      "TypeTags": [
+        "Greed",
+        "Deceit"
+      ],
+      "AspectTags": [
+        "Deception"
+      ],
+      "mutableTags": [],
+      "Instructions": [],
+      "DesignerNotes": ""
+    },
+    {
+      "Deck": "NPC",
+      "CardName": "Archmage Solinar the Radiant",
       "Polarity": "Light",
       "TypeTags": [
         "Knowledge",
-        "Martial"
+        "Righteousness"
       ],
       "AspectTags": [
-        "Crafting"
+        "Wizard"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "DesignerNotes": ""
     },
     {
-      "id": "NPC-General Cassian Steelmarch-0.3137642792005859",
+      "Deck": "NPC",
+      "CardName": "Lord Malrec the Withering",
+      "Polarity": "Shadow",
+      "TypeTags": [
+        "Deceit",
+        "Blight"
+      ],
+      "AspectTags": [
+        "Necromancy"
+      ],
+      "mutableTags": [],
+      "Instructions": [],
+      "DesignerNotes": ""
+    },
+    {
+      "Deck": "NPC",
+      "CardName": "High Chancellor Veridan",
+      "Polarity": "Light",
+      "TypeTags": [
+        "Justice",
+        "Knowledge"
+      ],
+      "AspectTags": [
+        "Leadership"
+      ],
+      "mutableTags": [],
+      "Instructions": [],
+      "DesignerNotes": ""
+    },
+    {
+      "Deck": "NPC",
+      "CardName": "Ravager Queen Khyzara",
+      "Polarity": "Shadow",
+      "TypeTags": [
+        "Savagery",
+        "Tyranny"
+      ],
+      "AspectTags": [
+        "Warlord"
+      ],
+      "mutableTags": [],
+      "Instructions": [],
+      "DesignerNotes": ""
+    },
+    {
+      "Deck": "NPC",
+      "CardName": "Shadow Regent Malvorn",
+      "Polarity": "Shadow",
+      "TypeTags": [
+        "Tyranny",
+        "Greed"
+      ],
+      "AspectTags": [
+        "Darkness"
+      ],
+      "mutableTags": [],
+      "Instructions": [],
+      "DesignerNotes": ""
+    },
+    {
+      "Deck": "NPC",
+      "CardName": "Justicar Aurelia Stoneward",
+      "Polarity": "Light",
+      "TypeTags": [
+        "Justice",
+        "Power"
+      ],
+      "AspectTags": [
+        "Law"
+      ],
+      "mutableTags": [],
+      "Instructions": [],
+      "DesignerNotes": ""
+    },
+    {
       "Deck": "NPC",
       "CardName": "General Cassian Steelmarch",
       "Polarity": "Light",
       "TypeTags": [
-        "Martial",
-        "Justice"
+        "Justice",
+        "Power"
       ],
       "AspectTags": [
         "Military"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "DesignerNotes": ""
     },
     {
-      "id": "NPC-Champion Aria Stormblade-0.17106492580942367",
       "Deck": "NPC",
       "CardName": "Champion Aria Stormblade",
       "Polarity": "Light",
       "TypeTags": [
-        "Martial"
+        "Nature",
+        "Power"
       ],
       "AspectTags": [
         "Hero"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "DesignerNotes": ""
     },
     {
-      "id": "NPC-Commander Thorne Ironsoul-0.03627593158747844",
       "Deck": "NPC",
       "CardName": "Commander Thorne Ironsoul",
       "Polarity": "Light",
       "TypeTags": [
-        "Martial"
+        "Power",
+        "Righteousness"
       ],
       "AspectTags": [
         "Tactics"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "DesignerNotes": ""
     },
     {
-      "id": "NPC-Shadow Regent Malvorn-0.9432668629991056",
       "Deck": "NPC",
-      "CardName": "Shadow Regent Malvorn",
-      "Polarity": "Shadow",
-      "TypeTags": [],
+      "CardName": "Huntmaster Sylra Windstalker",
+      "Polarity": "Light",
+      "TypeTags": [
+        "Nature",
+        "Power"
+      ],
       "AspectTags": [
-        "Darkness"
+        "Beast"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "DesignerNotes": ""
     },
     {
-      "id": "NPC-Mistress of Whispers Selkira-0.993213298216585",
+      "Deck": "NPC",
+      "CardName": "Runesmith Eldric Ironglyph",
+      "Polarity": "Light",
+      "TypeTags": [
+        "Knowledge",
+        "Power"
+      ],
+      "AspectTags": [
+        "Crafting"
+      ],
+      "mutableTags": [],
+      "Instructions": [],
+      "DesignerNotes": ""
+    },
+    {
+      "Deck": "NPC",
+      "CardName": "Warden of the Flame Lysander Hale",
+      "Polarity": "Light",
+      "TypeTags": [
+        "Righteousness",
+        "Power"
+      ],
+      "AspectTags": [
+        "Purity"
+      ],
+      "mutableTags": [],
+      "Instructions": [],
+      "DesignerNotes": ""
+    },
+    {
+      "Deck": "NPC",
+      "CardName": "Dread Captain Vorak Blacktide",
+      "Polarity": "Shadow",
+      "TypeTags": [
+        "Savagery",
+        "Greed"
+      ],
+      "AspectTags": [
+        "Terror"
+      ],
+      "mutableTags": [],
+      "Instructions": [],
+      "DesignerNotes": ""
+    },
+    {
+      "Deck": "NPC",
+      "CardName": "Elder Oakheart of the Verdant Circle",
+      "Polarity": "Light",
+      "TypeTags": [
+        "Nature",
+        "Knowledge"
+      ],
+      "AspectTags": [
+        "Druidic"
+      ],
+      "mutableTags": [],
+      "Instructions": [],
+      "DesignerNotes": ""
+    },
+    {
+      "Deck": "NPC",
+      "CardName": "Grovekeeper Mosswhisper",
+      "Polarity": "Light",
+      "TypeTags": [
+        "Nature",
+        "Power"
+      ],
+      "AspectTags": [
+        "Mystic"
+      ],
+      "mutableTags": [],
+      "Instructions": [],
+      "DesignerNotes": ""
+    },
+    {
       "Deck": "NPC",
       "CardName": "Mistress of Whispers Selkira",
       "Polarity": "Shadow",
@@ -884,24 +910,10 @@
         "Secrets"
       ],
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "DesignerNotes": ""
     },
     {
-      "id": "NPC-Dread Captain Vorak Blacktide-0.8855986772436756",
-      "Deck": "NPC",
-      "CardName": "Dread Captain Vorak Blacktide",
-      "Polarity": "Shadow",
-      "TypeTags": [
-        "Savagery"
-      ],
-      "AspectTags": [
-        "Terror"
-      ],
-      "mutableTags": [],
-      "Instructions": []
-    },
-    {
-      "id": "NPC-Archivist-General Thalen Quill-0.7202851155976332",
       "Deck": "NPC",
       "CardName": "Archivist-General Thalen Quill",
       "Polarity": "Light",
@@ -918,29 +930,6 @@
     }
   ],
   "twists": [
-    {
-      "id": "Twist-Betrayal-0.4599964506631683",
-      "Deck": "Twist",
-      "CardName": "Betrayal",
-      "Polarity": "Shadow",
-      "TypeTags": [],
-      "AspectTags": [
-        "Mystery"
-      ],
-      "mutableTags": [],
-      "Instructions": [
-        {
-          "Tags": [],
-          "TargetDeck": "Failure"
-        },
-        {
-          "Tags": [
-            "Justice"
-          ],
-          "TargetDeck": "Reward"
-        }
-      ]
-    },
     {
       "id": "Twist-Hidden Ally-0.09578304642776803",
       "Deck": "Twist",
@@ -960,31 +949,6 @@
             "Justice"
           ],
           "TargetDeck": "Reward"
-        }
-      ]
-    },
-    {
-      "id": "Twist-Environmental Hazard-0.09167171234770899",
-      "Deck": "Twist",
-      "CardName": "Environmental Hazard",
-      "Polarity": "Shadow",
-      "TypeTags": [
-        "Blight"
-      ],
-      "AspectTags": [
-        "Nature"
-      ],
-      "mutableTags": [],
-      "Instructions": [
-        {
-          "Tags": [
-            "Nature"
-          ],
-          "TargetDeck": "Reward"
-        },
-        {
-          "Tags": [],
-          "TargetDeck": "Failure"
         }
       ]
     },
@@ -1018,496 +982,1147 @@
       "AspectTags": [],
       "mutableTags": [],
       "Instructions": []
+    },
+    {
+      "Deck": "Twist",
+      "CardName": "Betrayal",
+      "Polarity": "Shadow",
+      "TypeTags": [
+        "Deceit"
+      ],
+      "AspectTags": [
+        "Mystery"
+      ],
+      "mutableTags": [],
+      "Instructions": [],
+      "DesignerNotes": ""
+    },
+    {
+      "Deck": "Twist",
+      "CardName": "Environmental Hazard",
+      "Polarity": "Shadow",
+      "TypeTags": [
+        "Blight"
+      ],
+      "AspectTags": [],
+      "mutableTags": [],
+      "Instructions": [
+        {
+          "Tags": [
+            "Blight"
+          ],
+          "faceDown": true,
+          "TargetDeck": "Twist"
+        },
+        {
+          "Tags": [],
+          "TargetDeck": "Failure"
+        }
+      ],
+      "DesignerNotes": ""
     }
   ],
   "monsters": [
     {
       "id": "Monster-Blinding Eye-0.4066984169053094",
       "Deck": "Monster",
+      "OnHit": [
+        "dazed"
+      ],
+      "Habitat": [
+        "Ruins",
+        "Dungeon"
+      ],
       "CardName": "Blinding Eye",
+      "OnDefeat": [],
+      "OnReveal": null,
       "Polarity": "Shadow",
-      "TypeTags": [],
+      "TypeTags": [
+        "Deceit",
+        "Tyranny"
+      ],
+      "BlockCost": [
+        "red",
+        "green"
+      ],
+      "CardImage": null,
       "AspectTags": [
         "Aberration"
       ],
+      "FlavorText": null,
+      "FrameStyle": null,
+      "ToVanquish": [
+        "any",
+        "any",
+        "blue"
+      ],
+      "AttackRange": null,
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "MoveDistance": null,
+      "MoveStrategy": null,
+      "DesignerNotes": "",
+      "SpecialAbilities": []
     },
     {
       "id": "Monster-Blistered Bull-0.8493463863890378",
       "Deck": "Monster",
+      "OnHit": [],
+      "Habitat": [],
       "CardName": "Blistered Bull",
+      "OnDefeat": [],
+      "OnReveal": null,
       "Polarity": "Shadow",
       "TypeTags": [
-        "Blight"
+        "Blight",
+        "Savagery"
       ],
+      "BlockCost": [
+        "green",
+        "any"
+      ],
+      "CardImage": null,
       "AspectTags": [
         "Beast"
       ],
+      "FlavorText": null,
+      "FrameStyle": null,
+      "ToVanquish": [
+        "green",
+        "green",
+        "green",
+        "green"
+      ],
+      "AttackRange": null,
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "MoveDistance": null,
+      "MoveStrategy": null,
+      "DesignerNotes": "",
+      "SpecialAbilities": []
     },
     {
       "id": "Monster-Bugbear Bandit-0.9229424610033357",
       "Deck": "Monster",
+      "OnHit": [],
+      "Habitat": [],
       "CardName": "Bugbear Bandit",
-      "Polarity": "Light",
+      "OnDefeat": [],
+      "OnReveal": null,
+      "Polarity": "Shadow",
       "TypeTags": [
-        "Justice",
-        "Martial"
+        "Tyranny",
+        "Savagery"
       ],
+      "BlockCost": [],
+      "CardImage": null,
       "AspectTags": [
         "Humanoid"
       ],
+      "FlavorText": null,
+      "FrameStyle": null,
+      "ToVanquish": [],
+      "AttackRange": null,
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "MoveDistance": null,
+      "MoveStrategy": null,
+      "DesignerNotes": "",
+      "SpecialAbilities": []
     },
     {
       "id": "Monster-Dark Imp-0.10997058000117321",
       "Deck": "Monster",
+      "OnHit": [],
+      "Habitat": [],
       "CardName": "Dark Imp",
+      "OnDefeat": [],
+      "OnReveal": null,
       "Polarity": "Shadow",
-      "TypeTags": [],
+      "TypeTags": [
+        "Greed",
+        "Deceit"
+      ],
+      "BlockCost": [
+        "any",
+        "any"
+      ],
+      "CardImage": null,
       "AspectTags": [
         "Demon"
       ],
+      "FlavorText": null,
+      "FrameStyle": null,
+      "ToVanquish": [
+        "any",
+        "any",
+        "any"
+      ],
+      "AttackRange": null,
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "MoveDistance": null,
+      "MoveStrategy": null,
+      "DesignerNotes": "",
+      "SpecialAbilities": []
     },
     {
       "id": "Monster-Deathrattle Hyena-0.4970795405660037",
       "Deck": "Monster",
+      "OnHit": [],
+      "Habitat": [],
       "CardName": "Deathrattle Hyena",
+      "OnDefeat": [],
+      "OnReveal": null,
       "Polarity": "Shadow",
       "TypeTags": [
-        "Blight"
+        "Blight",
+        "Savagery"
       ],
+      "BlockCost": [
+        "blue",
+        "blue"
+      ],
+      "CardImage": null,
       "AspectTags": [
         "Beast"
       ],
+      "FlavorText": null,
+      "FrameStyle": null,
+      "ToVanquish": [
+        "green",
+        "green",
+        "green"
+      ],
+      "AttackRange": null,
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "MoveDistance": null,
+      "MoveStrategy": null,
+      "DesignerNotes": "",
+      "SpecialAbilities": []
     },
     {
       "id": "Monster-Eclipse Herald-0.24915684657568005",
       "Deck": "Monster",
+      "OnHit": [],
+      "Habitat": [
+        "Any"
+      ],
       "CardName": "Eclipse Herald",
+      "OnDefeat": [],
+      "OnReveal": null,
       "Polarity": "Shadow",
-      "TypeTags": [],
+      "TypeTags": [
+        "Zealotry",
+        "Tyranny"
+      ],
+      "BlockCost": [
+        "red",
+        "any"
+      ],
+      "CardImage": null,
       "AspectTags": [
         "Spirit"
       ],
+      "FlavorText": null,
+      "FrameStyle": null,
+      "ToVanquish": [
+        "red",
+        "red",
+        "red"
+      ],
+      "AttackRange": 1,
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "MoveDistance": 1,
+      "MoveStrategy": "chase",
+      "DesignerNotes": "",
+      "SpecialAbilities": []
     },
     {
       "id": "Monster-Gnoll Spear Hunter-0.9460536613064744",
       "Deck": "Monster",
-      "CardName": "Gnoll Spear Hunter",
-      "Polarity": "Light",
-      "TypeTags": [
-        "Justice",
-        "Martial"
+      "OnHit": [
+        "stunned"
       ],
+      "Habitat": [],
+      "CardName": "Gnoll Spear Hunter",
+      "OnDefeat": [],
+      "OnReveal": null,
+      "Polarity": "Shadow",
+      "TypeTags": [
+        "Tyranny",
+        "Savagery"
+      ],
+      "BlockCost": [
+        "blue",
+        "iron"
+      ],
+      "CardImage": null,
       "AspectTags": [
         "Humanoid"
       ],
+      "FlavorText": null,
+      "FrameStyle": null,
+      "ToVanquish": [
+        "iron",
+        "iron",
+        "blue"
+      ],
+      "AttackRange": 2,
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "MoveDistance": 1,
+      "MoveStrategy": "chase",
+      "DesignerNotes": "",
+      "SpecialAbilities": []
     },
     {
       "id": "Monster-Goblin Ballista Crew-0.43942466287721016",
       "Deck": "Monster",
+      "OnHit": [],
+      "Habitat": [],
       "CardName": "Goblin Ballista Crew",
-      "Polarity": "Light",
+      "OnDefeat": [],
+      "OnReveal": null,
+      "Polarity": "Shadow",
       "TypeTags": [
-        "Justice",
-        "Martial"
+        "Savagery",
+        "Greed"
       ],
+      "BlockCost": [],
+      "CardImage": null,
       "AspectTags": [
         "Humanoid"
       ],
+      "FlavorText": null,
+      "FrameStyle": null,
+      "ToVanquish": [],
+      "AttackRange": 4,
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "MoveDistance": null,
+      "MoveStrategy": "stationary",
+      "DesignerNotes": "",
+      "SpecialAbilities": []
     },
     {
       "id": "Monster-Goblin Wolfrider-0.018383693227463804",
       "Deck": "Monster",
+      "OnHit": [],
+      "Habitat": [],
       "CardName": "Goblin Wolfrider",
-      "Polarity": "Light",
+      "OnDefeat": [],
+      "OnReveal": null,
+      "Polarity": "Shadow",
       "TypeTags": [
-        "Justice",
-        "Martial"
+        "Savagery",
+        "Greed"
       ],
+      "BlockCost": [],
+      "CardImage": null,
       "AspectTags": [
         "Humanoid"
       ],
+      "FlavorText": null,
+      "FrameStyle": null,
+      "ToVanquish": [],
+      "AttackRange": 1,
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "MoveDistance": 2,
+      "MoveStrategy": "patrol",
+      "DesignerNotes": "",
+      "SpecialAbilities": []
     },
     {
       "id": "Monster-Hobgoblin Bandit-0.7458927527700012",
       "Deck": "Monster",
-      "CardName": "Hobgoblin Bandit",
-      "Polarity": "Light",
-      "TypeTags": [
-        "Justice",
-        "Martial"
+      "OnHit": [
+        "exhausted"
       ],
+      "Habitat": [
+        "Mountain",
+        "Dungeon"
+      ],
+      "CardName": "Hobgoblin Bandit",
+      "OnDefeat": [],
+      "OnReveal": null,
+      "Polarity": "Shadow",
+      "TypeTags": [
+        "Greed",
+        "Savagery"
+      ],
+      "BlockCost": [
+        "blue",
+        "any"
+      ],
+      "CardImage": null,
       "AspectTags": [
         "Humanoid"
       ],
+      "FlavorText": null,
+      "FrameStyle": null,
+      "ToVanquish": [
+        "blue",
+        "blue",
+        "any"
+      ],
+      "AttackRange": 1,
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "MoveDistance": 1,
+      "MoveStrategy": "flee",
+      "DesignerNotes": "",
+      "SpecialAbilities": []
     },
     {
       "id": "Monster-Hobgoblin Bolter-0.2322543248140636",
       "Deck": "Monster",
+      "OnHit": [],
+      "Habitat": [],
       "CardName": "Hobgoblin Bolter",
-      "Polarity": "Light",
-      "TypeTags": [
-        "Justice",
-        "Martial"
-      ],
+      "OnDefeat": [],
+      "OnReveal": null,
+      "Polarity": "Shadow",
+      "TypeTags": [],
+      "BlockCost": [],
+      "CardImage": null,
       "AspectTags": [
         "Humanoid"
       ],
+      "FlavorText": null,
+      "FrameStyle": null,
+      "ToVanquish": [],
+      "AttackRange": null,
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "MoveDistance": null,
+      "MoveStrategy": null,
+      "DesignerNotes": "",
+      "SpecialAbilities": []
     },
     {
       "id": "Monster-Hobgoblin Scout-0.7438067486067503",
       "Deck": "Monster",
+      "OnHit": [],
+      "Habitat": [],
       "CardName": "Hobgoblin Scout",
-      "Polarity": "Light",
-      "TypeTags": [
-        "Justice",
-        "Martial"
-      ],
+      "OnDefeat": [],
+      "OnReveal": null,
+      "Polarity": "Shadow",
+      "TypeTags": [],
+      "BlockCost": [],
+      "CardImage": null,
       "AspectTags": [
         "Humanoid"
       ],
+      "FlavorText": null,
+      "FrameStyle": null,
+      "ToVanquish": [],
+      "AttackRange": null,
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "MoveDistance": null,
+      "MoveStrategy": null,
+      "DesignerNotes": "",
+      "SpecialAbilities": []
     },
     {
       "id": "Monster-Ice Wisp-0.22878107108968082",
       "Deck": "Monster",
+      "OnHit": [],
+      "Habitat": [],
       "CardName": "Ice Wisp",
-      "Polarity": "Light",
-      "TypeTags": [
-        "Knowledge",
-        "Justice"
-      ],
+      "OnDefeat": [],
+      "OnReveal": null,
+      "Polarity": "Shadow",
+      "TypeTags": [],
+      "BlockCost": [],
+      "CardImage": null,
       "AspectTags": [
         "Spirit"
       ],
+      "FlavorText": null,
+      "FrameStyle": null,
+      "ToVanquish": [],
+      "AttackRange": null,
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "MoveDistance": null,
+      "MoveStrategy": null,
+      "DesignerNotes": "",
+      "SpecialAbilities": []
     },
     {
       "id": "Monster-Kobold Trapper-0.6268323493730971",
       "Deck": "Monster",
+      "OnHit": [],
+      "Habitat": [],
       "CardName": "Kobold Trapper",
-      "Polarity": "Light",
-      "TypeTags": [
-        "Justice",
-        "Martial"
-      ],
+      "OnDefeat": [],
+      "OnReveal": null,
+      "Polarity": "Shadow",
+      "TypeTags": [],
+      "BlockCost": [],
+      "CardImage": null,
       "AspectTags": [
         "Humanoid"
       ],
+      "FlavorText": null,
+      "FrameStyle": null,
+      "ToVanquish": [],
+      "AttackRange": null,
       "mutableTags": [],
-      "Instructions": []
-    },
-    {
-      "id": "Monster-Lesser Rothog-0.3142928883948065",
-      "Deck": "Monster",
-      "CardName": "Lesser Rothog",
-      "Polarity": "Shadow",
-      "TypeTags": [
-        "Blight"
-      ],
-      "AspectTags": [
-        "Beast"
-      ],
-      "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "MoveDistance": null,
+      "MoveStrategy": null,
+      "DesignerNotes": "",
+      "SpecialAbilities": []
     },
     {
       "id": "Monster-Magmolt-0.37534829235950196",
       "Deck": "Monster",
+      "OnHit": [],
+      "Habitat": [],
       "CardName": "Magmolt",
+      "OnDefeat": [],
+      "OnReveal": null,
       "Polarity": "Shadow",
       "TypeTags": [
         "Deceit"
       ],
+      "BlockCost": [],
+      "CardImage": null,
       "AspectTags": [
         "Elemental"
       ],
+      "FlavorText": null,
+      "FrameStyle": null,
+      "ToVanquish": [],
+      "AttackRange": null,
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "MoveDistance": null,
+      "MoveStrategy": null,
+      "DesignerNotes": "",
+      "SpecialAbilities": []
     },
     {
       "id": "Monster-Moonwraith-0.4339554163282756",
       "Deck": "Monster",
+      "OnHit": [],
+      "Habitat": [],
       "CardName": "Moonwraith",
+      "OnDefeat": [],
+      "OnReveal": null,
       "Polarity": "Shadow",
       "TypeTags": [],
+      "BlockCost": [],
+      "CardImage": null,
       "AspectTags": [
         "Spirit"
       ],
+      "FlavorText": null,
+      "FrameStyle": null,
+      "ToVanquish": [],
+      "AttackRange": null,
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "MoveDistance": null,
+      "MoveStrategy": null,
+      "DesignerNotes": "",
+      "SpecialAbilities": []
     },
     {
       "id": "Monster-Mud Elemental-0.011462947299685888",
       "Deck": "Monster",
-      "CardName": "Mud Elemental",
-      "Polarity": "Light",
-      "TypeTags": [
-        "Knowledge",
-        "Nature"
+      "OnHit": [],
+      "Habitat": [
+        "Swamp",
+        "Ruins"
       ],
+      "CardName": "Mud Elemental",
+      "OnDefeat": [],
+      "OnReveal": null,
+      "Polarity": "Shadow",
+      "TypeTags": [
+        "Deceit",
+        "Savagery"
+      ],
+      "BlockCost": [
+        "yellow",
+        "iron"
+      ],
+      "CardImage": null,
       "AspectTags": [
         "Elemental"
       ],
+      "FlavorText": null,
+      "FrameStyle": null,
+      "ToVanquish": [
+        "yellow",
+        "yellow",
+        "iron",
+        "iron"
+      ],
+      "AttackRange": 1,
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "MoveDistance": 1,
+      "MoveStrategy": "patrol",
+      "DesignerNotes": "",
+      "SpecialAbilities": []
     },
     {
       "id": "Monster-Nighthound-0.49825549703813354",
       "Deck": "Monster",
+      "OnHit": [],
+      "Habitat": [],
       "CardName": "Nighthound",
+      "OnDefeat": [],
+      "OnReveal": null,
       "Polarity": "Shadow",
       "TypeTags": [],
+      "BlockCost": [],
+      "CardImage": null,
       "AspectTags": [
         "Beast"
       ],
+      "FlavorText": null,
+      "FrameStyle": null,
+      "ToVanquish": [],
+      "AttackRange": null,
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "MoveDistance": null,
+      "MoveStrategy": null,
+      "DesignerNotes": "",
+      "SpecialAbilities": []
     },
     {
       "id": "Monster-Orc Mercenary-0.5450264145782023",
       "Deck": "Monster",
+      "OnHit": [],
+      "Habitat": [],
       "CardName": "Orc Mercenary",
-      "Polarity": "Light",
+      "OnDefeat": [],
+      "OnReveal": null,
+      "Polarity": "Shadow",
       "TypeTags": [
-        "Justice",
-        "Martial"
+        "Savagery",
+        "Greed"
       ],
+      "BlockCost": [],
+      "CardImage": null,
       "AspectTags": [
         "Humanoid"
       ],
+      "FlavorText": null,
+      "FrameStyle": null,
+      "ToVanquish": [],
+      "AttackRange": null,
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "MoveDistance": null,
+      "MoveStrategy": null,
+      "DesignerNotes": "",
+      "SpecialAbilities": []
     },
     {
       "id": "Monster-Pitchwing-0.780220417428259",
       "Deck": "Monster",
+      "OnHit": [],
+      "Habitat": [],
       "CardName": "Pitchwing",
+      "OnDefeat": [],
+      "OnReveal": null,
       "Polarity": "Shadow",
       "TypeTags": [],
+      "BlockCost": [],
+      "CardImage": null,
       "AspectTags": [
         "Beast"
       ],
+      "FlavorText": null,
+      "FrameStyle": null,
+      "ToVanquish": [],
+      "AttackRange": null,
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "MoveDistance": null,
+      "MoveStrategy": null,
+      "DesignerNotes": "",
+      "SpecialAbilities": []
     },
     {
       "id": "Monster-Plaguehornet Swarm-0.06965527444776332",
       "Deck": "Monster",
+      "OnHit": [],
+      "Habitat": [],
       "CardName": "Plaguehornet Swarm",
+      "OnDefeat": [],
+      "OnReveal": null,
       "Polarity": "Shadow",
       "TypeTags": [
         "Blight"
       ],
+      "BlockCost": [],
+      "CardImage": null,
       "AspectTags": [
         "Insect"
       ],
+      "FlavorText": null,
+      "FrameStyle": null,
+      "ToVanquish": [],
+      "AttackRange": null,
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "MoveDistance": null,
+      "MoveStrategy": null,
+      "DesignerNotes": "",
+      "SpecialAbilities": []
     },
     {
       "id": "Monster-Pyre Acolyte-0.8446759647257167",
       "Deck": "Monster",
+      "OnHit": [],
+      "Habitat": [],
       "CardName": "Pyre Acolyte",
+      "OnDefeat": [],
+      "OnReveal": null,
       "Polarity": "Shadow",
       "TypeTags": [
         "Deceit"
       ],
+      "BlockCost": [],
+      "CardImage": null,
       "AspectTags": [
         "Humanoid"
       ],
+      "FlavorText": null,
+      "FrameStyle": null,
+      "ToVanquish": [],
+      "AttackRange": null,
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "MoveDistance": null,
+      "MoveStrategy": null,
+      "DesignerNotes": "",
+      "SpecialAbilities": []
     },
     {
       "id": "Monster-Rabid Wolverine-0.6295145623148992",
       "Deck": "Monster",
+      "OnHit": [],
+      "Habitat": [],
       "CardName": "Rabid Wolverine",
+      "OnDefeat": [],
+      "OnReveal": null,
       "Polarity": "Shadow",
       "TypeTags": [
         "Blight"
       ],
+      "BlockCost": [],
+      "CardImage": null,
       "AspectTags": [
         "Beast"
       ],
+      "FlavorText": null,
+      "FrameStyle": null,
+      "ToVanquish": [],
+      "AttackRange": null,
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "MoveDistance": null,
+      "MoveStrategy": null,
+      "DesignerNotes": "",
+      "SpecialAbilities": []
     },
     {
       "id": "Monster-Sandkin-0.6494550101204201",
       "Deck": "Monster",
+      "OnHit": [],
+      "Habitat": [],
       "CardName": "Sandkin",
-      "Polarity": "Light",
-      "TypeTags": [
-        "Knowledge",
-        "Nature"
-      ],
+      "OnDefeat": [],
+      "OnReveal": null,
+      "Polarity": "Shadow",
+      "TypeTags": [],
+      "BlockCost": [],
+      "CardImage": null,
       "AspectTags": [
         "Elemental"
       ],
+      "FlavorText": null,
+      "FrameStyle": null,
+      "ToVanquish": [],
+      "AttackRange": null,
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "MoveDistance": null,
+      "MoveStrategy": null,
+      "DesignerNotes": "",
+      "SpecialAbilities": []
     },
     {
       "id": "Monster-Shadow Sorcerer-0.6472634824035519",
       "Deck": "Monster",
+      "OnHit": [],
+      "Habitat": [],
       "CardName": "Shadow Sorcerer",
+      "OnDefeat": [],
+      "OnReveal": null,
       "Polarity": "Shadow",
       "TypeTags": [
         "Deceit"
       ],
+      "BlockCost": [],
+      "CardImage": null,
       "AspectTags": [
         "Humanoid"
       ],
+      "FlavorText": null,
+      "FrameStyle": null,
+      "ToVanquish": [],
+      "AttackRange": null,
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "MoveDistance": null,
+      "MoveStrategy": null,
+      "DesignerNotes": "",
+      "SpecialAbilities": []
     },
     {
       "id": "Monster-Skeletal Warrior-0.6653203428178066",
       "Deck": "Monster",
+      "OnHit": [],
+      "Habitat": [],
       "CardName": "Skeletal Warrior",
+      "OnDefeat": [],
+      "OnReveal": null,
       "Polarity": "Shadow",
-      "TypeTags": [],
+      "TypeTags": [
+        "Tyranny",
+        "Savagery"
+      ],
+      "BlockCost": [],
+      "CardImage": null,
       "AspectTags": [
         "Undead"
       ],
+      "FlavorText": null,
+      "FrameStyle": null,
+      "ToVanquish": [],
+      "AttackRange": null,
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "MoveDistance": null,
+      "MoveStrategy": null,
+      "DesignerNotes": "",
+      "SpecialAbilities": []
     },
     {
       "id": "Monster-Slavering Howler-0.7928377728241573",
       "Deck": "Monster",
+      "OnHit": [],
+      "Habitat": [],
       "CardName": "Slavering Howler",
+      "OnDefeat": [],
+      "OnReveal": null,
       "Polarity": "Shadow",
       "TypeTags": [
         "Blight"
       ],
+      "BlockCost": [],
+      "CardImage": null,
       "AspectTags": [
         "Beast"
       ],
+      "FlavorText": null,
+      "FrameStyle": null,
+      "ToVanquish": [],
+      "AttackRange": null,
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "MoveDistance": null,
+      "MoveStrategy": null,
+      "DesignerNotes": "",
+      "SpecialAbilities": []
     },
     {
       "id": "Monster-Stone Acolyte-0.44189373384730346",
       "Deck": "Monster",
+      "OnHit": [],
+      "Habitat": [],
       "CardName": "Stone Acolyte",
-      "Polarity": "Light",
-      "TypeTags": [
-        "Knowledge",
-        "Justice"
-      ],
+      "OnDefeat": [],
+      "OnReveal": null,
+      "Polarity": "Shadow",
+      "TypeTags": [],
+      "BlockCost": [],
+      "CardImage": null,
       "AspectTags": [
         "Humanoid"
       ],
+      "FlavorText": null,
+      "FrameStyle": null,
+      "ToVanquish": [],
+      "AttackRange": null,
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "MoveDistance": null,
+      "MoveStrategy": null,
+      "DesignerNotes": "",
+      "SpecialAbilities": []
     },
     {
       "id": "Monster-Storm Acolyte-0.6270306079597886",
       "Deck": "Monster",
+      "OnHit": [],
+      "Habitat": [],
       "CardName": "Storm Acolyte",
+      "OnDefeat": [],
+      "OnReveal": null,
       "Polarity": "Shadow",
       "TypeTags": [
         "Deceit"
       ],
+      "BlockCost": [],
+      "CardImage": null,
       "AspectTags": [
         "Humanoid"
       ],
+      "FlavorText": null,
+      "FrameStyle": null,
+      "ToVanquish": [],
+      "AttackRange": null,
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "MoveDistance": null,
+      "MoveStrategy": null,
+      "DesignerNotes": "",
+      "SpecialAbilities": []
     },
     {
       "id": "Monster-Thunderbolt-0.22742199391836782",
       "Deck": "Monster",
+      "OnHit": [],
+      "Habitat": [],
       "CardName": "Thunderbolt",
+      "OnDefeat": [],
+      "OnReveal": null,
       "Polarity": "Shadow",
       "TypeTags": [
         "Deceit"
       ],
+      "BlockCost": [],
+      "CardImage": null,
       "AspectTags": [
         "Elemental"
       ],
+      "FlavorText": null,
+      "FrameStyle": null,
+      "ToVanquish": [],
+      "AttackRange": null,
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "MoveDistance": null,
+      "MoveStrategy": null,
+      "DesignerNotes": "",
+      "SpecialAbilities": []
     },
     {
       "id": "Monster-Voidcry-0.242091408101887",
       "Deck": "Monster",
+      "OnHit": [],
+      "Habitat": [],
       "CardName": "Voidcry",
+      "OnDefeat": [],
+      "OnReveal": null,
       "Polarity": "Shadow",
       "TypeTags": [],
+      "BlockCost": [],
+      "CardImage": null,
       "AspectTags": [
         "Aberration"
       ],
+      "FlavorText": null,
+      "FrameStyle": null,
+      "ToVanquish": [],
+      "AttackRange": null,
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "MoveDistance": null,
+      "MoveStrategy": null,
+      "DesignerNotes": "",
+      "SpecialAbilities": []
     },
     {
       "id": "Monster-Wastefang Spider-0.07565206118225998",
       "Deck": "Monster",
+      "OnHit": [],
+      "Habitat": [],
       "CardName": "Wastefang Spider",
+      "OnDefeat": [],
+      "OnReveal": null,
       "Polarity": "Shadow",
       "TypeTags": [
         "Blight"
       ],
+      "BlockCost": [],
+      "CardImage": null,
       "AspectTags": [
         "Insect"
       ],
+      "FlavorText": null,
+      "FrameStyle": null,
+      "ToVanquish": [],
+      "AttackRange": null,
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "MoveDistance": null,
+      "MoveStrategy": null,
+      "DesignerNotes": "",
+      "SpecialAbilities": []
     },
     {
       "id": "Monster-Wave Acolyte-0.6201060825789364",
       "Deck": "Monster",
+      "OnHit": [],
+      "Habitat": [],
       "CardName": "Wave Acolyte",
-      "Polarity": "Light",
+      "OnDefeat": [],
+      "OnReveal": null,
+      "Polarity": "Shadow",
       "TypeTags": [
-        "Knowledge",
-        "Justice"
+        "Zealotry",
+        "Savagery"
       ],
+      "BlockCost": [],
+      "CardImage": null,
       "AspectTags": [
         "Humanoid"
       ],
+      "FlavorText": null,
+      "FrameStyle": null,
+      "ToVanquish": [
+        "red"
+      ],
+      "AttackRange": null,
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "MoveDistance": null,
+      "MoveStrategy": null,
+      "DesignerNotes": "",
+      "SpecialAbilities": []
     },
     {
       "id": "Monster-Armor-Cap Centipede-0.5182749399695602",
       "Deck": "Monster",
+      "OnHit": [
+        "poisoned"
+      ],
+      "Habitat": [
+        "Forest",
+        "Cave",
+        "Urban",
+        "Ruins",
+        "Dungeon"
+      ],
       "CardName": "Armor-Cap Centipede",
+      "OnDefeat": [],
+      "OnReveal": null,
       "Polarity": "Shadow",
       "TypeTags": [
-        "Blight"
+        "Blight",
+        "Savagery"
       ],
+      "BlockCost": [
+        "iron",
+        "any"
+      ],
+      "CardImage": null,
       "AspectTags": [
         "Insect"
       ],
+      "FlavorText": null,
+      "FrameStyle": null,
+      "ToVanquish": [
+        "any",
+        "green",
+        "green"
+      ],
+      "AttackRange": 1,
       "mutableTags": [],
-      "Instructions": []
+      "Instructions": [],
+      "MoveDistance": 1,
+      "MoveStrategy": "chase",
+      "DesignerNotes": "",
+      "SpecialAbilities": []
+    },
+    {
+      "id": "Monster-NewMonster-wu6hi60b2",
+      "Deck": "Monster",
+      "OnHit": [
+        "scared"
+      ],
+      "Habitat": [],
+      "CardName": "Goblin",
+      "OnDefeat": [],
+      "OnReveal": null,
+      "Polarity": "Shadow",
+      "TypeTags": [
+        "Greed",
+        "Savagery"
+      ],
+      "BlockCost": [
+        "any"
+      ],
+      "CardImage": "https://cardgame-app-images.netlify.app/images/goblin@0.5x.jpg",
+      "AspectTags": [],
+      "FlavorText": null,
+      "FrameStyle": null,
+      "ToVanquish": [
+        "any"
+      ],
+      "AttackRange": 1,
+      "mutableTags": [],
+      "Instructions": [],
+      "MoveDistance": 1,
+      "MoveStrategy": "flee",
+      "DesignerNotes": "",
+      "SpecialAbilities": []
+    },
+    {
+      "id": "Monster-NewMonster-djkkl0gq1",
+      "Deck": "Monster",
+      "OnHit": [],
+      "Habitat": [],
+      "CardName": "Lesser Rothog",
+      "OnDefeat": [],
+      "OnReveal": null,
+      "Polarity": "Shadow",
+      "TypeTags": [
+        "Blight",
+        "Savagery"
+      ],
+      "BlockCost": [],
+      "CardImage": null,
+      "AspectTags": [
+        "Beast"
+      ],
+      "FlavorText": null,
+      "FrameStyle": null,
+      "ToVanquish": [],
+      "AttackRange": null,
+      "mutableTags": [],
+      "Instructions": [],
+      "MoveDistance": null,
+      "MoveStrategy": null,
+      "DesignerNotes": "",
+      "SpecialAbilities": []
     }
   ],
   "locations": [
@@ -1762,18 +2377,6 @@
       "Instructions": []
     },
     {
-      "id": "Location-Blackmarsh Causeway-0.447112",
-      "Deck": "Location",
-      "CardName": "Blackmarsh Causeway",
-      "Polarity": "Shadow",
-      "TypeTags": [],
-      "AspectTags": [
-        "Road"
-      ],
-      "mutableTags": [],
-      "Instructions": []
-    },
-    {
       "id": "Location-Shadefall Caverns-0.119441",
       "Deck": "Location",
       "CardName": "Shadefall Caverns",
@@ -1945,20 +2548,6 @@
       ],
       "AspectTags": [
         "Garden"
-      ],
-      "mutableTags": [],
-      "Instructions": []
-    },
-    {
-      "id": "Location-Azurewind Academy-0.661551",
-      "Deck": "Location",
-      "CardName": "Azurewind Academy",
-      "Polarity": "Light",
-      "TypeTags": [
-        "Knowledge"
-      ],
-      "AspectTags": [
-        "Mystic"
       ],
       "mutableTags": [],
       "Instructions": []
@@ -2154,6 +2743,35 @@
       ],
       "mutableTags": [],
       "Instructions": []
+    },
+    {
+      "Deck": "Location",
+      "CardName": "Azurewind Academy",
+      "Polarity": "Light",
+      "TypeTags": [
+        "Knowledge",
+        "Justice"
+      ],
+      "AspectTags": [
+        "Mystic"
+      ],
+      "mutableTags": [],
+      "Instructions": [],
+      "DesignerNotes": ""
+    },
+    {
+      "Deck": "Location",
+      "CardName": "Blackmarsh Causeway",
+      "Polarity": "Shadow",
+      "TypeTags": [
+        "Blight"
+      ],
+      "AspectTags": [
+        "Road"
+      ],
+      "mutableTags": [],
+      "Instructions": [],
+      "DesignerNotes": ""
     }
   ],
   "questtemplates": [
@@ -2211,122 +2829,6 @@
       ]
     },
     {
-      "id": "QuestTemplate-Recover-0.6934478172396541",
-      "Deck": "QuestTemplate",
-      "CardName": "Recover",
-      "Polarity": "Light",
-      "TypeTags": [],
-      "AspectTags": [
-        "Compassion"
-      ],
-      "RewardText": "Blessing and divine favor",
-      "mutableTags": [],
-      "ConsequenceText": "The lost soul is corrupted beyond saving",
-      "DrawInstructions": [
-        {
-          "deck": "NPC",
-          "tags": [],
-          "count": 1,
-          "label": "QuestGiver",
-          "action": "draw",
-          "polarity": null
-        },
-        {
-          "deck": "NPC",
-          "tags": [
-            "Knowledge"
-          ],
-          "count": 1,
-          "label": "Target",
-          "action": "draw",
-          "polarity": null
-        },
-        {
-          "deck": "Location",
-          "tags": [
-            "Martial"
-          ],
-          "count": 1,
-          "label": "Location",
-          "action": "draw",
-          "polarity": null
-        },
-        {
-          "deck": "Twist",
-          "tags": [],
-          "count": 1,
-          "label": "Twist",
-          "action": "draw",
-          "polarity": null
-        }
-      ]
-    },
-    {
-      "id": "QuestTemplate-Heist-0.6461371042604421",
-      "Deck": "QuestTemplate",
-      "CardName": "Heist",
-      "Polarity": "Shadow",
-      "TypeTags": [
-        "Greed"
-      ],
-      "AspectTags": [
-        "Stealth"
-      ],
-      "RewardText": "Vast wealth and treasures",
-      "mutableTags": [],
-      "ConsequenceText": "Captured and imprisoned, all gains lost",
-      "DrawInstructions": [
-        {
-          "deck": "NPC",
-          "tags": [
-            "Greed"
-          ],
-          "count": 1,
-          "label": "QuestGiver",
-          "action": "draw",
-          "polarity": null
-        },
-        {
-          "deck": "Location",
-          "tags": [],
-          "count": 1,
-          "label": "Location",
-          "action": "draw",
-          "polarity": null
-        },
-        {
-          "deck": "NPC",
-          "tags": [
-            "Greed",
-            "Deceit"
-          ],
-          "count": 1,
-          "label": "Target",
-          "action": "draw",
-          "polarity": null
-        },
-        {
-          "deck": "NPC",
-          "tags": [
-            "Greed"
-          ],
-          "count": 1,
-          "label": "Victim",
-          "action": "draw",
-          "polarity": null
-        },
-        {
-          "deck": "Twist",
-          "tags": [],
-          "count": 1,
-          "label": "Twist",
-          "action": "draw",
-          "polarity": null
-        }
-      ]
-    },
-    {
-      "id": "Quest Template-Investigate-0.7277810118689843",
       "Deck": "Quest Template",
       "CardName": "Investigate",
       "Polarity": "Light",
@@ -2339,7 +2841,6 @@
       ],
       "RewardText": "Secret knowledge and understanding",
       "mutableTags": [],
-      "Instructions": [],
       "DesignerNotes": "",
       "ConsequenceText": "The mystery deepens and spreads chaos",
       "DrawInstructions": [
@@ -2354,6 +2855,7 @@
           "action": "draw",
           "prefix": "Travel to",
           "suffix": "and investigate rumors about",
+          "faceDown": false,
           "polarity": null
         },
         {
@@ -2370,13 +2872,17 @@
         },
         {
           "deck": "npcs",
-          "tags": [],
+          "tags": [
+            "Knowledge",
+            "Wealth"
+          ],
           "count": 1,
           "label": "QuestGiver",
           "action": "draw",
           "prefix": "to",
           "suffix": "",
-          "polarity": null
+          "faceDown": false,
+          "polarity": "Light"
         },
         {
           "deck": "Twist",
@@ -2389,45 +2895,41 @@
       ]
     },
     {
-      "id": "Quest Template-Destroy-0.8935418748229188",
       "Deck": "Quest Template",
-      "CardName": "Destroy",
-      "Polarity": "Shadow",
-      "TypeTags": [
-        "Savagery"
-      ],
+      "CardName": "Recover",
+      "Polarity": "Light",
+      "TypeTags": [],
       "AspectTags": [
-        "Combat"
+        "Compassion"
       ],
-      "RewardText": "Spoils of war and territory control",
+      "RewardText": "Blessing and divine favor",
       "mutableTags": [],
-      "Instructions": [],
       "DesignerNotes": "",
-      "ConsequenceText": "Your forces are routed and scattered",
+      "ConsequenceText": "The lost soul is corrupted beyond saving",
       "DrawInstructions": [
         {
-          "deck": "twists",
-          "tags": [],
-          "count": 1,
-          "label": "Label for token instruction",
-          "action": "addToken",
-          "prefix": "",
-          "suffix": "",
-          "faceDown": false,
-          "polarity": null
-        },
-        {
           "deck": "npcs",
-          "tags": [
-            "Martial"
-          ],
+          "tags": [],
           "count": 1,
           "label": "QuestGiver",
           "action": "draw",
-          "prefix": "",
-          "suffix": "Asks you to sack",
+          "prefix": "muh prefix",
+          "suffix": "muh suffix",
           "faceDown": false,
-          "polarity": null
+          "polarity": "Light"
+        },
+        {
+          "deck": "loot",
+          "tags": [
+            "Knowledge"
+          ],
+          "count": 1,
+          "label": "Target",
+          "action": "draw",
+          "prefix": "",
+          "suffix": "",
+          "faceDown": false,
+          "polarity": "Light"
         },
         {
           "deck": "locations",
@@ -2438,23 +2940,22 @@
           "prefix": "",
           "suffix": "",
           "faceDown": false,
-          "polarity": null
+          "polarity": "Shadow"
         },
         {
           "deck": "twists",
           "tags": [],
-          "count": 2,
+          "count": 1,
           "label": "Twist",
           "action": "draw",
           "prefix": "",
           "suffix": "",
-          "faceDown": true,
-          "polarity": null
+          "faceDown": false,
+          "polarity": "Shadow"
         }
       ]
     },
     {
-      "id": "Quest Template-Heist aaa-0.07898359811315703",
       "Deck": "Quest Template",
       "CardName": "Heist aaa",
       "Polarity": "Light",
@@ -2467,7 +2968,6 @@
       ],
       "RewardText": "A share of the stolen riches",
       "mutableTags": [],
-      "Instructions": [],
       "DesignerNotes": "",
       "ConsequenceText": "The operation collapses and the crew is exposed",
       "DrawInstructions": [
@@ -2480,7 +2980,7 @@
           "prefix": "Your mark is",
           "suffix": "—a vault ripe for the taking",
           "faceDown": false,
-          "polarity": null
+          "polarity": "Shadow"
         },
         {
           "deck": "twists",
@@ -2523,15 +3023,86 @@
     },
     {
       "Deck": "Quest Template",
+      "CardName": "Destroy",
+      "Polarity": "Shadow",
+      "TypeTags": [
+        "Savagery"
+      ],
+      "AspectTags": [
+        "Combat"
+      ],
+      "RewardText": "Spoils of war and territory control",
+      "mutableTags": [],
+      "DesignerNotes": "",
+      "ConsequenceText": "Your forces are routed and scattered",
+      "DrawInstructions": [
+        {
+          "deck": "twists",
+          "tags": [],
+          "count": 1,
+          "label": "Label for token instruction",
+          "action": "addToken",
+          "prefix": "",
+          "suffix": "",
+          "faceDown": false,
+          "polarity": null
+        },
+        {
+          "deck": "npcs",
+          "tags": [
+            "Martial"
+          ],
+          "count": 1,
+          "label": "QuestGiver",
+          "action": "draw",
+          "prefix": "",
+          "suffix": "Asks you to sack",
+          "faceDown": false,
+          "polarity": null
+        },
+        {
+          "deck": "locations",
+          "tags": [],
+          "count": 1,
+          "label": "Location",
+          "action": "draw",
+          "prefix": "",
+          "suffix": "",
+          "faceDown": false,
+          "polarity": "Shadow"
+        },
+        {
+          "deck": "twists",
+          "tags": [],
+          "count": 2,
+          "label": "Twist",
+          "action": "draw",
+          "prefix": "",
+          "suffix": "",
+          "faceDown": true,
+          "polarity": "Shadow"
+        },
+        {
+          "deck": "monsters",
+          "tags": [],
+          "count": 4,
+          "label": "Monsters",
+          "action": "draw",
+          "prefix": "Draw",
+          "suffix": "",
+          "faceDown": false,
+          "polarity": "Shadow"
+        }
+      ]
+    },
+    {
+      "Deck": "Quest Template",
       "CardName": "Defend",
       "Polarity": "Light",
       "TypeTags": [
-        "Martial",
         "Justice"
       ],
-      "AspectTags": [
-        "Military"
-      ],
+      "AspectTags": [],
       "RewardText": "Honor and gratitude from the people",
       "mutableTags": [],
       "DesignerNotes": "",
@@ -2539,10 +3110,7 @@
       "DrawInstructions": [
         {
           "deck": "locations",
-          "tags": [
-            "Justice",
-            "Martial"
-          ],
+          "tags": [],
           "count": 1,
           "label": "Attacked Location",
           "action": "draw",
@@ -2553,14 +3121,18 @@
         },
         {
           "deck": "npcs",
-          "tags": [],
+          "tags": [
+            "Tyranny",
+            "Savagery",
+            "Greed"
+          ],
           "count": 1,
           "label": "the villan",
           "action": "draw",
           "prefix": "by the villian",
           "suffix": "",
           "faceDown": false,
-          "polarity": "Shadow"
+          "polarity": null
         },
         {
           "deck": "locations",
@@ -2580,9 +3152,20 @@
           "label": "MacGuffin",
           "action": "draw",
           "prefix": "and retrieve the",
-          "suffix": "to use against the villian",
+          "suffix": "",
           "faceDown": false,
           "polarity": "Light"
+        },
+        {
+          "deck": "monsters",
+          "tags": [],
+          "count": 3,
+          "label": "The monsters",
+          "action": "draw",
+          "prefix": "Which is guarded by",
+          "suffix": "to use against the villian",
+          "faceDown": false,
+          "polarity": "Shadow"
         },
         {
           "deck": "loot",
@@ -2594,6 +3177,80 @@
           "suffix": "",
           "faceDown": false,
           "polarity": "Light"
+        }
+      ]
+    },
+    {
+      "Deck": "Quest Template",
+      "CardName": "Heist",
+      "Polarity": "Shadow",
+      "TypeTags": [
+        "Greed"
+      ],
+      "AspectTags": [
+        "Stealth"
+      ],
+      "RewardText": "Vast wealth and treasures",
+      "mutableTags": [],
+      "DesignerNotes": "",
+      "ConsequenceText": "Captured and imprisoned, all gains lost",
+      "DrawInstructions": [
+        {
+          "deck": "npcs",
+          "tags": [
+            "Greed"
+          ],
+          "count": 1,
+          "label": "QuestGiver",
+          "action": "draw",
+          "prefix": "",
+          "suffix": "",
+          "faceDown": false,
+          "polarity": null
+        },
+        {
+          "deck": "locations",
+          "tags": [],
+          "count": 1,
+          "label": "Location",
+          "action": "draw",
+          "prefix": "",
+          "suffix": "",
+          "faceDown": false,
+          "polarity": "Shadow"
+        },
+        {
+          "deck": "npcs",
+          "tags": [
+            "Greed",
+            "Deceit"
+          ],
+          "count": 1,
+          "label": "Target",
+          "action": "draw",
+          "prefix": "",
+          "suffix": "",
+          "faceDown": false,
+          "polarity": "Shadow"
+        },
+        {
+          "deck": "npcs",
+          "tags": [],
+          "count": 1,
+          "label": "Victim",
+          "action": "draw",
+          "prefix": "",
+          "suffix": "",
+          "faceDown": false,
+          "polarity": "Light"
+        },
+        {
+          "deck": "Twist",
+          "tags": [],
+          "count": 1,
+          "label": "Twist",
+          "action": "draw",
+          "polarity": null
         }
       ]
     }
