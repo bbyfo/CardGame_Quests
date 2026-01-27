@@ -17,23 +17,25 @@
       document.body.classList.remove('loading');
       return;
     }
-
     try {
-      // Determine path to nav.html based on current location
-      const currentPath = window.location.pathname;
-      const isInHelpFolder = currentPath.includes('/help/');
-      const navPath = isInHelpFolder ? '../nav.html' : 'nav.html';
+      // Always fetch the shared navigation file
+      // Determine relative path to shared/nav.html
+      let navPath = '../shared/nav.html';
+      // If already in shared/, adjust path
+      if (window.location.pathname.includes('/shared/')) {
+        navPath = 'nav.html';
+      }
 
       // Fetch and inject navigation HTML
       const response = await fetch(navPath);
       if (!response.ok) throw new Error('Failed to load navigation');
-      
+
       const navHtml = await response.text();
       navContainer.innerHTML = navHtml;
 
       // Initialize navigation functionality
       initializeNavigation();
-      
+
       // Remove loading class to prevent FOUC
       document.body.classList.remove('loading');
     } catch (error) {

@@ -969,6 +969,6 @@
 
 @media (max-width: 375px) {
   .numeric-stepper {
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
 }
