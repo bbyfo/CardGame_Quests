@@ -344,20 +344,37 @@ class TagConfigurationManager {
 
     // Generate CSS for all configured tags
     const css = Object.entries(this.configs)
-      .filter(([_, config]) => config.color) // Only tags with custom colors
-      .map(([tagName, config]) => `
+      .filter(([_, config]) => config.color)
+      .map(([tagName, config]) => {
+        // Determine glyph for pseudo-element: prefer explicit iconGlyph (legacy),
+        // otherwise use iconFont.unicode if provided by the GUI picker.
+        let glyphEscape = null;
+        if (config.iconGlyph) {
+          // iconGlyph stored as string like '\uf003' (or the actual char); keep as-is
+          glyphEscape = config.iconGlyph;
+        } else if (config.iconFont && config.iconFont.unicode) {
+          // Convert the actual unicode character to a CSS escape sequence like \f003
+          const codePoint = config.iconFont.unicode.codePointAt(0);
+          if (typeof codePoint === 'number') {
+            const hex = codePoint.toString(16).padStart(4, '0');
+            glyphEscape = `\\${hex}`; // produce string like \f003 in CSS
+          }
+        }
+
+        const hasGlyph = !!glyphEscape;
+        return `
         .tag-${this._sanitizeClassName(tagName)} {
           background-color: ${config.color} !important;
           color: ${config.textColor} !important;
           position: relative;
-          ${config.iconGlyph ? 'padding-left: 2rem;' : ''}
+          ${hasGlyph ? 'padding-left: 2rem;' : ''}
         }
         .tag-${this._sanitizeClassName(tagName)}:hover {
           filter: brightness(0.9);
         }
-        ${config.iconGlyph ? `
+        ${hasGlyph ? `
         .tag-${this._sanitizeClassName(tagName)}::before {
-          content: '${config.iconGlyph}';
+          content: '${glyphEscape}';
           font-family: 'CardGameFont' !important;
           position: absolute;
           left: 0.35rem;
@@ -374,7 +391,8 @@ class TagConfigurationManager {
           -moz-osx-font-smoothing: grayscale;
         }
         ` : ''}
-      `).join('\n');
+      `;
+      }).join('\n');
 
     // Inject into DOM
     const style = document.createElement('style');
