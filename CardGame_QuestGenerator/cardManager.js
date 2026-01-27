@@ -917,6 +917,7 @@ class CardManager {
       'twists': 'Twist',
       'magicitems': 'Magic Item',
       'monsters': 'Monster',
+      'encounters': 'Encounter',
       'loot': 'Loot'
     };
     return mapping[deckKey] || deckKey;
@@ -933,6 +934,7 @@ class CardManager {
       'Twist': 'twists',
       'Magic Item': 'magicitems',
       'Monster': 'monsters',
+      'Encounter': 'encounters',
       'Loot': 'loot'
     };
     return mapping[displayName] || displayName.toLowerCase();

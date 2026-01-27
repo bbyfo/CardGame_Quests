@@ -2125,6 +2125,84 @@
       "SpecialAbilities": []
     }
   ],
+  "encounters": [
+    {
+      "id": "Encounter-Healing Fountain-0.001",
+      "Deck": "Encounter",
+      "CardName": "Healing Fountain",
+      "Polarity": "Light",
+      "TypeTags": [
+        "Nature"
+      ],
+      "AspectTags": [],
+      "mutableTags": [],
+      "Habitat": [
+        "Forest",
+        "Plains"
+      ],
+      "Instructions": [],
+      "CardImage": null,
+      "FrameStyle": "basic",
+      "DesignerNotes": "A blessed spring restores health to the party."
+    },
+    {
+      "id": "Encounter-Ambushed-0.002",
+      "Deck": "Encounter",
+      "CardName": "Ambushed!",
+      "Polarity": "Shadow",
+      "TypeTags": [
+        "Savagery"
+      ],
+      "AspectTags": [],
+      "mutableTags": [],
+      "Habitat": [
+        "Forest",
+        "Plains"
+      ],
+      "Instructions": [],
+      "CardImage": null,
+      "FrameStyle": "basic",
+      "DesignerNotes": "A hidden band attacks the party on the road."
+    },
+    {
+      "id": "Encounter-Wandering Minstrel-0.003",
+      "Deck": "Encounter",
+      "CardName": "Wandering Minstrel",
+      "Polarity": "Light",
+      "TypeTags": [
+        "Knowledge"
+      ],
+      "AspectTags": [],
+      "mutableTags": [],
+      "Habitat": [
+        "Urban",
+        "Plains"
+      ],
+      "Instructions": [],
+      "CardImage": null,
+      "FrameStyle": "basic",
+      "DesignerNotes": "A traveling performer offers tales and useful information."
+    },
+    {
+      "id": "Encounter-Quicksand Pit-0.004",
+      "Deck": "Encounter",
+      "CardName": "Quicksand Pit",
+      "Polarity": "Shadow",
+      "TypeTags": [
+        "Blight"
+      ],
+      "AspectTags": [],
+      "mutableTags": [],
+      "Habitat": [
+        "Swamp",
+        "Any"
+      ],
+      "Instructions": [],
+      "CardImage": null,
+      "FrameStyle": "basic",
+      "DesignerNotes": "Travelers sink into hidden bogs; rescue or loss may follow."
+    }
+  ],
   "locations": [
     {
       "id": "Location-Gloomfen Crossing-0.184392",
