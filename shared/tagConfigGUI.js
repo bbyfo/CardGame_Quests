@@ -90,9 +90,9 @@ function renderTypeTags(tags) {
 
   container.innerHTML = Array.from(pairs.values()).map(pair => {
     if (pair.length === 2) {
-      const maybeLight = pair[0].polarityAssociation === 'Light' ? pair : pair.reverse();
-      const [light, shadow] = maybeLight;
-      return `<div class="tag-pair"><div class="tag-pair-header">${escapeHtml(light.name)} ↔ ${escapeHtml(shadow.name)}</div>${renderTagCard(light)}${renderTagCard(shadow)}</div>`;
+      const ordered = pair[0].polarityAssociation === 'Light' ? pair : pair.slice().reverse();
+      const [light, shadow] = ordered;
+      return `<div class="tag-pair"><div class="tag-pair-header">${escapeHtml(light.label || light.name)} ↔ ${escapeHtml(shadow.label || shadow.name)}</div>${renderTagCard(light)}${renderTagCard(shadow)}</div>`;
     }
     return `<div class="tag-pair">${renderTagCard(pair[0])}</div>`;
   }).join('');
