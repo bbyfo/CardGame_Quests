@@ -1,3 +1,65 @@
+/* ============================================
+   ICON PICKER MODAL
+   ============================================ */
+.icon-picker-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.icon-picker-content {
+  background: #fff;
+  border-radius: 12px;
+  padding: 2rem;
+  min-width: 320px;
+  max-width: 90vw;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+}
+.icon-picker-group {
+  margin-bottom: 1.5rem;
+}
+.icon-picker-group-label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #495057;
+}
+.icon-picker-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+.icon-picker-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 2rem;
+  border-radius: 6px;
+  background: #f8f9fa;
+  color: #333;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: border-color 0.2s, background 0.2s;
+}
+.icon-picker-icon.selected {
+  border-color: #667eea;
+  background: #e6eaff;
+}
+.icon-picker-icon:hover {
+  border-color: #bbb;
+}
+.icon-picker-preview .icon {
+  font-size: 1.5rem;
+  vertical-align: middle;
+}
 /**
  * tagConfigGUI.css
  * Styles for tag configuration settings page

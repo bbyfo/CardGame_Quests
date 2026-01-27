@@ -151,6 +151,7 @@ class TagConfigurationManager {
       color: config.color || null,
       textColor: config.textColor || (config.color ? this._calculateTextColor(config.color) : null),
       iconUrl: config.iconUrl || null,
+      iconFont: config.iconFont || null,
       polarityAssociation: config.polarityAssociation || null,
       pairedWith: config.pairedWith || null
     };
