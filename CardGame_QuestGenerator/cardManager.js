@@ -991,6 +991,27 @@ class CardManager {
         drawDeck.value = currentValue;
       }
     }
+
+    // Populate the instruction modal target deck dropdown (keep ThisCard option)
+    const instrTarget = document.getElementById('instruction-target-deck');
+    if (instrTarget) {
+      const current = instrTarget.value;
+      instrTarget.innerHTML = '<option value="">-- Select Target Deck --</option>';
+      // Add standard 'ThisCard' option first
+      const thisCardOpt = document.createElement('option');
+      thisCardOpt.value = 'ThisCard';
+      thisCardOpt.textContent = 'This Card';
+      instrTarget.appendChild(thisCardOpt);
+
+      deckNames.forEach(deckKey => {
+        const option = document.createElement('option');
+        option.value = this.getDeckDisplayName(deckKey);
+        option.textContent = this.getDeckDisplayName(deckKey);
+        instrTarget.appendChild(option);
+      });
+
+      if (current) instrTarget.value = current;
+    }
   }
 
   /**
