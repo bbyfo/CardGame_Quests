@@ -92,7 +92,10 @@ class DataLoader {
       const drawInstructions = cardData.DrawInstructions || [];
       return {
         ...cardData,
-        DrawInstructions: Array.isArray(drawInstructions) ? drawInstructions : [],
+        DrawInstructions: Array.isArray(drawInstructions) ? drawInstructions.map(inst => ({
+          ...inst,
+          InstructionText: inst.InstructionText || inst.Text || ''
+        })) : [],
         RewardText: cardData.RewardText || '',
         ConsequenceText: cardData.ConsequenceText || '',
         mutableTags: cardData.mutableTags || [],
@@ -105,10 +108,14 @@ class DataLoader {
     if (!Array.isArray(instructions)) {
       instructions = [];
     }
-    
+    const normalized = Array.isArray(instructions) ? instructions.map(inst => ({
+      ...inst,
+      InstructionText: inst.InstructionText || inst.Text || ''
+    })) : [];
+
     return {
       ...cardData,
-      Instructions: instructions,
+      Instructions: normalized,
       mutableTags: cardData.mutableTags || [],
       id: cardData.id || `${cardData.Deck}-${cardData.CardName}-${Math.random()}`
     };

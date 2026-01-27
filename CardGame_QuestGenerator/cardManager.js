@@ -941,6 +941,19 @@ class CardManager {
   }
 
   /**
+   * Escape HTML for safe insertion into templates
+   */
+  escapeHtml(str) {
+    if (!str) return '';
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+  /**
    * Populate all deck select elements with available decks
    * This ensures consistency across the application
    */
@@ -1040,11 +1053,13 @@ class CardManager {
       modal.style.display = 'flex';
       if (title) title.textContent = 'Add Instruction';
       this.editingInstructionIndex = -1; // -1 means adding new
-      this.instructionData.push({ TargetDeck: '', Tags: [], faceDown: false });
-      
-      // Clear faceDown checkbox
+      this.instructionData.push({ TargetDeck: '', Tags: [], faceDown: false, InstructionText: '' });
+
+      // Clear faceDown checkbox and instruction text
       const faceDownCheckbox = document.getElementById('instruction-face-down');
       if (faceDownCheckbox) faceDownCheckbox.checked = false;
+      const instrText = document.getElementById('instruction-text');
+      if (instrText) instrText.value = '';
     }
   }
 
@@ -1075,6 +1090,10 @@ class CardManager {
     if (faceDownCheckbox) {
       faceDownCheckbox.checked = instruction.faceDown || false;
     }
+
+    // Populate instruction text
+    const instrText = document.getElementById('instruction-text');
+    if (instrText) instrText.value = instruction.InstructionText || '';
 
     // Open modal with edit title
     const modal = document.getElementById('instruction-modal');
@@ -1117,12 +1136,14 @@ class CardManager {
     }
 
     const faceDown = document.getElementById('instruction-face-down').checked;
+    const instructionText = document.getElementById('instruction-text')?.value.trim() || '';
 
     const instruction = {
       TargetDeck: targetDeck,
       Tags: tags,
-      faceDown: faceDown
-    }; 
+      faceDown: faceDown,
+      InstructionText: instructionText
+    };
 
     if (this.editingInstructionIndex >= 0) {
       // Editing existing instruction
@@ -1181,6 +1202,39 @@ class CardManager {
         this.renderInstructions();
       });
 
+      // InstructionText preview with toggle
+      const fullText = instr.InstructionText || '';
+      if (fullText && fullText.length > 0) {
+        const textDiv = document.createElement('div');
+        textDiv.className = 'instruction-text';
+        const max = 120;
+        const truncated = fullText.length > max ? fullText.slice(0, max) + '...' : fullText;
+        textDiv.textContent = truncated;
+
+        if (fullText.length > max) {
+          const toggle = document.createElement('a');
+          toggle.href = '#';
+          toggle.textContent = ' Show more';
+          toggle.style.marginLeft = '8px';
+          toggle.addEventListener('click', (ev) => {
+            ev.preventDefault();
+            ev.stopPropagation();
+            if (textDiv.textContent === truncated) {
+              textDiv.textContent = fullText;
+              toggle.textContent = ' Show less';
+            } else {
+              textDiv.textContent = truncated;
+              toggle.textContent = ' Show more';
+            }
+          });
+          textDiv.appendChild(toggle);
+        }
+
+        // Prevent clicks on the text/toggle from opening the edit modal
+        textDiv.addEventListener('click', (ev) => ev.stopPropagation());
+        item.appendChild(textDiv);
+      }
+
       list.appendChild(item);
     });
   }
@@ -1210,6 +1264,8 @@ class CardManager {
       // Clear faceDown checkbox
       const faceDownCheckbox = document.getElementById('draw-face-down');
       if (faceDownCheckbox) faceDownCheckbox.checked = false;
+      const drawText = document.getElementById('draw-instruction-text');
+      if (drawText) drawText.value = '';
     }
   }
 
@@ -1262,7 +1318,8 @@ class CardManager {
       prefix: prefix || '',
       suffix: suffix || '',
       polarity: polarity,
-      faceDown: faceDown
+      faceDown: faceDown,
+      InstructionText: instructionText
     };
 
     if (this.editingDrawInstructionIndex >= 0) {
@@ -1364,7 +1421,39 @@ class CardManager {
         this.renderDrawInstructions();
       });
 
-      list.appendChild(item);
+        // InstructionText preview for draw instruction
+        const fullText = instr.InstructionText || '';
+        if (fullText && fullText.length > 0) {
+          const textDiv = document.createElement('div');
+          textDiv.className = 'instruction-text';
+          const max = 120;
+          const truncated = fullText.length > max ? fullText.slice(0, max) + '...' : fullText;
+          textDiv.textContent = truncated;
+
+          if (fullText.length > max) {
+            const toggle = document.createElement('a');
+            toggle.href = '#';
+            toggle.textContent = ' Show more';
+            toggle.style.marginLeft = '8px';
+            toggle.addEventListener('click', (ev) => {
+              ev.preventDefault();
+              ev.stopPropagation();
+              if (textDiv.textContent === truncated) {
+                textDiv.textContent = fullText;
+                toggle.textContent = ' Show less';
+              } else {
+                textDiv.textContent = truncated;
+                toggle.textContent = ' Show more';
+              }
+            });
+            textDiv.appendChild(toggle);
+          }
+
+          textDiv.addEventListener('click', (ev) => ev.stopPropagation());
+          item.appendChild(textDiv);
+        }
+
+        list.appendChild(item);
     });
   }
 
@@ -1402,6 +1491,10 @@ class CardManager {
     if (faceDownCheckbox) {
       faceDownCheckbox.checked = instruction.faceDown || false;
     }
+
+    // Populate draw instruction text
+    const drawText = document.getElementById('draw-instruction-text');
+    if (drawText) drawText.value = instruction.InstructionText || '';
 
     // Open modal
     const modal = document.getElementById('draw-instruction-modal');
@@ -1610,10 +1703,13 @@ class CardManager {
             ${card.DrawInstructions.map(inst => {
               const tags = inst.tags || [];
               const tagsText = tags.length > 0 ? ` with tag(s) ${tags.join(', ')}` : '';
+              const instrText = inst.InstructionText || '';
+              const instrTrunc = instrText.length > 120 ? instrText.slice(0,120) + '...' : instrText;
               return `
                 <div class="instruction-item">
                   <strong>${inst.label}:</strong><br>
                   ${inst.action} ${inst.count} from ${inst.deck}${tagsText}
+                  ${instrText ? `<div class="instruction-text" data-full="${this.escapeHtml(instrText)}">${this.escapeHtml(instrTrunc)}</div>` : ''}
                 </div>
               `;
             }).join('')}
@@ -1638,6 +1734,7 @@ class CardManager {
               <div class="instruction-item">
                 <span class="instruction-target">${inst.TargetDeck}</span>
                 <span class="instruction-tags">[${inst.Tags.join(', ')}]</span>
+                ${inst.InstructionText ? `<div class="instruction-text" data-full="${this.escapeHtml(inst.InstructionText)}">${this.escapeHtml(inst.InstructionText.length>120?inst.InstructionText.slice(0,120)+'...':inst.InstructionText)}</div>` : ''}
               </div>
             `).join('')}
           </div>
@@ -1681,6 +1778,36 @@ class CardManager {
     if (cardCount === 0) {
       list.innerHTML = '<div class="card-item no-results"><p>No cards found</p></div>';
     }
+    // Wire show-more toggles for any instruction-text elements
+    const instructionTextEls = list.querySelectorAll('.instruction-text');
+    instructionTextEls.forEach(el => {
+      const full = el.dataset.full || el.textContent || '';
+      const max = 120;
+      const truncated = full.length > max ? full.slice(0, max) + '...' : full;
+      // Initialize display (in case innerHTML had raw text)
+      el.textContent = truncated;
+      if (full.length > max) {
+        const toggle = document.createElement('a');
+        toggle.href = '#';
+        toggle.textContent = ' Show more';
+        toggle.style.marginLeft = '8px';
+        toggle.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          if (el.textContent === truncated) {
+            el.textContent = full;
+            toggle.textContent = ' Show less';
+          } else {
+            el.textContent = truncated;
+            toggle.textContent = ' Show more';
+          }
+          el.appendChild(toggle);
+        });
+        el.appendChild(toggle);
+      }
+      // Prevent clicks on the text from opening edit dialogs
+      el.addEventListener('click', (e) => e.stopPropagation());
+    });
   }
 
   /**
